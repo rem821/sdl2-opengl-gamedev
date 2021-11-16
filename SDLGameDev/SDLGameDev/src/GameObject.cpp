@@ -2,71 +2,56 @@
 #include "TextureManager.h"
 #include "fmt/core.h"
 
-GameObject::GameObject(const char* texturesheet, SDL_Renderer* renderer)
-	{
-	this->renderer = renderer;
-	objTexture = TextureManager::loadTexture(texturesheet, renderer);
-
-	xpos = rand() % 800;
-	ypos = rand() % 600;
-	srcRect.h = 64;
-	srcRect.w = 64;
+GameObject::GameObject(const char* texturesheet, int xpos, int ypos, int width, int height) {
+	objTexture = TextureManager::loadTexture(texturesheet);
+	this->xpos = xpos;
+	this->ypos = ypos;
+	srcRect.h = height;
+	srcRect.w = width;
 	srcRect.x = 0;
 	srcRect.y = 0;
-	}
+}
 
-GameObject::GameObject(SDL_Texture* texture, SDL_Renderer* renderer)
-	{
-	this->renderer = renderer;
+GameObject::GameObject(SDL_Texture* texture, int xpos, int ypos, int width, int height) {
 	objTexture = texture;
-
-	xpos = rand() % 800;
-	ypos = rand() % 600;
-	srcRect.h = 64;
-	srcRect.w = 64;
+	this->xpos = xpos;
+	this->ypos = ypos;
+	srcRect.h = height;
+	srcRect.w = width;
 	srcRect.x = 0;
 	srcRect.y = 0;
-	}
+}
 
-GameObject::~GameObject()
-	{
-	}
+GameObject::~GameObject() {
+}
 
-void GameObject::update()
-	{
-	int xRand = rand() % 100;
-	int yRand = rand() % 100;
-	if(xRand > 50)
-		{
-		xpos += 10;
-		}
-	else
-		{
-		xpos -= 10;
-		}
-	if(xpos > 800) xpos = 800;
-	if(xpos < 0) xpos = 0;
+int GameObject::getPosX() {
+	return this->xpos;
+}
 
-	if(yRand > 50)
-		{
-		ypos += 10;
-		}
-	else
-		{
-		ypos -= 10;
-		}
-	if(ypos > 600) ypos = 600;
-	if(ypos < 0) ypos = 0;
+int GameObject::getPosY() {
+	return this->ypos;
+}
+
+void GameObject::move(int xpos, int ypos) {
+	this->xpos = xpos;
+	this->ypos = ypos;
+}
+
+void GameObject::update() {
+	if(this->xpos > 1600) this->xpos = 1600;
+	if(this->xpos < 0) this->xpos = 0;
+
+	if(this->ypos > 1200) this->ypos = 1200;
+	if(this->ypos < 0) this->ypos = 0;
 
 	destRect.x = xpos;
 	destRect.y = ypos;
 
-	fmt::print("New pos for player x:{} y:{}\n", xpos, ypos);
 	destRect.w = srcRect.w;
 	destRect.h = srcRect.h;
-	}
+}
 
-void GameObject::render()
-	{
-	SDL_RenderCopy(renderer, objTexture, &srcRect, &destRect);
-	}
+void GameObject::render() {
+	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
+}

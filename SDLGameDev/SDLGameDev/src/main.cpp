@@ -2,8 +2,7 @@
 
 Game* game = nullptr;
 
-int main(int args, char* argv[])
-	{
+int main(int args, char* argv[]) {
 	int FPS = 60;
 	int frameDelay = 1000 / FPS;
 
@@ -12,9 +11,8 @@ int main(int args, char* argv[])
 
 	game = new Game();
 
-	game->init("Gameska", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
-	while(game->running())
-		{
+	game->init("Gameska", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1600, 1200, false);
+	while(game->running()) {
 
 		frameStart = SDL_GetTicks();
 
@@ -23,12 +21,11 @@ int main(int args, char* argv[])
 		game->render();
 
 		frameTime = SDL_GetTicks() - frameStart;
-		if(frameDelay > frameTime)
-			{
+		if(frameDelay > frameTime) {
 			SDL_Delay(frameDelay - frameTime);
-			}
 		}
+	}
 
 	game->clean();
 	return 0;
-	}
+}
