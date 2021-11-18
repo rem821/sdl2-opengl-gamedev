@@ -1,80 +1,123 @@
 #pragma once
 
 #include "Map.h"
-#include "TextureManager.h"
 
-int level[20][25] = {
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{2,2,2,2,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{2,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{2,2,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{2,2,2,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{2,2,2,2,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,2,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,2,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,1,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,1,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,2,2,2,2,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,2,2,2,2,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,1,2,2,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-};
+Map::Map(SDL_Renderer* renderer, bool textureSheet) {
+	this->renderer = renderer;
+	this->isoEngine = new IsoEngine(TILE_OUTPUT_SIZE);
 
-Map::Map() {
-	dirt = TextureManager::loadTexture("assets/dirt.png");
-	grass = TextureManager::loadTexture("assets/grass.png");
-	water = TextureManager::loadTexture("assets/water.png");
+	if(textureSheet) {
+		TextureManager::initTextureT(&tilesTexSheet, NULL, NULL, SDL_FLIP_NONE);
+		TextureManager::loadTextureT(renderer, &tilesTexSheet, "assets/iso/texturesheet.png");
 
-	loadMap(level);
+		int x = 0, y = 0;
+		int i;
 
-	srcRect.x = srcRect.y = 0;
-	srcRect.w = destRect.w = 64;
-	srcRect.h = destRect.h = 64;
+		for(int i = 0; i < NUM_ISOMETRIC_TILES; ++i) {
+			TextureManager::createRect(&tilesRect[i], x, y, TILE_INPUT_SIZE, TILE_INPUT_SIZE);
+			x += TILE_INPUT_SIZE;
+		}
+	} else {
+		for(int tile = 0; tile < NUM_ISOMETRIC_TILES; ++tile) {
+			TextureManager::initTextureT(&tilesTex[tile], NULL, NULL, SDL_FLIP_NONE);
+			TextureManager::loadTextureT(renderer, &tilesTex[tile], fmt::format("assets/iso2/blocks_{}.png", tile + 36).c_str());
+		}
+	}
 
-	destRect.x = destRect.y = 0;
-}
+	for(int x = 0; x < MAP_WIDTH; ++x) {
+		for(int y = 0; y < MAP_HEIGHT; ++y) {
+			tiles[x][y].pos = new Point2DT();
 
-Map::~Map() {
-}
-
-void Map::loadMap(int arr[20][25]) {
-	for(int row = 0; row < 20; row++) {
-		for(int column = 0; column < 25; column++) {
-			map[row][column] = arr[row][column];
+			tiles[x][y].texture = &tilesTex[level[x][y]];
 		}
 	}
 
 }
 
-void Map::drawMap() {
-	int type = 0;
+Map::~Map() {}
 
-	for(int row = 0; row < 20; row++)
-		for(int column = 0; column < 25; column++) {
-			type = map[row][column];
+void Map::updateIsoMap(Point2DT cameraPos, int scrollAmount) {
+	fmt::print("Camera pos: {} {}\n", cameraPos.x, cameraPos.y);
+	TILE_OUTPUT_SIZE = 256 + (5 * scrollAmount);
+	for(int x = 0; x < MAP_WIDTH; ++x) {
+		for(int y = 0; y < MAP_HEIGHT; ++y) {
+			tiles[x][y].pos->x = x * TILE_OUTPUT_SIZE;
+			tiles[x][y].pos->y = y * TILE_OUTPUT_SIZE;
 
-			destRect.x = column * 64;
-			destRect.y = row * 64;
+			isoEngine->convert2DToIso(tiles[x][y].pos);
 
-			switch(type) {
-			case 0:
-				TextureManager::draw(dirt, srcRect, destRect);
-				break;
-			case 1:
-				TextureManager::draw(grass, srcRect, destRect);
-				break;
-			case 2:
-				TextureManager::draw(water, srcRect, destRect);
-				break;
-			default:
-				break;
-			}
+			tiles[x][y].pos->x -= cameraPos.x;
+			tiles[x][y].pos->y -= cameraPos.y;
 		}
+	}
 }
 
+void Map::drawIsoMap() {
+	if(textureSheet) {
+		TextureManager::textureRenderXYClip(renderer, &tilesTexSheet, 0, 0, &tilesRect[0]);
+	} else {
+		for(int x = 0; x < MAP_WIDTH; ++x) {
+			for(int y = 0; y < MAP_HEIGHT; ++y) {
+				SDL_Rect srcRect;
+				srcRect.x = 0;
+				srcRect.y = 0;
+				srcRect.w = TILE_INPUT_SIZE;
+				srcRect.h = TILE_INPUT_SIZE;
+
+				SDL_Rect destRect;
+				destRect.x = tiles[x][y].pos->x;
+				destRect.y = tiles[x][y].pos->y;
+				destRect.w = TILE_OUTPUT_SIZE;
+				destRect.h = TILE_OUTPUT_SIZE;
+
+				TextureManager::draw(renderer, tiles[x][y].texture->texture, srcRect, destRect);
+			}
+		}
+	}
+}
+
+void Map::drawCursor(SDL_Rect mouseRect) {
+	if(textureSheet) {
+		TextureManager::textureRenderXYClip(renderer, &tilesTexSheet, mouseRect.x, mouseRect.y, &tilesRect[0]);
+	} else {
+		SDL_Rect srcRect;
+		srcRect.x = TILE_INPUT_SIZE;
+		srcRect.y = TILE_INPUT_SIZE;
+		TextureManager::draw(renderer, tilesTex[0].texture, srcRect, mouseRect);
+	}
+}
+
+void Map::drawIsoCursor(SDL_Rect mouseRect, Point2DT cameraPos) {
+	Point2DT point = Point2DT();
+	point.x = mouseRect.x;
+	point.y = mouseRect.y;
+
+	isoEngine->convert2DToIso(&point);
+	fmt::print("mouse pos: {}, {}\n", point.x, point.y);
+
+	mouseRect.x = (mouseRect.x / TILE_OUTPUT_SIZE) * TILE_OUTPUT_SIZE;
+	mouseRect.y = (mouseRect.y / TILE_OUTPUT_SIZE) * TILE_OUTPUT_SIZE;
+
+
+	if((mouseRect.x / TILE_OUTPUT_SIZE) % 2) {
+		mouseRect.y += TILE_OUTPUT_SIZE * 0.5;
+	}
+
+	mouseRect.x -= cameraPos.x;
+	mouseRect.y -= cameraPos.y;
+
+	if(textureSheet) {
+		TextureManager::textureRenderXYClip(renderer, &tilesTexSheet, mouseRect.x, mouseRect.y, &tilesRect[0]);
+	} else {
+		SDL_Rect srcRect;
+		srcRect.x = 0;
+		srcRect.y = 0;
+		srcRect.w = TILE_OUTPUT_SIZE;
+		srcRect.h = TILE_OUTPUT_SIZE;
+
+		mouseRect.w = TILE_OUTPUT_SIZE;
+		mouseRect.h = TILE_OUTPUT_SIZE;
+
+		TextureManager::draw(renderer, tilesTex[0].texture, srcRect, mouseRect);
+	}
+}

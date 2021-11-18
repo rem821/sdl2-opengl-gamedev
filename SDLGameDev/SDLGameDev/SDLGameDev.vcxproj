@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -166,16 +166,19 @@
     <ClCompile Include="src\fmt\format.cc" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\IsoEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CustomTypes.h" />
     <ClInclude Include="src\fmt\core.h" />
     <ClInclude Include="src\fmt\format-inl.h" />
     <ClInclude Include="src\fmt\format.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameObject.h" />
+    <ClInclude Include="src\IsoEngine.h" />
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\TextureManager.h" />
   </ItemGroup>

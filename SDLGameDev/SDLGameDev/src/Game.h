@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
+#include "CustomTypes.h"
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "Map.h"
@@ -22,10 +23,14 @@ class Game {
 
 	bool running() { return isRunning; };
 
-	static SDL_Renderer* renderer;
+	static SDL_Window* window;
 
 	private:
 	int counter = 0;
 	bool isRunning = false;
-	SDL_Window* window = nullptr;
+
+	SDL_Renderer* renderer;
+	SDL_Rect mouseRect;
+	Point2DT cameraPos;
+	int scrollAmount;
 };

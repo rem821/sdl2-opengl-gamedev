@@ -4,7 +4,7 @@
 
 class GameObject {
 	public:
-	GameObject(const char* texturesheet, int xpos, int ypos, int width, int height);
+	GameObject(SDL_Renderer* renderer, const char* texturesheet, int xpos, int ypos, int width, int height);
 	GameObject(SDL_Texture* texture, int xpos, int ypos, int width, int height);
 
 	~GameObject();
@@ -13,7 +13,7 @@ class GameObject {
 	int getPosY();
 	void move(int xpos, int ypos);
 	void update();
-	void render();
+	void render(SDL_Renderer* renderer);
 
 	private:
 	int xpos = 0;

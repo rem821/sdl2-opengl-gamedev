@@ -2,8 +2,8 @@
 #include "TextureManager.h"
 #include "fmt/core.h"
 
-GameObject::GameObject(const char* texturesheet, int xpos, int ypos, int width, int height) {
-	objTexture = TextureManager::loadTexture(texturesheet);
+GameObject::GameObject(SDL_Renderer* renderer, const char* texturesheet, int xpos, int ypos, int width, int height) {
+	objTexture = TextureManager::loadTexture(renderer, texturesheet);
 	this->xpos = xpos;
 	this->ypos = ypos;
 	srcRect.h = height;
@@ -52,6 +52,6 @@ void GameObject::update() {
 	destRect.h = srcRect.h;
 }
 
-void GameObject::render() {
-	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
+void GameObject::render(SDL_Renderer* renderer) {
+	SDL_RenderCopy(renderer, objTexture, &srcRect, &destRect);
 }
