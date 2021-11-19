@@ -56,6 +56,10 @@ void Game::handleEvents() {
 		} else if(event.wheel.y < 0) {
 			--scrollAmount;
 		}
+	case SDL_MOUSEBUTTONDOWN:
+		if(event.button.button == SDL_BUTTON_LEFT) {
+			map->onMapTileClick(mouseRect, cameraPos);
+		}
 	default:
 		break;
 	}

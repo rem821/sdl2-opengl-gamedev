@@ -22,9 +22,12 @@ class Map {
 
 	void drawIsoCursor(SDL_Rect mouseRect, Point2DT cameraPos);
 
+	void onMapTileClick(SDL_Rect mouseRect, Point2DT cameraPos);
+
+	void drawDot(SDL_Rect mouseRect, int type);
+
 	private:
 	SDL_Renderer* renderer;
-	IsoEngine* isoEngine;
 
 	TextureT tilesTexSheet;
 	SDL_Rect tilesRect[NUM_ISOMETRIC_TILES];
