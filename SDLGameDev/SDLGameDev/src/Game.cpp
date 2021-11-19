@@ -58,7 +58,7 @@ void Game::handleEvents() {
 		}
 	case SDL_MOUSEBUTTONDOWN:
 		if(event.button.button == SDL_BUTTON_LEFT) {
-			map->onMapTileClick(mouseRect, cameraPos);
+			map->onMapTileClick();
 		}
 	default:
 		break;
@@ -84,14 +84,14 @@ void Game::handleEvents() {
 
 void Game::update() {
 	counter++;
-	map->updateIsoMap(cameraPos, scrollAmount);
+	map->updateIsoMap(mouseRect, cameraPos, scrollAmount);
 	player->update();
 }
 
 void Game::render() {
 	SDL_RenderClear(renderer);
 
-	map->drawIsoMap();
+	map->drawIsoMap(cameraPos);
 	//map->drawCursor(mouseRect);
 	map->drawIsoCursor(mouseRect, cameraPos);
 	//player->render(renderer);

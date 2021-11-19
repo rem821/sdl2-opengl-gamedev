@@ -16,17 +16,19 @@ class Map {
 	Map(SDL_Renderer* renderer, bool textureSheet);
 	~Map();
 
-	void updateIsoMap(Point2DT cameraPos, int scrollAmount);
-	void drawIsoMap();
+	void updateIsoMap(SDL_Rect mouseRect, Point2DT cameraPos, int scrollAmount);
+	void drawIsoMap(Point2DT cameraPos);
 	void drawCursor(SDL_Rect mouseRect);
 
 	void drawIsoCursor(SDL_Rect mouseRect, Point2DT cameraPos);
 
-	void onMapTileClick(SDL_Rect mouseRect, Point2DT cameraPos);
+	void onMapTileClick();
 
 	void drawDot(SDL_Rect mouseRect, int type);
 
 	private:
+	void refineTilePosition(Point2DT* worldPos);
+
 	SDL_Renderer* renderer;
 
 	TextureT tilesTexSheet;
@@ -34,6 +36,7 @@ class Map {
 
 	TextureT tilesTex[NUM_ISOMETRIC_TILES];
 	TileT tiles[MAP_WIDTH][MAP_HEIGHT];
+	Point2DT highlightedTile;
 
 	int TILE_OUTPUT_SIZE = 256;
 
