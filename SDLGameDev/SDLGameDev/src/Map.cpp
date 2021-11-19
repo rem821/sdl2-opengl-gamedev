@@ -4,7 +4,7 @@
 
 Map::Map(SDL_Renderer* renderer, bool textureSheet) {
 	this->renderer = renderer;
-	this->isoEngine = new IsoEngine(TILE_OUTPUT_SIZE);
+	this->isoEngine = new IsoEngine();
 
 	if(textureSheet) {
 		TextureManager::initTextureT(&tilesTexSheet, NULL, NULL, SDL_FLIP_NONE);
@@ -37,7 +37,7 @@ Map::Map(SDL_Renderer* renderer, bool textureSheet) {
 Map::~Map() {}
 
 void Map::updateIsoMap(Point2DT cameraPos, int scrollAmount) {
-	fmt::print("Camera pos: {} {}\n", cameraPos.x, cameraPos.y);
+	//fmt::print("Camera pos: {} {}\n", cameraPos.x, cameraPos.y);
 	TILE_OUTPUT_SIZE = 256 + (5 * scrollAmount);
 	for(int x = 0; x < MAP_WIDTH; ++x) {
 		for(int y = 0; y < MAP_HEIGHT; ++y) {
@@ -88,23 +88,25 @@ void Map::drawCursor(SDL_Rect mouseRect) {
 }
 
 void Map::drawIsoCursor(SDL_Rect mouseRect, Point2DT cameraPos) {
-	Point2DT point = Point2DT();
-	point.x = mouseRect.x;
-	point.y = mouseRect.y;
-
-	isoEngine->convert2DToIso(&point);
-	fmt::print("mouse pos: {}, {}\n", point.x, point.y);
-
-	mouseRect.x = (mouseRect.x / TILE_OUTPUT_SIZE) * TILE_OUTPUT_SIZE;
-	mouseRect.y = (mouseRect.y / TILE_OUTPUT_SIZE) * TILE_OUTPUT_SIZE;
+	mouseRect.x -= TILE_OUTPUT_SIZE * 0.5;
+	mouseRect.y -= TILE_OUTPUT_SIZE * 0.5;
+	
+	mouseRect.x = (mouseRect.x / (TILE_OUTPUT_SIZE / 2)) * TILE_OUTPUT_SIZE / 2;
+	mouseRect.y = (mouseRect.y / (TILE_OUTPUT_SIZE / 2)) * TILE_OUTPUT_SIZE / 2;
 
 
-	if((mouseRect.x / TILE_OUTPUT_SIZE) % 2) {
-		mouseRect.y += TILE_OUTPUT_SIZE * 0.5;
+	if((mouseRect.x % TILE_OUTPUT_SIZE) != 0) {
+		mouseRect.y += TILE_OUTPUT_SIZE / 4;
 	}
 
-	mouseRect.x -= cameraPos.x;
-	mouseRect.y -= cameraPos.y;
+	int correctionX = (cameraPos.x + TILE_OUTPUT_SIZE) % TILE_OUTPUT_SIZE;
+	int correctionY = (cameraPos.y + TILE_OUTPUT_SIZE) % TILE_OUTPUT_SIZE;
+
+	mouseRect.x -= correctionX;
+	mouseRect.y -= correctionY;
+
+	fmt::print("Correction: {} {}\n", correctionX, correctionY);
+
 
 	if(textureSheet) {
 		TextureManager::textureRenderXYClip(renderer, &tilesTexSheet, mouseRect.x, mouseRect.y, &tilesRect[0]);

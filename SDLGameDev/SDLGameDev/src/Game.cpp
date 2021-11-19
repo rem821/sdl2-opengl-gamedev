@@ -50,28 +50,6 @@ void Game::handleEvents() {
 	case SDL_QUIT:
 		isRunning = false;
 		break;
-	case SDL_KEYDOWN:
-		switch(event.key.keysym.sym) {
-		case SDLK_LEFT:
-			//player->move(player->getPosX() - 8, player->getPosY());
-			cameraPos.x -= 50;
-			break;
-		case SDLK_RIGHT:
-			//player->move(player->getPosX() + 8, player->getPosY());
-			cameraPos.x += 50;
-			break;
-		case SDLK_UP:
-			//player->move(player->getPosX(), player->getPosY() - 8);
-			cameraPos.y -= 50;
-			break;
-		case SDLK_DOWN:
-			//player->move(player->getPosX(), player->getPosY() + 8);
-			cameraPos.y += 50;
-			break;
-		default:
-			break;
-		}
-		break;
 	case SDL_MOUSEWHEEL:
 		if(event.wheel.y > 0) {
 			++scrollAmount;
@@ -80,6 +58,21 @@ void Game::handleEvents() {
 		}
 	default:
 		break;
+	}
+
+	const Uint8* keystate = SDL_GetKeyboardState(NULL);
+
+	if(keystate[SDL_SCANCODE_W]) {
+		cameraPos.y -= 10;
+	}
+	if(keystate[SDL_SCANCODE_A]) {
+		cameraPos.x -= 10;
+	}
+	if(keystate[SDL_SCANCODE_S]) {
+		cameraPos.y += 10;
+	}
+	if(keystate[SDL_SCANCODE_D]) {
+		cameraPos.x += 10;
 	}
 
 	SDL_GetMouseState(&mouseRect.x, &mouseRect.y);
