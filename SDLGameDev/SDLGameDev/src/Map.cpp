@@ -10,7 +10,6 @@ Map::Map(SDL_Renderer* renderer, bool textureSheet) {
 		TextureManager::loadTextureT(renderer, &tilesTexSheet, "assets/iso/texturesheet.png");
 
 		int x = 0, y = 0;
-		int i;
 
 		for(int i = 0; i < NUM_ISOMETRIC_TILES; ++i) {
 			TextureManager::createRect(&tilesRect[i], x, y, TILE_INPUT_SIZE, TILE_INPUT_SIZE);
@@ -23,9 +22,13 @@ Map::Map(SDL_Renderer* renderer, bool textureSheet) {
 		}
 	}
 
-	for(int x = 0; x < MAP_WIDTH; ++x) {
-		for(int y = 0; y < MAP_HEIGHT; ++y) {
-			tiles[x][y].pos = new Point2DT();
+	for(int z = 0; z < MAP_DEPTH; ++z) {
+		loadLevel(z);
+		for(int x = 0; x < MAP_HEIGHT; ++x) {
+			for(int y = 0; y < MAP_WIDTH; ++y) {
+				tiles[z][y][x].pos = new Point2DT();
+				fmt::print(fmt::format("{},{},{}\n", z, y, x));
+			}
 		}
 	}
 
@@ -37,28 +40,26 @@ void Map::updateIsoMap(SDL_Rect mouseRect, Point2DT cameraPos, int scrollAmount)
 	TILE_OUTPUT_SIZE = 256 + (5 * scrollAmount);
 	for(int y = 0; y < MAP_HEIGHT; ++y) {
 		for(int x = 0; x < MAP_WIDTH; ++x) {
-			tiles[y][x].pos->x = x * TILE_OUTPUT_SIZE;
-			tiles[y][x].pos->y = y * TILE_OUTPUT_SIZE;
+			tiles[0][y][x].pos->x = x * TILE_OUTPUT_SIZE;
+			tiles[0][y][x].pos->y = y * TILE_OUTPUT_SIZE;
 
-			IsoEngine::convert2DToIso(tiles[y][x].pos);
+			IsoEngine::convert2DToIso(tiles[0][y][x].pos);
 
-			tiles[y][x].texture = &tilesTex[level[y][x] + 36];
+			tiles[0][y][x].texture = &tilesTex[level[0][y][x] + 36];
 
 			Point2DT worldPos;
 			worldPos.x = mouseRect.x + cameraPos.x;
 			worldPos.y = mouseRect.y + cameraPos.y;
-			int startX = tiles[y][x].pos->x;
-			int startY = tiles[y][x].pos->y;
+			int startX = tiles[0][y][x].pos->x;
+			int startY = tiles[0][y][x].pos->y;
 			int endX = startX + TILE_OUTPUT_SIZE;
 			int endY = startY + TILE_OUTPUT_SIZE / 2;
 
 			if(worldPos.x > startX && worldPos.x < endX && worldPos.y > startY && worldPos.y < endY) {
-				if(highlightedTile.x != x || highlightedTile.y != y) {
-					fmt::print("highlighting new tile: {} {}\n", x, y);
-				}
+
 				highlightedTile.x = x;
 				highlightedTile.y = y;
-				
+
 				refineTilePosition(&worldPos);
 			}
 		}
@@ -78,12 +79,12 @@ void Map::drawIsoMap(Point2DT cameraPos) {
 				srcRect.h = TILE_INPUT_SIZE;
 
 				SDL_Rect destRect;
-				destRect.x = tiles[x][y].pos->x - cameraPos.x;
-				destRect.y = tiles[x][y].pos->y - cameraPos.y;
+				destRect.x = tiles[0][y][x].pos->x - cameraPos.x;
+				destRect.y = tiles[0][y][x].pos->y - cameraPos.y;
 				destRect.w = TILE_OUTPUT_SIZE;
 				destRect.h = TILE_OUTPUT_SIZE;
 
-				TextureManager::draw(renderer, tiles[x][y].texture->texture, srcRect, destRect);
+				TextureManager::draw(renderer, tiles[0][y][x].texture->texture, srcRect, destRect);
 			}
 		}
 	}
@@ -102,7 +103,7 @@ void Map::drawCursor(SDL_Rect mouseRect) {
 
 void Map::drawIsoCursor(SDL_Rect mouseRect, Point2DT cameraPos) {
 	Point2DT worldPos;
-	
+
 	if(highlightedTile.x < 0 || highlightedTile.y < 0 || highlightedTile.x >= MAP_WIDTH || highlightedTile.y >= MAP_HEIGHT) return;
 
 	if(textureSheet) {
@@ -115,20 +116,21 @@ void Map::drawIsoCursor(SDL_Rect mouseRect, Point2DT cameraPos) {
 		srcRect.h = TILE_INPUT_SIZE;
 
 		SDL_Rect destRect;
-		destRect.x = tiles[highlightedTile.y][highlightedTile.x].pos->x - cameraPos.x;
-		destRect.y = tiles[highlightedTile.y][highlightedTile.x].pos->y - cameraPos.y;
+		destRect.x = tiles[0][highlightedTile.y][highlightedTile.x].pos->x - cameraPos.x;
+		destRect.y = tiles[0][highlightedTile.y][highlightedTile.x].pos->y - cameraPos.y;
 		destRect.w = TILE_OUTPUT_SIZE;
 		destRect.h = TILE_OUTPUT_SIZE;
 
 		TextureManager::draw(renderer, tilesTex[0].texture, srcRect, destRect);
+		//fmt::print("highlighting new tile: {} {}\n", highlightedTile.x, highlightedTile.y);
 	}
 }
 
 void Map::onMapTileClick() {
 
 	if(highlightedTile.x < 0 || highlightedTile.y < 0 || highlightedTile.x >= MAP_WIDTH || highlightedTile.y >= MAP_HEIGHT) return;
-	
-	level[highlightedTile.y][highlightedTile.x] += 1;
+
+	level[0][highlightedTile.y][highlightedTile.x] += 1;
 }
 
 void Map::drawDot(SDL_Rect mouseRect, int type) {
@@ -188,4 +190,30 @@ void Map::refineTilePosition(Point2DT* worldPos) {
 			}
 		}
 	}
+}
+
+void Map::loadLevel(int z) {
+	std::ifstream infile(fmt::format("assets/map/level_{}.txt", z));
+
+	int x = 0;
+	int y = 0;
+
+	std::string line;
+	while(std::getline(infile, line)) {
+		std::istringstream iss(line);
+
+		for(int i = 0; i < line.size(); ++i) {
+			char ch = line[i];
+
+			if(ch == '1' || ch == '0') {
+				level[z][y][x] = ch - '0';
+				x += 1;
+			}
+		}
+		y += 1;
+		x = 0;
+	}
+
+	infile.close();
+	//fmt::print(fmt::format("Level {} processed\n", z));
 }
