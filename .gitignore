@@ -31,9 +31,4 @@
 *.out
 *.app
 
-# Visual studio
-
-.vs
-x64
-x86
-Debug
+.idea
