@@ -12,13 +12,13 @@
 #define NUM_ISOMETRIC_TILES 101
 #define TILE_INPUT_SIZE 64
 
-#define MAP_HEIGHT 40
-#define MAP_WIDTH 20
-#define MAP_DEPTH 10
+#define MAP_HEIGHT 10
+#define MAP_WIDTH 10
+#define MAP_DEPTH 1
 
 class Map {
 	public:
-	Map(SDL_Renderer* renderer, bool textureSheet);
+	Map(SDL_Renderer* renderer);
 	~Map();
 
 	void updateIsoMap(SDL_Rect mouseRect, Point2DT cameraPos, int scrollAmount);
@@ -48,6 +48,4 @@ class Map {
 	int TILE_OUTPUT_SIZE = 256;
 
 	int level[MAP_DEPTH][MAP_WIDTH][MAP_HEIGHT];
-
-	bool textureSheet;
 };

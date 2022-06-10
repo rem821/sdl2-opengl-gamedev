@@ -1,12 +1,12 @@
 #include "Game.h"
 
-#define WINDOW_WIDTH 1600
-#define WINDOW_HEIGHT 1200
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 
 Game* game = nullptr;
 
 int main(int args, char* argv[]) {
-	int FPS = 144;
+	int FPS = 60;
 	int frameDelay = 1000 / FPS;
 
 	Uint32 frameStart;

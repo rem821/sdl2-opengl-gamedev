@@ -32,3 +32,5 @@
 *.app
 
 .idea
+gameska
+/cmake-build-debug

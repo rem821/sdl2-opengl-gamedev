@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.22)
+
+project(gameska)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+
+find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
+find_package(fmt)
+
+include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
+
+add_executable(gameska src/main.cpp src/Game.cpp src/Map.cpp src/TextureManager.cpp src/GameObject.cpp src/IsoEngine.cpp src/fmt/format.cc)
+
+target_link_libraries(gameska ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} fmt::fmt)
+
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})

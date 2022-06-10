@@ -10,7 +10,7 @@ Game::Game() {}
 Game::~Game() {}
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
-	int flags = 0;
+    int flags = 0;
 	if(fullscreen) {
 		flags = SDL_WINDOW_FULLSCREEN;
 	} else {
@@ -39,7 +39,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	map = new Map(renderer, false);
+	map = new Map(renderer);
 	player = new GameObject(renderer, "assets/player.png", 0, 0, 64, 64);
 }
 

@@ -1,7 +1,8 @@
 #include "TextureManager.h"
 
 SDL_Texture* TextureManager::loadTexture(SDL_Renderer* renderer, const char* filename) {
-	SDL_Surface* tmpSurface = IMG_Load(filename);
+    fmt::print("Loading texture {}\n", filename);
+    SDL_Surface* tmpSurface = IMG_Load(filename);
 	if(tmpSurface == NULL) {
 		fmt::print("Texture error: Couldn't load image: {}\n", filename);
 		return NULL;
@@ -12,7 +13,8 @@ SDL_Texture* TextureManager::loadTexture(SDL_Renderer* renderer, const char* fil
 		fmt::print("Texture error: Couldn't load image: {}\n", filename);
 	}
 
-	SDL_FreeSurface(tmpSurface);
+    fmt::print("Texture loaded {}\n", filename);
+    SDL_FreeSurface(tmpSurface);
 	return tex;
 }
 
