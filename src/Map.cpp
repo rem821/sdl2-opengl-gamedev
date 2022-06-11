@@ -13,10 +13,19 @@ Map::Map(SDL_Renderer *renderer) {
 
     for (int z = 0; z < MAP_DEPTH; ++z) {
         loadLevel(z);
-        for (int x = 0; x < MAP_HEIGHT; ++x) {
-            for (int y = 0; y < MAP_WIDTH; ++y) {
-                tiles[z][y][x].pos = new Point2DT();
-                //fmt::print(fmt::format("{},{},{}\n", z, y, x));
+        for (int x = 0; x < MAP_WIDTH; ++x) {
+            for (int y = 0; y < MAP_HEIGHT; ++y) {
+                tiles[z][x][y].pos = new Point2DT();
+
+                if (level[z][x][y] == 1) {
+                    std::random_device rd;
+                    std::mt19937 mt(rd());
+                    std::uniform_real_distribution<double> dist(44.0, 46.0);
+                    tiles[z][x][y].texture = &tilesTex[int(dist(mt))];
+                    tiles[z][x][y].isBlock = true;
+                } else {
+                    tiles[z][x][y].isBlock = false;
+                }
             }
         }
     }
@@ -25,53 +34,62 @@ Map::Map(SDL_Renderer *renderer) {
 Map::~Map() {}
 
 void Map::updateIsoMap(SDL_Rect mouseRect, Point2DT cameraPos, int scrollAmount) {
-    TILE_OUTPUT_SIZE = 256 + (5 * scrollAmount);
+    TILE_OUTPUT_SIZE = 256 + scrollAmount;
+    highlightedTile.x = -1;
+    highlightedTile.y = -1;
+    highlightedTile.z = -1;
 
-    for (int y = 0; y < MAP_HEIGHT; ++y) {
+    for (int z = MAP_DEPTH - 1; z >= 0; --z) {
         for (int x = 0; x < MAP_WIDTH; ++x) {
-            tiles[0][y][x].pos->x = x * TILE_OUTPUT_SIZE;
-            tiles[0][y][x].pos->y = y * TILE_OUTPUT_SIZE;
+            for (int y = 0; y < MAP_HEIGHT; ++y) {
+                tiles[z][x][y].pos->x = x * TILE_OUTPUT_SIZE;
+                tiles[z][x][y].pos->y = y * TILE_OUTPUT_SIZE;
+                tiles[z][x][y].zLevel = z;
 
-            IsoEngine::convert2DToIso(tiles[0][y][x].pos);
+                IsoEngine::convert2DToIso(tiles[z][x][y].pos, z, TILE_OUTPUT_SIZE);
 
-            tiles[0][y][x].texture = &tilesTex[level[0][y][x] + 36];
+                tiles[z][x][y].isBlock = level[z][x][y] == 1;
 
-            Point2DT worldPos;
-            worldPos.x = mouseRect.x + cameraPos.x;
-            worldPos.y = mouseRect.y + cameraPos.y;
-            //fmt::print(fmt::format("{},{}\n", worldPos.x, worldPos.y));
-            int startX = tiles[0][y][x].pos->x;
-            int startY = tiles[0][y][x].pos->y;
-            int endX = startX + TILE_OUTPUT_SIZE;
-            int endY = startY + TILE_OUTPUT_SIZE / 2;
+                //No tile has been highlighted yet
+                if (highlightedTile.x == -1 && highlightedTile.y == -1 && tiles[z][x][y].isBlock) {
 
-            if (worldPos.x > startX && worldPos.x < endX && worldPos.y > startY && worldPos.y < endY) {
+                    //Cursor position in absolute world coordinates
+                    Point2DT cursorAbsPos;
+                    cursorAbsPos.x = mouseRect.x + cameraPos.x;
+                    cursorAbsPos.y = mouseRect.y + cameraPos.y;
 
-                highlightedTile.x = x;
-                highlightedTile.y = y;
-
-                refineTilePosition(&worldPos);
+                    //Highlight if the tile is hovered over
+                    highlightIfSelected(cursorAbsPos, x, y, z);
+                }
             }
         }
     }
 }
 
-void Map::drawIsoMap(Point2DT cameraPos) {
-    for (int x = 0; x < MAP_WIDTH; ++x) {
-        for (int y = 0; y < MAP_HEIGHT; ++y) {
-            SDL_Rect srcRect;
-            srcRect.x = 0;
-            srcRect.y = 0;
-            srcRect.w = TILE_INPUT_SIZE;
-            srcRect.h = TILE_INPUT_SIZE;
+void Map::drawIsoMap(Point2DT cameraPos, int cameraRot) {
+    for (int z = 0; z < MAP_DEPTH; ++z) {
+        for (int x = 0; x < MAP_WIDTH; ++x) {
+            for (int y = 0; y < MAP_HEIGHT; ++y) {
+                if (tiles[z][x][y].isBlock) {
+                    SDL_Rect srcRect;
+                    srcRect.x = 0;
+                    srcRect.y = 0;
+                    srcRect.w = TILE_INPUT_SIZE;
+                    srcRect.h = TILE_INPUT_SIZE;
 
-            SDL_Rect destRect;
-            destRect.x = tiles[0][y][x].pos->x - cameraPos.x;
-            destRect.y = tiles[0][y][x].pos->y - cameraPos.y;
-            destRect.w = TILE_OUTPUT_SIZE;
-            destRect.h = TILE_OUTPUT_SIZE;
+                    SDL_Rect destRect;
+                    destRect.x = tiles[z][x][y].pos->x - cameraPos.x;
+                    destRect.y = tiles[z][x][y].pos->y - cameraPos.y;
+                    destRect.w = TILE_OUTPUT_SIZE;
+                    destRect.h = TILE_OUTPUT_SIZE;
 
-            TextureManager::draw(renderer, tiles[0][y][x].texture->texture, srcRect, destRect);
+                    TextureManager::draw(renderer, tiles[z][x][y].texture->texture, srcRect, destRect, cameraRot);
+
+                    if (highlightedTile.z == z && highlightedTile.x == x && highlightedTile.y == y) {
+                        drawIsoCursor(cameraPos, cameraRot);
+                    }
+                }
+            }
         }
     }
 }
@@ -80,10 +98,10 @@ void Map::drawCursor(SDL_Rect mouseRect) {
     SDL_Rect srcRect;
     srcRect.x = TILE_INPUT_SIZE;
     srcRect.y = TILE_INPUT_SIZE;
-    TextureManager::draw(renderer, tilesTex[0].texture, srcRect, mouseRect);
+    TextureManager::draw(renderer, tilesTex[0].texture, srcRect, mouseRect, 0);
 }
 
-void Map::drawIsoCursor(SDL_Rect mouseRect, Point2DT cameraPos) {
+void Map::drawIsoCursor(Point2DT cameraPos, int cameraRot) {
     Point2DT worldPos;
 
     if (highlightedTile.x < 0 || highlightedTile.y < 0 || highlightedTile.x >= MAP_WIDTH ||
@@ -97,23 +115,23 @@ void Map::drawIsoCursor(SDL_Rect mouseRect, Point2DT cameraPos) {
     srcRect.h = TILE_INPUT_SIZE;
 
     SDL_Rect destRect;
-    destRect.x = tiles[0][highlightedTile.y][highlightedTile.x].pos->x - cameraPos.x;
-    destRect.y = tiles[0][highlightedTile.y][highlightedTile.x].pos->y - cameraPos.y;
+    destRect.x = tiles[highlightedTile.z][highlightedTile.x][highlightedTile.y].pos->x - cameraPos.x;
+    destRect.y = tiles[highlightedTile.z][highlightedTile.x][highlightedTile.y].pos->y - cameraPos.y;
     destRect.w = TILE_OUTPUT_SIZE;
     destRect.h = TILE_OUTPUT_SIZE;
 
-    TextureManager::draw(renderer, tilesTex[0].texture, srcRect, destRect);
+    TextureManager::draw(renderer, tilesTex[0].texture, srcRect, destRect, cameraRot);
     //fmt::print("highlighting new tile: {} {}\n", highlightedTile.x, highlightedTile.y);
-
 }
 
 void Map::onMapTileClick() {
 
     if (highlightedTile.x < 0 || highlightedTile.y < 0 || highlightedTile.x >= MAP_WIDTH ||
-        highlightedTile.y >= MAP_HEIGHT)
+        highlightedTile.y >= MAP_HEIGHT || highlightedTile.z == 0)
         return;
 
-    level[0][highlightedTile.y][highlightedTile.x] += 1;
+    level[highlightedTile.z][highlightedTile.x][highlightedTile.y] =
+            level[highlightedTile.z][highlightedTile.x][highlightedTile.y] != 1;
 }
 
 void Map::drawDot(SDL_Rect mouseRect, int type) {
@@ -128,51 +146,7 @@ void Map::drawDot(SDL_Rect mouseRect, int type) {
     mouseRect.w = 20;
     mouseRect.h = 20;
 
-    TextureManager::draw(renderer, tilesTex[type].texture, srcRect, mouseRect);
-}
-
-void Map::refineTilePosition(Point2DT *worldPos) {
-    float slope = 0.5;
-    float quadW = TILE_OUTPUT_SIZE / 2;
-    float quadH = TILE_OUTPUT_SIZE / 4;
-
-    Point2DT offset;
-    offset.x = highlightedTile.x - worldPos->x;
-    offset.y = highlightedTile.y - worldPos->y;
-
-    if (offset.x <= quadW) {
-        if (offset.y <= quadH) {
-            if (quadH - slope * offset.x > offset.y) {
-                //fmt::print("Leva Horni Venku\n");
-                highlightedTile.x -= 1;
-            } else {
-                //fmt::print("Leva Horni\n");
-            }
-        } else {
-            if (slope * offset.x < (offset.y - quadH)) {
-                //fmt::print("Leva Dolni Venku\n");
-                highlightedTile.y += 1;
-            } else {
-                //fmt::print("Leva Dolni\n");
-            }
-        }
-    } else {
-        if (offset.y <= quadH) {
-            if (slope * (offset.x - quadW) > offset.y) {
-                //fmt::print("Prava Horni Venku\n");
-                highlightedTile.y -= 1;
-            } else {
-                //fmt::print("Prava Horni\n");
-            }
-        } else {
-            if (quadH - (slope * (offset.x - quadW)) < (offset.y - quadH)) {
-                //fmt::print("Prava Dolni Venku\n");
-                highlightedTile.x += 1;
-            } else {
-                //fmt::print("Prava Dolni\n");
-            }
-        }
-    }
+    TextureManager::draw(renderer, tilesTex[type].texture, srcRect, mouseRect, 0);
 }
 
 void Map::loadLevel(int z) {
@@ -189,7 +163,7 @@ void Map::loadLevel(int z) {
             char ch = line[i];
 
             if (ch == '1' || ch == '0') {
-                level[z][y][x] = ch - '0';
+                level[z][x][y] = ch - '0';
                 x += 1;
             }
         }
@@ -199,4 +173,51 @@ void Map::loadLevel(int z) {
 
     infile.close();
     //fmt::print(fmt::format("Level {} processed\n", z));
+}
+
+void Map::highlightIfSelected(Point2DT cursorAbsPos, int x, int y, int z) {
+
+    //Tile bounds
+    int startX = tiles[z][x][y].pos->x;
+    int startY = tiles[z][x][y].pos->y;
+    int endX = startX + TILE_OUTPUT_SIZE;
+    int endY = startY + TILE_OUTPUT_SIZE / 2;
+
+    //Cursor is inside the tile bounds
+    if (cursorAbsPos.x >= startX && cursorAbsPos.x <= endX && cursorAbsPos.y >= startY && cursorAbsPos.y <= endY) {
+        //Cursor position relative to the tile
+        Point2DT tilePos;
+        tilePos.x = cursorAbsPos.x - startX;
+        tilePos.y = cursorAbsPos.y - startY;
+
+        if ((tilePos.y <= TILE_OUTPUT_SIZE / 4 &&         //Upper left half of the tile top side
+             tilePos.x <= TILE_OUTPUT_SIZE / 2 &&
+             tilePos.y > (TILE_OUTPUT_SIZE / 4) - (tilePos.x / 2))
+            ||
+            (tilePos.y <= TILE_OUTPUT_SIZE / 4 &&         //Upper right half of the tile top side
+             tilePos.x > TILE_OUTPUT_SIZE / 2 &&
+             tilePos.y > ((tilePos.x - (TILE_OUTPUT_SIZE / 2)) / 2))
+            ||
+            (tilePos.y > TILE_OUTPUT_SIZE / 4 &&         //Lower left half of the tile top side
+             tilePos.x <= TILE_OUTPUT_SIZE / 2 &&
+             tilePos.y < (TILE_OUTPUT_SIZE / 4) + (tilePos.x / 2))
+            ||
+            (tilePos.y > TILE_OUTPUT_SIZE / 4 &&         //Lower right half of the tile top side
+             tilePos.x > TILE_OUTPUT_SIZE / 2 &&
+             tilePos.y < ((TILE_OUTPUT_SIZE / 2) - ((tilePos.x - (TILE_OUTPUT_SIZE / 2)) / 2)))) {
+            highlightedTile.x = x;
+            highlightedTile.y = y;
+            highlightedTile.z = z;
+        }
+
+        if (highlightedTile.x != -1 && highlightedTile.y != -1 && highlightedTile.z != -1 &&
+            highlightedTile.z != MAP_DEPTH - 1) {
+            //If the tile above is block, selection is invalid
+            if (tiles[highlightedTile.z + 1][highlightedTile.x][highlightedTile.y].isBlock) {
+                highlightedTile.x = -1;
+                highlightedTile.y = -1;
+                highlightedTile.y = -1;
+            }
+        }
+    }
 }

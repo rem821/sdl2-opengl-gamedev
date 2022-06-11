@@ -1,7 +1,7 @@
 #include "TextureManager.h"
 
 SDL_Texture* TextureManager::loadTexture(SDL_Renderer* renderer, const char* filename) {
-    fmt::print("Loading texture {}\n", filename);
+    //fmt::print("Loading texture {}\n", filename);
     SDL_Surface* tmpSurface = IMG_Load(filename);
 	if(tmpSurface == NULL) {
 		fmt::print("Texture error: Couldn't load image: {}\n", filename);
@@ -13,13 +13,13 @@ SDL_Texture* TextureManager::loadTexture(SDL_Renderer* renderer, const char* fil
 		fmt::print("Texture error: Couldn't load image: {}\n", filename);
 	}
 
-    fmt::print("Texture loaded {}\n", filename);
+    //fmt::print("Texture loaded {}\n", filename);
     SDL_FreeSurface(tmpSurface);
 	return tex;
 }
 
-void TextureManager::draw(SDL_Renderer* renderer, SDL_Texture* tex, SDL_Rect srcRect, SDL_Rect destRect) {
-	SDL_RenderCopy(renderer, tex, &srcRect, &destRect);
+void TextureManager::draw(SDL_Renderer* renderer, SDL_Texture* tex, SDL_Rect srcRect, SDL_Rect destRect, int angle) {
+	SDL_RenderCopyEx(renderer, tex, &srcRect, &destRect, angle, nullptr, SDL_FLIP_NONE);
 }
 
 void TextureManager::initTextureT(TextureT* tex, SDL_Point* center, SDL_Rect* clipRect, SDL_RendererFlip flipType) {

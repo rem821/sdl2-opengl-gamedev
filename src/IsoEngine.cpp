@@ -1,8 +1,8 @@
 #include "IsoEngine.h"
 
-void IsoEngine::convert2DToIso(Point2DT* point) {
+void IsoEngine::convert2DToIso(Point2DT* point, int zLevel, int tileSize) {
 	int tmpX = (point->x - point->y) / 2;
-	int tmpY = (point->x + point->y) / 4;
+	int tmpY = ((point->x + point->y) / 4) - zLevel * (tileSize / 2);
 	point->x = tmpX;
 	point->y = tmpY;
 }

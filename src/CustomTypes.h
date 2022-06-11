@@ -22,7 +22,10 @@ typedef struct TextureT {
 
 typedef struct TileT {
 	Point2DT* pos;
+    int zLevel;
 	TextureT* texture;
+    bool isBlock;
+    bool isSelectable;
 }TileT;
 
 

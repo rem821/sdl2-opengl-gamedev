@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_vulkan.h"
 #include "CustomTypes.h"
 #include "TextureManager.h"
 #include "GameObject.h"
@@ -32,5 +33,6 @@ class Game {
 	SDL_Renderer* renderer;
 	SDL_Rect mouseRect;
 	Point2DT cameraPos;
+    int cameraRot = 0;
 	int scrollAmount;
 };

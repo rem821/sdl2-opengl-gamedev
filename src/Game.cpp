@@ -21,6 +21,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		fmt::print("Subsystem initialized!...\n");
 
 		window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+
 		if(window) {
 			fmt::print("Window created!...\n");
 		}
@@ -28,7 +29,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 			fmt::print("Warning: Linear texture filtering was not enabled!...\n");
 		}
 
-		renderer = SDL_CreateRenderer(window, -1, 0);
+		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 		if(renderer) {
 			SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
 			fmt::print("Renderer created!...\n");
@@ -52,9 +53,9 @@ void Game::handleEvents() {
 		break;
 	case SDL_MOUSEWHEEL:
 		if(event.wheel.y > 0) {
-			++scrollAmount;
+			scrollAmount = scrollAmount + 10;
 		} else if(event.wheel.y < 0) {
-			--scrollAmount;
+			scrollAmount = scrollAmount - 10;
 		}
 	case SDL_MOUSEBUTTONDOWN:
 		if(event.button.button == SDL_BUTTON_LEFT) {
@@ -66,18 +67,28 @@ void Game::handleEvents() {
 
 	const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
+    //Move
 	if(keystate[SDL_SCANCODE_W]) {
-		cameraPos.y -= 10;
+		cameraPos.y -= 20;
 	}
 	if(keystate[SDL_SCANCODE_A]) {
-		cameraPos.x -= 10;
+		cameraPos.x -= 20;
 	}
 	if(keystate[SDL_SCANCODE_S]) {
-		cameraPos.y += 10;
+		cameraPos.y += 20;
 	}
 	if(keystate[SDL_SCANCODE_D]) {
-		cameraPos.x += 10;
+		cameraPos.x += 20;
 	}
+    //ROTATE
+    if(keystate[SDL_SCANCODE_E]) {
+        //cameraRot += 5;
+        //if(cameraRot > 360) cameraRot = cameraRot - 360;
+    }
+    if(keystate[SDL_SCANCODE_Q]) {
+        //cameraRot -= 5;
+        //if(cameraRot < 0) cameraRot = cameraRot + 360;
+    }
 
 	SDL_GetMouseState(&mouseRect.x, &mouseRect.y);
 }
@@ -91,9 +102,8 @@ void Game::update() {
 void Game::render() {
 	SDL_RenderClear(renderer);
 
-	map->drawIsoMap(cameraPos);
+	map->drawIsoMap(cameraPos, cameraRot);
 	//map->drawCursor(mouseRect);
-	map->drawIsoCursor(mouseRect, cameraPos);
 	//player->render(renderer);
 
 	SDL_RenderPresent(renderer);
