@@ -1,24 +1,52 @@
 #pragma once
 
-#include "Game.h"
+#include "VulkanEngineModel.h"
+#include <memory>
+
+struct Transform2dComponent {
+    glm::vec2 translation{};
+    glm::vec2 scale{1.f, 1.f};
+    float rotation;
+
+    glm::mat2 mat2() {
+        const float s = glm::sin(rotation);
+        const float c = glm::cos(rotation);
+        glm::mat2 rotMatrix{{c,  s},
+                            {-s, c}};
+        glm::mat2 scaleMat{{scale.x, 0.f},
+                           {0.f,     scale.y}};
+        return rotMatrix * scaleMat;
+    };
+};
+
+struct RigidBody2dComponent {
+    glm::vec2 velocity;
+    float mass{1.0f};
+};
 
 class GameObject {
-	public:
-	GameObject(SDL_Renderer* renderer, const char* texturesheet, int xpos, int ypos, int width, int height);
-	GameObject(SDL_Texture* texture, int xpos, int ypos, int width, int height);
+public:
+    using id_t = unsigned int;
 
-	~GameObject();
+    static GameObject createGameObject() {
+        static id_t currentId = 0;
+        return GameObject{currentId++};
+    }
 
-	int getPosX();
-	int getPosY();
-	void move(int xpos, int ypos);
-	void update();
-	void render(SDL_Renderer* renderer);
+    GameObject(const GameObject &) = delete;
+    GameObject &operator=(const GameObject &) = delete;
+    GameObject(GameObject &&) = default;
+    GameObject &operator=(GameObject &&) = default;
 
-	private:
-	int xpos = 0;
-	int ypos = 0;
+    id_t getId() { return id; };
 
-	SDL_Texture* objTexture;
-	SDL_Rect srcRect, destRect;
+    std::shared_ptr<VulkanEngineModel> model{};
+    glm::vec3 color{};
+    Transform2dComponent transform2d{};
+    RigidBody2dComponent rigidBody2d{};
+
+private:
+    GameObject(id_t objId) : id{objId} {};
+
+    id_t id;
 };

@@ -1,118 +1,102 @@
 #include "Game.h"
 
-Map* map;
-GameObject* player;
+Game::Game() {
+    loadGameObjects();
 
-SDL_Window* Game::window = nullptr;
-
-Game::Game() {}
+    isRunning = true;
+    run();
+}
 
 Game::~Game() {}
 
-void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
-    int flags = 0;
-	if(fullscreen) {
-		flags = SDL_WINDOW_FULLSCREEN;
-	} else {
-		flags = SDL_WINDOW_RESIZABLE;
-	}
 
-	if(SDL_Init(SDL_INIT_EVERYTHING) == 0) {
-		fmt::print("Subsystem initialized!...\n");
+void Game::run() {
+    SimpleRenderSystem simpleRenderSystem{engineDevice, renderer.getSwapChainRenderPass()};
 
-		window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+    while (isRunning) {
+        handleEvents();
 
-		if(window) {
-			fmt::print("Window created!...\n");
-		}
-		if(!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2")) {
-			fmt::print("Warning: Linear texture filtering was not enabled!...\n");
-		}
+        if (auto commandBuffer = renderer.beginFrame()) {
+            renderer.beginSwapChainRenderPass(commandBuffer);
+            simpleRenderSystem.renderGameObjects(commandBuffer, gameObjects);
+            renderer.endSwapChainRenderPass(commandBuffer);
+            renderer.endFrame();
+        }
+    }
 
-		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
-		if(renderer) {
-			SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
-			fmt::print("Renderer created!...\n");
-		}
+    vkDeviceWaitIdle(engineDevice.device());
+}
 
-		isRunning = true;
-	} else {
-		isRunning = false;
-	}
+void Game::loadGameObjects() {
+    std::vector<VulkanEngineModel::Vertex> vertices{
+            {{0.0f,  -0.5f}, {1.0f, 0.0f, 0.0f}},
+            {{0.5f,  0.5f},  {0.0f, 1.0f, 0.0f}},
+            {{-0.5f, 0.5f},  {0.0f, 0.0f, 1.0f}}
+    };
 
-	map = new Map(renderer);
-	player = new GameObject(renderer, "assets/player.png", 0, 0, 64, 64);
+    auto engineModel = std::make_shared<VulkanEngineModel>(engineDevice, vertices);
+
+    auto triangle = GameObject::createGameObject();
+    triangle.model = engineModel;
+    triangle.color = {0.f, 0.f, 1.f};
+    triangle.transform2d.translation.x = .2f;
+    triangle.transform2d.scale = {1.f, 1.f};
+    triangle.transform2d.rotation = .25f * glm::two_pi<float>();
+
+    gameObjects.push_back(std::move(triangle));
 }
 
 void Game::handleEvents() {
-	SDL_Event event;
-	SDL_PollEvent(&event);
-	switch(event.type) {
-	case SDL_QUIT:
-		isRunning = false;
-		break;
-	case SDL_MOUSEWHEEL:
-		if(event.wheel.y > 0) {
-			scrollAmount = scrollAmount + 10;
-		} else if(event.wheel.y < 0) {
-			scrollAmount = scrollAmount - 10;
-		}
-	case SDL_MOUSEBUTTONDOWN:
-		if(event.button.button == SDL_BUTTON_LEFT) {
-			map->onMapTileClick();
-		}
-	default:
-		break;
-	}
-
-	const Uint8* keystate = SDL_GetKeyboardState(NULL);
-
-    //Move
-	if(keystate[SDL_SCANCODE_W]) {
-		cameraPos.y -= 20;
-	}
-	if(keystate[SDL_SCANCODE_A]) {
-		cameraPos.x -= 20;
-	}
-	if(keystate[SDL_SCANCODE_S]) {
-		cameraPos.y += 20;
-	}
-	if(keystate[SDL_SCANCODE_D]) {
-		cameraPos.x += 20;
-	}
-    //ROTATE
-    if(keystate[SDL_SCANCODE_E]) {
-        //cameraRot += 5;
-        //if(cameraRot > 360) cameraRot = cameraRot - 360;
-    }
-    if(keystate[SDL_SCANCODE_Q]) {
-        //cameraRot -= 5;
-        //if(cameraRot < 0) cameraRot = cameraRot + 360;
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    switch (event.type) {
+        case SDL_QUIT:
+            isRunning = false;
+            break;
+        case SDL_MOUSEWHEEL:
+            if (event.wheel.y > 0) {
+                scrollAmount = scrollAmount + 10;
+            } else if (event.wheel.y < 0) {
+                scrollAmount = scrollAmount - 10;
+            }
+        case SDL_MOUSEBUTTONDOWN:
+            if (event.button.button == SDL_BUTTON_LEFT) {
+            }
+        case SDL_WINDOWEVENT:
+            if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
+                SDL_Window *win = SDL_GetWindowFromID(event.window.windowID);
+                int w;
+                int h;
+                SDL_GetWindowSize(win, &w, &h);
+                window.onWindowResized(static_cast<uint32_t>(w), static_cast<uint32_t>(h));
+            }
+        default:
+            break;
     }
 
-	SDL_GetMouseState(&mouseRect.x, &mouseRect.y);
-}
+    const Uint8 *keystate = SDL_GetKeyboardState(nullptr);
 
-void Game::update() {
-	counter++;
-	map->updateIsoMap(mouseRect, cameraPos, scrollAmount);
-	player->update();
-}
+    if (keystate[SDL_SCANCODE_W]) {
+        cameraPos.y -= 20;
+    }
+    if (keystate[SDL_SCANCODE_A]) {
+        cameraPos.x -= 20;
+    }
+    if (keystate[SDL_SCANCODE_S]) {
+        cameraPos.y += 20;
+    }
+    if (keystate[SDL_SCANCODE_D]) {
+        cameraPos.x += 20;
+    }
 
-void Game::render() {
-	SDL_RenderClear(renderer);
+    if (keystate[SDL_SCANCODE_E]) {
+        cameraRot += 5;
+        if (cameraRot > 360) cameraRot = cameraRot - 360;
+    }
+    if (keystate[SDL_SCANCODE_Q]) {
+        cameraRot -= 5;
+        if (cameraRot < 0) cameraRot = cameraRot + 360;
+    }
 
-	map->drawIsoMap(cameraPos, cameraRot);
-	//map->drawCursor(mouseRect);
-	//player->render(renderer);
-
-	SDL_RenderPresent(renderer);
-}
-
-void Game::clean() {
-	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
-	SDL_Quit();
-
-	fmt::print("Game cleared!...\n");
+    SDL_GetMouseState(&mouseRect.x, &mouseRect.y);
 }

@@ -1,18 +1,22 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(gameska)
+project(VulkanGame)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+
+add_subdirectory(src/glm)
 
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
+find_package(Vulkan REQUIRED)
 find_package(fmt)
 
 include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
 
-add_executable(gameska src/main.cpp src/Game.cpp src/Map.cpp src/TextureManager.cpp src/GameObject.cpp src/IsoEngine.cpp src/fmt/format.cc)
+add_executable(VulkanGame src/main.cpp src/Game.cpp src/fmt/format.cc src/VulkanEngineDevice.cpp src/VulkanEnginePipeline.cpp src/VulkanEngineSwapChain.cpp src/VulkanEngineWindow.cpp src/VulkanEngineModel.cpp src/GameObject.cpp src/VulkanEngineRenderer.cpp src/VulkanEngineRenderer.h src/SimpleRenderSystem.cpp src/SimpleRenderSystem.h)
 
-target_link_libraries(gameska ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} fmt::fmt)
+target_link_libraries(VulkanGame ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} Vulkan::Vulkan fmt::fmt )
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY src/shaders DESTINATION ${CMAKE_BINARY_DIR})
