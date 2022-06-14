@@ -17,14 +17,19 @@ class VulkanEngineModel {
 public:
 
     struct Vertex {
-        glm::vec2 position;
+        glm::vec3 position;
         glm::vec3 color;
 
         static std::vector<VkVertexInputBindingDescription> getBindingDescriptions();
         static std::vector<VkVertexInputAttributeDescription> getAttributeDescriptions();
     };
 
-    VulkanEngineModel(VulkanEngineDevice &core, const std::vector<Vertex> &vertices);
+    struct Builder {
+        std::vector<Vertex> vertices{};
+        std::vector<uint32_t> indices{};
+    };
+
+    VulkanEngineModel(VulkanEngineDevice &core, const VulkanEngineModel::Builder &builder);
     ~VulkanEngineModel();
 
     VulkanEngineModel(const VulkanEngineModel &) = delete;
@@ -35,9 +40,16 @@ public:
 
 private:
     void createVertexBuffers(const std::vector<Vertex> &vertices);
+    void createIndexBuffer(const std::vector<uint32_t> &indices);
 
     VulkanEngineDevice &engineDevice;
+
     VkBuffer vertexBuffer;
     VkDeviceMemory vertexBufferMemory;
     uint32_t vertexCount;
+
+    bool hasIndexBuffer = false;
+    VkBuffer indexBuffer;
+    VkDeviceMemory indexBufferMemory;
+    uint32_t indexCount;
 };

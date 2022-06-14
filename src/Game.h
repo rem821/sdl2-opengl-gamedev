@@ -8,6 +8,8 @@
 #include "SimpleRenderSystem.h"
 #include "VulkanEngineRenderer.h"
 #include "GameObject.h"
+#include "Camera.h"
+#include "KeyboardMovementController.h"
 
 #include "fmt/core.h"
 
@@ -15,6 +17,7 @@
 #include <vector>
 #include <stdexcept>
 #include <cassert>
+#include <chrono>
 
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
@@ -45,7 +48,4 @@ private:
     std::vector<GameObject> gameObjects;
 
     SDL_Rect mouseRect;
-    glm::vec2 cameraPos;
-    int cameraRot = 0;
-    int scrollAmount;
 };

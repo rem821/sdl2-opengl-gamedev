@@ -40,15 +40,15 @@ void SimpleRenderSystem::createPipeline(VkRenderPass renderPass) {
                                                             "shaders/shader.frag.spv", pipelineConfig);
 }
 
-void SimpleRenderSystem::renderGameObjects(VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects) {
+void SimpleRenderSystem::renderGameObjects(VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects, const Camera &camera) {
     enginePipeline->bind(commandBuffer);
 
+    auto projectionView = camera.getProjection() * camera.getView();
+
     for (auto &obj: gameObjects) {
-        obj.transform2d.rotation = glm::mod(obj.transform2d.rotation + 0.01f, glm::two_pi<float>());
         SimplePushConstantData push = {};
-        push.offset = obj.transform2d.translation;
         push.color = obj.color;
-        push.transform = obj.transform2d.mat2();
+        push.transform = projectionView * obj.transform.mat4();
 
         vkCmdPushConstants(
                 commandBuffer,

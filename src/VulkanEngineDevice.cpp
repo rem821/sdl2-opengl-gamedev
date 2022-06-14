@@ -117,7 +117,7 @@ void VulkanEngineDevice::pickPhysicalDevice() {
     for (const auto &device: devices) {
         if (isDeviceSuitable(device)) {
             physicalDevice = device;
-            break;
+            //TODO: remove this comment break;
         }
     }
 

@@ -14,7 +14,7 @@ find_package(fmt)
 
 include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
 
-add_executable(VulkanGame src/main.cpp src/Game.cpp src/fmt/format.cc src/VulkanEngineDevice.cpp src/VulkanEnginePipeline.cpp src/VulkanEngineSwapChain.cpp src/VulkanEngineWindow.cpp src/VulkanEngineModel.cpp src/GameObject.cpp src/VulkanEngineRenderer.cpp src/VulkanEngineRenderer.h src/SimpleRenderSystem.cpp src/SimpleRenderSystem.h)
+add_executable(VulkanGame src/main.cpp src/Game.cpp src/fmt/format.cc src/VulkanEngineDevice.cpp src/VulkanEnginePipeline.cpp src/VulkanEngineSwapChain.cpp src/VulkanEngineWindow.cpp src/VulkanEngineModel.cpp src/GameObject.cpp src/VulkanEngineRenderer.cpp src/SimpleRenderSystem.cpp src/Camera.cpp src/Camera.h src/KeyboardMovementController.cpp)
 
 target_link_libraries(VulkanGame ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} Vulkan::Vulkan fmt::fmt )
 

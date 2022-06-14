@@ -22,6 +22,9 @@ public:
     VulkanEngineRenderer &operator=(const VulkanEngineRenderer &) = delete;
 
     [[nodiscard]] VkRenderPass getSwapChainRenderPass() const { return engineSwapChain->getRenderPass(); };
+
+    [[nodiscard]] float getAspectRatio() const { return engineSwapChain->extentAspectRatio(); };
+
     [[nodiscard]] bool isFrameInProgress() const { return isFrameStarted; };
 
     [[nodiscard]] VkCommandBuffer getCurrentCommandBuffer() const {
@@ -29,7 +32,7 @@ public:
         return commandBuffers[currentFrameIndex];
     }
 
-    int getFrameInfex() const {
+    int getFrameIndex() const {
         assert(isFrameStarted && "Cannot get frame index when frame not in progress");
         return currentFrameIndex;
     }

@@ -8,6 +8,7 @@
 #include "VulkanEngineDevice.h"
 #include "VulkanEnginePipeline.h"
 #include "GameObject.h"
+#include "Camera.h"
 #include "CustomTypes.h"
 #include "TextureManager.h"
 #include "Map.h"
@@ -24,8 +25,7 @@
 #include "glm/gtc/constants.hpp"
 
 struct SimplePushConstantData {
-    glm::mat2 transform{1.f};
-    alignas(8) glm::vec2 offset;
+    glm::mat4 transform{1.f};
     alignas(16) glm::vec3 color;
 };
 
@@ -37,7 +37,7 @@ public:
     SimpleRenderSystem(const SimpleRenderSystem &) = delete;
     SimpleRenderSystem &operator=(const SimpleRenderSystem &) = delete;
 
-    void renderGameObjects(VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects);
+    void renderGameObjects(VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects, const Camera &camera);
 
 private:
     void createPipelineLayout();
