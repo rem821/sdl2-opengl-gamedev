@@ -4,6 +4,8 @@
 
 #include "VulkanEngineDevice.h"
 #include "VulkanEngineWindow.h"
+#include "VulkanEngineBuffer.h"
+#include "VulkanEngineDescriptors.h"
 
 #include "SimpleRenderSystem.h"
 #include "VulkanEngineRenderer.h"
@@ -22,6 +24,11 @@
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
 #define WINDOW_TITLE "Gameska"
+
+struct GlobalUbo {
+    glm::mat4 projectionView{1.f};
+    glm::vec3 lightDirection = glm::normalize(glm::vec3{1.f, -3.f, -1.f});
+};
 
 class Game {
 
@@ -45,6 +52,7 @@ private:
     VulkanEngineDevice engineDevice{window, WINDOW_TITLE};
     VulkanEngineRenderer renderer{window, engineDevice};
 
+    std::unique_ptr<VulkanEngineDescriptorPool> globalPool{};
     std::vector<GameObject> gameObjects;
 
     SDL_Rect mouseRect;

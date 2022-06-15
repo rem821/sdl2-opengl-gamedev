@@ -30,7 +30,12 @@ add_executable(VulkanGame
         src/Camera.h
         src/KeyboardMovementController.cpp
         src/tinyobjloader/tiny_obj_loader.h
-        src/VulkanEngineUtils.h)
+        src/VulkanEngineUtils.h
+        src/VulkanEngineBuffer.h
+        src/VulkanEngineBuffer.cpp
+        src/VulkanEngineFrameInfo.h
+        src/VulkanEngineDescriptors.cpp
+        src/VulkanEngineDescriptors.h)
 
 target_link_libraries(VulkanGame ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} Vulkan::Vulkan fmt::fmt)
 

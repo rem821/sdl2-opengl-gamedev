@@ -5,6 +5,7 @@
 
 #include "VulkanEngineDevice.h"
 #include "VulkanEngineUtils.h"
+#include "VulkanEngineBuffer.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -61,12 +62,10 @@ private:
 
     VulkanEngineDevice &engineDevice;
 
-    VkBuffer vertexBuffer;
-    VkDeviceMemory vertexBufferMemory;
+    std::unique_ptr<VulkanEngineBuffer> vertexBuffer;
     uint32_t vertexCount;
 
     bool hasIndexBuffer = false;
-    VkBuffer indexBuffer;
-    VkDeviceMemory indexBufferMemory;
+    std::unique_ptr<VulkanEngineBuffer> indexBuffer;
     uint32_t indexCount;
 };
