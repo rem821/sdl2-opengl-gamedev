@@ -2,15 +2,18 @@
 
 #include "SDL.h"
 
-#include "VulkanEngineDevice.h"
-#include "VulkanEngineWindow.h"
-#include "VulkanEngineBuffer.h"
-#include "VulkanEngineDescriptors.h"
+#include "rendering/VulkanEngineDevice.h"
+#include "rendering/VulkanEngineWindow.h"
+#include "rendering/VulkanEngineBuffer.h"
+#include "rendering/VulkanEngineDescriptors.h"
+#include "rendering/VulkanEngineRenderer.h"
+#include "rendering/GameObject.h"
+#include "rendering/Camera.h"
 
-#include "SimpleRenderSystem.h"
-#include "VulkanEngineRenderer.h"
-#include "GameObject.h"
-#include "Camera.h"
+#include "systems/SimpleRenderSystem.h"
+#include "systems/PointLightSystem.h"
+
+
 #include "KeyboardMovementController.h"
 
 #include "fmt/core.h"
@@ -26,8 +29,11 @@
 #define WINDOW_TITLE "Gameska"
 
 struct GlobalUbo {
-    glm::mat4 projectionView{1.f};
-    glm::vec3 lightDirection = glm::normalize(glm::vec3{1.f, -3.f, -1.f});
+    glm::mat4 projection{1.f};
+    glm::mat4 view{1.f};
+    glm::vec4 ambientLightColor{1.f, 1.f, 1.f, .02f}; // w is intensity
+    glm::vec3 lightPosition{-1.f};
+    alignas(16) glm::vec4 lightColor{1.f}; // w is intensity
 };
 
 class Game {
@@ -53,7 +59,7 @@ private:
     VulkanEngineRenderer renderer{window, engineDevice};
 
     std::unique_ptr<VulkanEngineDescriptorPool> globalPool{};
-    std::vector<GameObject> gameObjects;
+    GameObject::Map gameObjects;
 
     SDL_Rect mouseRect;
 };

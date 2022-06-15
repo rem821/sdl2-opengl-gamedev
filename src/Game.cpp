@@ -16,7 +16,7 @@ Game::~Game() {}
 
 
 void Game::run() {
-    std::vector <std::unique_ptr<VulkanEngineBuffer>> uboBuffers(VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT);
+    std::vector<std::unique_ptr<VulkanEngineBuffer>> uboBuffers(VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT);
     for (int i = 0; i < uboBuffers.size(); i++) {
         uboBuffers[i] = std::make_unique<VulkanEngineBuffer>(
                 engineDevice,
@@ -29,10 +29,10 @@ void Game::run() {
     };
 
     auto globalSetLayout = VulkanEngineDescriptorSetLayout::Builder(engineDevice)
-            .addBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_VERTEX_BIT)
+            .addBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_ALL_GRAPHICS)
             .build();
 
-    std::vector <VkDescriptorSet> globalDescriptorSets(VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT);
+    std::vector<VkDescriptorSet> globalDescriptorSets(VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT);
     for (int i = 0; i < globalDescriptorSets.size(); i++) {
         auto bufferInfo = uboBuffers[i]->descriptorInfo();
         VulkanEngineDescriptorWriter(*globalSetLayout, *globalPool)
@@ -41,12 +41,15 @@ void Game::run() {
     }
 
     SimpleRenderSystem simpleRenderSystem{engineDevice, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
+    PointLightSystem pointLightSystem{engineDevice, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
+
     Camera camera{};
 
     //camera.setViewDirection(glm::vec3(0.f), glm::vec3(0.5f, 0.f, 1.f));
     camera.setViewTarget(glm::vec3(-1.f, -2.f, -2.f), glm::vec3(0.f, 0.f, 2.5f));
 
     auto viewerObject = GameObject::createGameObject();
+    viewerObject.transform.translation.z = -2.5f;
     KeyboardMovementController cameraController{};
 
     auto currentTime = std::chrono::high_resolution_clock::now();
@@ -63,20 +66,22 @@ void Game::run() {
 
         float aspect = renderer.getAspectRatio();
         //camera.setOrthographicProjection(-aspect, aspect, -1, 1, -1, 1);
-        camera.setPerspectiveProjection(glm::radians(50.f), aspect, 0.1f, 10.f);
+        camera.setPerspectiveProjection(glm::radians(50.f), aspect, 0.1f, 1000.f);
 
         if (auto commandBuffer = renderer.beginFrame()) {
             int frameIndex = renderer.getFrameIndex();
-            FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera, globalDescriptorSets[frameIndex]};
+            FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
             // update
             GlobalUbo ubo{};
-            ubo.projectionView = camera.getProjection() * camera.getView();
+            ubo.projection = camera.getProjection();
+            ubo.view = camera.getView();
             uboBuffers[frameIndex]->writeToBuffer(&ubo);
             uboBuffers[frameIndex]->flush();
 
             // render
             renderer.beginSwapChainRenderPass(commandBuffer);
-            simpleRenderSystem.renderGameObjects(frameInfo, gameObjects);
+            simpleRenderSystem.renderGameObjects(frameInfo);
+            pointLightSystem.render(frameInfo);
             renderer.endSwapChainRenderPass(commandBuffer);
             renderer.endFrame();
         }
@@ -86,15 +91,32 @@ void Game::run() {
 }
 
 void Game::loadGameObjects() {
-    std::shared_ptr<VulkanEngineModel> game_object = VulkanEngineModel::createModelFromFile(engineDevice, "models/flat_vase.obj");
+    std::shared_ptr<VulkanEngineModel> game_object = VulkanEngineModel::createModelFromFile(engineDevice, "models/smooth_vase.obj");
 
     auto object = GameObject::createGameObject();
     object.model = game_object;
-    object.transform.translation = {-.05f, .0f, 2.5f};
-    object.transform.scale = {0.1f, 0.1f, 0.1f};
+    object.transform.translation = {-.5f, .0f, 0.f};
+    object.transform.scale = {5.f, 5.f, 5.f};
 
-    gameObjects.push_back(std::move(object));
+    gameObjects.emplace(object.getId(), std::move(object));
 
+    std::shared_ptr<VulkanEngineModel> game_object2 = VulkanEngineModel::createModelFromFile(engineDevice, "models/flat_vase.obj");
+
+    auto object2 = GameObject::createGameObject();
+    object2.model = game_object2;
+    object2.transform.translation = {.5f, .0f, 0.f};
+    object2.transform.scale = {5.f, 5.f, 5.f};
+
+    gameObjects.emplace(object2.getId(), std::move(object2));
+
+    std::shared_ptr<VulkanEngineModel> game_floor = VulkanEngineModel::createModelFromFile(engineDevice, "models/quad.obj");
+
+    auto floor = GameObject::createGameObject();
+    floor.model = game_floor;
+    floor.transform.translation = {.0f, .1f, .0f};
+    floor.transform.scale = {5.f, 1.f, 5.f};
+
+    gameObjects.emplace(floor.getId(), std::move(floor));
 }
 
 void Game::handleEvents() {
@@ -123,6 +145,12 @@ void Game::handleEvents() {
             }
         default:
             break;
+    }
+
+    const Uint8 *keystate = SDL_GetKeyboardState(nullptr);
+
+    if (keystate[SDL_SCANCODE_ESCAPE]) {
+        isRunning = false;
     }
 
     SDL_GetMouseState(&mouseRect.x, &mouseRect.y);

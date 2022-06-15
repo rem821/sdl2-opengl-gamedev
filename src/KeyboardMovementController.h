@@ -4,13 +4,13 @@
 #pragma once
 
 #include "SDL.h"
-#include "GameObject.h"
-#include "VulkanEngineWindow.h"
+#include "rendering/GameObject.h"
+#include "rendering/VulkanEngineWindow.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 
-#include "glm/glm.hpp"
+#include "../libs/glm/glm.hpp"
 
 class KeyboardMovementController {
 public:

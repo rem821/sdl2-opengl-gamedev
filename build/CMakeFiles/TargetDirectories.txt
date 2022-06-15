@@ -1,0 +1,6 @@
+/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles/rebuild_cache.dir
+/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles/edit_cache.dir
+/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles/Shaders.dir
+/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles/VulkanGame.dir
+/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/libs/glm/CMakeFiles/rebuild_cache.dir
+/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/libs/glm/CMakeFiles/edit_cache.dir

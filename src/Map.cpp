@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Map.h"
 
 Map::Map(SDL_Renderer *renderer) {
