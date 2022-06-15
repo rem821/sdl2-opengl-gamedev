@@ -1,55 +1,5 @@
 #include "Game.h"
 
-// temporary helper function, creates a 1x1x1 cube centered at offset with an index buffer
-std::unique_ptr<VulkanEngineModel> createCubeModel(VulkanEngineDevice &device, glm::vec3 offset) {
-    VulkanEngineModel::Builder modelBuilder{};
-    modelBuilder.vertices = {
-            // left face (white)
-            {{-.5f, -.5f, -.5f},  {.9f, .9f, .9f}},
-            {{-.5f, .5f,  .5f},   {.9f, .9f, .9f}},
-            {{-.5f, -.5f, .5f},   {.9f, .9f, .9f}},
-            {{-.5f, .5f,  -.5f},  {.9f, .9f, .9f}},
-
-            // right face (yellow)
-            {{.5f,  -.5f, -.5f},  {.8f, .8f, .1f}},
-            {{.5f,  .5f,  .5f},   {.8f, .8f, .1f}},
-            {{.5f,  -.5f, .5f},   {.8f, .8f, .1f}},
-            {{.5f,  .5f,  -.5f},  {.8f, .8f, .1f}},
-
-            // top face (purple)
-            {{-.5f, -.5f, -.5f},  {.9f, .1f, .9f}},
-            {{.5f,  -.5f, .5f},   {.9f, .1f, .9f}},
-            {{-.5f, -.5f, .5f},   {.9f, .1f, .9f}},
-            {{.5f,  -.5f, -.5f},  {.9f, .1f, .9f}},
-
-            // bottom face (red)
-            {{-.5f, .5f,  -.5f},  {.8f, .1f, .1f}},
-            {{.5f,  .5f,  .5f},   {.8f, .1f, .1f}},
-            {{-.5f, .5f,  .5f},   {.8f, .1f, .1f}},
-            {{.5f,  .5f,  -.5f},  {.8f, .1f, .1f}},
-
-            // nose face (blue)
-            {{-.5f, -.5f, 0.5f},  {.1f, .1f, .8f}},
-            {{.5f,  .5f,  0.5f},  {.1f, .1f, .8f}},
-            {{-.5f, .5f,  0.5f},  {.1f, .1f, .8f}},
-            {{.5f,  -.5f, 0.5f},  {.1f, .1f, .8f}},
-
-            // tail face (green)
-            {{-.5f, -.5f, -0.5f}, {.1f, .8f, .1f}},
-            {{.5f,  .5f,  -0.5f}, {.1f, .8f, .1f}},
-            {{-.5f, .5f,  -0.5f}, {.1f, .8f, .1f}},
-            {{.5f,  -.5f, -0.5f}, {.1f, .8f, .1f}},
-    };
-    for (auto &v: modelBuilder.vertices) {
-        v.position += offset;
-    }
-
-    modelBuilder.indices = {0, 1, 2, 0, 3, 1, 4, 5, 6, 4, 7, 5, 8, 9, 10, 8, 11, 9,
-                            12, 13, 14, 12, 15, 13, 16, 17, 18, 16, 19, 17, 20, 21, 22, 20, 23, 21};
-
-    return std::make_unique<VulkanEngineModel>(device, modelBuilder);
-}
-
 Game::Game() {
     loadGameObjects();
 
@@ -98,70 +48,14 @@ void Game::run() {
 }
 
 void Game::loadGameObjects() {
-    std::shared_ptr<VulkanEngineModel> cubeModel = createCubeModel(engineDevice, {.0f, .0f, .0f});
+    std::shared_ptr<VulkanEngineModel> game_object = VulkanEngineModel::createModelFromFile(engineDevice, "models/smooth_vase.obj");
 
-    auto cube = GameObject::createGameObject();
-    cube.model = cubeModel;
-    cube.transform.translation = {.0f, .0f, 2.5f};
-    cube.transform.scale = {.5f, .5f, .5f};
+    auto object = GameObject::createGameObject();
+    object.model = game_object;
+    object.transform.translation = {.0f, .0f, 2.5f};
+    object.transform.scale = {0.5f, 0.5f, 0.5f};
 
-    gameObjects.push_back(std::move(cube));
-
-    auto cube2 = GameObject::createGameObject();
-    cube2.model = cubeModel;
-    cube2.transform.translation = {-0.8f, .0f, 2.5f};
-    cube2.transform.scale = {.5f, .5f, .5f};
-
-    gameObjects.push_back(std::move(cube2));
-
-    auto cube3 = GameObject::createGameObject();
-    cube3.model = cubeModel;
-    cube3.transform.translation = {0.8f, .0f, 2.5f};
-    cube3.transform.scale = {.5f, .5f, .5f};
-
-    gameObjects.push_back(std::move(cube3));
-
-    auto cube4 = GameObject::createGameObject();
-    cube4.model = cubeModel;
-    cube4.transform.translation = {.0f, 0.8f, 2.5f};
-    cube4.transform.scale = {.5f, .5f, .5f};
-
-    gameObjects.push_back(std::move(cube4));
-
-    auto cube5 = GameObject::createGameObject();
-    cube5.model = cubeModel;
-    cube5.transform.translation = {.0f, -0.8f, 2.5f};
-    cube5.transform.scale = {.5f, .5f, .5f};
-
-    gameObjects.push_back(std::move(cube5));
-
-    auto cube6 = GameObject::createGameObject();
-    cube6.model = cubeModel;
-    cube6.transform.translation = {-0.8f, -0.8f, 2.5f};
-    cube6.transform.scale = {.5f, .5f, .5f};
-
-    gameObjects.push_back(std::move(cube6));
-
-    auto cube7 = GameObject::createGameObject();
-    cube7.model = cubeModel;
-    cube7.transform.translation = {0.8f, -0.8f, 2.5f};
-    cube7.transform.scale = {.5f, .5f, .5f};
-
-    gameObjects.push_back(std::move(cube7));
-
-    auto cube8 = GameObject::createGameObject();
-    cube8.model = cubeModel;
-    cube8.transform.translation = {0.8f, 0.8f, 2.5f};
-    cube8.transform.scale = {.5f, .5f, .5f};
-
-    gameObjects.push_back(std::move(cube8));
-
-    auto cube9 = GameObject::createGameObject();
-    cube9.model = cubeModel;
-    cube9.transform.translation = {-.8f, 0.8f, 2.5f};
-    cube9.transform.scale = {.5f, .5f, .5f};
-
-    gameObjects.push_back(std::move(cube9));
+    gameObjects.push_back(std::move(object));
 }
 
 void Game::handleEvents() {
