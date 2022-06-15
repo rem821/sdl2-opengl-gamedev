@@ -75,6 +75,7 @@ void Game::run() {
             GlobalUbo ubo{};
             ubo.projection = camera.getProjection();
             ubo.view = camera.getView();
+            pointLightSystem.update(frameInfo, ubo);
             uboBuffers[frameIndex]->writeToBuffer(&ubo);
             uboBuffers[frameIndex]->flush();
 
@@ -91,6 +92,7 @@ void Game::run() {
 }
 
 void Game::loadGameObjects() {
+
     std::shared_ptr<VulkanEngineModel> game_object = VulkanEngineModel::createModelFromFile(engineDevice, "models/smooth_vase.obj");
 
     auto object = GameObject::createGameObject();
@@ -109,6 +111,22 @@ void Game::loadGameObjects() {
 
     gameObjects.emplace(object2.getId(), std::move(object2));
 
+    /*
+    std::shared_ptr<VulkanEngineModel> suzane = VulkanEngineModel::createModelFromFile(engineDevice, "models/Suzane.obj");
+
+    for (int i = 0; i < 50; i++) {
+        for (int j = -50; j < 50; j++) {
+            auto suz = GameObject::createGameObject();
+            suz.model = suzane;
+            suz.transform.translation = {2.75f * j, -2.2f * i, 2.5f};
+            suz.transform.scale = {1.f, 1.f, 1.f};
+
+            gameObjects.emplace(suz.getId(), std::move(suz));
+        }
+    }
+     */
+
+
     std::shared_ptr<VulkanEngineModel> game_floor = VulkanEngineModel::createModelFromFile(engineDevice, "models/quad.obj");
 
     auto floor = GameObject::createGameObject();
@@ -117,6 +135,28 @@ void Game::loadGameObjects() {
     floor.transform.scale = {5.f, 1.f, 5.f};
 
     gameObjects.emplace(floor.getId(), std::move(floor));
+
+
+    std::vector<glm::vec3> lightColors{
+            {1.f, .1f, .1f},
+            {.1f, .1f, 1.f},
+            {.1f, 1.f, .1f},
+            {1.f, 1.f, .1f},
+            {.1f, 1.f, 1.f},
+            {1.f, 1.f, 1.f}
+    };
+
+    for (int i = 0; i < lightColors.size(); i++) {
+        auto pointLight = GameObject::makePointLight(0.2f);
+        pointLight.color = lightColors[i];
+        auto rotateLight = glm::rotate(
+                glm::mat4(1.f),
+                (i * glm::two_pi<float>()) / lightColors.size(),
+                {0.f, -2.f, 1.f});
+        pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.f, -1.f, -1.f, 1.f));
+        pointLight.transform.translation.y -= 1.f;
+        gameObjects.emplace(pointLight.getId(), std::move(pointLight));
+    }
 }
 
 void Game::handleEvents() {

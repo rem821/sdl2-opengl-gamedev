@@ -26,6 +26,12 @@
 #include "../../libs/glm/glm.hpp"
 #include "../../libs/glm/gtc/constants.hpp"
 
+struct PointLightPushConstants {
+    glm::vec3 position{};
+    alignas(16) glm::vec4 color{};
+    float radius;
+};
+
 class PointLightSystem {
 
 public:
@@ -34,6 +40,7 @@ public:
     PointLightSystem(const PointLightSystem &) = delete;
     PointLightSystem &operator=(const PointLightSystem &) = delete;
 
+    void update(FrameInfo &frameInfo, GlobalUbo &ubo);
     void render(FrameInfo &frameInfo);
 
 private:
