@@ -35,6 +35,8 @@ void PointLightSystem::createPipeline(VkRenderPass renderPass) {
 
     PipelineConfigInfo pipelineConfig = {};
     VulkanEnginePipeline::defaultPipelineConfig(pipelineConfig);
+    VulkanEnginePipeline::enableAlphaBlending(pipelineConfig);
+
     pipelineConfig.bindingDescriptions.clear();
     pipelineConfig.attributeDescriptions.clear();
 
@@ -45,13 +47,25 @@ void PointLightSystem::createPipeline(VkRenderPass renderPass) {
 }
 
 void PointLightSystem::render(FrameInfo &frameInfo) {
+    // sort lights
+    std::map<float, GameObject::id_t> sorted;
+    for (auto &kv : frameInfo.gameObjects) {
+        auto &obj = kv.second;
+        if (obj.pointLight == nullptr) continue;
+
+        auto offset = frameInfo.camera.getPosition() - obj.transform.translation;
+        float disSquared = glm::dot(offset, offset);
+        sorted[disSquared] = obj.getId();
+    }
+
+
     enginePipeline->bind(frameInfo.commandBuffer);
 
     vkCmdBindDescriptorSets(frameInfo.commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, pipelineLayout, 0, 1, &frameInfo.globalDescriptorSet, 0, nullptr);
 
-    for (auto &kv: frameInfo.gameObjects) {
-        auto &obj = kv.second;
-        if (obj.pointLight == nullptr) continue;
+    // iterate through sorted lights in reverse order
+    for (auto it = sorted.rbegin(); it != sorted.rend(); ++it) {
+        auto &obj = frameInfo.gameObjects.at(it->second);
 
         PointLightPushConstants push{};
         push.position = obj.transform.translation;
@@ -71,7 +85,7 @@ void PointLightSystem::render(FrameInfo &frameInfo) {
 }
 
 void PointLightSystem::update(FrameInfo &frameInfo, GlobalUbo &ubo) {
-    auto rotateLight = glm::rotate(glm::mat4(1.f), frameInfo.frameTime, { 0.f, -1.f, 0.f });
+    auto rotateLight = glm::rotate(glm::mat4(1.f), frameInfo.frameTime / 5, { 0.f, -1.f, 0.f });
 
     int lightIndex = 0;
 

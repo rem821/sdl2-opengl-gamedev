@@ -75,14 +75,17 @@ void Game::run() {
             GlobalUbo ubo{};
             ubo.projection = camera.getProjection();
             ubo.view = camera.getView();
+            ubo.inverseView = camera.getInverseView();
             pointLightSystem.update(frameInfo, ubo);
             uboBuffers[frameIndex]->writeToBuffer(&ubo);
             uboBuffers[frameIndex]->flush();
 
-            // render
+            // render -> Render solid objects fist
             renderer.beginSwapChainRenderPass(commandBuffer);
+
             simpleRenderSystem.renderGameObjects(frameInfo);
             pointLightSystem.render(frameInfo);
+
             renderer.endSwapChainRenderPass(commandBuffer);
             renderer.endFrame();
         }
@@ -147,14 +150,14 @@ void Game::loadGameObjects() {
     };
 
     for (int i = 0; i < lightColors.size(); i++) {
-        auto pointLight = GameObject::makePointLight(0.2f);
+        auto pointLight = GameObject::makePointLight(0.5f);
         pointLight.color = lightColors[i];
         auto rotateLight = glm::rotate(
-                glm::mat4(1.f),
+                glm::mat4(2.f),
                 (i * glm::two_pi<float>()) / lightColors.size(),
-                {0.f, -2.f, 1.f});
+                {0.f, -1.f, 0.f});
         pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.f, -1.f, -1.f, 1.f));
-        pointLight.transform.translation.y -= 1.f;
+        pointLight.transform.translation.y += .3f;
         gameObjects.emplace(pointLight.getId(), std::move(pointLight));
     }
 }

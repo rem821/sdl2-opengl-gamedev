@@ -854,6 +854,7 @@ CMakeFiles/VulkanGame.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../libs/glm/glm.hpp \
   ../libs/glm/gtc/constants.hpp \
   ../src/systems/PointLightSystem.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/map \
   ../src/KeyboardMovementController.h \
   ../libs/glm/glm.hpp
 
@@ -4169,6 +4170,7 @@ CMakeFiles/VulkanGame.dir/src/main.cpp.o: ../src/main.cpp \
   ../libs/glm/glm.hpp \
   ../libs/glm/gtc/constants.hpp \
   ../src/systems/PointLightSystem.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/map \
   ../src/KeyboardMovementController.h \
   ../libs/glm/glm.hpp
 
@@ -11138,6 +11140,7 @@ CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o: ../src/systems/Poi
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/sstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/random \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/numeric \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/map \
   ../libs/glm/glm.hpp \
   ../libs/glm/gtc/constants.hpp
 
