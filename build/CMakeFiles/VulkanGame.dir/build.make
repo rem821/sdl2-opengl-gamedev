@@ -83,24 +83,10 @@ CMakeFiles/VulkanGame.dir/src/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/Game.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/Game.cpp -o CMakeFiles/VulkanGame.dir/src/Game.cpp.s
 
-CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
-CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o: ../src/IsoEngine.cpp
-CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o -MF CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/IsoEngine.cpp
-
-CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/IsoEngine.cpp > CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.i
-
-CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/IsoEngine.cpp -o CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.s
-
 CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o: ../src/KeyboardMovementController.cpp
 CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o -MF CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/KeyboardMovementController.cpp
 
 CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.i: cmake_force
@@ -111,38 +97,10 @@ CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/KeyboardMovementController.cpp -o CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.s
 
-CMakeFiles/VulkanGame.dir/src/Map.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
-CMakeFiles/VulkanGame.dir/src/Map.cpp.o: ../src/Map.cpp
-CMakeFiles/VulkanGame.dir/src/Map.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/VulkanGame.dir/src/Map.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/Map.cpp.o -MF CMakeFiles/VulkanGame.dir/src/Map.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/Map.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/Map.cpp
-
-CMakeFiles/VulkanGame.dir/src/Map.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VulkanGame.dir/src/Map.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/Map.cpp > CMakeFiles/VulkanGame.dir/src/Map.cpp.i
-
-CMakeFiles/VulkanGame.dir/src/Map.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/Map.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/Map.cpp -o CMakeFiles/VulkanGame.dir/src/Map.cpp.s
-
-CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
-CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o: ../src/TextureManager.cpp
-CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o -MF CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/TextureManager.cpp
-
-CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/TextureManager.cpp > CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.i
-
-CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/TextureManager.cpp -o CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.s
-
 CMakeFiles/VulkanGame.dir/src/main.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/VulkanGame.dir/src/main.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VulkanGame.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/VulkanGame.dir/src/main.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/main.cpp.o -MF CMakeFiles/VulkanGame.dir/src/main.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/main.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/main.cpp
 
 CMakeFiles/VulkanGame.dir/src/main.cpp.i: cmake_force
@@ -156,7 +114,7 @@ CMakeFiles/VulkanGame.dir/src/main.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o: ../src/rendering/Camera.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Camera.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.i: cmake_force
@@ -167,10 +125,24 @@ CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Camera.cpp -o CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.s
 
+CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
+CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o: ../src/rendering/Cube.cpp
+CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Cube.cpp
+
+CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Cube.cpp > CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.i
+
+CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Cube.cpp -o CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.s
+
 CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o: ../src/rendering/GameObject.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/GameObject.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.i: cmake_force
@@ -181,10 +153,24 @@ CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/GameObject.cpp -o CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.s
 
+CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
+CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o: ../src/rendering/Map.cpp
+CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Map.cpp
+
+CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Map.cpp > CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.i
+
+CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Map.cpp -o CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.s
+
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o: ../src/rendering/VulkanEngineBuffer.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineBuffer.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.i: cmake_force
@@ -198,7 +184,7 @@ CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o: ../src/rendering/VulkanEngineDescriptors.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineDescriptors.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.i: cmake_force
@@ -212,7 +198,7 @@ CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.s: cmake_for
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o: ../src/rendering/VulkanEngineDevice.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineDevice.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.i: cmake_force
@@ -226,7 +212,7 @@ CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.o: ../src/rendering/VulkanEngineModel.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineModel.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.i: cmake_force
@@ -240,7 +226,7 @@ CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineModel.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.o: ../src/rendering/VulkanEnginePipeline.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEnginePipeline.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.i: cmake_force
@@ -254,7 +240,7 @@ CMakeFiles/VulkanGame.dir/src/rendering/VulkanEnginePipeline.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.o: ../src/rendering/VulkanEngineRenderer.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineRenderer.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.i: cmake_force
@@ -268,7 +254,7 @@ CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineRenderer.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.o: ../src/rendering/VulkanEngineSwapChain.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineSwapChain.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.i: cmake_force
@@ -282,7 +268,7 @@ CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineSwapChain.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.o: ../src/rendering/VulkanEngineWindow.cpp
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.o -MF CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineWindow.cpp
 
 CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.i: cmake_force
@@ -296,7 +282,7 @@ CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineWindow.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o: ../src/systems/PointLightSystem.cpp
 CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o -MF CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/systems/PointLightSystem.cpp
 
 CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.i: cmake_force
@@ -310,7 +296,7 @@ CMakeFiles/VulkanGame.dir/src/systems/PointLightSystem.cpp.s: cmake_force
 CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.o: CMakeFiles/VulkanGame.dir/flags.make
 CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.o: ../src/systems/SimpleRenderSystem.cpp
 CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.o: CMakeFiles/VulkanGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.o -MF CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.o.d -o CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.o -c /Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/systems/SimpleRenderSystem.cpp
 
 CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.i: cmake_force
@@ -324,13 +310,12 @@ CMakeFiles/VulkanGame.dir/src/systems/SimpleRenderSystem.cpp.s: cmake_force
 # Object files for target VulkanGame
 VulkanGame_OBJECTS = \
 "CMakeFiles/VulkanGame.dir/src/Game.cpp.o" \
-"CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o" \
 "CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o" \
-"CMakeFiles/VulkanGame.dir/src/Map.cpp.o" \
-"CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o" \
 "CMakeFiles/VulkanGame.dir/src/main.cpp.o" \
 "CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o" \
+"CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o" \
 "CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o" \
+"CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o" \
 "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o" \
 "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o" \
 "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o" \
@@ -346,13 +331,12 @@ VulkanGame_OBJECTS = \
 VulkanGame_EXTERNAL_OBJECTS =
 
 VulkanGame: CMakeFiles/VulkanGame.dir/src/Game.cpp.o
-VulkanGame: CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o
 VulkanGame: CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o
-VulkanGame: CMakeFiles/VulkanGame.dir/src/Map.cpp.o
-VulkanGame: CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o
 VulkanGame: CMakeFiles/VulkanGame.dir/src/main.cpp.o
 VulkanGame: CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o
+VulkanGame: CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o
 VulkanGame: CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o
+VulkanGame: CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o
 VulkanGame: CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o
 VulkanGame: CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o
 VulkanGame: CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o
@@ -367,7 +351,7 @@ VulkanGame: CMakeFiles/VulkanGame.dir/build.make
 VulkanGame: /usr/local/lib/libvulkan.dylib
 VulkanGame: /usr/local/lib/libfmt.7.1.3.dylib
 VulkanGame: CMakeFiles/VulkanGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable VulkanGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable VulkanGame"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/VulkanGame.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

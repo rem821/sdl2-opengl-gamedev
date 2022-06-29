@@ -9,13 +9,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/Game.cpp" "CMakeFiles/VulkanGame.dir/src/Game.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/Game.cpp.o.d"
-  "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/IsoEngine.cpp" "CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o.d"
   "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/KeyboardMovementController.cpp" "CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.o.d"
-  "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/Map.cpp" "CMakeFiles/VulkanGame.dir/src/Map.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/Map.cpp.o.d"
-  "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/TextureManager.cpp" "CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o.d"
   "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/main.cpp" "CMakeFiles/VulkanGame.dir/src/main.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/main.cpp.o.d"
   "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Camera.cpp" "CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.o.d"
+  "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Cube.cpp" "CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o.d"
   "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/GameObject.cpp" "CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.o.d"
+  "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/Map.cpp" "CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o.d"
   "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineBuffer.cpp" "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineBuffer.cpp.o.d"
   "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineDescriptors.cpp" "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDescriptors.cpp.o.d"
   "/Users/stanislavsvediroh/Desktop/Projekty/sdl2-opengl-gamedev/src/rendering/VulkanEngineDevice.cpp" "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o" "gcc" "CMakeFiles/VulkanGame.dir/src/rendering/VulkanEngineDevice.cpp.o.d"

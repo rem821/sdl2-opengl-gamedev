@@ -29,7 +29,7 @@ VkCommandBuffer VulkanEngineRenderer::beginFrame() {
     isFrameStarted = true;
 
     auto commandBuffer = getCurrentCommandBuffer();
-    VkCommandBufferBeginInfo beginInfo = {};
+    VkCommandBufferBeginInfo beginInfo {};
     beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
 
     if (vkBeginCommandBuffer(commandBuffer, &beginInfo) != VK_SUCCESS) {
@@ -90,7 +90,6 @@ void VulkanEngineRenderer::beginSwapChainRenderPass(VkCommandBuffer commandBuffe
     VkRect2D scissor{{0, 0}, engineSwapChain->getSwapChainExtent()};
     vkCmdSetViewport(commandBuffer, 0, 1, &viewport);
     vkCmdSetScissor(commandBuffer, 0, 1, &scissor);
-
 }
 
 void VulkanEngineRenderer::endSwapChainRenderPass(VkCommandBuffer commandBuffer) {
@@ -99,7 +98,6 @@ void VulkanEngineRenderer::endSwapChainRenderPass(VkCommandBuffer commandBuffer)
            "Can't end render pass on command buffer from a different frame");
 
     vkCmdEndRenderPass(commandBuffer);
-
 }
 
 void VulkanEngineRenderer::createCommandBuffers() {

@@ -166,30 +166,6 @@ src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
 
-src/IsoEngine.o: src/IsoEngine.cpp.o
-.PHONY : src/IsoEngine.o
-
-# target to build an object file
-src/IsoEngine.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.o
-.PHONY : src/IsoEngine.cpp.o
-
-src/IsoEngine.i: src/IsoEngine.cpp.i
-.PHONY : src/IsoEngine.i
-
-# target to preprocess a source file
-src/IsoEngine.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.i
-.PHONY : src/IsoEngine.cpp.i
-
-src/IsoEngine.s: src/IsoEngine.cpp.s
-.PHONY : src/IsoEngine.s
-
-# target to generate assembly for a file
-src/IsoEngine.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/IsoEngine.cpp.s
-.PHONY : src/IsoEngine.cpp.s
-
 src/KeyboardMovementController.o: src/KeyboardMovementController.cpp.o
 .PHONY : src/KeyboardMovementController.o
 
@@ -213,54 +189,6 @@ src/KeyboardMovementController.s: src/KeyboardMovementController.cpp.s
 src/KeyboardMovementController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/KeyboardMovementController.cpp.s
 .PHONY : src/KeyboardMovementController.cpp.s
-
-src/Map.o: src/Map.cpp.o
-.PHONY : src/Map.o
-
-# target to build an object file
-src/Map.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/Map.cpp.o
-.PHONY : src/Map.cpp.o
-
-src/Map.i: src/Map.cpp.i
-.PHONY : src/Map.i
-
-# target to preprocess a source file
-src/Map.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/Map.cpp.i
-.PHONY : src/Map.cpp.i
-
-src/Map.s: src/Map.cpp.s
-.PHONY : src/Map.s
-
-# target to generate assembly for a file
-src/Map.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/Map.cpp.s
-.PHONY : src/Map.cpp.s
-
-src/TextureManager.o: src/TextureManager.cpp.o
-.PHONY : src/TextureManager.o
-
-# target to build an object file
-src/TextureManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.o
-.PHONY : src/TextureManager.cpp.o
-
-src/TextureManager.i: src/TextureManager.cpp.i
-.PHONY : src/TextureManager.i
-
-# target to preprocess a source file
-src/TextureManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.i
-.PHONY : src/TextureManager.cpp.i
-
-src/TextureManager.s: src/TextureManager.cpp.s
-.PHONY : src/TextureManager.s
-
-# target to generate assembly for a file
-src/TextureManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/TextureManager.cpp.s
-.PHONY : src/TextureManager.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -310,6 +238,30 @@ src/rendering/Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/rendering/Camera.cpp.s
 .PHONY : src/rendering/Camera.cpp.s
 
+src/rendering/Cube.o: src/rendering/Cube.cpp.o
+.PHONY : src/rendering/Cube.o
+
+# target to build an object file
+src/rendering/Cube.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.o
+.PHONY : src/rendering/Cube.cpp.o
+
+src/rendering/Cube.i: src/rendering/Cube.cpp.i
+.PHONY : src/rendering/Cube.i
+
+# target to preprocess a source file
+src/rendering/Cube.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.i
+.PHONY : src/rendering/Cube.cpp.i
+
+src/rendering/Cube.s: src/rendering/Cube.cpp.s
+.PHONY : src/rendering/Cube.s
+
+# target to generate assembly for a file
+src/rendering/Cube.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/rendering/Cube.cpp.s
+.PHONY : src/rendering/Cube.cpp.s
+
 src/rendering/GameObject.o: src/rendering/GameObject.cpp.o
 .PHONY : src/rendering/GameObject.o
 
@@ -333,6 +285,30 @@ src/rendering/GameObject.s: src/rendering/GameObject.cpp.s
 src/rendering/GameObject.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/rendering/GameObject.cpp.s
 .PHONY : src/rendering/GameObject.cpp.s
+
+src/rendering/Map.o: src/rendering/Map.cpp.o
+.PHONY : src/rendering/Map.o
+
+# target to build an object file
+src/rendering/Map.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.o
+.PHONY : src/rendering/Map.cpp.o
+
+src/rendering/Map.i: src/rendering/Map.cpp.i
+.PHONY : src/rendering/Map.i
+
+# target to preprocess a source file
+src/rendering/Map.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.i
+.PHONY : src/rendering/Map.cpp.i
+
+src/rendering/Map.s: src/rendering/Map.cpp.s
+.PHONY : src/rendering/Map.s
+
+# target to generate assembly for a file
+src/rendering/Map.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VulkanGame.dir/build.make CMakeFiles/VulkanGame.dir/src/rendering/Map.cpp.s
+.PHONY : src/rendering/Map.cpp.s
 
 src/rendering/VulkanEngineBuffer.o: src/rendering/VulkanEngineBuffer.cpp.o
 .PHONY : src/rendering/VulkanEngineBuffer.o
@@ -587,27 +563,24 @@ help:
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
-	@echo "... src/IsoEngine.o"
-	@echo "... src/IsoEngine.i"
-	@echo "... src/IsoEngine.s"
 	@echo "... src/KeyboardMovementController.o"
 	@echo "... src/KeyboardMovementController.i"
 	@echo "... src/KeyboardMovementController.s"
-	@echo "... src/Map.o"
-	@echo "... src/Map.i"
-	@echo "... src/Map.s"
-	@echo "... src/TextureManager.o"
-	@echo "... src/TextureManager.i"
-	@echo "... src/TextureManager.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/rendering/Camera.o"
 	@echo "... src/rendering/Camera.i"
 	@echo "... src/rendering/Camera.s"
+	@echo "... src/rendering/Cube.o"
+	@echo "... src/rendering/Cube.i"
+	@echo "... src/rendering/Cube.s"
 	@echo "... src/rendering/GameObject.o"
 	@echo "... src/rendering/GameObject.i"
 	@echo "... src/rendering/GameObject.s"
+	@echo "... src/rendering/Map.o"
+	@echo "... src/rendering/Map.i"
+	@echo "... src/rendering/Map.s"
 	@echo "... src/rendering/VulkanEngineBuffer.o"
 	@echo "... src/rendering/VulkanEngineBuffer.i"
 	@echo "... src/rendering/VulkanEngineBuffer.s"

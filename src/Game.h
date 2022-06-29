@@ -9,10 +9,11 @@
 #include "rendering/VulkanEngineRenderer.h"
 #include "rendering/GameObject.h"
 #include "rendering/Camera.h"
+#include "rendering/Cube.h"
+#include "rendering/Map.h"
 
 #include "systems/SimpleRenderSystem.h"
 #include "systems/PointLightSystem.h"
-
 
 #include "KeyboardMovementController.h"
 
@@ -52,6 +53,8 @@ private:
 
     std::unique_ptr<VulkanEngineDescriptorPool> globalPool{};
     GameObject::Map gameObjects;
+    Cube cube{engineDevice};
+    Map map{engineDevice, cube};
 
     SDL_Rect mouseRect;
 };
