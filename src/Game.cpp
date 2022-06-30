@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include "rendering/gui/imgui_impl_vulkan.h"
+
 Game::Game() {
     globalPool = VulkanEngineDescriptorPool::Builder(engineDevice)
             .setMaxSets(VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT)
@@ -7,6 +9,7 @@ Game::Game() {
             .build();
 
     loadGameObjects();
+
 
     isRunning = true;
     run();

@@ -9,7 +9,7 @@
 #include <fstream>
 #include <stdexcept>
 #include <iostream>
-#include "fmt/core.h"
+#include <fmt/core.h>
 #include "VulkanEngineDevice.h"
 #include "VulkanEngineModel.h"
 

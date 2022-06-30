@@ -17,7 +17,7 @@
 
 #include "KeyboardMovementController.h"
 
-#include "fmt/core.h"
+#include <fmt/core.h>
 
 #include <memory>
 #include <vector>

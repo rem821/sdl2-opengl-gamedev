@@ -7,7 +7,7 @@
 #include "SDL_vulkan.h"
 #include <vulkan/vulkan.h>
 #include <stdexcept>
-#include "fmt/core.h"
+#include <fmt/core.h>
 
 class VulkanEngineWindow {
 

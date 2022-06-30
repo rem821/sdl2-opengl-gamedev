@@ -5,7 +5,7 @@
 
 #define TINYOBJLOADER_IMPLEMENTATION
 
-#include "../../libs/tinyobjloader/tiny_obj_loader.h"
+#include <tiny_obj_loader.h>
 
 namespace std {
     template<>
