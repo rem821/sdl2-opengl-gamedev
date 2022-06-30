@@ -21,8 +21,8 @@
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 
-#include "../../libs/glm/glm.hpp"
-#include "../../libs/glm/gtc/constants.hpp"
+#include "../../libs/glm/glm/glm.hpp"
+#include "../../libs/glm/glm/gtc/constants.hpp"
 
 struct SimplePushConstantData {
     glm::mat4 modelMatrix{1.f};

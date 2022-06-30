@@ -11,8 +11,8 @@
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #define GLM_ENABLE_EXPERIMENTAL
 
-#include "../../libs/glm/glm.hpp"
-#include "../../libs/glm/gtx/hash.hpp"
+#include "../../libs/glm/glm/glm.hpp"
+#include "../../libs/glm/glm/gtx/hash.hpp"
 #include "fmt/core.h"
 
 #include <vector>

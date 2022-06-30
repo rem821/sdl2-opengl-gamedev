@@ -3,7 +3,7 @@
 #include "VulkanEngineModel.h"
 #include <memory>
 #include <unordered_map>
-#include "../../libs/glm/gtc/matrix_transform.hpp"
+#include "../../libs/glm/glm/gtc/matrix_transform.hpp"
 
 struct TransformComponent {
     glm::vec3 translation{};
