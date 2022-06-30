@@ -34,3 +34,4 @@
 .idea
 gameska
 /cmake-build-debug
+/build

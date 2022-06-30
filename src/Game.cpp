@@ -49,7 +49,8 @@ void Game::run() {
     camera.setViewTarget(glm::vec3(-1.f, -2.f, -2.f), glm::vec3(0.f, 0.f, 2.5f));
 
     auto viewerObject = GameObject::createGameObject();
-    viewerObject.transform.translation.z = -2.5f;
+    viewerObject.transform.translation = {.0f, -20.0f, -2.5f};
+    viewerObject.transform.rotation = {-0.4f, 0.8f, .0f};
     KeyboardMovementController cameraController{};
 
     auto currentTime = std::chrono::high_resolution_clock::now();
@@ -80,7 +81,7 @@ void Game::run() {
             uboBuffers[frameIndex]->writeToBuffer(&ubo);
             uboBuffers[frameIndex]->flush();
 
-            // render -> Render solid objects fist
+            // render -> Render solid objects first
             renderer.beginSwapChainRenderPass(commandBuffer);
 
             simpleRenderSystem.renderGameObjects(frameInfo);
@@ -95,50 +96,7 @@ void Game::run() {
 }
 
 void Game::loadGameObjects() {
-
-    std::shared_ptr<VulkanEngineModel> game_object = VulkanEngineModel::createModelFromFile(engineDevice, "models/smooth_vase.obj");
-
-    auto object = GameObject::createGameObject();
-    object.model = game_object;
-    object.transform.translation = {-.5f, .0f, 0.f};
-    object.transform.scale = {5.f, 5.f, 5.f};
-
-    gameObjects.emplace(object.getId(), std::move(object));
-
-    std::shared_ptr<VulkanEngineModel> game_object2 = VulkanEngineModel::createModelFromFile(engineDevice, "models/flat_vase.obj");
-
-    auto object2 = GameObject::createGameObject();
-    object2.model = game_object2;
-    object2.transform.translation = {.5f, .0f, 0.f};
-    object2.transform.scale = {5.f, 5.f, 5.f};
-
-    gameObjects.emplace(object2.getId(), std::move(object2));
-
-    /*
-    std::shared_ptr<VulkanEngineModel> suzane = VulkanEngineModel::createModelFromFile(engineDevice, "models/Suzane.obj");
-
-    for (int i = 0; i < 50; i++) {
-        for (int j = -50; j < 50; j++) {
-            auto suz = GameObject::createGameObject();
-            suz.model = suzane;
-            suz.transform.translation = {2.75f * j, -2.2f * i, 2.5f};
-            suz.transform.scale = {1.f, 1.f, 1.f};
-
-            gameObjects.emplace(suz.getId(), std::move(suz));
-        }
-    }
-     */
-
-
-    std::shared_ptr<VulkanEngineModel> game_floor = VulkanEngineModel::createModelFromFile(engineDevice, "models/quad.obj");
-
-    auto floor = GameObject::createGameObject();
-    floor.model = game_floor;
-    floor.transform.translation = {.0f, .1f, .0f};
-    floor.transform.scale = {5.f, 1.f, 5.f};
-
-    gameObjects.emplace(floor.getId(), std::move(floor));
-
+    gameObjects.merge(map.getMapBlocks());
 
     std::vector<glm::vec3> lightColors{
             {1.f, .1f, .1f},
@@ -150,14 +108,17 @@ void Game::loadGameObjects() {
     };
 
     for (int i = 0; i < lightColors.size(); i++) {
-        auto pointLight = GameObject::makePointLight(0.5f);
+        auto pointLight = GameObject::makePointLight(5.5f);
         pointLight.color = lightColors[i];
         auto rotateLight = glm::rotate(
-                glm::mat4(2.f),
+                glm::mat4(10.f),
                 (i * glm::two_pi<float>()) / lightColors.size(),
-                {0.f, -1.f, 0.f});
+                {0.f, -2.f, 0.f});
         pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.f, -1.f, -1.f, 1.f));
-        pointLight.transform.translation.y += .3f;
+        pointLight.transform.translation.x += 10.0f;
+        pointLight.transform.translation.z -= 10.0f;
+        pointLight.transform.translation.y -= 10.0f;
+
         gameObjects.emplace(pointLight.getId(), std::move(pointLight));
     }
 }

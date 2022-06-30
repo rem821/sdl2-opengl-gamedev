@@ -11,9 +11,7 @@
 #include "../rendering/Camera.h"
 #include "../rendering/VulkanEngineFrameInfo.h"
 
-#include "../CustomTypes.h"
-#include "../TextureManager.h"
-#include "../Map.h"
+#include "../rendering/Map.h"
 #include "fmt/core.h"
 #include <memory>
 #include <vector>

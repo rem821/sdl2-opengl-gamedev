@@ -15,8 +15,7 @@ VulkanEngineWindow::~VulkanEngineWindow() {
 
 void VulkanEngineWindow::initWindow() {
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
-        window = SDL_CreateWindow(windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, (int) width_,
-                                  (int) height_, flags_);
+        window = SDL_CreateWindow(windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, (int) width_, (int) height_, flags_);
     } else {
         throw std::runtime_error("Failed to initialize SDL subsystem!");
     }

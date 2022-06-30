@@ -30,6 +30,6 @@ public:
     void moveInPlaneXZ(float dt, GameObject &gameObject);
 
     KeyMappings keys{};
-    float moveSpeed{3.f};
-    float lookSpeed{1.5f};
+    float moveSpeed{20.f};
+    float lookSpeed{2.5f};
 };
