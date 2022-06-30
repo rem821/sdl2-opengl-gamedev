@@ -11,9 +11,9 @@ VulkanEnginePipeline::VulkanEnginePipeline(VulkanEngineDevice &engineDevice, con
 }
 
 VulkanEnginePipeline::~VulkanEnginePipeline() {
-    vkDestroyShaderModule(engineDevice.device(), vertShaderModule, nullptr);
-    vkDestroyShaderModule(engineDevice.device(), fragShaderModule, nullptr);
-    vkDestroyPipeline(engineDevice.device(), graphicsPipeline, nullptr);
+    vkDestroyShaderModule(engineDevice.getDevice(), vertShaderModule, nullptr);
+    vkDestroyShaderModule(engineDevice.getDevice(), fragShaderModule, nullptr);
+    vkDestroyPipeline(engineDevice.getDevice(), graphicsPipeline, nullptr);
 }
 
 std::vector<char> VulkanEnginePipeline::readFile(const std::string &filePath) {
@@ -91,7 +91,7 @@ void VulkanEnginePipeline::createGraphicsPipeline(const std::string &vertFilePat
     pipelineInfo.basePipelineIndex = -1;
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
 
-    if (vkCreateGraphicsPipelines(engineDevice.device(), VK_NULL_HANDLE, 1, &pipelineInfo, nullptr,
+    if (vkCreateGraphicsPipelines(engineDevice.getDevice(), VK_NULL_HANDLE, 1, &pipelineInfo, nullptr,
                                   &graphicsPipeline) != VK_SUCCESS) {
         throw std::runtime_error("Failed to create graphics pipeline!");
     }
@@ -103,7 +103,7 @@ void VulkanEnginePipeline::createShaderModule(const std::vector<char> &code, VkS
     createInfo.codeSize = code.size();
     createInfo.pCode = reinterpret_cast<const uint32_t *>(code.data());
 
-    if (vkCreateShaderModule(engineDevice.device(), &createInfo, nullptr, shaderModule) != VK_SUCCESS) {
+    if (vkCreateShaderModule(engineDevice.getDevice(), &createInfo, nullptr, shaderModule) != VK_SUCCESS) {
         throw std::runtime_error("Failed to create shader module");
     }
 }
@@ -124,7 +124,7 @@ void VulkanEnginePipeline::defaultPipelineConfig(PipelineConfigInfo &configInfo)
     configInfo.rasterizationInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO;
     configInfo.rasterizationInfo.depthClampEnable = VK_FALSE;
     configInfo.rasterizationInfo.rasterizerDiscardEnable = VK_FALSE;
-    configInfo.rasterizationInfo.polygonMode = VK_POLYGON_MODE_FILL;
+    configInfo.rasterizationInfo.polygonMode = VK_POLYGON_MODE_LINE;
     configInfo.rasterizationInfo.lineWidth = 1.0f;
     configInfo.rasterizationInfo.cullMode = VK_CULL_MODE_BACK_BIT;
     configInfo.rasterizationInfo.frontFace = VK_FRONT_FACE_COUNTER_CLOCKWISE;

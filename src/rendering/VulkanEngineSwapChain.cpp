@@ -29,31 +29,31 @@ void VulkanEngineSwapChain::init() {
 
 VulkanEngineSwapChain::~VulkanEngineSwapChain() {
     for (auto imageView: swapChainImageViews) {
-        vkDestroyImageView(engineDevice.device(), imageView, nullptr);
+        vkDestroyImageView(engineDevice.getDevice(), imageView, nullptr);
     }
     swapChainImageViews.clear();
 
     if (swapChain != nullptr) {
-        vkDestroySwapchainKHR(engineDevice.device(), swapChain, nullptr);
+        vkDestroySwapchainKHR(engineDevice.getDevice(), swapChain, nullptr);
         swapChain = nullptr;
     }
 
     for (int i = 0; i < depthImages.size(); i++) {
-        vkDestroyImageView(engineDevice.device(), depthImageViews[i], nullptr);
-        vkDestroyImage(engineDevice.device(), depthImages[i], nullptr);
-        vkFreeMemory(engineDevice.device(), depthImageMemory[i], nullptr);
+        vkDestroyImageView(engineDevice.getDevice(), depthImageViews[i], nullptr);
+        vkDestroyImage(engineDevice.getDevice(), depthImages[i], nullptr);
+        vkFreeMemory(engineDevice.getDevice(), depthImageMemory[i], nullptr);
     }
 
     for (auto frameBuffer: swapChainFramebuffers) {
-        vkDestroyFramebuffer(engineDevice.device(), frameBuffer, nullptr);
+        vkDestroyFramebuffer(engineDevice.getDevice(), frameBuffer, nullptr);
     }
 
-    vkDestroyRenderPass(engineDevice.device(), renderPass, nullptr);
+    vkDestroyRenderPass(engineDevice.getDevice(), renderPass, nullptr);
 
     for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
-        vkDestroySemaphore(engineDevice.device(), renderFinishedSemaphores[i], nullptr);
-        vkDestroySemaphore(engineDevice.device(), imageAvailableSemaphores[i], nullptr);
-        vkDestroyFence(engineDevice.device(), inFlightFences[i], nullptr);
+        vkDestroySemaphore(engineDevice.getDevice(), renderFinishedSemaphores[i], nullptr);
+        vkDestroySemaphore(engineDevice.getDevice(), imageAvailableSemaphores[i], nullptr);
+        vkDestroyFence(engineDevice.getDevice(), inFlightFences[i], nullptr);
     }
 }
 
@@ -67,7 +67,7 @@ VkFormat VulkanEngineSwapChain::findDepthFormat() {
 
 VkResult VulkanEngineSwapChain::acquireNextImage(uint32_t *imageIndex) {
     vkWaitForFences(
-            engineDevice.device(),
+            engineDevice.getDevice(),
             1,
             &inFlightFences[currentFrame],
             VK_TRUE,
@@ -75,7 +75,7 @@ VkResult VulkanEngineSwapChain::acquireNextImage(uint32_t *imageIndex) {
     );
 
     VkResult result = vkAcquireNextImageKHR(
-            engineDevice.device(),
+            engineDevice.getDevice(),
             swapChain,
             std::numeric_limits<uint64_t>::max(),
             imageAvailableSemaphores[currentFrame],
@@ -87,7 +87,7 @@ VkResult VulkanEngineSwapChain::acquireNextImage(uint32_t *imageIndex) {
 
 VkResult VulkanEngineSwapChain::submitCommandBuffers(const VkCommandBuffer *buffers, const uint32_t *imageIndex) {
     if (imagesInFlight[*imageIndex] != VK_NULL_HANDLE) {
-        vkWaitForFences(engineDevice.device(), 1, &imagesInFlight[*imageIndex], VK_TRUE, UINT64_MAX);
+        vkWaitForFences(engineDevice.getDevice(), 1, &imagesInFlight[*imageIndex], VK_TRUE, UINT64_MAX);
     }
     imagesInFlight[*imageIndex] = inFlightFences[currentFrame];
 
@@ -107,7 +107,7 @@ VkResult VulkanEngineSwapChain::submitCommandBuffers(const VkCommandBuffer *buff
     submitInfo.signalSemaphoreCount = 1;
     submitInfo.pSignalSemaphores = signalSemaphores;
 
-    vkResetFences(engineDevice.device(), 1, &inFlightFences[currentFrame]);
+    vkResetFences(engineDevice.getDevice(), 1, &inFlightFences[currentFrame]);
     if (vkQueueSubmit(engineDevice.graphicsQueue(), 1, &submitInfo, inFlightFences[currentFrame]) != VK_SUCCESS) {
         throw std::runtime_error("Failed to submit draw command buffer!");
     }
@@ -175,13 +175,13 @@ void VulkanEngineSwapChain::createSwapChain() {
 
     createInfo.oldSwapchain = oldSwapChain == nullptr ? VK_NULL_HANDLE : oldSwapChain->swapChain;
 
-    if (vkCreateSwapchainKHR(engineDevice.device(), &createInfo, nullptr, &swapChain) != VK_SUCCESS) {
+    if (vkCreateSwapchainKHR(engineDevice.getDevice(), &createInfo, nullptr, &swapChain) != VK_SUCCESS) {
         throw std::runtime_error("Failed to create swap chain!");
     }
 
-    vkGetSwapchainImagesKHR(engineDevice.device(), swapChain, &imageCount, nullptr);
+    vkGetSwapchainImagesKHR(engineDevice.getDevice(), swapChain, &imageCount, nullptr);
     swapChainImages.resize(imageCount);
-    vkGetSwapchainImagesKHR(engineDevice.device(), swapChain, &imageCount, swapChainImages.data());
+    vkGetSwapchainImagesKHR(engineDevice.getDevice(), swapChain, &imageCount, swapChainImages.data());
 
     swapChainImageFormat = surfaceFormat.format;
     swapChainExtent = extent;
@@ -201,7 +201,7 @@ void VulkanEngineSwapChain::createImageViews() {
         viewInfo.subresourceRange.baseArrayLayer = 0;
         viewInfo.subresourceRange.layerCount = 1;
 
-        if (vkCreateImageView(engineDevice.device(), &viewInfo, nullptr, &swapChainImageViews[i]) != VK_SUCCESS) {
+        if (vkCreateImageView(engineDevice.getDevice(), &viewInfo, nullptr, &swapChainImageViews[i]) != VK_SUCCESS) {
             throw std::runtime_error("Failed to create texture image view!");
         }
     }
@@ -247,7 +247,7 @@ void VulkanEngineSwapChain::createDepthResources() {
         viewInfo.subresourceRange.baseArrayLayer = 0;
         viewInfo.subresourceRange.layerCount = 1;
 
-        if (vkCreateImageView(engineDevice.device(), &viewInfo, nullptr, &depthImageViews[i]) != VK_SUCCESS) {
+        if (vkCreateImageView(engineDevice.getDevice(), &viewInfo, nullptr, &depthImageViews[i]) != VK_SUCCESS) {
             throw std::runtime_error("Failed to create texture image view!");
         }
     }
@@ -308,7 +308,7 @@ void VulkanEngineSwapChain::createRenderPass() {
     renderPassInfo.dependencyCount = 1;
     renderPassInfo.pDependencies = &dependency;
 
-    if (vkCreateRenderPass(engineDevice.device(), &renderPassInfo, nullptr, &renderPass) != VK_SUCCESS) {
+    if (vkCreateRenderPass(engineDevice.getDevice(), &renderPassInfo, nullptr, &renderPass) != VK_SUCCESS) {
         throw std::runtime_error("Failed to create render pass!");
     }
 }
@@ -328,7 +328,7 @@ void VulkanEngineSwapChain::createFrameBuffers() {
         framebufferInfo.height = swapChainExt.height;
         framebufferInfo.layers = 1;
 
-        if (vkCreateFramebuffer(engineDevice.device(), &framebufferInfo, nullptr, &swapChainFramebuffers[i]) !=
+        if (vkCreateFramebuffer(engineDevice.getDevice(), &framebufferInfo, nullptr, &swapChainFramebuffers[i]) !=
             VK_SUCCESS) {
             throw std::runtime_error("Failed to create framebuffer!");
         }
@@ -349,11 +349,11 @@ void VulkanEngineSwapChain::createSyncObjects() {
     fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT;
 
     for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
-        if (vkCreateSemaphore(engineDevice.device(), &semaphoreInfo, nullptr, &imageAvailableSemaphores[i]) !=
+        if (vkCreateSemaphore(engineDevice.getDevice(), &semaphoreInfo, nullptr, &imageAvailableSemaphores[i]) !=
             VK_SUCCESS ||
-            vkCreateSemaphore(engineDevice.device(), &semaphoreInfo, nullptr, &renderFinishedSemaphores[i]) !=
+            vkCreateSemaphore(engineDevice.getDevice(), &semaphoreInfo, nullptr, &renderFinishedSemaphores[i]) !=
             VK_SUCCESS ||
-            vkCreateFence(engineDevice.device(), &fenceInfo, nullptr, &inFlightFences[i]) != VK_SUCCESS) {
+            vkCreateFence(engineDevice.getDevice(), &fenceInfo, nullptr, &inFlightFences[i]) != VK_SUCCESS) {
             throw std::runtime_error("Failed to create synchronization objects for a frame!");
         }
     }

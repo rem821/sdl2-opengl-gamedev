@@ -8,7 +8,7 @@ SimpleRenderSystem::SimpleRenderSystem(VulkanEngineDevice &device, VkRenderPass 
     createPipeline(renderPass);
 }
 
-SimpleRenderSystem::~SimpleRenderSystem() { vkDestroyPipelineLayout(engineDevice.device(), pipelineLayout, nullptr); };
+SimpleRenderSystem::~SimpleRenderSystem() { vkDestroyPipelineLayout(engineDevice.getDevice(), pipelineLayout, nullptr); };
 
 void SimpleRenderSystem::createPipelineLayout(VkDescriptorSetLayout globalSetLayout) {
     VkPushConstantRange pushConstantRange = {};
@@ -25,7 +25,7 @@ void SimpleRenderSystem::createPipelineLayout(VkDescriptorSetLayout globalSetLay
     pipelineLayoutInfo.pushConstantRangeCount = 1;
     pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
 
-    if (vkCreatePipelineLayout(engineDevice.device(), &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS) {
+    if (vkCreatePipelineLayout(engineDevice.getDevice(), &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS) {
         throw std::runtime_error("Failed to create pipeline layout!");
     }
 }

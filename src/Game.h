@@ -2,6 +2,9 @@
 
 #include "SDL.h"
 
+#include "rendering/gui/imgui_impl_sdl.h"
+#include "rendering/gui/imgui_impl_vulkan.h"
+
 #include "rendering/VulkanEngineDevice.h"
 #include "rendering/VulkanEngineWindow.h"
 #include "rendering/VulkanEngineBuffer.h"
@@ -41,6 +44,8 @@ public:
 private:
     void loadGameObjects();
 
+    void setupImGui();
+
     void run();
     void handleEvents();
 
@@ -52,6 +57,8 @@ private:
     VulkanEngineRenderer renderer{window, engineDevice};
 
     std::unique_ptr<VulkanEngineDescriptorPool> globalPool{};
+    std::unique_ptr<VulkanEngineDescriptorPool> imguiPool{};
+
     GameObject::Map gameObjects;
     Cube cube{engineDevice};
     Map map{engineDevice, cube};

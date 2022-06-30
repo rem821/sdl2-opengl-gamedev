@@ -109,7 +109,7 @@ void VulkanEngineRenderer::createCommandBuffers() {
     allocInfo.commandPool = engineDevice.getCommandPool();
     allocInfo.commandBufferCount = static_cast<uint32_t>(commandBuffers.size());
 
-    if (vkAllocateCommandBuffers(engineDevice.device(), &allocInfo, commandBuffers.data()) != VK_SUCCESS) {
+    if (vkAllocateCommandBuffers(engineDevice.getDevice(), &allocInfo, commandBuffers.data()) != VK_SUCCESS) {
         throw std::runtime_error("Failed to allocate command buffers!");
     }
 }
@@ -125,7 +125,7 @@ void VulkanEngineRenderer::recreateSwapChain() {
         SDL_WaitEvent(nullptr);
     }
 
-    vkDeviceWaitIdle(engineDevice.device());
+    vkDeviceWaitIdle(engineDevice.getDevice());
 
     if (engineSwapChain == nullptr) {
         engineSwapChain = std::make_unique<VulkanEngineSwapChain>(engineDevice, extent);

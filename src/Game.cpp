@@ -1,6 +1,5 @@
 #include "Game.h"
 
-#include "rendering/gui/imgui_impl_vulkan.h"
 
 Game::Game() {
     globalPool = VulkanEngineDescriptorPool::Builder(engineDevice)
@@ -15,7 +14,9 @@ Game::Game() {
     run();
 }
 
-Game::~Game() {}
+Game::~Game() {
+    ImGui_ImplVulkan_Shutdown();
+}
 
 
 void Game::run() {
@@ -48,6 +49,8 @@ void Game::run() {
 
     Camera camera{};
 
+    setupImGui();
+
     //camera.setViewDirection(glm::vec3(0.f), glm::vec3(0.5f, 0.f, 1.f));
     camera.setViewTarget(glm::vec3(-1.f, -2.f, -2.f), glm::vec3(0.f, 0.f, 2.5f));
 
@@ -60,6 +63,13 @@ void Game::run() {
 
     while (isRunning) {
         handleEvents();
+        //imgui new frame
+        ImGui_ImplVulkan_NewFrame();
+        ImGui_ImplSDL2_NewFrame(window.sdlWindow());
+
+        ImGui::NewFrame();
+        ImGui::ShowDemoWindow();
+        ImGui::Render();
 
         auto newTime = std::chrono::high_resolution_clock::now();
         float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
@@ -90,12 +100,14 @@ void Game::run() {
             simpleRenderSystem.renderGameObjects(frameInfo);
             pointLightSystem.render(frameInfo);
 
+            ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), commandBuffer);
+
             renderer.endSwapChainRenderPass(commandBuffer);
             renderer.endFrame();
         }
     }
 
-    vkDeviceWaitIdle(engineDevice.device());
+    vkDeviceWaitIdle(engineDevice.getDevice());
 }
 
 void Game::loadGameObjects() {
@@ -128,30 +140,34 @@ void Game::loadGameObjects() {
 
 void Game::handleEvents() {
     SDL_Event event;
-    SDL_PollEvent(&event);
-    switch (event.type) {
-        case SDL_QUIT:
-            isRunning = false;
-            break;
-        case SDL_MOUSEWHEEL:
-            if (event.wheel.y > 0) {
-                //scrollAmount = scrollAmount + 10;
-            } else if (event.wheel.y < 0) {
-                //scrollAmount = scrollAmount - 10;
-            }
-        case SDL_MOUSEBUTTONDOWN:
-            if (event.button.button == SDL_BUTTON_LEFT) {
-            }
-        case SDL_WINDOWEVENT:
-            if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
-                SDL_Window *win = SDL_GetWindowFromID(event.window.windowID);
-                int w;
-                int h;
-                SDL_GetWindowSize(win, &w, &h);
-                window.onWindowResized(static_cast<uint32_t>(w), static_cast<uint32_t>(h));
-            }
-        default:
-            break;
+    while (SDL_PollEvent(&event) != 0)
+    {
+        ImGui_ImplSDL2_ProcessEvent(&event);
+
+        switch (event.type) {
+            case SDL_QUIT:
+                isRunning = false;
+                break;
+            case SDL_MOUSEWHEEL:
+                if (event.wheel.y > 0) {
+                    //scrollAmount = scrollAmount + 10;
+                } else if (event.wheel.y < 0) {
+                    //scrollAmount = scrollAmount - 10;
+                }
+            case SDL_MOUSEBUTTONDOWN:
+                if (event.button.button == SDL_BUTTON_LEFT) {
+                }
+            case SDL_WINDOWEVENT:
+                if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
+                    SDL_Window *win = SDL_GetWindowFromID(event.window.windowID);
+                    int w;
+                    int h;
+                    SDL_GetWindowSize(win, &w, &h);
+                    window.onWindowResized(static_cast<uint32_t>(w), static_cast<uint32_t>(h));
+                }
+            default:
+                break;
+        }
     }
 
     const Uint8 *keystate = SDL_GetKeyboardState(nullptr);
@@ -161,4 +177,53 @@ void Game::handleEvents() {
     }
 
     SDL_GetMouseState(&mouseRect.x, &mouseRect.y);
+}
+
+void Game::setupImGui() {
+     imguiPool = VulkanEngineDescriptorPool::Builder(engineDevice)
+            .setMaxSets(1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_SAMPLER, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000)
+            .addPoolSize(VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000)
+            .setPoolFlags(VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT)
+            .build();
+
+
+    ImGui::CreateContext();
+    ImGuiIO &io = ImGui::GetIO();
+    (void) io;
+    ImGui::StyleColorsDark();
+
+    // Setup Platform/Renderer backends
+    ImGui_ImplSDL2_InitForVulkan(window.sdlWindow());
+
+    ImGui_ImplVulkan_InitInfo init_info = {};
+    init_info.Instance = engineDevice.getInstance();
+    init_info.PhysicalDevice = engineDevice.getPhysicalDevice();
+    init_info.Device = engineDevice.getDevice();
+    init_info.QueueFamily = engineDevice.findPhysicalQueueFamilies().graphicsFamily;
+    init_info.Queue = engineDevice.graphicsQueue();
+    init_info.PipelineCache = VK_NULL_HANDLE;
+    init_info.DescriptorPool = imguiPool->getPool();
+    init_info.Subpass = 0;
+    init_info.MinImageCount = VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT;
+    init_info.ImageCount = VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT;
+    init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
+    init_info.Allocator = nullptr;
+    init_info.CheckVkResultFn = nullptr;
+    ImGui_ImplVulkan_Init(&init_info, renderer.getSwapChainRenderPass());
+
+    VkCommandBuffer commandBuffer = engineDevice.beginSingleTimeCommands();
+    ImGui_ImplVulkan_CreateFontsTexture(commandBuffer);
+    engineDevice.endSingleTimeCommands(commandBuffer);
+
+    ImGui_ImplVulkan_DestroyFontUploadObjects();
 }

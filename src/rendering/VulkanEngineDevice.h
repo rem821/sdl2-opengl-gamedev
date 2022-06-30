@@ -50,7 +50,11 @@ public:
 
     VkCommandPool getCommandPool() { return commandPool; }
 
-    VkDevice device() { return device_; }
+    VkInstance getInstance() { return instance; }
+
+    VkPhysicalDevice getPhysicalDevice() { return physicalDevice; }
+
+    VkDevice getDevice() { return device_; }
 
     VkSurfaceKHR surface() { return surface_; }
 

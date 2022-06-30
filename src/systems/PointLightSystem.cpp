@@ -8,7 +8,7 @@ PointLightSystem::PointLightSystem(VulkanEngineDevice &device, VkRenderPass rend
     createPipeline(renderPass);
 }
 
-PointLightSystem::~PointLightSystem() { vkDestroyPipelineLayout(engineDevice.device(), pipelineLayout, nullptr); };
+PointLightSystem::~PointLightSystem() { vkDestroyPipelineLayout(engineDevice.getDevice(), pipelineLayout, nullptr); };
 
 void PointLightSystem::createPipelineLayout(VkDescriptorSetLayout globalSetLayout) {
     VkPushConstantRange pushConstantRange = {};
@@ -25,7 +25,7 @@ void PointLightSystem::createPipelineLayout(VkDescriptorSetLayout globalSetLayou
     pipelineLayoutInfo.pushConstantRangeCount = 1;
     pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
 
-    if (vkCreatePipelineLayout(engineDevice.device(), &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS) {
+    if (vkCreatePipelineLayout(engineDevice.getDevice(), &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS) {
         throw std::runtime_error("Failed to create pipeline layout!");
     }
 }

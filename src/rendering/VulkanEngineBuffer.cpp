@@ -45,8 +45,8 @@ VulkanEngineBuffer::VulkanEngineBuffer(
 
 VulkanEngineBuffer::~VulkanEngineBuffer() {
     unmap();
-    vkDestroyBuffer(engineDevice.device(), buffer, nullptr);
-    vkFreeMemory(engineDevice.device(), memory, nullptr);
+    vkDestroyBuffer(engineDevice.getDevice(), buffer, nullptr);
+    vkFreeMemory(engineDevice.getDevice(), memory, nullptr);
 }
 
 /**
@@ -60,7 +60,7 @@ VulkanEngineBuffer::~VulkanEngineBuffer() {
  */
 VkResult VulkanEngineBuffer::map(VkDeviceSize size, VkDeviceSize offset) {
     assert(buffer && memory && "Called map on buffer before create");
-    return vkMapMemory(engineDevice.device(), memory, offset, size, 0, &mapped);
+    return vkMapMemory(engineDevice.getDevice(), memory, offset, size, 0, &mapped);
 }
 
 /**
@@ -70,7 +70,7 @@ VkResult VulkanEngineBuffer::map(VkDeviceSize size, VkDeviceSize offset) {
  */
 void VulkanEngineBuffer::unmap() {
     if (mapped) {
-        vkUnmapMemory(engineDevice.device(), memory);
+        vkUnmapMemory(engineDevice.getDevice(), memory);
         mapped = nullptr;
     }
 }
@@ -113,7 +113,7 @@ VkResult VulkanEngineBuffer::flush(VkDeviceSize size, VkDeviceSize offset) {
     mappedRange.memory = memory;
     mappedRange.offset = offset;
     mappedRange.size = size;
-    return vkFlushMappedMemoryRanges(engineDevice.device(), 1, &mappedRange);
+    return vkFlushMappedMemoryRanges(engineDevice.getDevice(), 1, &mappedRange);
 }
 
 /**
@@ -133,7 +133,7 @@ VkResult VulkanEngineBuffer::invalidate(VkDeviceSize size, VkDeviceSize offset) 
     mappedRange.memory = memory;
     mappedRange.offset = offset;
     mappedRange.size = size;
-    return vkInvalidateMappedMemoryRanges(engineDevice.device(), 1, &mappedRange);
+    return vkInvalidateMappedMemoryRanges(engineDevice.getDevice(), 1, &mappedRange);
 }
 
 /**

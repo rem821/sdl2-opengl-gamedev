@@ -79,6 +79,9 @@ public:
 
     void freeDescriptors(std::vector<VkDescriptorSet> &descriptors) const;
 
+
+    VkDescriptorPool getPool() { return descriptorPool; }
+
     void resetPool();
 
     VulkanEngineDevice& getEngineDevice() { return engineDevice; };

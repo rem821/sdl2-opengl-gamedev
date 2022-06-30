@@ -38,7 +38,7 @@ VulkanEngineDescriptorSetLayout::VulkanEngineDescriptorSetLayout(VulkanEngineDev
     descriptorSetLayoutInfo.pBindings = setLayoutBindings.data();
 
     if (vkCreateDescriptorSetLayout(
-            engineDevice.device(),
+            engineDevice.getDevice(),
             &descriptorSetLayoutInfo,
             nullptr,
             &descriptorSetLayout) != VK_SUCCESS) {
@@ -47,7 +47,7 @@ VulkanEngineDescriptorSetLayout::VulkanEngineDescriptorSetLayout(VulkanEngineDev
 }
 
 VulkanEngineDescriptorSetLayout::~VulkanEngineDescriptorSetLayout() {
-    vkDestroyDescriptorSetLayout(engineDevice.device(), descriptorSetLayout, nullptr);
+    vkDestroyDescriptorSetLayout(engineDevice.getDevice(), descriptorSetLayout, nullptr);
 }
 
 // *************** Descriptor Pool Builder *********************
@@ -84,14 +84,14 @@ VulkanEngineDescriptorPool::VulkanEngineDescriptorPool(VulkanEngineDevice &devic
     descriptorPoolInfo.maxSets = maxSets;
     descriptorPoolInfo.flags = poolFlags;
 
-    if (vkCreateDescriptorPool(engineDevice.device(), &descriptorPoolInfo, nullptr, &descriptorPool) !=
+    if (vkCreateDescriptorPool(engineDevice.getDevice(), &descriptorPoolInfo, nullptr, &descriptorPool) !=
         VK_SUCCESS) {
         throw std::runtime_error("failed to create descriptor pool!");
     }
 }
 
 VulkanEngineDescriptorPool::~VulkanEngineDescriptorPool() {
-    vkDestroyDescriptorPool(engineDevice.device(), descriptorPool, nullptr);
+    vkDestroyDescriptorPool(engineDevice.getDevice(), descriptorPool, nullptr);
 }
 
 bool VulkanEngineDescriptorPool::allocateDescriptor(const VkDescriptorSetLayout descriptorSetLayout, VkDescriptorSet &descriptor) const {
@@ -103,7 +103,7 @@ bool VulkanEngineDescriptorPool::allocateDescriptor(const VkDescriptorSetLayout 
 
     // Might want to create a "DescriptorPoolManager" class that handles this case, and builds
     // a new pool whenever an old pool fills up. But this is beyond our current scope
-    if (vkAllocateDescriptorSets(engineDevice.device(), &allocInfo, &descriptor) != VK_SUCCESS) {
+    if (vkAllocateDescriptorSets(engineDevice.getDevice(), &allocInfo, &descriptor) != VK_SUCCESS) {
         return false;
     }
     return true;
@@ -111,14 +111,14 @@ bool VulkanEngineDescriptorPool::allocateDescriptor(const VkDescriptorSetLayout 
 
 void VulkanEngineDescriptorPool::freeDescriptors(std::vector<VkDescriptorSet> &descriptors) const {
     vkFreeDescriptorSets(
-            engineDevice.device(),
+            engineDevice.getDevice(),
             descriptorPool,
             static_cast<uint32_t>(descriptors.size()),
             descriptors.data());
 }
 
 void VulkanEngineDescriptorPool::resetPool() {
-    vkResetDescriptorPool(engineDevice.device(), descriptorPool, 0);
+    vkResetDescriptorPool(engineDevice.getDevice(), descriptorPool, 0);
 }
 
 // *************** Descriptor Writer *********************
@@ -179,6 +179,6 @@ void VulkanEngineDescriptorWriter::overwrite(VkDescriptorSet &set) {
     for (auto &write: writes) {
         write.dstSet = set;
     }
-    vkUpdateDescriptorSets(pool.getEngineDevice().device(), writes.size(), writes.data(), 0, nullptr);
+    vkUpdateDescriptorSets(pool.getEngineDevice().getDevice(), writes.size(), writes.data(), 0, nullptr);
 }
 
