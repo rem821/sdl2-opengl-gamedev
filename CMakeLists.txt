@@ -11,16 +11,16 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC libs/fmt/ libs/glm/ libs/imgui/ libs/tinyobjloader/)
 
-add_subdirectory(libs/fmt)
+add_subdirectory(libs/fmt EXCLUDE_FROM_ALL)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/fmt/)
 
-add_subdirectory(libs/glm)
+add_subdirectory(libs/glm EXCLUDE_FROM_ALL)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/glm/)
 
-add_subdirectory(libs/imgui)
+add_subdirectory(libs/imgui EXCLUDE_FROM_ALL)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/imgui/)
 
-add_subdirectory(libs/tinyobjloader)
+add_subdirectory(libs/tinyobjloader EXCLUDE_FROM_ALL)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/tinyobjloader/)
 
 find_package(SDL2 REQUIRED)
