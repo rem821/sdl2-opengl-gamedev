@@ -10,3 +10,6 @@
 [submodule "libs/tinyobjloader"]
 	path = libs/tinyobjloader
 	url = https://github.com/rem821/tinyobjloader
+[submodule "libs/sdl"]
+	path = libs/sdl
+	url = https://github.com/rem821/SDL

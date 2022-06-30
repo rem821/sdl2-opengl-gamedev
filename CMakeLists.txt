@@ -9,27 +9,26 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_include_directories(${PROJECT_NAME} PUBLIC libs/fmt/ libs/glm/ libs/imgui/ libs/tinyobjloader/)
+target_include_directories(${PROJECT_NAME} PUBLIC libs/sdl libs/fmt/ libs/glm/ libs/imgui/ libs/tinyobjloader/)
 
-add_subdirectory(libs/fmt EXCLUDE_FROM_ALL)
+add_subdirectory(libs/sdl)
+target_link_directories(${PROJECT_NAME} PRIVATE libs/sdl/)
+
+add_subdirectory(libs/fmt)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/fmt/)
 
-add_subdirectory(libs/glm EXCLUDE_FROM_ALL)
+add_subdirectory(libs/glm)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/glm/)
 
-add_subdirectory(libs/imgui EXCLUDE_FROM_ALL)
+add_subdirectory(libs/imgui)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/imgui/)
 
-add_subdirectory(libs/tinyobjloader EXCLUDE_FROM_ALL)
+add_subdirectory(libs/tinyobjloader)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/tinyobjloader/)
 
-find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
 find_package(Vulkan REQUIRED)
 
-include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
-
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} Vulkan::Vulkan fmt glm ImGui)
+target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan SDL2 fmt glm ImGui)
 
 ############## Build SHADERS #######################
 

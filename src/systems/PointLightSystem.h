@@ -4,7 +4,6 @@
 #pragma once
 
 #include "SDL.h"
-#include "SDL_image.h"
 #include "../rendering/VulkanEngineDevice.h"
 #include "../rendering/VulkanEnginePipeline.h"
 #include "../rendering/GameObject.h"
