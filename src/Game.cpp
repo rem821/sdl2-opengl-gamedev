@@ -8,7 +8,7 @@ Game::Game() {
             .build();
 
     loadGameObjects();
-
+    loadTerrain();
 
     isRunning = true;
     run();
@@ -62,18 +62,18 @@ void Game::run() {
     auto currentTime = std::chrono::high_resolution_clock::now();
 
     while (isRunning) {
+        auto newTime = std::chrono::high_resolution_clock::now();
+        float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
+        currentTime = newTime;
+
         handleEvents();
         //imgui new frame
         ImGui_ImplVulkan_NewFrame();
         ImGui_ImplSDL2_NewFrame(window.sdlWindow());
 
         ImGui::NewFrame();
-        ImGui::ShowDemoWindow();
+        showWindow(frameTime);
         ImGui::Render();
-
-        auto newTime = std::chrono::high_resolution_clock::now();
-        float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
-        currentTime = newTime;
 
         cameraController.moveInPlaneXZ(frameTime, viewerObject);
         camera.setViewYXZ(viewerObject.transform.translation, viewerObject.transform.rotation);
@@ -111,8 +111,6 @@ void Game::run() {
 }
 
 void Game::loadGameObjects() {
-    gameObjects.merge(map.getMapBlocks());
-
     std::vector<glm::vec3> lightColors{
             {1.f, .1f, .1f},
             {.1f, .1f, 1.f},
@@ -122,26 +120,55 @@ void Game::loadGameObjects() {
             {1.f, 1.f, 1.f}
     };
 
-    for (int i = 0; i < lightColors.size(); i++) {
-        auto pointLight = GameObject::makePointLight(5.5f);
-        pointLight.color = lightColors[i];
-        auto rotateLight = glm::rotate(
-                glm::mat4(10.f),
-                (i * glm::two_pi<float>()) / lightColors.size(),
-                {0.f, -2.f, 0.f});
-        pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.f, -1.f, -1.f, 1.f));
-        pointLight.transform.translation.x += 10.0f;
-        pointLight.transform.translation.z -= 10.0f;
-        pointLight.transform.translation.y -= 10.0f;
+    auto pointLight = GameObject::makePointLight(5000.0f);
+    pointLight.color = lightColors[0];
+    pointLight.transform.translation.y -= 100.0f;
+    pointLight.transform.translation.z += 200.0f;
+    pointLight.transform.translation.x += 200.0f;
 
-        gameObjects.emplace(pointLight.getId(), std::move(pointLight));
-    }
+    gameObjects.emplace(pointLight.getId(), std::move(pointLight));
+
+    auto pointLight2 = GameObject::makePointLight(5000.0f);
+    pointLight2.color = lightColors[1];
+    pointLight2.transform.translation.y -= 100.0f;
+    pointLight2.transform.translation.z += 400.0f;
+    pointLight2.transform.translation.x += 200.0f;
+
+    gameObjects.emplace(pointLight2.getId(), std::move(pointLight2));
+
+    auto pointLight3 = GameObject::makePointLight(5000.0f);
+    pointLight3.color = lightColors[2];
+    pointLight3.transform.translation.y -= 100.0f;
+    pointLight3.transform.translation.z += 50.0f;
+    pointLight3.transform.translation.x += 200.0f;
+
+    gameObjects.emplace(pointLight3.getId(), std::move(pointLight3));
+
+    auto pointLight4 = GameObject::makePointLight(5000.0f);
+    pointLight4.color = lightColors[3];
+    pointLight4.transform.translation.y -= 100.0f;
+    pointLight4.transform.translation.z += 600.0f;
+    pointLight4.transform.translation.x += 200.0f;
+
+    gameObjects.emplace(pointLight4.getId(), std::move(pointLight4));
+
+    auto pointLight5 = GameObject::makePointLight(5000.0f);
+    pointLight5.color = lightColors[4];
+    pointLight5.transform.translation.y -= 100.0f;
+    pointLight5.transform.translation.z += 800.0f;
+    pointLight5.transform.translation.x += 200.0f;
+
+    gameObjects.emplace(pointLight5.getId(), std::move(pointLight5));
+}
+
+void Game::loadTerrain() {
+    GameObject obj = map.getMapBlocks();
+    gameObjects.emplace(obj.getId(), std::move(obj));
 }
 
 void Game::handleEvents() {
     SDL_Event event;
-    while (SDL_PollEvent(&event) != 0)
-    {
+    while (SDL_PollEvent(&event) != 0) {
         ImGui_ImplSDL2_ProcessEvent(&event);
 
         switch (event.type) {
@@ -180,7 +207,7 @@ void Game::handleEvents() {
 }
 
 void Game::setupImGui() {
-     imguiPool = VulkanEngineDescriptorPool::Builder(engineDevice)
+    imguiPool = VulkanEngineDescriptorPool::Builder(engineDevice)
             .setMaxSets(1000)
             .addPoolSize(VK_DESCRIPTOR_TYPE_SAMPLER, 1000)
             .addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000)
@@ -226,4 +253,42 @@ void Game::setupImGui() {
     engineDevice.endSingleTimeCommands(commandBuffer);
 
     ImGui_ImplVulkan_DestroyFontUploadObjects();
+}
+
+void Game::showWindow(float frameTime) {
+    ImGuiWindowFlags window_flags = 0;
+    window_flags |= ImGuiWindowFlags_NoTitleBar;
+    window_flags |= ImGuiWindowFlags_NoScrollbar;
+    window_flags |= ImGuiWindowFlags_MenuBar;
+    window_flags |= ImGuiWindowFlags_NoNav;
+    window_flags |= ImGuiWindowFlags_NoBackground;
+    window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus;
+
+    // We specify a default position/size in case there's no data in the .ini file.
+    // We only do it to make the demo applications a little more welcoming, but typically this isn't required.
+    const ImGuiViewport *main_viewport = ImGui::GetMainViewport();
+    ImGui::SetNextWindowPos(ImVec2(main_viewport->WorkPos.x + 650, main_viewport->WorkPos.y + 20), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
+
+
+    // Main body of the Demo window starts here.
+    if (!ImGui::Begin("Runtime info", nullptr, window_flags)) {
+        // Early out if the window is collapsed, as an optimization.
+        ImGui::End();
+        return;
+    }
+
+    ImGui::Text("FrameTime: %f ms", frameTime * 1000);
+    ImGui::Text("FPS: %f", 1 / frameTime);
+
+    uint32_t vertices = 0;
+    for (auto &kv: gameObjects) {
+        auto &obj = kv.second;
+        if (obj.model == nullptr) continue;
+
+        vertices += obj.model->getVertexCount();
+    }
+    ImGui::Text("Vertices: %u", vertices);
+
+    ImGui::End();
 }

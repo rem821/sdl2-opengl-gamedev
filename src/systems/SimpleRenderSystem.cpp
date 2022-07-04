@@ -14,7 +14,7 @@ void SimpleRenderSystem::createPipelineLayout(VkDescriptorSetLayout globalSetLay
     VkPushConstantRange pushConstantRange = {};
     pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
     pushConstantRange.offset = 0;
-    pushConstantRange.size = sizeof(SimplePushConstantData);
+    pushConstantRange.size = sizeof(SimplePushConstants);
 
     std::vector<VkDescriptorSetLayout> descriptorSetLayouts{globalSetLayout};
 
@@ -51,7 +51,7 @@ void SimpleRenderSystem::renderGameObjects(FrameInfo &frameInfo) {
         auto &obj = kv.second;
         if (obj.model == nullptr) continue;
 
-        SimplePushConstantData push = {};
+        SimplePushConstants push = {};
         push.modelMatrix = obj.transform.mat4();
         push.normalMatrix = obj.transform.normalMatrix();
 
@@ -60,7 +60,7 @@ void SimpleRenderSystem::renderGameObjects(FrameInfo &frameInfo) {
                 pipelineLayout,
                 VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
                 0,
-                sizeof(SimplePushConstantData),
+                sizeof(SimplePushConstants),
                 &push
         );
         obj.model->bind(frameInfo.commandBuffer);

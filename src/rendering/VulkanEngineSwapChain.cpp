@@ -375,12 +375,12 @@ VkPresentModeKHR
 VulkanEngineSwapChain::chooseSwapPresentMode(const std::vector<VkPresentModeKHR> &availablePresentModes) {
     for (const auto &availablePresentMode: availablePresentModes) {
         if (availablePresentMode == VK_PRESENT_MODE_MAILBOX_KHR) {
-            fmt::print("Present mode: Mailbox");
+            fmt::print("Present mode: Mailbox\n");
             return availablePresentMode;
         }
 
         //if (availablePresentMode == VK_PRESENT_MODE_IMMEDIATE_KHR) {
-        //    fmt::print("Present mode: Immediate");
+        //    fmt::print("Present mode: Immediate\n");
         //    return availablePresentMode;
         //}
     }

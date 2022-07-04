@@ -39,9 +39,10 @@ void Map::loadLevel(int z) {
     fmt::print(fmt::format("Level {} processed\n", z));
 }
 
-GameObject::Map Map::getMapBlocks() {
-    GameObject::Map cubes;
+GameObject Map::getMapBlocks() {
+    VulkanEngineModel::Builder terrainBuilder{};
 
+    int i = 0;
     for (int z = 0; z < MAP_DEPTH; ++z) {
         for (int x = 0; x < MAP_WIDTH; ++x) {
             for (int y = 0; y < MAP_HEIGHT; ++y) {
@@ -77,11 +78,22 @@ GameObject::Map Map::getMapBlocks() {
                         backFace = false;
                     }
 
-                    GameObject::Map faces = _cube.getCubeFaces(x, y, -z, leftFace, rightFace, topFace, bottomFace, frontFace, backFace);
-                    cubes.merge(faces);
+                    VulkanEngineModel::Builder faces = _cube.getCubeFaces(x, y, -z, leftFace, rightFace, topFace, bottomFace, frontFace, backFace);
+                    for (auto vertex: faces.vertices) {
+                        terrainBuilder.vertices.emplace_back(vertex);
+                    }
+                    for (auto index: faces.indices) {
+                        terrainBuilder.indices.emplace_back(index + i);
+                    }
+                    i += (int) faces.vertices.size();
                 }
             }
         }
     }
-    return cubes;
+
+    GameObject obj = GameObject::createGameObject();
+    obj.model = std::make_unique<VulkanEngineModel>(device, terrainBuilder);
+    obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
+
+    return obj;
 }

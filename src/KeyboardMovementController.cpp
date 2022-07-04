@@ -34,8 +34,11 @@ void KeyboardMovementController::moveInPlaneXZ(float dt, GameObject &gameObject)
     if (keystate[keys.moveUp]) moveDir += upDir;
     if (keystate[keys.moveDown]) moveDir -= upDir;
 
+    float speed = moveSpeed;
+    if(keystate[keys.sprint]) speed *= 10;
+
     if (glm::dot(moveDir, moveDir) > std::numeric_limits<float>::epsilon()) {
-        gameObject.transform.translation += moveSpeed * dt * glm::normalize(moveDir);
+        gameObject.transform.translation += speed * dt * glm::normalize(moveDir);
     }
 
 }

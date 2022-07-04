@@ -25,6 +25,7 @@ public:
         int lookRight = SDL_SCANCODE_RIGHT;
         int lookUp = SDL_SCANCODE_UP;
         int lookDown = SDL_SCANCODE_DOWN;
+        int sprint = SDL_SCANCODE_LSHIFT;
     };
 
     void moveInPlaneXZ(float dt, GameObject &gameObject);

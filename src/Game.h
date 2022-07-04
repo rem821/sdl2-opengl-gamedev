@@ -43,8 +43,10 @@ public:
 
 private:
     void loadGameObjects();
+    void loadTerrain();
 
     void setupImGui();
+    void showWindow(float frameTime);
 
     void run();
     void handleEvents();
@@ -60,6 +62,7 @@ private:
     std::unique_ptr<VulkanEngineDescriptorPool> imguiPool{};
 
     GameObject::Map gameObjects;
+
     Cube cube{engineDevice};
     Map map{engineDevice, cube};
 

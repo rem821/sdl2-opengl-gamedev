@@ -10,16 +10,16 @@
 #include <sstream>
 #include <string>
 
-#define MAP_HEIGHT 100
-#define MAP_WIDTH 100
-#define MAP_DEPTH 20
+#define MAP_HEIGHT 400
+#define MAP_WIDTH 400
+#define MAP_DEPTH 100
 
 class Map {
 public:
     Map(VulkanEngineDevice &engineDevice, Cube &cube);
     ~Map();
 
-    GameObject::Map getMapBlocks();
+    GameObject getMapBlocks();
 
 private:
     void loadLevel(int level);

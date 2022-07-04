@@ -23,7 +23,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 
-struct SimplePushConstantData {
+struct SimplePushConstants {
     glm::mat4 modelMatrix{1.f};
     glm::mat4 normalMatrix{1.f};
 };
