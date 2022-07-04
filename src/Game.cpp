@@ -122,7 +122,8 @@ void Game::loadGameObjects() {
 
     auto pointLight = GameObject::makePointLight(5000.0f);
     pointLight.color = lightColors[0];
-    pointLight.transform.translation.y -= 100.0f;
+    pointLight.transform.scale = {10.0f, 10.f, 10.f};
+    pointLight.transform.translation.y -= 300.0f;
     pointLight.transform.translation.z += 200.0f;
     pointLight.transform.translation.x += 200.0f;
 
@@ -130,7 +131,8 @@ void Game::loadGameObjects() {
 
     auto pointLight2 = GameObject::makePointLight(5000.0f);
     pointLight2.color = lightColors[1];
-    pointLight2.transform.translation.y -= 100.0f;
+    pointLight2.transform.scale = {10.0f, 10.f, 10.f};
+    pointLight2.transform.translation.y -= 300.0f;
     pointLight2.transform.translation.z += 400.0f;
     pointLight2.transform.translation.x += 200.0f;
 
@@ -138,7 +140,8 @@ void Game::loadGameObjects() {
 
     auto pointLight3 = GameObject::makePointLight(5000.0f);
     pointLight3.color = lightColors[2];
-    pointLight3.transform.translation.y -= 100.0f;
+    pointLight3.transform.scale = {10.0f, 10.f, 10.f};
+    pointLight3.transform.translation.y -= 300.0f;
     pointLight3.transform.translation.z += 50.0f;
     pointLight3.transform.translation.x += 200.0f;
 
@@ -146,7 +149,8 @@ void Game::loadGameObjects() {
 
     auto pointLight4 = GameObject::makePointLight(5000.0f);
     pointLight4.color = lightColors[3];
-    pointLight4.transform.translation.y -= 100.0f;
+    pointLight4.transform.scale = {10.0f, 10.f, 10.f};
+    pointLight4.transform.translation.y -= 300.0f;
     pointLight4.transform.translation.z += 600.0f;
     pointLight4.transform.translation.x += 200.0f;
 
@@ -154,7 +158,8 @@ void Game::loadGameObjects() {
 
     auto pointLight5 = GameObject::makePointLight(5000.0f);
     pointLight5.color = lightColors[4];
-    pointLight5.transform.translation.y -= 100.0f;
+    pointLight5.transform.scale = {10.0f, 10.f, 10.f};
+    pointLight5.transform.translation.y -= 300.0f;
     pointLight5.transform.translation.z += 800.0f;
     pointLight5.transform.translation.x += 200.0f;
 
