@@ -50,7 +50,7 @@ VulkanEngineBuffer::~VulkanEngineBuffer() {
 }
 
 /**
- * Map a memory range of this buffer. If successful, mapped points to the specified buffer range.
+ * TerrainDeserializer a memory range of this buffer. If successful, mapped points to the specified buffer range.
  *
  * @param size (Optional) Size of the memory range to map. Pass VK_WHOLE_SIZE to map the complete
  * buffer range.

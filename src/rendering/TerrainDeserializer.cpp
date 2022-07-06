@@ -1,13 +1,109 @@
-//
-// Created by Stanislav Svědiroh on 26.06.2022.
-//
-#include "Cube.h"
+#include "TerrainDeserializer.h"
 
-Cube::Cube(VulkanEngineDevice &device) : engineDevice{device} {
-
+TerrainDeserializer::TerrainDeserializer(VulkanEngineDevice &engineDevice) : device{engineDevice} {
+    for (int z = 0; z < MAP_DEPTH; ++z) {
+        loadLevel(z);
+        for (int x = 0; x < MAP_WIDTH; ++x) {
+            for (int y = 0; y < MAP_HEIGHT; ++y) {
+                getMapBlock(x, y, z) = level[z][x][y];
+            }
+        }
+    }
 }
 
-VulkanEngineModel::Builder Cube::getVertices(float x_tr, float y_tr, float z_tr, FaceOrientation orientation) {
+TerrainDeserializer::~TerrainDeserializer() {}
+
+uint32_t& TerrainDeserializer::getMapBlock(int x, int y, int z) {
+    return map_blocks[x + z * MAP_WIDTH + y * MAP_WIDTH * MAP_DEPTH];
+}
+
+void TerrainDeserializer::loadLevel(int z) {
+    std::ifstream infile(fmt::format("assets/map/level_{}.txt", z));
+
+    int x = 0;
+    int y = 0;
+
+    std::string line;
+    while (std::getline(infile, line)) {
+        std::istringstream iss(line);
+
+        for (int i = 0; i < line.size(); ++i) {
+            char ch = line[i];
+
+            if (ch == '1' || ch == '0') {
+                level[z][x][y] = ch - '0';
+                x += 1;
+            }
+        }
+        y += 1;
+        x = 0;
+    }
+
+    infile.close();
+    fmt::print(fmt::format("Level {} processed\n", z));
+}
+
+GameObject TerrainDeserializer::getMapBlocks() {
+    VulkanEngineModel::Builder terrainBuilder{};
+
+    int i = 0;
+    for (int z = 0; z < MAP_DEPTH; ++z) {
+        for (int x = 0; x < MAP_WIDTH; ++x) {
+            for (int y = 0; y < MAP_HEIGHT; ++y) {
+                if (getMapBlock(x, y, z) == 1) {
+
+                    bool leftFace = true;
+                    if (y > 0 && getMapBlock(x, y - 1, z) == 1) {
+                        leftFace = false;
+                    }
+
+                    bool rightFace = true;
+                    if (y < MAP_HEIGHT - 1 && getMapBlock(x, y + 1, z) == 1) {
+                        rightFace = false;
+                    }
+
+                    bool topFace = true;
+                    if (z < MAP_DEPTH - 1 && getMapBlock(x, y, z + 1) == 1) {
+                        topFace = false;
+                    }
+
+                    bool bottomFace = true;
+                    if (z > 0 && getMapBlock(x, y, z - 1) == 1) {
+                        bottomFace = false;
+                    }
+
+                    bool frontFace = true;
+                    if (x > 0 && getMapBlock(x - 1, y, z) == 1) {
+                        frontFace = false;
+                    }
+
+                    bool backFace = true;
+                    if (x < MAP_WIDTH - 1 && getMapBlock(x + 1, y, z) == 1) {
+                        backFace = false;
+                    }
+
+                    VulkanEngineModel::Builder faces = getCubeFaces((float) x, (float) y, (float) -z, leftFace, rightFace, topFace, bottomFace, frontFace,
+                                                                    backFace);
+                    for (auto vertex: faces.vertices) {
+                        terrainBuilder.vertices.emplace_back(vertex);
+                    }
+                    for (auto index: faces.indices) {
+                        terrainBuilder.indices.emplace_back(index + i);
+                    }
+                    i += (int) faces.vertices.size();
+                }
+            }
+        }
+    }
+
+    GameObject obj = GameObject::createGameObject();
+    obj.model = std::make_unique<VulkanEngineModel>(device, terrainBuilder);
+    obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
+
+    return obj;
+}
+
+VulkanEngineModel::Builder TerrainDeserializer::getFaceVertices(float x_tr, float y_tr, float z_tr, FaceOrientation orientation) {
     VulkanEngineModel::Builder builder = VulkanEngineModel::Builder{};
 
     if (orientation == TOP || orientation == BOTTOM) {
@@ -122,12 +218,12 @@ VulkanEngineModel::Builder Cube::getVertices(float x_tr, float y_tr, float z_tr,
 
 
 VulkanEngineModel::Builder
-Cube::getCubeFaces(float world_x, float world_y, float world_z, bool left, bool right, bool top, bool bottom, bool front, bool back) {
+TerrainDeserializer::getCubeFaces(float world_x, float world_y, float world_z, bool left, bool right, bool top, bool bottom, bool front, bool back) {
     VulkanEngineModel::Builder cubeFaces;
 
     int i = 0;
     if (left) {
-        VulkanEngineModel::Builder vertices = getVertices((world_y * 2.0f) + -1.0f, (world_z * 2.0f), (world_x * 2.0f), FaceOrientation::LEFT);
+        VulkanEngineModel::Builder vertices = getFaceVertices((world_y * 2.0f) + -1.0f, (world_z * 2.0f), (world_x * 2.0f), FaceOrientation::LEFT);
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -138,7 +234,7 @@ Cube::getCubeFaces(float world_x, float world_y, float world_z, bool left, bool 
         i += 4;
     }
     if (right) {
-        VulkanEngineModel::Builder vertices = getVertices((world_y * 2.0f) + 1.0f, (world_z * 2.0f), (world_x * 2.0f), FaceOrientation::RIGHT);
+        VulkanEngineModel::Builder vertices = getFaceVertices((world_y * 2.0f) + 1.0f, (world_z * 2.0f), (world_x * 2.0f), FaceOrientation::RIGHT);
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -149,7 +245,7 @@ Cube::getCubeFaces(float world_x, float world_y, float world_z, bool left, bool 
     }
 
     if (top) {
-        VulkanEngineModel::Builder vertices = getVertices((world_y * 2.0f), (world_z * 2.0f) + -1.0f, (world_x * 2.0f), FaceOrientation::TOP);
+        VulkanEngineModel::Builder vertices = getFaceVertices((world_y * 2.0f), (world_z * 2.0f) + -1.0f, (world_x * 2.0f), FaceOrientation::TOP);
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -159,7 +255,7 @@ Cube::getCubeFaces(float world_x, float world_y, float world_z, bool left, bool 
         i += 4;
     }
     if (bottom) {
-        VulkanEngineModel::Builder vertices = getVertices((world_y * 2.0f), (world_z * 2.0f) + 1.0f, (world_x * 2.0f), FaceOrientation::BOTTOM);
+        VulkanEngineModel::Builder vertices = getFaceVertices((world_y * 2.0f), (world_z * 2.0f) + 1.0f, (world_x * 2.0f), FaceOrientation::BOTTOM);
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -170,7 +266,7 @@ Cube::getCubeFaces(float world_x, float world_y, float world_z, bool left, bool 
     }
 
     if (front) {
-        VulkanEngineModel::Builder vertices = getVertices((world_y * 2.0f), (world_z * 2.0f), (world_x * 2.0f) + -1.0f, FaceOrientation::FRONT);
+        VulkanEngineModel::Builder vertices = getFaceVertices((world_y * 2.0f), (world_z * 2.0f), (world_x * 2.0f) + -1.0f, FaceOrientation::FRONT);
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -180,7 +276,7 @@ Cube::getCubeFaces(float world_x, float world_y, float world_z, bool left, bool 
         i += 4;
     }
     if (back) {
-        VulkanEngineModel::Builder vertices = getVertices((world_y * 2.0f), (world_z * 2.0f), (world_x * 2.0f) + 1.0f, FaceOrientation::BACK);
+        VulkanEngineModel::Builder vertices = getFaceVertices((world_y * 2.0f), (world_z * 2.0f), (world_x * 2.0f) + 1.0f, FaceOrientation::BACK);
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }

@@ -12,8 +12,7 @@
 #include "rendering/VulkanEngineRenderer.h"
 #include "rendering/GameObject.h"
 #include "rendering/Camera.h"
-#include "rendering/Cube.h"
-#include "rendering/Map.h"
+#include "rendering/TerrainDeserializer.h"
 
 #include "systems/SimpleRenderSystem.h"
 #include "systems/PointLightSystem.h"
@@ -63,8 +62,7 @@ private:
 
     GameObject::Map gameObjects;
 
-    Cube cube{engineDevice};
-    Map map{engineDevice, cube};
+    TerrainDeserializer map{engineDevice};
 
     SDL_Rect mouseRect;
 };
