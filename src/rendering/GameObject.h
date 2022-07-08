@@ -44,10 +44,12 @@ public:
     glm::vec3 color{};
     TransformComponent transform{};
 
+    bool isWireFrame = false;
+    bool isActive = true;
+
     // Optional pointer components
     std::shared_ptr<VulkanEngineModel> model{};
     std::unique_ptr<PointLightComponent> pointLight = nullptr;
-
 private:
     GameObject(id_t objId) : id{objId} {};
 

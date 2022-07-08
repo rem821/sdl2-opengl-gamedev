@@ -118,7 +118,7 @@ void VulkanEngineDevice::pickPhysicalDevice() {
         if (isDeviceSuitable(device)) {
             physicalDevice = device;
             //TODO: remove this comment break;
-            //break;
+            break;
         }
     }
 

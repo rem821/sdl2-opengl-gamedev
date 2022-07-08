@@ -3,9 +3,12 @@
 //
 #include "SimpleRenderSystem.h"
 
-SimpleRenderSystem::SimpleRenderSystem(VulkanEngineDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout) : engineDevice{device} {
+SimpleRenderSystem::SimpleRenderSystem(VulkanEngineDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout, VkPolygonMode polygonMode, VkCullModeFlagBits cullMode)
+        : engineDevice{device} {
     createPipelineLayout(globalSetLayout);
-    createPipeline(renderPass);
+    createPipeline(renderPass, polygonMode, cullMode);
+
+    isWireFrame = polygonMode == VK_POLYGON_MODE_LINE;
 }
 
 SimpleRenderSystem::~SimpleRenderSystem() { vkDestroyPipelineLayout(engineDevice.getDevice(), pipelineLayout, nullptr); };
@@ -30,11 +33,13 @@ void SimpleRenderSystem::createPipelineLayout(VkDescriptorSetLayout globalSetLay
     }
 }
 
-void SimpleRenderSystem::createPipeline(VkRenderPass renderPass) {
+void SimpleRenderSystem::createPipeline(VkRenderPass renderPass, VkPolygonMode polygonMode, VkCullModeFlagBits cullMode) {
     assert(pipelineLayout != nullptr && "Cannot create pipeline before pipeline layout");
 
     PipelineConfigInfo pipelineConfig = {};
     VulkanEnginePipeline::defaultPipelineConfig(pipelineConfig);
+    pipelineConfig.rasterizationInfo.polygonMode = polygonMode;
+    pipelineConfig.rasterizationInfo.cullMode = cullMode;
 
     pipelineConfig.renderPass = renderPass;
     pipelineConfig.pipelineLayout = pipelineLayout;
@@ -50,6 +55,8 @@ void SimpleRenderSystem::renderGameObjects(FrameInfo &frameInfo) {
     for (auto &kv: frameInfo.gameObjects) {
         auto &obj = kv.second;
         if (obj.model == nullptr) continue;
+        if (!obj.isActive) continue;
+        if (isWireFrame != obj.isWireFrame) continue;
 
         SimplePushConstants push = {};
         push.modelMatrix = obj.transform.mat4();

@@ -31,7 +31,7 @@ struct SimplePushConstants {
 class SimpleRenderSystem {
 
 public:
-    SimpleRenderSystem(VulkanEngineDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
+    SimpleRenderSystem(VulkanEngineDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout, VkPolygonMode polygonMode, VkCullModeFlagBits cullMode);
     ~SimpleRenderSystem();
     SimpleRenderSystem(const SimpleRenderSystem &) = delete;
     SimpleRenderSystem &operator=(const SimpleRenderSystem &) = delete;
@@ -40,7 +40,9 @@ public:
 
 private:
     void createPipelineLayout(VkDescriptorSetLayout globalSetLayout);
-    void createPipeline(VkRenderPass renderPass);
+    void createPipeline(VkRenderPass renderPass, VkPolygonMode polygonMode, VkCullModeFlagBits cullMode);
+
+    bool isWireFrame = false;
 
     VulkanEngineDevice &engineDevice;
 

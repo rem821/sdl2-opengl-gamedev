@@ -28,10 +28,15 @@ public:
 
     [[nodiscard]] const glm::mat4 &getInverseView() const { return inverseViewMatrix; };
 
-    [[nodiscard]] const glm::vec3 getPosition() const { return glm::vec3(inverseViewMatrix[3]); };
+    [[nodiscard]] glm::vec3 getPosition() const { return _position; };
+
+    [[nodiscard]] glm::vec3 getRotation() const { return _rotation; };
 
 private:
     glm::mat4 projectionMatrix{1.f};
     glm::mat4 viewMatrix{1.f};
     glm::mat4 inverseViewMatrix{1.f};
+
+    glm::vec3 _position{1.f};
+    glm::vec3 _rotation{1.f};
 };

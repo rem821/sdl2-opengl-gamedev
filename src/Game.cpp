@@ -44,18 +44,21 @@ void Game::run() {
                 .build(globalDescriptorSets[i]);
     }
 
-    SimpleRenderSystem simpleRenderSystem{engineDevice, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
+    SimpleRenderSystem simpleRenderSystem{engineDevice, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout(), VK_POLYGON_MODE_FILL,
+                                          VK_CULL_MODE_BACK_BIT};
+    SimpleRenderSystem simpleLineRenderSystem{engineDevice, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout(), VK_POLYGON_MODE_LINE,
+                                              VK_CULL_MODE_NONE};
+
     PointLightSystem pointLightSystem{engineDevice, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
 
     Camera camera{};
 
     setupImGui();
 
-    //camera.setViewDirection(glm::vec3(0.f), glm::vec3(0.5f, 0.f, 1.f));
     camera.setViewTarget(glm::vec3(-1.f, -2.f, -2.f), glm::vec3(0.f, 0.f, 2.5f));
 
     auto viewerObject = GameObject::createGameObject();
-    viewerObject.transform.translation = {.0f, -20.0f, -2.5f};
+    viewerObject.transform.translation = {MAP_HEIGHT / 2, -200.0f, MAP_WIDTH / 2};
     viewerObject.transform.rotation = {-0.4f, 0.8f, .0f};
     KeyboardMovementController cameraController{};
 
@@ -71,10 +74,6 @@ void Game::run() {
         ImGui_ImplVulkan_NewFrame();
         ImGui_ImplSDL2_NewFrame(window.sdlWindow());
 
-        ImGui::NewFrame();
-        showWindow(frameTime);
-        ImGui::Render();
-
         cameraController.moveInPlaneXZ(frameTime, viewerObject);
         camera.setViewYXZ(viewerObject.transform.translation, viewerObject.transform.rotation);
 
@@ -85,6 +84,11 @@ void Game::run() {
         if (auto commandBuffer = renderer.beginFrame()) {
             int frameIndex = renderer.getFrameIndex();
             FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
+
+            ImGui::NewFrame();
+            showWindow(frameInfo);
+            ImGui::Render();
+
             // update
             GlobalUbo ubo{};
             ubo.projection = camera.getProjection();
@@ -98,6 +102,8 @@ void Game::run() {
             renderer.beginSwapChainRenderPass(commandBuffer);
 
             simpleRenderSystem.renderGameObjects(frameInfo);
+            simpleLineRenderSystem.renderGameObjects(frameInfo);
+
             pointLightSystem.render(frameInfo);
 
             ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), commandBuffer);
@@ -111,6 +117,7 @@ void Game::run() {
 }
 
 void Game::loadGameObjects() {
+    /*
     std::vector<glm::vec3> lightColors{
             {1.f, .1f, .1f},
             {.1f, .1f, 1.f},
@@ -164,11 +171,38 @@ void Game::loadGameObjects() {
     pointLight5.transform.translation.x += 200.0f;
 
     gameObjects.emplace(pointLight5.getId(), std::move(pointLight5));
+    */
+
+    for (int i = 0; i < 5; i++) {
+        auto pointLight = GameObject::makePointLight(5000.0f);
+        pointLight.color = {0.609f, 0.18f, 0.207f};
+        pointLight.transform.scale = {10.0f, 10.f, 10.f};
+        pointLight.transform.translation.y -= 500.0f;
+        pointLight.transform.translation.z += i * (MAP_WIDTH / 3);
+        pointLight.transform.translation.x += MAP_HEIGHT / 2;
+
+        gameObjects.emplace(pointLight.getId(), std::move(pointLight));
+    }
+
+    for (int i = 0; i < 5; i++) {
+        auto pointLight = GameObject::makePointLight(5000.0f);
+        pointLight.color = {0.609f, 0.18f, 0.207f};
+        pointLight.transform.scale = {10.0f, 10.f, 10.f};
+        pointLight.transform.translation.y -= 500.0f;
+        pointLight.transform.translation.z += i * (MAP_WIDTH / 3);
+        pointLight.transform.translation.x += MAP_HEIGHT;
+
+        gameObjects.emplace(pointLight.getId(), std::move(pointLight));
+    }
 }
 
 void Game::loadTerrain() {
     GameObject obj = map.getMapBlocks();
     gameObjects.emplace(obj.getId(), std::move(obj));
+
+    GameObject borders = map.getChunkBorders();
+    gameObjects.emplace(borders.getId(), std::move(borders));
+    chunkBordersId = borders.getId();
 }
 
 void Game::handleEvents() {
@@ -260,7 +294,7 @@ void Game::setupImGui() {
     ImGui_ImplVulkan_DestroyFontUploadObjects();
 }
 
-void Game::showWindow(float frameTime) {
+void Game::showWindow(FrameInfo frameInfo) {
     ImGuiWindowFlags window_flags = 0;
     window_flags |= ImGuiWindowFlags_NoTitleBar;
     window_flags |= ImGuiWindowFlags_NoScrollbar;
@@ -283,16 +317,26 @@ void Game::showWindow(float frameTime) {
         return;
     }
 
-    ImGui::Text("FrameTime: %f ms", frameTime * 1000);
-    ImGui::Text("FPS: %f", 1 / frameTime);
+    ImGui::Text("FrameTime: %f ms", frameInfo.frameTime * 1000);
+    ImGui::Text("FPS: %f", 1 / frameInfo.frameTime);
+    ImGui::Text("GameObjects: %lu", frameInfo.gameObjects.size());
+    ImGui::Text("Camera position: x:%f, y:%f, z:%f", frameInfo.camera.getPosition().x, frameInfo.camera.getPosition().y, frameInfo.camera.getPosition().z);
+    ImGui::Text("Camera rotation: yaw:%f, pitch:%f, roll:%f", frameInfo.camera.getRotation().x, frameInfo.camera.getRotation().y,
+                frameInfo.camera.getRotation().z);
+
+    if (ImGui::Button("Render chunk borders")) {
+        gameObjects.at(chunkBordersId).isActive = !gameObjects.at(chunkBordersId).isActive;
+    }
 
     uint32_t vertices = 0;
     for (auto &kv: gameObjects) {
         auto &obj = kv.second;
         if (obj.model == nullptr) continue;
+        if (!obj.isActive) continue;
 
         vertices += obj.model->getVertexCount();
     }
+
     ImGui::Text("Vertices: %u", vertices);
 
     ImGui::End();

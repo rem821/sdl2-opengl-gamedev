@@ -64,6 +64,9 @@ void Camera::setViewTarget(glm::vec3 position, glm::vec3 target, glm::vec3 up) {
 }
 
 void Camera::setViewYXZ(glm::vec3 position, glm::vec3 rotation) {
+    _position = position;
+    _rotation = rotation;
+
     const float c3 = glm::cos(rotation.z);
     const float s3 = glm::sin(rotation.z);
     const float c2 = glm::cos(rotation.x);
