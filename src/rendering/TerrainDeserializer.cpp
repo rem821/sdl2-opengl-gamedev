@@ -1,31 +1,27 @@
 #include "TerrainDeserializer.h"
 
 TerrainDeserializer::TerrainDeserializer(VulkanEngineDevice &engineDevice) : device{engineDevice} {
-
     for (int i = 0; i < MAP_HEIGHT / CHUNK_SIZE; i++) {
         for (int j = 0; j < MAP_WIDTH / CHUNK_SIZE; j++) {
             int x = j * CHUNK_SIZE;
             int y = i * CHUNK_SIZE;
-            loadLevel(x, y);
+            deserializeChunk({x, y});
         }
     }
-
-
-    //loadLevel(0, 0);
 }
 
-TerrainDeserializer::~TerrainDeserializer() {}
+TerrainDeserializer::~TerrainDeserializer() = default;
 
-uint32_t &TerrainDeserializer::getMapBlock(int x, int y, int z) {
-    return map_blocks[x + z * MAP_WIDTH + y * MAP_WIDTH * MAP_DEPTH];
+TerrainDeserializer::Block &TerrainDeserializer::getChunkBlock(const chunk_id &id, glm::uvec3 pos) {
+    return chunks[id][pos.x + pos.z * CHUNK_SIZE + pos.y * CHUNK_SIZE * MAP_DEPTH];
 }
 
-void TerrainDeserializer::loadLevel(int chunk_x, int chunk_y) {
-    std::ifstream infile(fmt::format("assets/map/{}_{}_level.txt", chunk_x, chunk_y));
+void TerrainDeserializer::deserializeChunk(glm::uvec2 chunk_pos) {
+    std::ifstream infile(fmt::format("assets/map/{}_{}_level.txt", chunk_pos.x, chunk_pos.y));
 
-    int x = 0;
-    int y = 0;
-    int z = 0;
+    uint x = 0;
+    uint y = 0;
+    uint z = 0;
 
     std::string line;
     while (std::getline(infile, line)) {
@@ -40,11 +36,11 @@ void TerrainDeserializer::loadLevel(int chunk_x, int chunk_y) {
                 std::stringstream str(buff);
                 str >> length;
 
-                int block;
+                Block block;
                 if (ch == 's') { block = 1; } else { block = 0; }
 
-                for (int i = 0; i < length; i++) {
-                    getMapBlock(chunk_x + x + i, chunk_y + y, z) = block;
+                for (uint i = 0; i < length; i++) {
+                    getChunkBlock(getChunkId(chunk_pos), {x + i, y, z}) = block;
                 }
 
                 x += length;
@@ -80,42 +76,43 @@ void TerrainDeserializer::loadLevel(int chunk_x, int chunk_y) {
 
 }
 
-GameObject TerrainDeserializer::getMapBlocks() {
+GameObject TerrainDeserializer::getChunkGameObject(glm::uvec2 position) {
     VulkanEngineModel::Builder terrainBuilder{};
 
+    const chunk_id& id = getChunkId(position);
     int i = 0;
     for (int z = 0; z < MAP_DEPTH; ++z) {
-        for (int x = 0; x < MAP_WIDTH; ++x) {
-            for (int y = 0; y < MAP_HEIGHT; ++y) {
-                if (getMapBlock(x, y, z) == 1) {
+        for (int x = 0; x < CHUNK_SIZE; ++x) {
+            for (int y = 0; y < CHUNK_SIZE; ++y) {
+                if (getChunkBlock(id, {x, y, z}) == 1) {
 
                     bool leftFace = true;
-                    if (y > 0 && getMapBlock(x, y - 1, z) == 1) {
+                    if (y > 0 && getChunkBlock(id, {x, y - 1, z}) == 1) {
                         leftFace = false;
                     }
 
                     bool rightFace = true;
-                    if (y < MAP_HEIGHT - 1 && getMapBlock(x, y + 1, z) == 1) {
+                    if (y < MAP_HEIGHT - 1 && getChunkBlock(id, {x, y + 1, z}) == 1) {
                         rightFace = false;
                     }
 
                     bool topFace = true;
-                    if (z < MAP_DEPTH - 1 && getMapBlock(x, y, z + 1) == 1) {
+                    if (z < MAP_DEPTH - 1 && getChunkBlock(id, {x, y, z + 1}) == 1) {
                         topFace = false;
                     }
 
                     bool bottomFace = true;
-                    if (z > 0 && getMapBlock(x, y, z - 1) == 1) {
+                    if (z > 0 && getChunkBlock(id, {x, y, z - 1}) == 1) {
                         bottomFace = false;
                     }
 
                     bool frontFace = true;
-                    if (x > 0 && getMapBlock(x - 1, y, z) == 1) {
+                    if (x > 0 && getChunkBlock(id, {x - 1, y, z}) == 1) {
                         frontFace = false;
                     }
 
                     bool backFace = true;
-                    if (x < MAP_WIDTH - 1 && getMapBlock(x + 1, y, z) == 1) {
+                    if (x < MAP_WIDTH - 1 && getChunkBlock(id, {x + 1, y, z}) == 1) {
                         backFace = false;
                     }
 

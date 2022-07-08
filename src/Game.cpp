@@ -197,7 +197,7 @@ void Game::loadGameObjects() {
 }
 
 void Game::loadTerrain() {
-    GameObject obj = map.getMapBlocks();
+    GameObject obj = map.getChunkGameObject({0, 0});
     gameObjects.emplace(obj.getId(), std::move(obj));
 
     GameObject borders = map.getChunkBorders();
