@@ -58,7 +58,7 @@ void Game::run() {
     camera.setViewTarget(glm::vec3(-1.f, -2.f, -2.f), glm::vec3(0.f, 0.f, 2.5f));
 
     auto viewerObject = GameObject::createGameObject();
-    viewerObject.transform.translation = {MAP_HEIGHT / 2, -200.0f, MAP_WIDTH / 2};
+    viewerObject.transform.translation = {0, -200.0f, 0};
     viewerObject.transform.rotation = {-0.4f, 0.8f, .0f};
     KeyboardMovementController cameraController{};
 
@@ -197,12 +197,12 @@ void Game::loadGameObjects() {
 }
 
 void Game::loadTerrain() {
-    GameObject obj = map.getChunkGameObject({0, 0});
+    GameObject obj = chunkManager.getChunkGameObject({0, 0});
     gameObjects.emplace(obj.getId(), std::move(obj));
 
-    GameObject borders = map.getChunkBorders();
-    gameObjects.emplace(borders.getId(), std::move(borders));
+    GameObject borders = chunkManager.getChunkBorders({0, 0});
     chunkBordersId = borders.getId();
+    gameObjects.emplace(borders.getId(), std::move(borders));
 }
 
 void Game::handleEvents() {

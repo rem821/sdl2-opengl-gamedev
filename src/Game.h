@@ -12,7 +12,8 @@
 #include "rendering/VulkanEngineRenderer.h"
 #include "rendering/GameObject.h"
 #include "rendering/Camera.h"
-#include "rendering/TerrainDeserializer.h"
+#include "rendering/ChunkDeserializer.h"
+#include "rendering/ChunkManager.h"
 
 #include "systems/SimpleRenderSystem.h"
 #include "systems/PointLightSystem.h"
@@ -62,9 +63,9 @@ private:
     std::unique_ptr<VulkanEngineDescriptorPool> globalPool{};
     std::unique_ptr<VulkanEngineDescriptorPool> imguiPool{};
 
-    GameObject::Map gameObjects;
+    ChunkManager chunkManager{engineDevice};
 
-    TerrainDeserializer map{engineDevice};
+    GameObject::Map gameObjects;
 
     SDL_Rect mouseRect;
 };

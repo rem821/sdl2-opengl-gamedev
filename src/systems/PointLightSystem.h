@@ -10,7 +10,7 @@
 #include "../rendering/Camera.h"
 #include "../rendering/VulkanEngineFrameInfo.h"
 
-#include "../rendering/TerrainDeserializer.h"
+#include "../rendering/ChunkDeserializer.h"
 #include <fmt/core.h>
 #include <memory>
 #include <vector>
