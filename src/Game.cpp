@@ -197,12 +197,18 @@ void Game::loadGameObjects() {
 }
 
 void Game::loadTerrain() {
-    GameObject obj = chunkManager.getChunkGameObject({0, 0});
-    gameObjects.emplace(obj.getId(), std::move(obj));
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 30; j++) {
+            glm::uvec2 pos = {j * CHUNK_SIZE, i * CHUNK_SIZE};
+            GameObject obj = chunkManager.getChunkGameObject(pos);
+            gameObjects.emplace(obj.getId(), std::move(obj));
 
-    GameObject borders = chunkManager.getChunkBorders({0, 0});
-    chunkBordersId = borders.getId();
-    gameObjects.emplace(borders.getId(), std::move(borders));
+            GameObject borders = chunkManager.getChunkBorders(pos);
+            chunkBordersId.push_back(borders.getId());
+            gameObjects.emplace(borders.getId(), std::move(borders));
+        }
+    }
+
 }
 
 void Game::handleEvents() {
@@ -325,7 +331,9 @@ void Game::showWindow(FrameInfo frameInfo) {
                 frameInfo.camera.getRotation().z);
 
     if (ImGui::Button("Render chunk borders")) {
-        gameObjects.at(chunkBordersId).isActive = !gameObjects.at(chunkBordersId).isActive;
+        for (auto id: chunkBordersId) {
+            gameObjects.at(id).isActive = !gameObjects.at(id).isActive;
+        }
     }
 
     uint32_t vertices = 0;

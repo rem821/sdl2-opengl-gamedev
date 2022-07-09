@@ -8,7 +8,10 @@ GameObject ChunkManager::getChunkGameObject(glm::uvec2 position) {
     if (!isChunkLoaded[id]) {
         ChunkDeserializer::RawChunkData rawData = terrainDeserializer.deserializeChunk(position);
         populateChunk(getChunk(id), rawData);
+        fmt::print("Chunk {}_{} deserialized\n", position.x, position.y);
     }
+
+    Chunk &ch = getChunk(id);
 
     int i = 0;
     for (int z = 0; z < CHUNK_DEPTH; ++z) {
@@ -63,6 +66,7 @@ GameObject ChunkManager::getChunkGameObject(glm::uvec2 position) {
     GameObject obj = GameObject::createGameObject();
     obj.model = std::make_unique<VulkanEngineModel>(_device, terrainBuilder);
     obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
+    obj.transform.translation = {position.y, 0, position.x};
 
     return obj;
 }
@@ -71,8 +75,8 @@ GameObject ChunkManager::getChunkBorders(glm::vec2 chunk_pos) {
     VulkanEngineModel::Builder bordersBuilder{};
 
     glm::vec3 size = {CHUNK_SIZE, CHUNK_DEPTH, CHUNK_SIZE};
+    glm::vec3 pos = {(CHUNK_SIZE / 2.0f) - 0.5f, (CHUNK_SIZE / 2.0f) - 0.5f, -CHUNK_DEPTH / 2};
 
-    glm::vec3 pos = {chunk_pos.x + (CHUNK_SIZE / 2.0f) - 0.5f, chunk_pos.y + (CHUNK_SIZE / 2.0f) - 0.5f, -CHUNK_DEPTH / 2};
     VulkanEngineModel::Builder faces = Block::getCubeFaces(pos, size, true, true, false, false, true, true);
 
     for (auto vertex: faces.vertices) {
@@ -85,6 +89,7 @@ GameObject ChunkManager::getChunkBorders(glm::vec2 chunk_pos) {
     GameObject obj = GameObject::createGameObject();
     obj.model = std::make_unique<VulkanEngineModel>(_device, bordersBuilder);
     obj.color = glm::vec3(1.0f, 1.0f, 0.0f);
+    obj.transform.translation = {chunk_pos.y, 0, chunk_pos.x};
     obj.isWireFrame = true;
     obj.isActive = false;
 
@@ -110,6 +115,4 @@ void ChunkManager::populateChunk(ChunkManager::Chunk &chunk, ChunkDeserializer::
         getChunkBlock(chunk, {x, y, z}).setBlockId(rawData[i]);
         x += 1;
     }
-
-    fmt::print("Chunk {} processed\n", chunk->getBlockId());
 }
