@@ -1,17 +1,82 @@
 #include "ChunkManager.h"
 
 
-GameObject ChunkManager::getChunkGameObject(glm::uvec2 position) {
+void ChunkManager::loadChunksAroundPlayer(glm::uvec2 player_pos, uint32_t distance) {
+    auto chunk_pos = getChunkFromPlayerPos(player_pos);
+    // Generate needed chunk positions
+    std::vector<glm::vec2> chunk_positions{};
+    std::vector<glm::vec2> nodes{};
+
+    // Set the first node at player's position
+    chunk_positions.emplace_back(chunk_pos);
+    nodes.emplace_back(chunk_pos);
+
+    // Iterate and find nodes up to saved distance
+    for (int i = 0; i < distance; i++) {
+        int node_index = 0;
+        std::vector<glm::vec2> nodes_snapshot = nodes;
+        for (auto current_pos: nodes_snapshot) {
+
+            // Node to the left
+            glm::vec2 l_node = {current_pos.x + CHUNK_SIZE, current_pos.y};
+            if (l_node.x >= 0 && l_node.x < MAP_WIDTH) {
+                if (std::find(chunk_positions.begin(), chunk_positions.end(), l_node) == chunk_positions.end()) {
+                    chunk_positions.push_back(l_node);
+                    nodes.push_back(l_node);
+                }
+            }
+
+            // Node to the top
+            glm::vec2 t_node = {current_pos.x, current_pos.y + CHUNK_SIZE};
+            if (t_node.y >= 0 && t_node.y < MAP_HEIGHT) {
+                if (std::find(chunk_positions.begin(), chunk_positions.end(), t_node) == chunk_positions.end()) {
+                    chunk_positions.push_back(t_node);
+                    nodes.push_back(t_node);
+                }
+            }
+
+            // Node to the right
+            glm::vec2 r_node = {current_pos.x - CHUNK_SIZE, current_pos.y};
+            if (r_node.x >= 0 && r_node.x < MAP_WIDTH) {
+                if (std::find(chunk_positions.begin(), chunk_positions.end(), r_node) == chunk_positions.end()) {
+                    chunk_positions.push_back(r_node);
+                    nodes.push_back(r_node);
+                }
+            }
+
+            // Node to the bottom
+            glm::vec2 b_node = {current_pos.x, current_pos.y - CHUNK_SIZE};
+            if (b_node.y >= 0 && b_node.y < MAP_HEIGHT) {
+                if (std::find(chunk_positions.begin(), chunk_positions.end(), b_node) == chunk_positions.end()) {
+                    chunk_positions.push_back(b_node);
+                    nodes.push_back(b_node);
+                }
+            }
+
+            // Remove currently already traversed node
+            nodes.erase(nodes.begin() + node_index);
+            node_index++;
+        }
+    }
+
+    // Get the desired chunks
+    for (auto ch_pos: chunk_positions) {
+        generateChunkGameObject(ch_pos);
+    }
+}
+
+
+void ChunkManager::generateChunkGameObject(glm::uvec2 position) {
     VulkanEngineModel::Builder terrainBuilder{};
 
     const chunk_id &id = getChunkId(position);
-    if (!isChunkLoaded[id]) {
+    if (_activeChunks.find(id) != _activeChunks.end()) { return; }
+    if (_chunks.find(id) == _chunks.end()) {
         ChunkDeserializer::RawChunkData rawData = terrainDeserializer.deserializeChunkFromDb(position);
         populateChunk(getChunk(id), rawData);
+
         fmt::print("Chunk {}_{} deserialized\n", position.x, position.y);
     }
-
-    Chunk &ch = getChunk(id);
 
     int i = 0;
     for (int z = 0; z < CHUNK_DEPTH; ++z) {
@@ -63,12 +128,12 @@ GameObject ChunkManager::getChunkGameObject(glm::uvec2 position) {
         }
     }
 
-    GameObject obj = GameObject::createGameObject();
+    GameObject obj = GameObject::createGameObject(id);
     obj.model = std::make_unique<VulkanEngineModel>(_device, terrainBuilder);
     obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
     obj.transform.translation = {position.y, 0, position.x};
 
-    return obj;
+    _activeChunks.emplace(id, std::move(obj));
 }
 
 GameObject ChunkManager::getChunkBorders(glm::vec2 chunk_pos) {
@@ -115,4 +180,20 @@ void ChunkManager::populateChunk(ChunkManager::Chunk &chunk, ChunkDeserializer::
         getChunkBlock(chunk, {x, y, z}).setBlockId(rawData[i]);
         x += 1;
     }
+}
+
+glm::uvec2 ChunkManager::getChunkFromPlayerPos(glm::uvec2 player_pos) {
+    if (player_pos.x <= 0 && player_pos.y <= 0) {
+        return {0, 0};
+    } else if (player_pos.x <= 0) {
+        return {0, std::max<uint32_t>((uint32_t) (player_pos.y / CHUNK_SIZE) * CHUNK_SIZE, 0)};
+    } else if ( player_pos.y <= 0 )
+    {
+        return {std::max<uint32_t>((uint32_t) (player_pos.x / CHUNK_SIZE) * CHUNK_SIZE, 0), 0};
+    } else {
+        return {std::max<uint32_t>((uint32_t) (player_pos.x / CHUNK_SIZE) * CHUNK_SIZE, 0),
+                std::max<uint32_t>((uint32_t) (player_pos.y / CHUNK_SIZE) * CHUNK_SIZE, 0)
+        };
+    }
+
 }

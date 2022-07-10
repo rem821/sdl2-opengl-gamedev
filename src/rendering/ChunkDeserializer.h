@@ -13,8 +13,8 @@
 #include <string>
 #include <vector>
 
-#define MAP_HEIGHT 544
-#define MAP_WIDTH 960
+#define MAP_HEIGHT 1088
+#define MAP_WIDTH 1920
 
 class ChunkDeserializer {
 public:
@@ -29,7 +29,7 @@ public:
     RawChunkData deserializeChunkFromDb(glm::uvec2 chunk_pos);
 
 
-    void createDatabaseFile();
+    [[maybe_unused]] void createDatabaseFile();
 
 private:
 

@@ -4,6 +4,7 @@
 #include <memory>
 #include <unordered_map>
 #include <glm/gtc/matrix_transform.hpp>
+#include <functional>
 
 struct TransformComponent {
     glm::vec3 translation{};
@@ -27,9 +28,17 @@ public:
     using id_t = unsigned int;
     using Map = std::unordered_map<id_t, GameObject>;
 
-    static GameObject createGameObject() {
-        static id_t currentId = 0;
-        return GameObject{currentId++};
+    static GameObject createGameObject(const std::string &chunk_id = "") {
+        if (chunk_id.empty()) {
+            // Used for generic game objects
+            static id_t currentId = 0;
+            return GameObject{currentId++};
+        } else {
+            // Used for chunks with predefined chunk_id
+            std::hash<std::string> hasher;
+            id_t hashed = hasher(chunk_id);
+            return GameObject{hashed};
+        }
     }
 
     static GameObject makePointLight(float intensity = 2.f, float radius = 0.1f, glm::vec3 color = glm::vec3(1.f));

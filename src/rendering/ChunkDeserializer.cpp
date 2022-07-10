@@ -9,9 +9,9 @@ ChunkDeserializer::RawChunkData ChunkDeserializer::deserializeChunkFromFile(glm:
     while (std::getline(infile, line)) {
         std::istringstream iss(line);
 
-        std::string buff("");
+        std::string buff;
 
-        for (unsigned char ch: line) {
+        for (char ch: line) {
             if (ch == Block::BlockTypes::SOLID || ch == Block::BlockTypes::AIR) {
                 // If we hit block type, fetch the previously saved number
                 int length;
@@ -58,16 +58,16 @@ ChunkDeserializer::RawChunkData ChunkDeserializer::deserializeChunkFromDb(glm::u
     SQLite::Statement query(db, "SELECT serialized FROM chunks WHERE id = ?");
     query.bind(1, id);
 
-    std::string serialized = "";
+    std::string serialized;
     while (query.executeStep())
     {
         serialized = query.getColumn(0).getString();
     }
 
-    std::string buff("");
+    std::string buff;
     uint32_t i = 0;
     while (i < serialized.size()) {
-        unsigned char ch = serialized[i];
+        char ch = serialized[i];
 
         if (ch == Block::BlockTypes::SOLID || ch == Block::BlockTypes::AIR) {
             // If we hit block type, fetch the previously saved number
@@ -92,16 +92,15 @@ ChunkDeserializer::RawChunkData ChunkDeserializer::deserializeChunkFromDb(glm::u
 }
 
 void ChunkDeserializer::createDatabaseFile() {
-    SQLite::Database db("assets/map/mars.db3", SQLite::OPEN_READWRITE);
+    SQLite::Database _db("assets/map/mars.db3", SQLite::OPEN_READWRITE);
 
-    SQLite::Statement createTable(db, "");
+    SQLite::Statement createTable(_db, "");
 
-    SQLite::Transaction transaction(db);
-    db.exec("CREATE TABLE chunks (id TEXT PRIMARY KEY, serialized TEXT)");
+    SQLite::Transaction transaction(_db);
+    _db.exec("CREATE TABLE chunks (id TEXT PRIMARY KEY, serialized TEXT)");
     transaction.commit();
 
     int CHUNK_SIZE = 32;
-    int CHUNK_DEPTH = 256;
     int WORLD_WIDTH = 1920;
     int WORLD_HEIGHT = 1088;
 
@@ -114,8 +113,8 @@ void ChunkDeserializer::createDatabaseFile() {
 
             std::string data = readSerialChunkFromFile({j * CHUNK_SIZE, i * CHUNK_SIZE});
 
-            SQLite::Transaction tr(db);
-            db.exec(fmt::format("INSERT INTO chunks (id, serialized) VALUES ('{}','{}')", id, data));
+            SQLite::Transaction tr(_db);
+            _db.exec(fmt::format("INSERT INTO chunks (id, serialized) VALUES ('{}','{}')", id, data));
             tr.commit();
 
         }

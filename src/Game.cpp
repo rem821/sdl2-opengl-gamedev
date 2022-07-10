@@ -8,7 +8,6 @@ Game::Game() {
             .build();
 
     loadGameObjects();
-    loadTerrain();
 
     isRunning = true;
     run();
@@ -70,6 +69,13 @@ void Game::run() {
         currentTime = newTime;
 
         handleEvents();
+        chunkManager.loadChunksAroundPlayer({viewerObject.transform.translation.z, viewerObject.transform.translation.x}, 5);
+
+        for (auto &chunk: chunkManager.getActiveChunks()) {
+            gameObjects.emplace(chunk.second.getId(), std::move(chunk.second));
+        }
+
+
         //imgui new frame
         ImGui_ImplVulkan_NewFrame();
         ImGui_ImplSDL2_NewFrame(window.sdlWindow());
@@ -117,62 +123,6 @@ void Game::run() {
 }
 
 void Game::loadGameObjects() {
-    /*
-    std::vector<glm::vec3> lightColors{
-            {1.f, .1f, .1f},
-            {.1f, .1f, 1.f},
-            {.1f, 1.f, .1f},
-            {1.f, 1.f, .1f},
-            {.1f, 1.f, 1.f},
-            {1.f, 1.f, 1.f}
-    };
-
-    auto pointLight = GameObject::makePointLight(5000.0f);
-    pointLight.color = lightColors[0];
-    pointLight.transform.scale = {10.0f, 10.f, 10.f};
-    pointLight.transform.translation.y -= 300.0f;
-    pointLight.transform.translation.z += 200.0f;
-    pointLight.transform.translation.x += 200.0f;
-
-    gameObjects.emplace(pointLight.getId(), std::move(pointLight));
-
-    auto pointLight2 = GameObject::makePointLight(5000.0f);
-    pointLight2.color = lightColors[1];
-    pointLight2.transform.scale = {10.0f, 10.f, 10.f};
-    pointLight2.transform.translation.y -= 300.0f;
-    pointLight2.transform.translation.z += 400.0f;
-    pointLight2.transform.translation.x += 200.0f;
-
-    gameObjects.emplace(pointLight2.getId(), std::move(pointLight2));
-
-    auto pointLight3 = GameObject::makePointLight(5000.0f);
-    pointLight3.color = lightColors[2];
-    pointLight3.transform.scale = {10.0f, 10.f, 10.f};
-    pointLight3.transform.translation.y -= 300.0f;
-    pointLight3.transform.translation.z += 50.0f;
-    pointLight3.transform.translation.x += 200.0f;
-
-    gameObjects.emplace(pointLight3.getId(), std::move(pointLight3));
-
-    auto pointLight4 = GameObject::makePointLight(5000.0f);
-    pointLight4.color = lightColors[3];
-    pointLight4.transform.scale = {10.0f, 10.f, 10.f};
-    pointLight4.transform.translation.y -= 300.0f;
-    pointLight4.transform.translation.z += 600.0f;
-    pointLight4.transform.translation.x += 200.0f;
-
-    gameObjects.emplace(pointLight4.getId(), std::move(pointLight4));
-
-    auto pointLight5 = GameObject::makePointLight(5000.0f);
-    pointLight5.color = lightColors[4];
-    pointLight5.transform.scale = {10.0f, 10.f, 10.f};
-    pointLight5.transform.translation.y -= 300.0f;
-    pointLight5.transform.translation.z += 800.0f;
-    pointLight5.transform.translation.x += 200.0f;
-
-    gameObjects.emplace(pointLight5.getId(), std::move(pointLight5));
-    */
-
     for (int i = 0; i < 5; i++) {
         auto pointLight = GameObject::makePointLight(5000.0f);
         pointLight.color = {0.609f, 0.18f, 0.207f};
@@ -194,21 +144,6 @@ void Game::loadGameObjects() {
 
         gameObjects.emplace(pointLight.getId(), std::move(pointLight));
     }
-}
-
-void Game::loadTerrain() {
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            glm::uvec2 pos = {j * CHUNK_SIZE, i * CHUNK_SIZE};
-            GameObject obj = chunkManager.getChunkGameObject(pos);
-            gameObjects.emplace(obj.getId(), std::move(obj));
-
-            GameObject borders = chunkManager.getChunkBorders(pos);
-            chunkBordersId.push_back(borders.getId());
-            gameObjects.emplace(borders.getId(), std::move(borders));
-        }
-    }
-
 }
 
 void Game::handleEvents() {

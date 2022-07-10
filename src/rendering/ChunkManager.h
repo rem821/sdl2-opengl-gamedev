@@ -11,6 +11,7 @@
 #include <glm/glm.hpp>
 #include <fmt/core.h>
 #include <cassert>
+#include <vector>
 
 #define CHUNK_SIZE 32
 #define CHUNK_DEPTH 256
@@ -20,6 +21,7 @@ public:
     using chunk_id = std::string;
     using Chunk = Block[CHUNK_SIZE * CHUNK_SIZE * CHUNK_DEPTH];
     using ChunkMap = std::unordered_map<chunk_id, Chunk>;
+    using ActiveChunkMap = std::unordered_map<chunk_id, GameObject>;
 
     ChunkManager(VulkanEngineDevice &device) : _device{device} {};
     ~ChunkManager() = default;
@@ -34,20 +36,25 @@ public:
 
     Chunk &getChunk(const chunk_id &id) { return _chunks[id]; };
 
-    void populateChunk(ChunkManager::Chunk &chunk, ChunkDeserializer::RawChunkData rawData);
-
     static chunk_id getChunkId(glm::uvec2 position) { return fmt::format("{}_{}", position.x, position.y); };
 
-    GameObject getChunkGameObject(glm::uvec2 position);
+    void loadChunksAroundPlayer(glm::uvec2 player_pos, uint32_t distance);
 
-    GameObject getChunkBorders(glm::vec2 chunk_pos);
+    ActiveChunkMap &getActiveChunks() { return _activeChunks; };
+
+    glm::uvec2 getChunkFromPlayerPos(glm::uvec2 player_pos);
 
 private:
 
-    std::unordered_map<chunk_id, bool> isChunkLoaded{};
+    void generateChunkGameObject(glm::uvec2 position);
+
+    GameObject getChunkBorders(glm::vec2 chunk_pos);
+
+    void populateChunk(ChunkManager::Chunk &chunk, ChunkDeserializer::RawChunkData rawData);
 
     VulkanEngineDevice &_device;
     ChunkDeserializer terrainDeserializer{};
 
     ChunkMap _chunks;
+    ActiveChunkMap _activeChunks;
 };
