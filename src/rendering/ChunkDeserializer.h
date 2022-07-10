@@ -20,7 +20,7 @@ class ChunkDeserializer {
 public:
     using RawChunkData = std::vector<unsigned char>;
 
-    ChunkDeserializer() = default;
+    ChunkDeserializer() : db(SQLite::Database("assets/map/mars.db3", SQLite::OPEN_READONLY)) {};
     ~ChunkDeserializer() = default;
 
     RawChunkData deserializeChunkFromFile(glm::uvec2 chunk_pos);
@@ -32,4 +32,6 @@ public:
     void createDatabaseFile();
 
 private:
+
+    SQLite::Database db;
 };

@@ -53,7 +53,6 @@ std::string ChunkDeserializer::readSerialChunkFromFile(glm::uvec2 chunk_pos) {
 ChunkDeserializer::RawChunkData ChunkDeserializer::deserializeChunkFromDb(glm::uvec2 chunk_pos) {
     RawChunkData chunkData{};
 
-    SQLite::Database db("assets/map/mars.db3", SQLite::OPEN_READONLY);
     std::string id = fmt::format("{}_{}", chunk_pos.x , chunk_pos.y);
 
     SQLite::Statement query(db, "SELECT serialized FROM chunks WHERE id = ?");

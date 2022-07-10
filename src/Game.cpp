@@ -197,8 +197,8 @@ void Game::loadGameObjects() {
 }
 
 void Game::loadTerrain() {
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
             glm::uvec2 pos = {j * CHUNK_SIZE, i * CHUNK_SIZE};
             GameObject obj = chunkManager.getChunkGameObject(pos);
             gameObjects.emplace(obj.getId(), std::move(obj));
