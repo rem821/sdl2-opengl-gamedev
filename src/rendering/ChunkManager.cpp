@@ -6,7 +6,7 @@ GameObject ChunkManager::getChunkGameObject(glm::uvec2 position) {
 
     const chunk_id &id = getChunkId(position);
     if (!isChunkLoaded[id]) {
-        ChunkDeserializer::RawChunkData rawData = terrainDeserializer.deserializeChunk(position);
+        ChunkDeserializer::RawChunkData rawData = terrainDeserializer.deserializeChunkFromDb(position);
         populateChunk(getChunk(id), rawData);
         fmt::print("Chunk {}_{} deserialized\n", position.x, position.y);
     }

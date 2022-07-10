@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Block.h"
 
+#include <SQLiteCpp/SQLiteCpp.h>
 #include <glm/glm.hpp>
 #include <fmt/core.h>
 #include <iostream>
@@ -22,7 +23,13 @@ public:
     ChunkDeserializer() = default;
     ~ChunkDeserializer() = default;
 
-    RawChunkData deserializeChunk(glm::uvec2 chunk_pos);
+    RawChunkData deserializeChunkFromFile(glm::uvec2 chunk_pos);
+    std::string readSerialChunkFromFile(glm::uvec2 chunk_pos);
+
+    RawChunkData deserializeChunkFromDb(glm::uvec2 chunk_pos);
+
+
+    void createDatabaseFile();
 
 private:
 };

@@ -26,9 +26,13 @@ target_link_directories(${PROJECT_NAME} PRIVATE libs/imgui/)
 add_subdirectory(libs/tinyobjloader)
 target_link_directories(${PROJECT_NAME} PRIVATE libs/tinyobjloader/)
 
+add_subdirectory(libs/sqlite)
+target_link_directories(${PROJECT_NAME} PRIVATE libs/sqlite/)
+
+
 find_package(Vulkan REQUIRED)
 
-target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan SDL2 fmt glm ImGui)
+target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan SDL2 fmt glm ImGui SQLiteCpp sqlite3 pthread dl)
 
 ############## Build SHADERS #######################
 
