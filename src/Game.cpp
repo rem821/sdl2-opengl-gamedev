@@ -13,23 +13,19 @@ Game::Game() {
     run();
 }
 
-Game::~Game() {
-    ImGui_ImplVulkan_Shutdown();
-}
-
-
 void Game::run() {
+    // Init all the necessary systems
     std::vector<std::unique_ptr<VulkanEngineBuffer>> uboBuffers(VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT);
-    for (int i = 0; i < uboBuffers.size(); i++) {
-        uboBuffers[i] = std::make_unique<VulkanEngineBuffer>(
+    for (auto &uboBuffer: uboBuffers) {
+        uboBuffer = std::make_unique<VulkanEngineBuffer>(
                 engineDevice,
                 sizeof(GlobalUbo),
                 1,
                 VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
                 VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT
         );
-        uboBuffers[i]->map();
-    };
+        uboBuffer->map();
+    }
 
     auto globalSetLayout = VulkanEngineDescriptorSetLayout::Builder(engineDevice)
             .addBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_ALL_GRAPHICS)
@@ -47,53 +43,48 @@ void Game::run() {
                                           VK_CULL_MODE_BACK_BIT};
     SimpleRenderSystem simpleLineRenderSystem{engineDevice, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout(), VK_POLYGON_MODE_LINE,
                                               VK_CULL_MODE_NONE};
-
     PointLightSystem pointLightSystem{engineDevice, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
-
     Camera camera{};
 
-    setupImGui();
-
-    camera.setViewTarget(glm::vec3(-1.f, -2.f, -2.f), glm::vec3(0.f, 0.f, 2.5f));
-
     auto viewerObject = GameObject::createGameObject();
-    viewerObject.transform.translation = {0, -200.0f, 0};
+    viewerObject.transform.translation = {(MAP_HEIGHT / 2) + (CHUNK_SIZE / 2), -50.0f, (MAP_WIDTH / 2) + (CHUNK_SIZE / 2)};
     viewerObject.transform.rotation = {-0.4f, 0.8f, .0f};
     KeyboardMovementController cameraController{};
 
-    auto currentTime = std::chrono::high_resolution_clock::now();
+    auto frameStartTime = std::chrono::high_resolution_clock::now();
 
     while (isRunning) {
-        auto newTime = std::chrono::high_resolution_clock::now();
-        float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
-        currentTime = newTime;
+        auto newFrameStartTime = std::chrono::high_resolution_clock::now();
+        float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newFrameStartTime - frameStartTime).count();
+        frameStartTime = newFrameStartTime;
 
         handleEvents();
-        chunkManager.loadChunksAroundPlayer({viewerObject.transform.translation.z, viewerObject.transform.translation.x}, 2);
+        chunkManager.loadChunksAroundPlayerAsync({viewerObject.transform.translation.z, viewerObject.transform.translation.x}, 2);
 
-        for (auto &chunk: chunkManager.getActiveChunks()) {
-            gameObjects.emplace(chunk.second.getId(), std::move(chunk.second));
+        // Move newly loaded chunks into gameObjects
+        for (auto &chunk: chunkManager.getVisibleChunks()) {
+            if (gameObjects.emplace(chunk.second.getId(), std::move(chunk.second)).second) {
+                glm::uvec2 pos = {chunk.second.transform.translation.z, chunk.second.transform.translation.x};
+                GameObject border = chunkManager.getChunkBorders(pos);
+                unsigned int borderId = border.getId();
+                if (gameObjects.emplace(borderId, std::move(border)).second) {
+                    chunkBorderIds.push_back(borderId);
+                }
+            }
         }
 
-
-        //imgui new frame
-        ImGui_ImplVulkan_NewFrame();
-        ImGui_ImplSDL2_NewFrame(window.sdlWindow());
-
+        // Move camera
         cameraController.moveInPlaneXZ(frameTime, viewerObject);
         camera.setViewYXZ(viewerObject.transform.translation, viewerObject.transform.rotation);
 
         float aspect = renderer.getAspectRatio();
-        //camera.setOrthographicProjection(-aspect, aspect, -1, 1, -1, 1);
         camera.setPerspectiveProjection(glm::radians(50.f), aspect, 0.1f, 1000.f);
 
         if (auto commandBuffer = renderer.beginFrame()) {
             int frameIndex = renderer.getFrameIndex();
             FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
 
-            ImGui::NewFrame();
-            showWindow(frameInfo);
-            ImGui::Render();
+            debugGui.showWindow(frameInfo, window.sdlWindow(), gameObjects, chunkBorderIds);
 
             // update
             GlobalUbo ubo{};
@@ -109,10 +100,8 @@ void Game::run() {
 
             simpleRenderSystem.renderGameObjects(frameInfo);
             simpleLineRenderSystem.renderGameObjects(frameInfo);
-
             pointLightSystem.render(frameInfo);
-
-            ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), commandBuffer);
+            debugGui.render(commandBuffer);
 
             renderer.endSwapChainRenderPass(commandBuffer);
             renderer.endFrame();
@@ -128,8 +117,8 @@ void Game::loadGameObjects() {
         pointLight.color = {0.609f, 0.18f, 0.207f};
         pointLight.transform.scale = {10.0f, 10.f, 10.f};
         pointLight.transform.translation.y -= 500.0f;
-        pointLight.transform.translation.z += i * (MAP_WIDTH / 3);
-        pointLight.transform.translation.x += MAP_HEIGHT / 2;
+        pointLight.transform.translation.z += (float) i * (MAP_WIDTH / 3.0f);
+        pointLight.transform.translation.x += MAP_HEIGHT / 2.0f;
 
         gameObjects.emplace(pointLight.getId(), std::move(pointLight));
     }
@@ -139,7 +128,7 @@ void Game::loadGameObjects() {
         pointLight.color = {0.609f, 0.18f, 0.207f};
         pointLight.transform.scale = {10.0f, 10.f, 10.f};
         pointLight.transform.translation.y -= 500.0f;
-        pointLight.transform.translation.z += i * (MAP_WIDTH / 3);
+        pointLight.transform.translation.z += (float) i * (MAP_WIDTH / 3.0f);
         pointLight.transform.translation.x += MAP_HEIGHT;
 
         gameObjects.emplace(pointLight.getId(), std::move(pointLight));
@@ -149,21 +138,12 @@ void Game::loadGameObjects() {
 void Game::handleEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event) != 0) {
-        ImGui_ImplSDL2_ProcessEvent(&event);
+        debugGui.processEvent(event);
 
         switch (event.type) {
             case SDL_QUIT:
                 isRunning = false;
                 break;
-            case SDL_MOUSEWHEEL:
-                if (event.wheel.y > 0) {
-                    //scrollAmount = scrollAmount + 10;
-                } else if (event.wheel.y < 0) {
-                    //scrollAmount = scrollAmount - 10;
-                }
-            case SDL_MOUSEBUTTONDOWN:
-                if (event.button.button == SDL_BUTTON_LEFT) {
-                }
             case SDL_WINDOWEVENT:
                 if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
                     SDL_Window *win = SDL_GetWindowFromID(event.window.windowID);
@@ -184,103 +164,4 @@ void Game::handleEvents() {
     }
 
     SDL_GetMouseState(&mouseRect.x, &mouseRect.y);
-}
-
-void Game::setupImGui() {
-    imguiPool = VulkanEngineDescriptorPool::Builder(engineDevice)
-            .setMaxSets(1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_SAMPLER, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000)
-            .addPoolSize(VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000)
-            .setPoolFlags(VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT)
-            .build();
-
-
-    ImGui::CreateContext();
-    ImGuiIO &io = ImGui::GetIO();
-    (void) io;
-    ImGui::StyleColorsDark();
-
-    // Setup Platform/Renderer backends
-    ImGui_ImplSDL2_InitForVulkan(window.sdlWindow());
-
-    ImGui_ImplVulkan_InitInfo init_info = {};
-    init_info.Instance = engineDevice.getInstance();
-    init_info.PhysicalDevice = engineDevice.getPhysicalDevice();
-    init_info.Device = engineDevice.getDevice();
-    init_info.QueueFamily = engineDevice.findPhysicalQueueFamilies().graphicsFamily;
-    init_info.Queue = engineDevice.graphicsQueue();
-    init_info.PipelineCache = VK_NULL_HANDLE;
-    init_info.DescriptorPool = imguiPool->getPool();
-    init_info.Subpass = 0;
-    init_info.MinImageCount = VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT;
-    init_info.ImageCount = VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT;
-    init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
-    init_info.Allocator = nullptr;
-    init_info.CheckVkResultFn = nullptr;
-    ImGui_ImplVulkan_Init(&init_info, renderer.getSwapChainRenderPass());
-
-    VkCommandBuffer commandBuffer = engineDevice.beginSingleTimeCommands();
-    ImGui_ImplVulkan_CreateFontsTexture(commandBuffer);
-    engineDevice.endSingleTimeCommands(commandBuffer);
-
-    ImGui_ImplVulkan_DestroyFontUploadObjects();
-}
-
-void Game::showWindow(FrameInfo frameInfo) {
-    ImGuiWindowFlags window_flags = 0;
-    window_flags |= ImGuiWindowFlags_NoTitleBar;
-    window_flags |= ImGuiWindowFlags_NoScrollbar;
-    window_flags |= ImGuiWindowFlags_MenuBar;
-    window_flags |= ImGuiWindowFlags_NoNav;
-    window_flags |= ImGuiWindowFlags_NoBackground;
-    window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus;
-
-    // We specify a default position/size in case there's no data in the .ini file.
-    // We only do it to make the demo applications a little more welcoming, but typically this isn't required.
-    const ImGuiViewport *main_viewport = ImGui::GetMainViewport();
-    ImGui::SetNextWindowPos(ImVec2(main_viewport->WorkPos.x + 650, main_viewport->WorkPos.y + 20), ImGuiCond_FirstUseEver);
-    ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
-
-
-    // Main body of the Demo window starts here.
-    if (!ImGui::Begin("Runtime info", nullptr, window_flags)) {
-        // Early out if the window is collapsed, as an optimization.
-        ImGui::End();
-        return;
-    }
-
-    ImGui::Text("FrameTime: %f ms", frameInfo.frameTime * 1000);
-    ImGui::Text("FPS: %f", 1 / frameInfo.frameTime);
-    ImGui::Text("GameObjects: %lu", frameInfo.gameObjects.size());
-    ImGui::Text("Camera position: x:%f, y:%f, z:%f", frameInfo.camera.getPosition().x, frameInfo.camera.getPosition().y, frameInfo.camera.getPosition().z);
-    ImGui::Text("Camera rotation: yaw:%f, pitch:%f, roll:%f", frameInfo.camera.getRotation().x, frameInfo.camera.getRotation().y,
-                frameInfo.camera.getRotation().z);
-
-    if (ImGui::Button("Render chunk borders")) {
-        for (auto id: chunkBordersId) {
-            gameObjects.at(id).isActive = !gameObjects.at(id).isActive;
-        }
-    }
-
-    uint32_t vertices = 0;
-    for (auto &kv: gameObjects) {
-        auto &obj = kv.second;
-        if (obj.model == nullptr) continue;
-        if (!obj.isActive) continue;
-
-        vertices += obj.model->getVertexCount();
-    }
-
-    ImGui::Text("Vertices: %u", vertices);
-
-    ImGui::End();
 }

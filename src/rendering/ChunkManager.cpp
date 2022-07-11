@@ -1,7 +1,6 @@
 #include "ChunkManager.h"
 
-
-void ChunkManager::loadChunksAroundPlayer(glm::uvec2 player_pos, uint32_t distance) {
+void ChunkManager::loadChunksAroundPlayerAsync(glm::uvec2 player_pos, uint32_t distance) {
     auto chunk_pos = getChunkFromPlayerPos(player_pos);
     // Generate needed chunk positions
     std::vector<glm::vec2> chunk_positions{};
@@ -58,46 +57,32 @@ void ChunkManager::loadChunksAroundPlayer(glm::uvec2 player_pos, uint32_t distan
             node_index++;
         }
     }
-    std::vector<std::thread> threads;
 
-    // Get the desired chunks
-    //TODO: Figure out a better way to do ths lazily
-    unsigned int max_threads = std::thread::hardware_concurrency();
-
+    // Get the desired chunks asynchronously using thread pool
     for (auto ch_pos: chunk_positions) {
-        threads.emplace_back(std::thread(&ChunkManager::generateChunkGameObject, this, ch_pos));
+        // Only query those that are not already visible and not in requested state
+        chunk_id id = getChunkId(ch_pos);
+        if (_visibleChunks.find(id) == _visibleChunks.end() && std::find(_requestedChunks.begin(), _requestedChunks.end(), id) == _requestedChunks.end()) {
+            _requestedChunks.push_back(id);
+            _chunkPrefabs.emplace(getChunkId(ch_pos), pool.submit([this](const glm::uvec2 position) { return generateChunkGameObject(position); }, ch_pos));
+        }
     }
-
-    for (auto &th: threads) {
-        th.join();
-    }
-
-    for (const auto &prefab: chunkPrefabs) {
-        chunk_id id = getChunkId(prefab.first);
-        GameObject obj = GameObject::createGameObject(id);
-        obj.model = std::make_unique<VulkanEngineModel>(_device, prefab.second);
-        obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
-        obj.transform.translation = {prefab.first.y, 0, prefab.first.x};
-
-        _activeChunks.emplace(id, std::move(obj));
-    }
-    chunkPrefabs = {};
 }
 
 
-void ChunkManager::generateChunkGameObject(glm::uvec2 position) {
+ChunkManager::ChunkPrefab ChunkManager::generateChunkGameObject(const glm::uvec2 position) {
     VulkanEngineModel::Builder terrainBuilder{};
 
+    // If the chunk is not even in active chunks, serialize it first
     const chunk_id &id = getChunkId(position);
-    if (_activeChunks.find(id) != _activeChunks.end()) { return; }
-    if (_chunks.find(id) == _chunks.end()) {
+    if (_activeChunks.find(id) == _activeChunks.end()) {
         ChunkDeserializer::RawChunkData rawData = terrainDeserializer.deserializeChunkFromDb(position);
         populateChunk(getChunk(id), rawData);
 
-        fmt::print("Chunk {}_{} deserialized\n", position.x, position.y);
+        fmt::print("Chunk {}_{} begins deserializing\n", position.x, position.y);
     }
 
-    int i = 0;
+    long i = 0;
     for (int z = 0; z < CHUNK_DEPTH; ++z) {
         for (int x = 0; x < CHUNK_SIZE; ++x) {
             for (int y = 0; y < CHUNK_SIZE; ++y) {
@@ -141,13 +126,13 @@ void ChunkManager::generateChunkGameObject(glm::uvec2 position) {
                     for (auto index: faces.indices) {
                         terrainBuilder.indices.emplace_back(index + i);
                     }
-                    i += (int) faces.vertices.size();
+                    i += (long) faces.vertices.size();
                 }
             }
         }
     }
 
-    chunkPrefabs.emplace(position, terrainBuilder);
+    return {position, terrainBuilder};
 }
 
 GameObject ChunkManager::getChunkBorders(glm::vec2 chunk_pos) {
@@ -181,7 +166,7 @@ void ChunkManager::populateChunk(ChunkManager::Chunk &chunk, ChunkDeserializer::
     uint32_t y = 0;
     uint32_t z = 0;
 
-    for (uint32_t i = 0; i < CHUNK_SIZE * CHUNK_SIZE * CHUNK_DEPTH; i++) {
+    for (int i = 0; i < CHUNK_SIZE * CHUNK_SIZE * CHUNK_DEPTH; i++) {
         if (x == CHUNK_SIZE) {
             x = 0;
             y += 1;
@@ -208,5 +193,30 @@ glm::uvec2 ChunkManager::getChunkFromPlayerPos(glm::uvec2 player_pos) {
                 std::max<uint32_t>((uint32_t) (player_pos.y / CHUNK_SIZE) * CHUNK_SIZE, 0)
         };
     }
+}
 
+ChunkManager::VisibleChunkMap &ChunkManager::getVisibleChunks() {
+    std::vector<chunk_id> finishedFutures;
+    for (auto &prefab: _chunkPrefabs) {
+        if (prefab.second.wait_for(std::chrono::seconds(0)) == std::future_status::ready) {
+            ChunkPrefab result = prefab.second.get();
+            chunk_id id = prefab.first;
+            GameObject obj = GameObject::createGameObject(id);
+            obj.model = std::make_unique<VulkanEngineModel>(_device, result.second);
+            obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
+            obj.transform.translation = {result.first.y, 0, result.first.x};
+
+            finishedFutures.push_back(id);
+            _visibleChunks.emplace(id, std::move(obj));
+
+            fmt::print("Chunk {}_{} created\n", result.first.x, result.first.y);
+        }
+    }
+
+    for (auto &finishedFuture: finishedFutures) {
+        _chunkPrefabs.erase(finishedFuture);
+        _requestedChunks.erase(std::remove(_requestedChunks.begin(), _requestedChunks.end(), finishedFuture), _requestedChunks.end());
+    }
+
+    return _visibleChunks;
 }

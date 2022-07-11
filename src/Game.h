@@ -2,9 +2,6 @@
 
 #include "SDL.h"
 
-#include "rendering/gui/imgui_impl_sdl.h"
-#include "rendering/gui/imgui_impl_vulkan.h"
-
 #include "rendering/VulkanEngineDevice.h"
 #include "rendering/VulkanEngineWindow.h"
 #include "rendering/VulkanEngineBuffer.h"
@@ -14,6 +11,7 @@
 #include "rendering/Camera.h"
 #include "rendering/ChunkDeserializer.h"
 #include "rendering/ChunkManager.h"
+#include "rendering/gui/DebugGui.h"
 
 #include "systems/SimpleRenderSystem.h"
 #include "systems/PointLightSystem.h"
@@ -36,24 +34,18 @@ class Game {
 
 public:
     Game();
-    ~Game();
+    ~Game() = default;
 
     Game(const Game &) = delete;
     Game &operator=(const Game &) = delete;
 
 private:
     void loadGameObjects();
-    void loadTerrain();
-
-    void setupImGui();
-    void showWindow(FrameInfo frameInfo);
 
     void run();
     void handleEvents();
 
     bool isRunning = false;
-
-    std::vector<uint32_t> chunkBordersId;
 
     VulkanEngineWindow window{WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT,
                               SDL_WINDOW_VULKAN | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE};
@@ -61,11 +53,12 @@ private:
     VulkanEngineRenderer renderer{window, engineDevice};
 
     std::unique_ptr<VulkanEngineDescriptorPool> globalPool{};
-    std::unique_ptr<VulkanEngineDescriptorPool> imguiPool{};
 
     ChunkManager chunkManager{engineDevice};
+    DebugGui debugGui{engineDevice, renderer, window.sdlWindow()};
 
     GameObject::Map gameObjects;
+    std::vector<uint32_t> chunkBorderIds;
 
-    SDL_Rect mouseRect;
+    SDL_Rect mouseRect{};
 };
