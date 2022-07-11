@@ -12,6 +12,7 @@
 #include <fmt/core.h>
 #include <cassert>
 #include <vector>
+#include <thread>
 
 #define CHUNK_SIZE 32
 #define CHUNK_DEPTH 256
@@ -57,4 +58,6 @@ private:
 
     ChunkMap _chunks;
     ActiveChunkMap _activeChunks;
+
+    std::unordered_map<glm::uvec2, VulkanEngineModel::Builder> chunkPrefabs;
 };

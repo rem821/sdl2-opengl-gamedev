@@ -58,11 +58,30 @@ void ChunkManager::loadChunksAroundPlayer(glm::uvec2 player_pos, uint32_t distan
             node_index++;
         }
     }
+    std::vector<std::thread> threads;
 
     // Get the desired chunks
+    //TODO: Figure out a better way to do ths lazily
+    unsigned int max_threads = std::thread::hardware_concurrency();
+
     for (auto ch_pos: chunk_positions) {
-        generateChunkGameObject(ch_pos);
+        threads.emplace_back(std::thread(&ChunkManager::generateChunkGameObject, this, ch_pos));
     }
+
+    for (auto &th: threads) {
+        th.join();
+    }
+
+    for (const auto &prefab: chunkPrefabs) {
+        chunk_id id = getChunkId(prefab.first);
+        GameObject obj = GameObject::createGameObject(id);
+        obj.model = std::make_unique<VulkanEngineModel>(_device, prefab.second);
+        obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
+        obj.transform.translation = {prefab.first.y, 0, prefab.first.x};
+
+        _activeChunks.emplace(id, std::move(obj));
+    }
+    chunkPrefabs = {};
 }
 
 
@@ -128,12 +147,7 @@ void ChunkManager::generateChunkGameObject(glm::uvec2 position) {
         }
     }
 
-    GameObject obj = GameObject::createGameObject(id);
-    obj.model = std::make_unique<VulkanEngineModel>(_device, terrainBuilder);
-    obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
-    obj.transform.translation = {position.y, 0, position.x};
-
-    _activeChunks.emplace(id, std::move(obj));
+    chunkPrefabs.emplace(position, terrainBuilder);
 }
 
 GameObject ChunkManager::getChunkBorders(glm::vec2 chunk_pos) {
@@ -187,8 +201,7 @@ glm::uvec2 ChunkManager::getChunkFromPlayerPos(glm::uvec2 player_pos) {
         return {0, 0};
     } else if (player_pos.x <= 0) {
         return {0, std::max<uint32_t>((uint32_t) (player_pos.y / CHUNK_SIZE) * CHUNK_SIZE, 0)};
-    } else if ( player_pos.y <= 0 )
-    {
+    } else if (player_pos.y <= 0) {
         return {std::max<uint32_t>((uint32_t) (player_pos.x / CHUNK_SIZE) * CHUNK_SIZE, 0), 0};
     } else {
         return {std::max<uint32_t>((uint32_t) (player_pos.x / CHUNK_SIZE) * CHUNK_SIZE, 0),

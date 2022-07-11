@@ -69,7 +69,7 @@ void Game::run() {
         currentTime = newTime;
 
         handleEvents();
-        chunkManager.loadChunksAroundPlayer({viewerObject.transform.translation.z, viewerObject.transform.translation.x}, 5);
+        chunkManager.loadChunksAroundPlayer({viewerObject.transform.translation.z, viewerObject.transform.translation.x}, 2);
 
         for (auto &chunk: chunkManager.getActiveChunks()) {
             gameObjects.emplace(chunk.second.getId(), std::move(chunk.second));
