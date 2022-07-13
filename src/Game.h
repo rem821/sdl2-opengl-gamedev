@@ -42,7 +42,7 @@ public:
 
 private:
     void loadGameObjects();
-    void loadChunkGameObjects();
+    void loadChunkGameObjects(glm::vec3 playerPos);
 
     void run();
     void handleEvents();

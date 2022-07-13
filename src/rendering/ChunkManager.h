@@ -34,6 +34,8 @@ public:
 
     void loadChunksAroundPlayerAsync(glm::vec3 player_pos, uint32_t distance);
 
+    void tryToDeleteTimedOutChunks();
+
     ChunkMap &getVisibleChunks();
 private:
 

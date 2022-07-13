@@ -61,9 +61,7 @@ void Game::run() {
         frameStartTime = newFrameStartTime;
 
         handleEvents();
-        chunkManager.loadChunksAroundPlayerAsync(fromCameraToWorld(viewerObject.transform.translation), 10);
-
-        loadChunkGameObjects();
+        loadChunkGameObjects(fromCameraToWorld(viewerObject.transform.translation));
 
         // Move camera
         cameraController.moveInPlaneXZ(frameTime, viewerObject);
@@ -127,11 +125,15 @@ void Game::loadGameObjects() {
     }
 }
 
-void Game::loadChunkGameObjects() {
+void Game::loadChunkGameObjects(glm::vec3 playerPos) {
+    chunkManager.loadChunksAroundPlayerAsync(playerPos, CHUNK_LOAD_DISTANCE);
+
     // Move newly loaded chunks into gameObjects
     for (auto &chunk: chunkManager.getVisibleChunks()) {
-        if (chunk.second.getChunkState() == CHUNK_STATE_ACTIVE) {
-            // If chunk active and prefab is ready, copy chunk into game objects
+        chunk_state state = chunk.second.getChunkState();
+        if (state == CHUNK_STATE_ACTIVE) {
+
+            // If chunk is active and prefab is ready, copy chunk into game objects
             if (chunk.second.checkIfPrefabReady()) {
                 GameObject chunkGameObj = chunk.second.createGameObject(engineDevice);
                 if (gameObjects.emplace(chunkGameObj.getId(), std::move(chunkGameObj)).second) {
@@ -142,6 +144,13 @@ void Game::loadChunkGameObjects() {
                         chunkBorderIds.push_back(borderId);
                     }
                 }
+            }
+        } else if (state == CHUNK_STATE_VISIBLE) {
+
+            // If the chunk is time out, remove it from game objects and set its state to deleted
+            if (chunk.second.isTimedOut()) {
+                gameObjects.erase(gameObjects.find(chunk.second.getGameObjectId()));
+                chunk.second.enlistForDeletion();
             }
         }
     }

@@ -58,21 +58,38 @@ void ChunkManager::loadChunksAroundPlayerAsync(glm::vec3 player_pos, uint32_t di
         }
     }
 
+    std::vector<Chunk::chunk_id> deleteIds = {};
+    for (auto &chunk: _chunks) {
+        if (chunk.second.getChunkState() == CHUNK_STATE_DELETED) {
+            deleteIds.push_back(chunk.second.getChunkId());
+        }
+    }
+    for (const auto& deleteId: deleteIds) {
+        _chunks.erase(deleteId);
+    }
+
     // Get the desired chunks asynchronously using thread pool
     pool.paused = true;
     uint32_t running_jobs = 0;
     for (auto ch_pos: chunk_positions) {
         if (running_jobs >= max_running_jobs) { return; }
-        // Only query those that are not already visible and not in requested state
         Chunk::chunk_id id = Chunk::getChunkId(ch_pos);
         if (_chunks.find(id) == _chunks.end()) {
+            // Only query those that are not already visible and not in requested state
             _chunks.emplace(id, std::move(Chunk{id, ch_pos}));
 
             _chunks[id].setChunkPrefabFuture(pool.submit([this](const glm::uvec2 position) { return generateChunkGameObjectPrefab(position); }, ch_pos));
             running_jobs += 1;
+        } else {
+            // Reactivate those already existing
+            _chunks[id].activate();
         }
     }
     pool.paused = false;
+}
+
+void ChunkManager::tryToDeleteTimedOutChunks() {
+
 }
 
 

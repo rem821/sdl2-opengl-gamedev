@@ -22,6 +22,7 @@ typedef enum {
     CHUNK_STATE_REQUESTED,
     CHUNK_STATE_ACTIVE,
     CHUNK_STATE_VISIBLE,
+    CHUNK_STATE_DELETED,
 } chunk_state;
 
 class Chunk {
@@ -41,13 +42,14 @@ public:
     Chunk &operator=(Chunk &&) = default;
 
     chunk_id getChunkId() {
-        assert (_id == "error" && "whoops, this should never happen!");
-        return _id; };
+        //assert (_id == "error" && "whoops, this should never happen!");
+        return _id;
+    };
 
     glm::uvec2 getChunkPosition() { return _position; };
 
     bool isTimedOut() {
-        return std::chrono::duration<float, std::chrono::seconds::period>(std::chrono::high_resolution_clock::now() - _activationTime).count() > CHUNK_LIFESPAN;
+        return std::chrono::duration<float, std::chrono::seconds::period>(std::chrono::high_resolution_clock::now() - _activationTime).count() > CHUNK_LIFESPAN_SECONDS;
     }
 
     void activate() {
@@ -89,13 +91,19 @@ public:
         obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
         obj.transform.translation = {_position.y, 0, _position.x};
 
+        _gameObjectId = obj.getId();
         _state = CHUNK_STATE_VISIBLE;
+
         fmt::print("Chunk {}_{} created\n", _position.x, _position.y);
 
         return obj;
     };
 
     chunk_state getChunkState() { return _state; }
+
+    id_t getGameObjectId() { return _gameObjectId; }
+
+    void enlistForDeletion() { _state = CHUNK_STATE_DELETED; }
 
     static GameObject getChunkBorders(VulkanEngineDevice &_device, glm::vec2 chunk_pos);
 
@@ -106,6 +114,7 @@ private:
     glm::uvec2 _position;
     std::chrono::time_point<std::chrono::steady_clock, std::chrono::nanoseconds> _activationTime;
     chunk_prefab _chunkPrefabFuture;
+    id_t _gameObjectId;
 
     Block _blocks[CHUNK_SIZE * CHUNK_SIZE * CHUNK_DEPTH];
 
