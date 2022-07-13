@@ -3,8 +3,8 @@
 GameObject Chunk::getChunkBorders(VulkanEngineDevice &_device, glm::vec2 chunk_pos) {
     VulkanEngineModel::Builder bordersBuilder{};
 
-    glm::vec3 size = {CHUNK_SIZE, CHUNK_DEPTH, CHUNK_SIZE};
-    glm::vec3 pos = {(CHUNK_SIZE / 2.0f) - 0.5f, (CHUNK_SIZE / 2.0f) - 0.5f, -CHUNK_DEPTH / 2};
+    glm::vec3 size = {CHUNK_SIZE, CHUNK_SIZE, CHUNK_DEPTH};
+    glm::vec3 pos = {chunk_pos, 0};
 
     VulkanEngineModel::Builder faces = Block::getCubeFaces(pos, size, true, true, false, false, true, true);
 
@@ -17,8 +17,8 @@ GameObject Chunk::getChunkBorders(VulkanEngineDevice &_device, glm::vec2 chunk_p
 
     GameObject obj = GameObject::createGameObject();
     obj.model = std::make_unique<VulkanEngineModel>(_device, bordersBuilder);
-    obj.color = glm::vec3(1.0f, 1.0f, 0.0f);
-    obj.transform.translation = {chunk_pos.y, 0, chunk_pos.x};
+    obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
+    obj.transform.translation = {0.0f, 0.0f, 0.0f};
     obj.isWireFrame = true;
     obj.isActive = false;
 

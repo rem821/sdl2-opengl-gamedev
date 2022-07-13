@@ -3,6 +3,8 @@
 VulkanEngineModel::Builder Block::getFaceVertices(glm::vec3 pos, FaceOrientation orientation, glm::vec3 size) {
     VulkanEngineModel::Builder builder = VulkanEngineModel::Builder{};
 
+    glm::vec3 vertex_color = {1.0f, 1.0f, 0.0f};
+
     if (orientation == TOP || orientation == BOTTOM) {
         int normal;
         if (orientation == TOP) {
@@ -15,32 +17,32 @@ VulkanEngineModel::Builder Block::getFaceVertices(glm::vec3 pos, FaceOrientation
 
         auto vert1 = VulkanEngineModel::Vertex{};
         vert1.position = {pos.x, pos.y, pos.z};
-        vert1.color = {0.8f, 0.8f, 0.8f};
+        vert1.color = vertex_color;
         vert1.uv = {0.0f, 0.0f};
         vert1.normal = {0.0f, normal, 0.0f};
 
         auto vert2 = VulkanEngineModel::Vertex{};
         vert2.position = {pos.x, pos.y, pos.z + size.z};
-        vert2.color = {0.8f, 0.8f, 0.8f};
+        vert2.color = vertex_color;
         vert2.uv = {1.0f, 0.0f};
         vert2.normal = {0.0f, normal, 0.0f};
 
         auto vert3 = VulkanEngineModel::Vertex{};
         vert3.position = {pos.x + size.x, pos.y, pos.z + size.z};
-        vert3.color = {0.8f, 0.8f, 0.8f};
+        vert3.color = vertex_color;
         vert3.uv = {1.0f, 1.0f};
         vert3.normal = {0.0f, normal, 0.0f};
 
         auto vert4 = VulkanEngineModel::Vertex{};
         vert4.position = {pos.x + size.x, pos.y, pos.z};
-        vert4.color = {0.8f, 0.8f, 0.8f};
+        vert4.color = vertex_color;
         vert4.uv = {0.0f, 1.0f};
         vert4.normal = {0.0f, normal, 0.0f};
 
         builder.vertices = {vert1, vert2, vert3, vert4};
     } else if (orientation == LEFT || orientation == RIGHT) {
         int normal;
-        if (orientation == LEFT) {
+        if (orientation == RIGHT) {
             builder.indices = {0, 2, 1, 2, 0, 3};
             normal = -1.0f;
         } else {
@@ -50,32 +52,32 @@ VulkanEngineModel::Builder Block::getFaceVertices(glm::vec3 pos, FaceOrientation
 
         auto vert1 = VulkanEngineModel::Vertex{};
         vert1.position = {pos.x, pos.y + size.y, pos.z};
-        vert1.color = {0.8f, 0.8f, 0.8f};
+        vert1.color = vertex_color;
         vert1.uv = {0.0f, 0.0f};
         vert1.normal = {0.0f, 0.0f, normal};
 
         auto vert2 = VulkanEngineModel::Vertex{};
         vert2.position = {pos.x, pos.y, pos.z};
-        vert2.color = {0.8f, 0.8f, 0.8f};
+        vert2.color = vertex_color;
         vert2.uv = {1.0f, 0.0f};
         vert2.normal = {0.0f, 0.0f, normal};
 
         auto vert3 = VulkanEngineModel::Vertex{};
         vert3.position = {pos.x + size.x, pos.y, pos.z};
-        vert3.color = {0.8f, 0.8f, 0.8f};
+        vert3.color = vertex_color;
         vert3.uv = {1.0f, 1.0f};
         vert3.normal = {0.0f, 0.0f, normal};
 
         auto vert4 = VulkanEngineModel::Vertex{};
         vert4.position = {pos.x + size.x, pos.y + size.y, pos.z};
-        vert4.color = {0.8f, 0.8f, 0.8f};
+        vert4.color = vertex_color;
         vert4.uv = {0.0f, 1.0f};
         vert4.normal = {0.0f, 0.0f, normal};
 
         builder.vertices = {vert1, vert2, vert3, vert4};
     } else if (orientation == FRONT || orientation == BACK) {
         int normal;
-        if (orientation == FRONT) {
+        if (orientation == BACK) {
             builder.indices = {0, 1, 2, 2, 3, 0};
             normal = -1.0f;
         } else {
@@ -85,25 +87,25 @@ VulkanEngineModel::Builder Block::getFaceVertices(glm::vec3 pos, FaceOrientation
 
         auto vert1 = VulkanEngineModel::Vertex{};
         vert1.position = {pos.x, pos.y + size.y, pos.z};
-        vert1.color = {0.8f, 0.8f, 0.8f};
+        vert1.color = vertex_color;
         vert1.uv = {0.0f, 0.0f};
         vert1.normal = {0.0f, 0.0f, normal};
 
         auto vert2 = VulkanEngineModel::Vertex{};
         vert2.position = {pos.x, pos.y, pos.z};
-        vert2.color = {0.8f, 0.8f, 0.8f};
+        vert2.color = vertex_color;
         vert2.uv = {1.0f, 0.0f};
         vert2.normal = {0.0f, 0.0f, normal};
 
         auto vert3 = VulkanEngineModel::Vertex{};
         vert3.position = {pos.x, pos.y, pos.z + size.z};
-        vert3.color = {0.8f, 0.8f, 0.8f};
+        vert3.color = vertex_color;
         vert3.uv = {1.0f, 1.0f};
         vert3.normal = {0.0f, 0.0f, normal};
 
         auto vert4 = VulkanEngineModel::Vertex{};
         vert4.position = {pos.x, pos.y + size.y, pos.z + size.z};
-        vert4.color = {0.8f, 0.8f, 0.8f};
+        vert4.color = vertex_color;
         vert4.uv = {0.0f, 1.0f};
         vert4.normal = {0.0f, 0.0f, normal};
 
@@ -119,8 +121,8 @@ VulkanEngineModel::Builder Block::getCubeFaces(glm::vec3 world_pos, glm::vec3 si
 
     int i = 0;
     if (left) {
-        VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x, world_pos.y, world_pos.z + size.z}),
-                                                              FaceOrientation::LEFT, size);
+        VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x, world_pos.y, world_pos.z}),
+                                                              FaceOrientation::LEFT, fromWorldToCamera(size));
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -131,8 +133,8 @@ VulkanEngineModel::Builder Block::getCubeFaces(glm::vec3 world_pos, glm::vec3 si
         i += 4;
     }
     if (right) {
-        VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x + size.x, world_pos.y, world_pos.z + size.z}),
-                                                              FaceOrientation::RIGHT, size);
+        VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x + size.x, world_pos.y, world_pos.z}),
+                                                              FaceOrientation::RIGHT, fromWorldToCamera(size));
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -144,7 +146,7 @@ VulkanEngineModel::Builder Block::getCubeFaces(glm::vec3 world_pos, glm::vec3 si
 
     if (top) {
         VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x, world_pos.y, world_pos.z + size.z}),
-                                                              FaceOrientation::TOP, size);
+                                                              FaceOrientation::TOP, fromWorldToCamera(size));
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -155,7 +157,7 @@ VulkanEngineModel::Builder Block::getCubeFaces(glm::vec3 world_pos, glm::vec3 si
     }
     if (bottom) {
         VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x, world_pos.y, world_pos.z}),
-                                                              FaceOrientation::BOTTOM, size);
+                                                              FaceOrientation::BOTTOM, fromWorldToCamera(size));
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -166,8 +168,8 @@ VulkanEngineModel::Builder Block::getCubeFaces(glm::vec3 world_pos, glm::vec3 si
     }
 
     if (front) {
-        VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x, world_pos.y, world_pos.z + size.z}),
-                                                              FaceOrientation::FRONT, size);
+        VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x, world_pos.y, world_pos.z}),
+                                                              FaceOrientation::FRONT, fromWorldToCamera(size));
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }
@@ -177,7 +179,8 @@ VulkanEngineModel::Builder Block::getCubeFaces(glm::vec3 world_pos, glm::vec3 si
         i += 4;
     }
     if (back) {
-        VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x, world_pos.y + size.y, world_pos.z + size.z}), FaceOrientation::BACK, size);
+        VulkanEngineModel::Builder vertices = getFaceVertices(fromWorldToCamera({world_pos.x, world_pos.y + size.y, world_pos.z}),
+                                                              FaceOrientation::BACK, fromWorldToCamera(size));
         for (auto vertex: vertices.vertices) {
             cubeFaces.vertices.emplace_back(vertex);
         }

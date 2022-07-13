@@ -47,7 +47,7 @@ void Game::run() {
     Camera camera{};
 
     auto viewerObject = GameObject::createGameObject();
-    viewerObject.transform.translation = fromWorldToCamera({0, 0, 50});
+    //viewerObject.transform.translation = fromWorldToCamera({0, 0, 50});
     viewerObject.transform.translation = {(MAP_HEIGHT / 2) + (CHUNK_SIZE / 2), -50.0f, (MAP_WIDTH / 2) + (CHUNK_SIZE / 2)};
     viewerObject.transform.rotation = {-0.4f, 0.8f, .0f};
 

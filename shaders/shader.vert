@@ -28,8 +28,6 @@ layout(push_constant) uniform Push {
     mat4 normalMatrix;
 } push;
 
-const float AMBIENT = 0.02;
-
 void main() {
     vec4 positionWorld = push.modelMatrix * vec4(position, 1.0);
     gl_Position = ubo.projectionMatrix * ubo.viewMatrix * push.modelMatrix * vec4(position, 1.0);

@@ -88,11 +88,6 @@ void ChunkManager::loadChunksAroundPlayerAsync(glm::vec3 player_pos, uint32_t di
     pool.paused = false;
 }
 
-void ChunkManager::tryToDeleteTimedOutChunks() {
-
-}
-
-
 VulkanEngineModel::Builder ChunkManager::generateChunkGameObjectPrefab(const glm::uvec2 position) {
     VulkanEngineModel::Builder terrainBuilder{};
 

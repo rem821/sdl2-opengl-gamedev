@@ -43,8 +43,15 @@ void SimpleRenderSystem::createPipeline(VkRenderPass renderPass, VkPolygonMode p
 
     pipelineConfig.renderPass = renderPass;
     pipelineConfig.pipelineLayout = pipelineLayout;
+
+    std::string fragment_shader;
+    if(polygonMode == VK_POLYGON_MODE_LINE) {
+        fragment_shader = "shaders/line_shader.frag.spv";
+    } else {
+        fragment_shader = "shaders/shader.frag.spv";
+    }
     enginePipeline = std::make_unique<VulkanEnginePipeline>(engineDevice, "shaders/shader.vert.spv",
-                                                            "shaders/shader.frag.spv", pipelineConfig);
+                                                            fragment_shader, pipelineConfig);
 }
 
 void SimpleRenderSystem::renderGameObjects(FrameInfo &frameInfo) {

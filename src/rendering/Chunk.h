@@ -42,7 +42,6 @@ public:
     Chunk &operator=(Chunk &&) = default;
 
     chunk_id getChunkId() {
-        //assert (_id == "error" && "whoops, this should never happen!");
         return _id;
     };
 
