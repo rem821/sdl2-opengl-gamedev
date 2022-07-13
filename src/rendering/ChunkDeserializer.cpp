@@ -53,14 +53,13 @@ std::string ChunkDeserializer::readSerialChunkFromFile(glm::uvec2 chunk_pos) {
 ChunkDeserializer::RawChunkData ChunkDeserializer::deserializeChunkFromDb(glm::uvec2 chunk_pos) {
     RawChunkData chunkData{};
 
-    std::string id = fmt::format("{}_{}", chunk_pos.x , chunk_pos.y);
+    std::string id = fmt::format("{}_{}", chunk_pos.x, chunk_pos.y);
 
     SQLite::Statement query(db, "SELECT serialized FROM chunks WHERE id = ?");
     query.bind(1, id);
 
     std::string serialized;
-    while (query.executeStep())
-    {
+    while (query.executeStep()) {
         serialized = query.getColumn(0).getString();
     }
 
@@ -100,12 +99,8 @@ void ChunkDeserializer::createDatabaseFile() {
     _db.exec("CREATE TABLE chunks (id TEXT PRIMARY KEY, serialized TEXT)");
     transaction.commit();
 
-    int CHUNK_SIZE = 32;
-    int WORLD_WIDTH = 1920;
-    int WORLD_HEIGHT = 1088;
-
-    int chunks_x = WORLD_WIDTH / CHUNK_SIZE;
-    int chunks_y = WORLD_HEIGHT / CHUNK_SIZE;
+    int chunks_y = MAP_WIDTH / CHUNK_SIZE;
+    int chunks_x = MAP_HEIGHT / CHUNK_SIZE;
 
     for (int j = 0; j < chunks_x; j++) {
         for (int i = 0; i < chunks_y; i++) {

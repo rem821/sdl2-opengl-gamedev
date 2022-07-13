@@ -47,8 +47,10 @@ void Game::run() {
     Camera camera{};
 
     auto viewerObject = GameObject::createGameObject();
+    viewerObject.transform.translation = fromWorldToCamera({0, 0, 50});
     viewerObject.transform.translation = {(MAP_HEIGHT / 2) + (CHUNK_SIZE / 2), -50.0f, (MAP_WIDTH / 2) + (CHUNK_SIZE / 2)};
     viewerObject.transform.rotation = {-0.4f, 0.8f, .0f};
+
     KeyboardMovementController cameraController{};
 
     auto frameStartTime = std::chrono::high_resolution_clock::now();
@@ -59,19 +61,9 @@ void Game::run() {
         frameStartTime = newFrameStartTime;
 
         handleEvents();
-        chunkManager.loadChunksAroundPlayerAsync({viewerObject.transform.translation.z, viewerObject.transform.translation.x}, 2);
+        chunkManager.loadChunksAroundPlayerAsync(fromCameraToWorld(viewerObject.transform.translation), 10);
 
-        // Move newly loaded chunks into gameObjects
-        for (auto &chunk: chunkManager.getVisibleChunks()) {
-            if (gameObjects.emplace(chunk.second.getId(), std::move(chunk.second)).second) {
-                glm::uvec2 pos = {chunk.second.transform.translation.z, chunk.second.transform.translation.x};
-                GameObject border = chunkManager.getChunkBorders(pos);
-                unsigned int borderId = border.getId();
-                if (gameObjects.emplace(borderId, std::move(border)).second) {
-                    chunkBorderIds.push_back(borderId);
-                }
-            }
-        }
+        loadChunkGameObjects();
 
         // Move camera
         cameraController.moveInPlaneXZ(frameTime, viewerObject);
@@ -132,6 +124,26 @@ void Game::loadGameObjects() {
         pointLight.transform.translation.x += MAP_HEIGHT;
 
         gameObjects.emplace(pointLight.getId(), std::move(pointLight));
+    }
+}
+
+void Game::loadChunkGameObjects() {
+    // Move newly loaded chunks into gameObjects
+    for (auto &chunk: chunkManager.getVisibleChunks()) {
+        if (chunk.second.getChunkState() == CHUNK_STATE_ACTIVE) {
+            // If chunk active and prefab is ready, copy chunk into game objects
+            if (chunk.second.checkIfPrefabReady()) {
+                GameObject chunkGameObj = chunk.second.createGameObject(engineDevice);
+                if (gameObjects.emplace(chunkGameObj.getId(), std::move(chunkGameObj)).second) {
+                    glm::uvec2 pos = chunk.second.getChunkPosition();
+                    GameObject border = Chunk::getChunkBorders(engineDevice, pos);
+                    unsigned int borderId = border.getId();
+                    if (gameObjects.emplace(borderId, std::move(border)).second) {
+                        chunkBorderIds.push_back(borderId);
+                    }
+                }
+            }
+        }
     }
 }
 

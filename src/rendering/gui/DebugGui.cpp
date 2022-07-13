@@ -86,7 +86,8 @@ void DebugGui::showWindow(const FrameInfo &frameInfo, SDL_Window *window, GameOb
     ImGui::Text("FPS: %f", movingFPSAverage);
 
     ImGui::Text("GameObjects: %lu", frameInfo.gameObjects.size());
-    ImGui::Text("Camera position: x:%f, y:%f, z:%f", frameInfo.camera.getPosition().x, frameInfo.camera.getPosition().y, frameInfo.camera.getPosition().z);
+    ImGui::Text("Camera position: x:%f, y:%f, z:%f", fromCameraToWorld(frameInfo.camera.getPosition()).x, fromCameraToWorld(frameInfo.camera.getPosition()).y,
+                fromCameraToWorld(frameInfo.camera.getPosition()).z);
     ImGui::Text("Camera rotation: yaw:%f, pitch:%f, roll:%f", frameInfo.camera.getRotation().x, frameInfo.camera.getRotation().y,
                 frameInfo.camera.getRotation().z);
 

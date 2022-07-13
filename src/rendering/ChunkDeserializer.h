@@ -3,6 +3,7 @@
 #include "VulkanEngineDevice.h"
 #include "GameObject.h"
 #include "Block.h"
+#include "../GlobalConfiguration.h"
 
 #include <SQLiteCpp/SQLiteCpp.h>
 #include <glm/glm.hpp>
@@ -13,8 +14,6 @@
 #include <string>
 #include <vector>
 
-#define MAP_HEIGHT 1088
-#define MAP_WIDTH 1920
 
 class ChunkDeserializer {
 public:
@@ -29,7 +28,7 @@ public:
     RawChunkData deserializeChunkFromDb(glm::uvec2 chunk_pos);
 
 
-    [[maybe_unused]] void createDatabaseFile();
+    void createDatabaseFile();
 
 private:
 

@@ -6,7 +6,10 @@
 #include "VulkanEngineDevice.h"
 #include "ChunkDeserializer.h"
 #include "Block.h"
+#include "Chunk.h"
 #include "../threading/BS_thread_pool.h"
+#include "../CoordinateSystem.h"
+#include "../GlobalConfiguration.h"
 
 #include <unordered_map>
 #include <glm/glm.hpp>
@@ -17,55 +20,32 @@
 #include <future>
 #include <algorithm>
 
-#define CHUNK_SIZE 32
-#define CHUNK_DEPTH 256
-
 class ChunkManager {
 public:
-    using chunk_id = std::string;
-    using Chunk = Block[CHUNK_SIZE * CHUNK_SIZE * CHUNK_DEPTH];
-    using ActiveChunkMap = std::unordered_map<chunk_id, Chunk>;
-    using VisibleChunkMap = std::unordered_map<chunk_id, GameObject>;
-    using ChunkPrefab = std::pair<glm::uvec2, VulkanEngineModel::Builder>;
+    using ChunkMap = std::unordered_map<Chunk::chunk_id, Chunk>;
 
-    ChunkManager(VulkanEngineDevice &device) : _device{device} {};
+    explicit ChunkManager(VulkanEngineDevice &device) : _device{device} {};
     ~ChunkManager() = default;
 
     ChunkManager(const ChunkManager &) = delete;
     ChunkManager &operator=(const ChunkManager &) = delete;
 
+    Chunk &getChunk(const Chunk::chunk_id &id) { return _chunks[id]; };
 
-    Block &getChunkBlock(const chunk_id &id, glm::uvec3 pos) { return _activeChunks[id][pos.x + pos.z * CHUNK_SIZE + pos.y * CHUNK_SIZE * CHUNK_DEPTH]; };
+    void loadChunksAroundPlayerAsync(glm::vec3 player_pos, uint32_t distance);
 
-    static Block &getChunkBlock(Chunk &chunk, glm::uvec3 pos) { return chunk[pos.x + pos.z * CHUNK_SIZE + pos.y * CHUNK_SIZE * CHUNK_DEPTH]; };
-
-    Chunk &getChunk(const chunk_id &id) { return _activeChunks[id]; };
-
-    static chunk_id getChunkId(glm::uvec2 position) { return fmt::format("{}_{}", position.x, position.y); };
-
-    void loadChunksAroundPlayerAsync(glm::uvec2 player_pos, uint32_t distance);
-
-    VisibleChunkMap &getVisibleChunks();
-
-    GameObject getChunkBorders(glm::vec2 chunk_pos);
-
-    static glm::uvec2 getChunkFromPlayerPos(glm::uvec2 player_pos);
-
+    ChunkMap &getVisibleChunks();
 private:
 
-    ChunkPrefab generateChunkGameObject(const glm::uvec2 position);
+    VulkanEngineModel::Builder generateChunkGameObjectPrefab(glm::uvec2 position);
 
-    void populateChunk(ChunkManager::Chunk &chunk, ChunkDeserializer::RawChunkData rawData);
+    void populateChunk(Chunk &chunk, ChunkDeserializer::RawChunkData rawData);
 
     VulkanEngineDevice &_device;
     ChunkDeserializer terrainDeserializer{};
 
-    BS::thread_pool pool;
-    std::mutex mut;
+    BS::thread_pool pool{};
+    uint32_t max_running_jobs = 10;
 
-    ActiveChunkMap _activeChunks;
-    VisibleChunkMap _visibleChunks;
-    std::vector<chunk_id> _requestedChunks;
-
-    std::unordered_map<chunk_id, std::future<ChunkPrefab>> _chunkPrefabs;
+    ChunkMap _chunks = {};
 };

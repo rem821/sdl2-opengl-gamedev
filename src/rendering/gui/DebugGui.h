@@ -7,6 +7,8 @@
 #include "../VulkanEngineDescriptors.h"
 #include "../VulkanEngineSwapChain.h"
 #include "../VulkanEngineRenderer.h"
+#include "../../CoordinateSystem.h"
+#include "../../GlobalConfiguration.h"
 
 #include "SDL.h"
 #include "imgui_impl_sdl.h"

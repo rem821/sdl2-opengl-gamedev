@@ -17,6 +17,7 @@
 #include "systems/PointLightSystem.h"
 
 #include "KeyboardMovementController.h"
+#include "CoordinateSystem.h"
 
 #include <fmt/core.h>
 
@@ -41,6 +42,7 @@ public:
 
 private:
     void loadGameObjects();
+    void loadChunkGameObjects();
 
     void run();
     void handleEvents();
