@@ -2,6 +2,8 @@
 
 void ChunkManager::loadChunksAroundPlayerAsync(glm::vec3 player_pos, uint32_t distance) {
     if (pool.get_tasks_running() > 0) return;
+    Timer timer("loadChunksAroundPlayerAsync");
+
     auto chunk_pos = Chunk::getChunkFromPlayerPos(player_pos);
 
     // Generate needed chunk positions
@@ -92,7 +94,7 @@ VulkanEngineModel::Builder ChunkManager::generateChunkGameObjectPrefab(const glm
     VulkanEngineModel::Builder terrainBuilder{};
 
     const Chunk::chunk_id &id = Chunk::getChunkId(position);
-    fmt::print("Chunk {}_{} begins deserializing\n", position.x, position.y);
+    //fmt::print("Chunk {}_{} begins deserializing\n", position.x, position.y);
 
     ChunkDeserializer::RawChunkData rawData = terrainDeserializer.deserializeChunkFromDb(position);
     populateChunk(getChunk(id), rawData);

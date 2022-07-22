@@ -93,7 +93,7 @@ public:
         _gameObjectId = obj.getId();
         _state = CHUNK_STATE_VISIBLE;
 
-        fmt::print("Chunk {}_{} created\n", _position.x, _position.y);
+        //fmt::print("Chunk {}_{} created\n", _position.x, _position.y);
 
         return obj;
     };

@@ -10,6 +10,7 @@
 #include "../threading/BS_thread_pool.h"
 #include "../CoordinateSystem.h"
 #include "../GlobalConfiguration.h"
+#include "../profiling/Timer.h"
 
 #include <unordered_map>
 #include <glm/glm.hpp>
