@@ -62,7 +62,7 @@ void ChunkManager::loadChunksAroundPlayerAsync(glm::vec3 player_pos, uint32_t di
 
     std::vector<Chunk::chunk_id> deleteIds = {};
     for (auto &chunk: _chunks) {
-        if (chunk.second.getChunkState() == CHUNK_STATE_DELETED) {
+        if (chunk.second.getChunkState() == CHUNK_STATE_INVALIDATED) {
             deleteIds.push_back(chunk.second.getChunkId());
         }
     }

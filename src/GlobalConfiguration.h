@@ -12,4 +12,4 @@
 #define CHUNK_LIFESPAN_SECONDS 30
 #define CHUNK_LOAD_DISTANCE 5
 
-#define TIMER_ON true
+#define TIMER_ON false

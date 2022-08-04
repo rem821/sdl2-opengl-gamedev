@@ -138,7 +138,7 @@ void Game::loadChunkGameObjects(glm::vec3 playerPos) {
                 GameObject chunkGameObj = chunk.second.createGameObject(engineDevice);
                 if (gameObjects.emplace(chunkGameObj.getId(), std::move(chunkGameObj)).second) {
                     glm::uvec2 pos = chunk.second.getChunkPosition();
-                    GameObject border = Chunk::getChunkBorders(engineDevice, pos);
+                    GameObject border = Chunk::getChunkBorders(engineDevice, chunk.second);
                     unsigned int borderId = border.getId();
                     if (gameObjects.emplace(borderId, std::move(border)).second) {
                         chunkBorderIds.push_back(borderId);
@@ -147,10 +147,23 @@ void Game::loadChunkGameObjects(glm::vec3 playerPos) {
             }
         } else if (state == CHUNK_STATE_VISIBLE) {
 
-            // If the chunk is time out, remove it from game objects and set its state to deleted
+            // If the chunk is timed out -> remove it from game objects and set its state to deleted
             if (chunk.second.isTimedOut()) {
-                gameObjects.erase(gameObjects.find(chunk.second.getGameObjectId()));
-                chunk.second.enlistForDeletion();
+                // Invalidate the game object
+                {
+                    auto obj = gameObjects.find(chunk.second.getGameObjectId());
+                    if(obj != gameObjects.end()) { obj->second.invalidate(); }
+                }
+
+                // Also invalidate the border
+                {
+                    id_t chunkBorderId = chunk.second.getBorderGameObjectId();
+                    auto obj = gameObjects.find(chunkBorderId);
+                    if(obj != gameObjects.end()) { obj->second.invalidate(); }
+                    chunkBorderIds.erase(std::remove(chunkBorderIds.begin(), chunkBorderIds.end(), chunkBorderId), chunkBorderIds.end());
+                }
+
+                chunk.second.invalidate();
             }
         }
     }

@@ -1,10 +1,10 @@
 #include "Chunk.h"
 
-GameObject Chunk::getChunkBorders(VulkanEngineDevice &_device, glm::vec2 chunk_pos) {
+GameObject Chunk::getChunkBorders(VulkanEngineDevice &_device, const Chunk &chunk) {
     VulkanEngineModel::Builder bordersBuilder{};
 
     glm::vec3 size = {CHUNK_SIZE, CHUNK_SIZE, CHUNK_DEPTH};
-    glm::vec3 pos = {chunk_pos, 0};
+    glm::vec3 pos = {chunk._position, 0};
 
     VulkanEngineModel::Builder faces = Block::getCubeFaces(pos, size, true, true, false, false, true, true);
 
@@ -15,7 +15,7 @@ GameObject Chunk::getChunkBorders(VulkanEngineDevice &_device, glm::vec2 chunk_p
         bordersBuilder.indices.emplace_back(index);
     }
 
-    GameObject obj = GameObject::createGameObject();
+    GameObject obj = GameObject::createGameObject(fmt::format("{}-border", chunk._gameObjectId));
     obj.model = std::make_unique<VulkanEngineModel>(_device, bordersBuilder);
     obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
     obj.transform.translation = {0.0f, 0.0f, 0.0f};

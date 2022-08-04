@@ -3,7 +3,8 @@
 //
 #include "SimpleRenderSystem.h"
 
-SimpleRenderSystem::SimpleRenderSystem(VulkanEngineDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout, VkPolygonMode polygonMode, VkCullModeFlagBits cullMode)
+SimpleRenderSystem::SimpleRenderSystem(VulkanEngineDevice &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout, VkPolygonMode polygonMode,
+                                       VkCullModeFlagBits cullMode)
         : engineDevice{device} {
     createPipelineLayout(globalSetLayout);
     createPipeline(renderPass, polygonMode, cullMode);
@@ -45,7 +46,7 @@ void SimpleRenderSystem::createPipeline(VkRenderPass renderPass, VkPolygonMode p
     pipelineConfig.pipelineLayout = pipelineLayout;
 
     std::string fragment_shader;
-    if(polygonMode == VK_POLYGON_MODE_LINE) {
+    if (polygonMode == VK_POLYGON_MODE_LINE) {
         fragment_shader = "shaders/line_shader.frag.spv";
     } else {
         fragment_shader = "shaders/shader.frag.spv";
@@ -59,11 +60,19 @@ void SimpleRenderSystem::renderGameObjects(FrameInfo &frameInfo) {
 
     vkCmdBindDescriptorSets(frameInfo.commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, pipelineLayout, 0, 1, &frameInfo.globalDescriptorSet, 0, nullptr);
 
+    std::vector<id_t> deleteIds = {};
     for (auto &kv: frameInfo.gameObjects) {
         auto &obj = kv.second;
         if (obj.model == nullptr) continue;
-        if (!obj.isActive) continue;
         if (isWireFrame != obj.isWireFrame) continue;
+        if (!obj.isActive) {
+            if (obj.getIsInvalidated()) {
+                if (obj.shouldBeDestroyed()) {
+                    deleteIds.push_back(obj.getId());
+                }
+            }
+            continue;
+        }
 
         SimplePushConstants push = {};
         push.modelMatrix = obj.transform.mat4();
@@ -79,5 +88,9 @@ void SimpleRenderSystem::renderGameObjects(FrameInfo &frameInfo) {
         );
         obj.model->bind(frameInfo.commandBuffer);
         obj.model->draw(frameInfo.commandBuffer);
+    }
+
+    for (const auto &deleteId: deleteIds) {
+        frameInfo.gameObjects.erase(frameInfo.gameObjects.find(deleteId));
     }
 }

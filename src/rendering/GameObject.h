@@ -1,10 +1,12 @@
 #pragma once
 
 #include "VulkanEngineModel.h"
+#include "VulkanEngineSwapChain.h"
 #include <memory>
 #include <unordered_map>
 #include <glm/gtc/matrix_transform.hpp>
 #include <functional>
+#include <fmt/core.h>
 
 struct TransformComponent {
     glm::vec3 translation{};
@@ -35,13 +37,30 @@ public:
             return GameObject{currentId++};
         } else {
             // Used for chunks with predefined chunk_id
-            std::hash<std::string> hasher;
-            id_t hashed = hasher(chunk_id);
-            return GameObject{hashed};
+            return GameObject{GameObject::generateGameObjectId(chunk_id)};
         }
     }
 
     static GameObject makePointLight(float intensity = 2.f, float radius = 0.1f, glm::vec3 color = glm::vec3(1.f));
+
+    static id_t generateGameObjectId(const std::string &chunk_id = "") {
+        std::hash<std::string> hasher;
+        return hasher(chunk_id);
+    }
+
+    void invalidate() {
+        isInvalidated = true;
+        isActive = false;
+    }
+
+    bool getIsInvalidated() {
+        if(isInvalidated) invalidatedFrames++;
+        return isInvalidated;
+    }
+
+    bool shouldBeDestroyed() {
+        return isInvalidated && (invalidatedFrames > VulkanEngineSwapChain::MAX_FRAMES_IN_FLIGHT);
+    }
 
     GameObject(const GameObject &) = delete;
     GameObject &operator=(const GameObject &) = delete;
@@ -63,4 +82,7 @@ private:
     GameObject(id_t objId) : id{objId} {};
 
     id_t id;
+
+    uint8_t invalidatedFrames = 0;
+    bool isInvalidated = false;
 };

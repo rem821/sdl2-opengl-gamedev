@@ -22,7 +22,7 @@ typedef enum {
     CHUNK_STATE_REQUESTED,
     CHUNK_STATE_ACTIVE,
     CHUNK_STATE_VISIBLE,
-    CHUNK_STATE_DELETED,
+    CHUNK_STATE_INVALIDATED,
 } chunk_state;
 
 class Chunk {
@@ -102,9 +102,11 @@ public:
 
     id_t getGameObjectId() { return _gameObjectId; }
 
-    void enlistForDeletion() { _state = CHUNK_STATE_DELETED; }
+    id_t getBorderGameObjectId() { return GameObject::generateGameObjectId(fmt::format("{}-border", _gameObjectId)); }
 
-    static GameObject getChunkBorders(VulkanEngineDevice &_device, glm::vec2 chunk_pos);
+    void invalidate() { _state = CHUNK_STATE_INVALIDATED; }
+
+    static GameObject getChunkBorders(VulkanEngineDevice &_device, const Chunk &chunk);
 
 private:
 
