@@ -31,4 +31,5 @@ struct FrameInfo {
     Camera &camera;
     VkDescriptorSet globalDescriptorSet;
     GameObject::Map &gameObjects;
+    bool &chunkLoadingDisabled;
 };

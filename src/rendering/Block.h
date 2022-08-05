@@ -30,9 +30,9 @@ public:
     [[nodiscard]] block_id getBlockId() const { return _id; };
     void setBlockId(block_id id) { _id = id; };
 
-    static VulkanEngineModel::Builder getFaceVertices(glm::vec3 pos, FaceOrientation orientation, glm::vec3 size);
+    static VulkanEngineModel::Builder getFaceVertices(glm::vec3 pos, FaceOrientation orientation, glm::vec3 size, glm::vec3 color);
     static VulkanEngineModel::Builder
-    getCubeFaces(glm::vec3 world_pos, glm::vec3 size, bool left = true, bool right = true, bool top = true, bool bottom = true, bool front = true,
+    getCubeFaces(glm::vec3 world_pos, glm::vec3 size, glm::vec3 color, bool left = true, bool right = true, bool top = true, bool bottom = true, bool front = true,
                  bool back = true);
 
 private:

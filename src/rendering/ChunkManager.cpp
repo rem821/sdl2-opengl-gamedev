@@ -99,6 +99,11 @@ VulkanEngineModel::Builder ChunkManager::generateChunkGameObjectPrefab(const glm
     ChunkDeserializer::RawChunkData rawData = terrainDeserializer.deserializeChunkFromDb(position);
     populateChunk(getChunk(id), rawData);
 
+    float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    float b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    glm::vec3 color = {r, g, b};
+
     long i = 0;
     for (int z = 0; z < CHUNK_DEPTH; z++) {
         for (int y = 0; y < CHUNK_SIZE; y++) {
@@ -135,7 +140,7 @@ VulkanEngineModel::Builder ChunkManager::generateChunkGameObjectPrefab(const glm
                         backFace = false;
                     }
 
-                    VulkanEngineModel::Builder faces = Block::getCubeFaces({x, y, z}, {1.0f, 1.0f, 1.0f}, leftFace, rightFace, topFace, bottomFace, frontFace,
+                    VulkanEngineModel::Builder faces = Block::getCubeFaces({x, y, z}, {1.0f, 1.0f, 1.0f}, color, leftFace, rightFace, topFace, bottomFace, frontFace,
                                                                            backFace);
                     for (auto vertex: faces.vertices) {
                         terrainBuilder.vertices.emplace_back(vertex);

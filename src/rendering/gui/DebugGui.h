@@ -32,5 +32,7 @@ private:
 
     double movingFPSAverage = 0;
     bool chunkBordersShown = false;
+    bool renderWireframes = false;
+
     std::unique_ptr<VulkanEngineDescriptorPool> imguiPool{};
 };

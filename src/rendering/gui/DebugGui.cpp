@@ -99,6 +99,24 @@ void DebugGui::showWindow(const FrameInfo &frameInfo, SDL_Window *window, GameOb
         }
     }
 
+    if (ImGui::Button("Render wireframes borders")) {
+        renderWireframes = !renderWireframes;
+        for (auto &obj: frameInfo.gameObjects) {
+            GameObject &gameObj = obj.second;
+            if (!gameObj.isActive || gameObj.renderMode == GameObject::RENDER_MODE_WIREFRAME) continue;
+
+            if (renderWireframes) {
+                gameObj.renderMode = GameObject::RENDER_MODE_BOTH;
+            } else {
+                gameObj.renderMode = GameObject::RENDER_MODE_FILLED;
+            }
+        }
+    }
+
+    if (ImGui::Button("Disable chunk loading")) {
+        frameInfo.chunkLoadingDisabled = !frameInfo.chunkLoadingDisabled;
+    }
+
     uint32_t vertices = 0;
     for (auto &kv: gameObjects) {
         auto &obj = kv.second;

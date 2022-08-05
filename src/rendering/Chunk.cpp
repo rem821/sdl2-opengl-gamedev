@@ -6,7 +6,7 @@ GameObject Chunk::getChunkBorders(VulkanEngineDevice &_device, const Chunk &chun
     glm::vec3 size = {CHUNK_SIZE, CHUNK_SIZE, CHUNK_DEPTH};
     glm::vec3 pos = {chunk._position, 0};
 
-    VulkanEngineModel::Builder faces = Block::getCubeFaces(pos, size, true, true, false, false, true, true);
+    VulkanEngineModel::Builder faces = Block::getCubeFaces(pos, size, {1.f, 1.f, 0.f}, true, true, false, false, true, true);
 
     for (auto vertex: faces.vertices) {
         bordersBuilder.vertices.emplace_back(vertex);
@@ -19,7 +19,7 @@ GameObject Chunk::getChunkBorders(VulkanEngineDevice &_device, const Chunk &chun
     obj.model = std::make_unique<VulkanEngineModel>(_device, bordersBuilder);
     obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
     obj.transform.translation = {0.0f, 0.0f, 0.0f};
-    obj.isWireFrame = true;
+    obj.renderMode = GameObject::RENDER_MODE_WIREFRAME;
     obj.isActive = false;
 
     return obj;

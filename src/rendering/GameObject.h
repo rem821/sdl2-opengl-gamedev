@@ -30,6 +30,10 @@ public:
     using id_t = unsigned int;
     using Map = std::unordered_map<id_t, GameObject>;
 
+    enum RenderMode {
+        RENDER_MODE_FILLED, RENDER_MODE_WIREFRAME, RENDER_MODE_BOTH
+    };
+
     static GameObject createGameObject(const std::string &chunk_id = "") {
         if (chunk_id.empty()) {
             // Used for generic game objects
@@ -72,7 +76,7 @@ public:
     glm::vec3 color{};
     TransformComponent transform{};
 
-    bool isWireFrame = false;
+    RenderMode renderMode = RENDER_MODE_FILLED;
     bool isActive = true;
 
     // Optional pointer components

@@ -72,7 +72,7 @@ void Game::run() {
 
         if (auto commandBuffer = renderer.beginFrame()) {
             int frameIndex = renderer.getFrameIndex();
-            FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
+            FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects, chunkLoadingDisabled};
 
             debugGui.showWindow(frameInfo, window.sdlWindow(), gameObjects, chunkBorderIds);
 
@@ -126,6 +126,7 @@ void Game::loadGameObjects() {
 }
 
 void Game::loadChunkGameObjects(glm::vec3 playerPos) {
+    if (chunkLoadingDisabled) return;
     chunkManager.loadChunksAroundPlayerAsync(playerPos, CHUNK_LOAD_DISTANCE);
 
     // Move newly loaded chunks into gameObjects
@@ -152,14 +153,14 @@ void Game::loadChunkGameObjects(glm::vec3 playerPos) {
                 // Invalidate the game object
                 {
                     auto obj = gameObjects.find(chunk.second.getGameObjectId());
-                    if(obj != gameObjects.end()) { obj->second.invalidate(); }
+                    if (obj != gameObjects.end()) { obj->second.invalidate(); }
                 }
 
                 // Also invalidate the border
                 {
                     id_t chunkBorderId = chunk.second.getBorderGameObjectId();
                     auto obj = gameObjects.find(chunkBorderId);
-                    if(obj != gameObjects.end()) { obj->second.invalidate(); }
+                    if (obj != gameObjects.end()) { obj->second.invalidate(); }
                     chunkBorderIds.erase(std::remove(chunkBorderIds.begin(), chunkBorderIds.end(), chunkBorderId), chunkBorderIds.end());
                 }
 

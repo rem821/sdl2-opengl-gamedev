@@ -64,7 +64,8 @@ void SimpleRenderSystem::renderGameObjects(FrameInfo &frameInfo) {
     for (auto &kv: frameInfo.gameObjects) {
         auto &obj = kv.second;
         if (obj.model == nullptr) continue;
-        if (isWireFrame != obj.isWireFrame) continue;
+        if (isWireFrame && obj.renderMode == GameObject::RENDER_MODE_FILLED) continue;
+        if (!isWireFrame && obj.renderMode == GameObject::RENDER_MODE_BOTH || !isWireFrame && obj.renderMode == GameObject::RENDER_MODE_WIREFRAME) continue;
         if (!obj.isActive) {
             if (obj.getIsInvalidated()) {
                 if (obj.shouldBeDestroyed()) {
