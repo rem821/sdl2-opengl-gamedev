@@ -1,4 +1,23 @@
 #include "ChunkManager.h"
+#include "../Utils.h"
+
+void getCubeFacesAndAddToBuffers(VulkanEngineModel::Builder &terrainBuilder, glm::vec3 pos, glm::vec3 size, glm::vec3 color, long &i) {
+    //glm::vec3 color = Utils::getRandomColor();
+
+    glm::vec3 p = {pos.x - size.x, pos.y, pos.z};
+    if(p.x == 0) {
+        int v = 2;
+    }
+    VulkanEngineModel::Builder faces = Block::getCubeFaces(p, size, color, false, false, true, false, false, false);
+    for (auto vertex: faces.vertices) {
+        terrainBuilder.vertices.emplace_back(vertex);
+    }
+    for (auto index: faces.indices) {
+        terrainBuilder.indices.emplace_back(index + i);
+    }
+    i += (long) faces.vertices.size();
+
+}
 
 void ChunkManager::loadChunksAroundPlayerAsync(glm::vec3 player_pos, uint32_t distance) {
     if (pool.get_tasks_running() > 0) return;
@@ -66,7 +85,7 @@ void ChunkManager::loadChunksAroundPlayerAsync(glm::vec3 player_pos, uint32_t di
             deleteIds.push_back(chunk.second.getChunkId());
         }
     }
-    for (const auto& deleteId: deleteIds) {
+    for (const auto &deleteId: deleteIds) {
         _chunks.erase(deleteId);
     }
 
@@ -99,58 +118,87 @@ VulkanEngineModel::Builder ChunkManager::generateChunkGameObjectPrefab(const glm
     ChunkDeserializer::RawChunkData rawData = terrainDeserializer.deserializeChunkFromDb(position);
     populateChunk(getChunk(id), rawData);
 
-    float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    float b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    glm::vec3 color = {r, g, b};
+    glm::vec3 chunk_color = Utils::getRandomColor();
+    glm::vec3 color;
+
+    bool x_greeding = false;
+    uint8_t x_length = 0;
 
     long i = 0;
     for (int z = 0; z < CHUNK_DEPTH; z++) {
+        glm::vec3 layer_color = Utils::getRandomColor();
+
         for (int y = 0; y < CHUNK_SIZE; y++) {
             for (int x = 0; x < CHUNK_SIZE; x++) {
-                if (getChunk(id).getBlock({x, y, z}).getBlockId() == Block::BlockTypes::SOLID) {
-
-                    bool leftFace = true;
-                    if (x > 0 && getChunk(id).getBlock({x - 1, y, z}).getBlockId() == Block::BlockTypes::SOLID) {
-                        leftFace = false;
+                if (getChunk(id).getBlock({x, y, z}).getBlockId() != Block::BlockTypes::SOLID) {
+                    if ((x_greeding && x_length > 0)) {
+                        getCubeFacesAndAddToBuffers(terrainBuilder, {x, y, z}, {x_length, 1.f, 1.f}, layer_color, i);
                     }
 
-                    bool rightFace = true;
-                    if (x < CHUNK_SIZE - 1 && getChunk(id).getBlock({x + 1, y, z}).getBlockId() == Block::BlockTypes::SOLID) {
-                        rightFace = false;
-                    }
-
-                    bool topFace = true;
-                    if (z < CHUNK_DEPTH - 1 && getChunk(id).getBlock({x, y, z + 1}).getBlockId() == Block::BlockTypes::SOLID) {
-                        topFace = false;
-                    }
-
-                    bool bottomFace = true;
-                    if (z > 0 && getChunk(id).getBlock({x, y, z - 1}).getBlockId() == Block::BlockTypes::SOLID) {
-                        bottomFace = false;
-                    }
-
-                    bool frontFace = true;
-                    if (y > 0 && getChunk(id).getBlock({x, y - 1, z}).getBlockId() == Block::BlockTypes::SOLID) {
-                        frontFace = false;
-                    }
-
-                    bool backFace = true;
-                    if (y < CHUNK_SIZE - 1 && getChunk(id).getBlock({x, y + 1, z}).getBlockId() == Block::BlockTypes::SOLID) {
-                        backFace = false;
-                    }
-
-                    VulkanEngineModel::Builder faces = Block::getCubeFaces({x, y, z}, {1.0f, 1.0f, 1.0f}, color, leftFace, rightFace, topFace, bottomFace, frontFace,
-                                                                           backFace);
-                    for (auto vertex: faces.vertices) {
-                        terrainBuilder.vertices.emplace_back(vertex);
-                    }
-                    for (auto index: faces.indices) {
-                        terrainBuilder.indices.emplace_back(index + i);
-                    }
-                    i += (long) faces.vertices.size();
+                    x_greeding = false;
+                    x_length = 0;
+                    continue;
                 }
+
+                if(z < CHUNK_DEPTH - 1 && getChunk(id).getBlock({x, y, z + 1}).getBlockId() == Block::BlockTypes::SOLID) {
+                    x_greeding = false;
+                } else {
+                    x_greeding = true;
+                    x_length += 1;
+                }
+
+                if ((!x_greeding && x_length > 0)) {
+                    getCubeFacesAndAddToBuffers(terrainBuilder, {x, y, z}, {x_length, 1.f, 1.f}, layer_color, i);
+                    x_length = 0;
+                }
+
+                /*
+                bool leftFace = true;
+                if (x > 0 && getChunk(id).getBlock({x - 1, y, z}).getBlockId() == Block::BlockTypes::SOLID) {
+                    leftFace = false;
+                }
+
+                bool rightFace = true;
+                if (x < CHUNK_SIZE - 1 && getChunk(id).getBlock({x + 1, y, z}).getBlockId() == Block::BlockTypes::SOLID) {
+                    rightFace = false;
+                }
+
+                bool topFace = true;
+                if (z < CHUNK_DEPTH - 1 && getChunk(id).getBlock({x, y, z + 1}).getBlockId() == Block::BlockTypes::SOLID) {
+                    topFace = false;
+                }
+
+                bool bottomFace = true;
+                if (z > 0 && getChunk(id).getBlock({x, y, z - 1}).getBlockId() == Block::BlockTypes::SOLID) {
+                    bottomFace = false;
+                }
+
+                bool frontFace = true;
+                if (y > 0 && getChunk(id).getBlock({x, y - 1, z}).getBlockId() == Block::BlockTypes::SOLID) {
+                    frontFace = false;
+                }
+
+                bool backFace = true;
+                if (y < CHUNK_SIZE - 1 && getChunk(id).getBlock({x, y + 1, z}).getBlockId() == Block::BlockTypes::SOLID) {
+                    backFace = false;
+                }
+
+                VulkanEngineModel::Builder faces = Block::getCubeFaces({x, y, z}, {1.0f, 1.0f, 1.0f}, color, leftFace, rightFace, topFace, bottomFace, frontFace,
+                                                                       backFace);
+                for (auto vertex: faces.vertices) {
+                    terrainBuilder.vertices.emplace_back(vertex);
+                }
+                for (auto index: faces.indices) {
+                    terrainBuilder.indices.emplace_back(index + i);
+                }
+                i += (long) faces.vertices.size();
+                */
             }
+            if(x_greeding && x_length > 0) {
+                getCubeFacesAndAddToBuffers(terrainBuilder, {CHUNK_SIZE, y, z}, {x_length, 1.f, 1.f}, layer_color, i);
+            }
+            x_greeding = false;
+            x_length = 0;
         }
     }
 
