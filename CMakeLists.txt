@@ -13,29 +13,30 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
 # Compile Engine as a shared library
-file(GLOB_RECURSE ENGINE_SOURCES ${PROJECT_SOURCE_DIR}/src/vulkan-engine/*.cpp)
+file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/*.cpp)
 add_library(${ENGINE_NAME} SHARED)
-target_include_directories(${ENGINE_NAME} PRIVATE libs)
+target_include_directories(${ENGINE_NAME} PRIVATE libs vulkan-engine/include/logging)
+target_precompile_headers(${ENGINE_NAME} PRIVATE vulkan-engine/include/precompiled_headers/PCH.h)
 
 add_subdirectory(libs/sdl)
-add_subdirectory(libs/fmt)
 add_subdirectory(libs/glm)
 add_subdirectory(libs/imgui)
 add_subdirectory(libs/tinyobjloader)
 add_subdirectory(libs/sqlite)
+add_subdirectory(libs/spdlog)
 
 find_package(Vulkan REQUIRED)
 
 target_sources(${ENGINE_NAME} PRIVATE ${ENGINE_SOURCES})
-target_link_libraries(${ENGINE_NAME} Vulkan::Vulkan SDL2 fmt glm ImGui SQLiteCpp sqlite3 pthread dl)
+target_link_libraries(${ENGINE_NAME} Vulkan::Vulkan SDL2 glm ImGui SQLiteCpp sqlite3 pthread fmt dl)
 target_compile_definitions(${ENGINE_NAME} PRIVATE PLATFORM_LINUX=1 BUILD_DLL=1)
 
 # Compile Sandbox and link with vulkan-engine
 set(SANDBOX_NAME VulkanSandbox)
-file(GLOB_RECURSE SANDBOX_SOURCES ${PROJECT_SOURCE_DIR}/src/sandbox/*.cpp)
-add_executable(${SANDBOX_NAME} src/sandbox/SandboxApp.cpp)
+file(GLOB_RECURSE SANDBOX_SOURCES sandbox/*.cpp)
+add_executable(${SANDBOX_NAME} sandbox/SandboxApp.cpp)
 target_sources(${SANDBOX_NAME} PRIVATE ${SANDBOX_SOURCES})
-target_include_directories(${SANDBOX_NAME} PRIVATE src/vulkan-engine)
+target_include_directories(${SANDBOX_NAME} PRIVATE vulkan-engine)
 target_link_libraries(${SANDBOX_NAME} ${ENGINE_NAME})
 target_compile_definitions(${SANDBOX_NAME} PRIVATE PLATFORM_LINUX=1 BUILD_DLL=0)
 ############## Build SHADERS #######################

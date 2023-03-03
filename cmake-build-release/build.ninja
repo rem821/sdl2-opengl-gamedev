@@ -47,175 +47,191 @@ cmake_ninja_workdir = /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-bui
 #############################################
 # Order-only phony target for VulkanEngine
 
-build cmake_object_order_depends_target_VulkanEngine: phony || cmake_object_order_depends_target_ImGui cmake_object_order_depends_target_SDL2 cmake_object_order_depends_target_SQLiteCpp cmake_object_order_depends_target_fmt cmake_object_order_depends_target_sqlite3
+build cmake_object_order_depends_target_VulkanEngine: phony || cmake_object_order_depends_target_ImGui cmake_object_order_depends_target_SDL2 cmake_object_order_depends_target_SQLiteCpp cmake_object_order_depends_target_sqlite3
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/Game.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/Game.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.cxx | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/Game.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -x c++-header -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/KeyboardMovementController.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/KeyboardMovementController.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/Game.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/Game.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/KeyboardMovementController.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/Game.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Block.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/Block.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/KeyboardMovementController.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/KeyboardMovementController.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Block.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/KeyboardMovementController.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Camera.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/Camera.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/logging/Log.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/logging/Log.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Camera.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/logging/Log.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/logging
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Chunk.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/Chunk.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Block.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/Block.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Chunk.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Block.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/ChunkDeserializer.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/ChunkDeserializer.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Camera.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/Camera.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/ChunkDeserializer.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Camera.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/ChunkManager.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/ChunkManager.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Chunk.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/Chunk.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/ChunkManager.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Chunk.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/GameObject.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/GameObject.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/ChunkDeserializer.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/ChunkDeserializer.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/GameObject.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/ChunkDeserializer.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineBuffer.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/VulkanEngineBuffer.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/ChunkManager.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/ChunkManager.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineBuffer.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/ChunkManager.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineDescriptors.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/VulkanEngineDescriptors.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/GameObject.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/GameObject.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineDescriptors.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/GameObject.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineDevice.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/VulkanEngineDevice.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineBuffer.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/VulkanEngineBuffer.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineDevice.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineBuffer.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineModel.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/VulkanEngineModel.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineDescriptors.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/VulkanEngineDescriptors.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineModel.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineDescriptors.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEnginePipeline.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/VulkanEnginePipeline.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineDevice.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/VulkanEngineDevice.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEnginePipeline.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineDevice.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineRenderer.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/VulkanEngineRenderer.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineModel.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/VulkanEngineModel.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineRenderer.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineModel.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineSwapChain.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/VulkanEngineSwapChain.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEnginePipeline.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/VulkanEnginePipeline.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineSwapChain.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEnginePipeline.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineWindow.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/VulkanEngineWindow.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineRenderer.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/VulkanEngineRenderer.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineWindow.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineRenderer.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/DebugGui.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/gui/DebugGui.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineSwapChain.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/VulkanEngineSwapChain.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/DebugGui.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineSwapChain.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/imgui_impl_sdl.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/gui/imgui_impl_sdl.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineWindow.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/VulkanEngineWindow.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/imgui_impl_sdl.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineWindow.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/imgui_impl_vulkan.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/rendering/gui/imgui_impl_vulkan.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/DebugGui.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/gui/DebugGui.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/imgui_impl_vulkan.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/DebugGui.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems/PointLightSystem.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/systems/PointLightSystem.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/imgui_impl_sdl.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/gui/imgui_impl_sdl.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems/PointLightSystem.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/imgui_impl_sdl.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui
 
-build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems/SimpleRenderSystem.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine/src/systems/SimpleRenderSystem.cpp || cmake_object_order_depends_target_VulkanEngine
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/imgui_impl_vulkan.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/rendering/gui/imgui_impl_vulkan.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
   DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
-  DEP_FILE = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems/SimpleRenderSystem.cpp.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/imgui_impl_vulkan.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui
+
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/systems/PointLightSystem.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/systems/PointLightSystem.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
+  DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/systems/PointLightSystem.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  OBJECT_DIR = CMakeFiles/VulkanEngine.dir
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/systems
+
+build CMakeFiles/VulkanEngine.dir/vulkan-engine/src/systems/SimpleRenderSystem.cpp.o: CXX_COMPILER__VulkanEngine_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/src/systems/SimpleRenderSystem.cpp | CMakeFiles/VulkanEngine.dir/cmake_pch.hxx CMakeFiles/VulkanEngine.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_VulkanEngine
+  DEFINES = -DBUILD_DLL=1 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1 -DVulkanEngine_EXPORTS
+  DEP_FILE = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/systems/SimpleRenderSystem.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fPIC -fdiagnostics-color=always -std=gnu++17 -Winvalid-pch -include /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/VulkanEngine.dir/cmake_pch.hxx
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine/include/logging -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  OBJECT_DIR = CMakeFiles/VulkanEngine.dir
+  OBJECT_FILE_DIR = CMakeFiles/VulkanEngine.dir/vulkan-engine/src/systems
 
 
 # =============================================================================
@@ -225,9 +241,9 @@ build CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems/SimpleRenderSyst
 #############################################
 # Link the shared library libVulkanEngine.so
 
-build libVulkanEngine.so: CXX_SHARED_LIBRARY_LINKER__VulkanEngine_Release CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/Game.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/KeyboardMovementController.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Block.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Camera.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/Chunk.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/ChunkDeserializer.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/ChunkManager.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/GameObject.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineBuffer.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineDescriptors.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineDevice.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineModel.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEnginePipeline.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineRenderer.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineSwapChain.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/VulkanEngineWindow.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/DebugGui.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/imgui_impl_sdl.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/rendering/gui/imgui_impl_vulkan.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems/PointLightSystem.cpp.o CMakeFiles/VulkanEngine.dir/src/vulkan-engine/src/systems/SimpleRenderSystem.cpp.o | /usr/lib/x86_64-linux-gnu/libvulkan.so libs/sdl/libSDL2-2.0.so.0.2301.0 libs/fmt/libfmt.a libs/imgui/libImGui.a libs/sqlite/libSQLiteCpp.a libs/sqlite/sqlite3/libsqlite3.a || libs/fmt/libfmt.a libs/imgui/libImGui.a libs/sdl/libSDL2-2.0.so libs/sqlite/libSQLiteCpp.a libs/sqlite/sqlite3/libsqlite3.a libs/sdl/libSDL2-2.0.so
+build libVulkanEngine.so: CXX_SHARED_LIBRARY_LINKER__VulkanEngine_Release CMakeFiles/VulkanEngine.dir/vulkan-engine/src/Game.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/KeyboardMovementController.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/logging/Log.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Block.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Camera.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/Chunk.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/ChunkDeserializer.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/ChunkManager.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/GameObject.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineBuffer.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineDescriptors.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineDevice.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineModel.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEnginePipeline.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineRenderer.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineSwapChain.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/VulkanEngineWindow.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/DebugGui.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/imgui_impl_sdl.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/rendering/gui/imgui_impl_vulkan.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/systems/PointLightSystem.cpp.o CMakeFiles/VulkanEngine.dir/vulkan-engine/src/systems/SimpleRenderSystem.cpp.o | /usr/lib/x86_64-linux-gnu/libvulkan.so libs/sdl/libSDL2-2.0.so.0.2301.0 libs/imgui/libImGui.a libs/sqlite/libSQLiteCpp.a libs/sqlite/sqlite3/libsqlite3.a || libs/imgui/libImGui.a libs/sdl/libSDL2-2.0.so libs/sqlite/libSQLiteCpp.a libs/sqlite/sqlite3/libsqlite3.a libs/sdl/libSDL2-2.0.so
   LANGUAGE_COMPILE_FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3
-  LINK_LIBRARIES = -Wl,-rpath,/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl  /usr/lib/x86_64-linux-gnu/libvulkan.so  libs/sdl/libSDL2-2.0.so.0.2301.0  libs/fmt/libfmt.a  libs/imgui/libImGui.a  libs/sqlite/libSQLiteCpp.a  libs/sqlite/sqlite3/libsqlite3.a  -lpthread  -ldl
+  LINK_LIBRARIES = -Wl,-rpath,/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl  /usr/lib/x86_64-linux-gnu/libvulkan.so  libs/sdl/libSDL2-2.0.so.0.2301.0  libs/imgui/libImGui.a  libs/sqlite/libSQLiteCpp.a  libs/sqlite/sqlite3/libsqlite3.a  -lpthread  -lfmt  -ldl
   OBJECT_DIR = CMakeFiles/VulkanEngine.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -243,15 +259,15 @@ build libVulkanEngine.so: CXX_SHARED_LIBRARY_LINKER__VulkanEngine_Release CMakeF
 #############################################
 # Order-only phony target for VulkanSandbox
 
-build cmake_object_order_depends_target_VulkanSandbox: phony || cmake_object_order_depends_target_ImGui cmake_object_order_depends_target_SDL2 cmake_object_order_depends_target_SQLiteCpp cmake_object_order_depends_target_VulkanEngine cmake_object_order_depends_target_fmt cmake_object_order_depends_target_sqlite3
+build cmake_object_order_depends_target_VulkanSandbox: phony || cmake_object_order_depends_target_ImGui cmake_object_order_depends_target_SDL2 cmake_object_order_depends_target_SQLiteCpp cmake_object_order_depends_target_VulkanEngine cmake_object_order_depends_target_sqlite3
 
-build CMakeFiles/VulkanSandbox.dir/src/sandbox/SandboxApp.cpp.o: CXX_COMPILER__VulkanSandbox_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/sandbox/SandboxApp.cpp || cmake_object_order_depends_target_VulkanSandbox
+build CMakeFiles/VulkanSandbox.dir/sandbox/SandboxApp.cpp.o: CXX_COMPILER__VulkanSandbox_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/sandbox/SandboxApp.cpp || cmake_object_order_depends_target_VulkanSandbox
   DEFINES = -DBUILD_DLL=0 -DPLATFORM_LINUX=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_JSON1
-  DEP_FILE = CMakeFiles/VulkanSandbox.dir/src/sandbox/SandboxApp.cpp.o.d
+  DEP_FILE = CMakeFiles/VulkanSandbox.dir/sandbox/SandboxApp.cpp.o.d
   FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/src/vulkan-engine -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/vulkan-engine -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/include-config-release -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/include
   OBJECT_DIR = CMakeFiles/VulkanSandbox.dir
-  OBJECT_FILE_DIR = CMakeFiles/VulkanSandbox.dir/src/sandbox
+  OBJECT_FILE_DIR = CMakeFiles/VulkanSandbox.dir/sandbox
 
 
 # =============================================================================
@@ -261,9 +277,9 @@ build CMakeFiles/VulkanSandbox.dir/src/sandbox/SandboxApp.cpp.o: CXX_COMPILER__V
 #############################################
 # Link the executable VulkanSandbox
 
-build VulkanSandbox: CXX_EXECUTABLE_LINKER__VulkanSandbox_Release CMakeFiles/VulkanSandbox.dir/src/sandbox/SandboxApp.cpp.o | libVulkanEngine.so /usr/lib/x86_64-linux-gnu/libvulkan.so libs/sdl/libSDL2-2.0.so.0.2301.0 libs/fmt/libfmt.a libs/imgui/libImGui.a libs/sqlite/libSQLiteCpp.a libs/sqlite/sqlite3/libsqlite3.a || libVulkanEngine.so libs/fmt/libfmt.a libs/imgui/libImGui.a libs/sdl/libSDL2-2.0.so libs/sqlite/libSQLiteCpp.a libs/sqlite/sqlite3/libsqlite3.a libs/sdl/libSDL2-2.0.so
+build VulkanSandbox: CXX_EXECUTABLE_LINKER__VulkanSandbox_Release CMakeFiles/VulkanSandbox.dir/sandbox/SandboxApp.cpp.o | libVulkanEngine.so /usr/lib/x86_64-linux-gnu/libvulkan.so libs/sdl/libSDL2-2.0.so.0.2301.0 libs/imgui/libImGui.a libs/sqlite/libSQLiteCpp.a libs/sqlite/sqlite3/libsqlite3.a || libVulkanEngine.so libs/imgui/libImGui.a libs/sdl/libSDL2-2.0.so libs/sqlite/libSQLiteCpp.a libs/sqlite/sqlite3/libsqlite3.a libs/sdl/libSDL2-2.0.so
   FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3
-  LINK_LIBRARIES = -Wl,-rpath,/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release:/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl  libVulkanEngine.so  /usr/lib/x86_64-linux-gnu/libvulkan.so  libs/sdl/libSDL2-2.0.so.0.2301.0  libs/fmt/libfmt.a  libs/imgui/libImGui.a  libs/sqlite/libSQLiteCpp.a  libs/sqlite/sqlite3/libsqlite3.a  -lpthread  -ldl
+  LINK_LIBRARIES = -Wl,-rpath,/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release:/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl  libVulkanEngine.so  /usr/lib/x86_64-linux-gnu/libvulkan.so  libs/sdl/libSDL2-2.0.so.0.2301.0  libs/imgui/libImGui.a  libs/sqlite/libSQLiteCpp.a  libs/sqlite/sqlite3/libsqlite3.a  -lpthread  -lfmt  -ldl
   OBJECT_DIR = CMakeFiles/VulkanSandbox.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -5054,115 +5070,6 @@ build libs/sdl/CMakeFiles/uninstall | ${cmake_ninja_workdir}libs/sdl/CMakeFiles/
 # /home/standa/Desktop/Projekty/sdl2-vulkan-engine/CMakeLists.txt
 # =============================================================================
 
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target fmt
-
-
-#############################################
-# Order-only phony target for fmt
-
-build cmake_object_order_depends_target_fmt: phony || libs/fmt/CMakeFiles/fmt.dir
-
-build libs/fmt/CMakeFiles/fmt.dir/src/format.cc.o: CXX_COMPILER__fmt_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/src/format.cc || cmake_object_order_depends_target_fmt
-  DEP_FILE = libs/fmt/CMakeFiles/fmt.dir/src/format.cc.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include
-  OBJECT_DIR = libs/fmt/CMakeFiles/fmt.dir
-  OBJECT_FILE_DIR = libs/fmt/CMakeFiles/fmt.dir/src
-
-build libs/fmt/CMakeFiles/fmt.dir/src/os.cc.o: CXX_COMPILER__fmt_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/src/os.cc || cmake_object_order_depends_target_fmt
-  DEP_FILE = libs/fmt/CMakeFiles/fmt.dir/src/os.cc.o.d
-  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=gnu++17
-  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/include
-  OBJECT_DIR = libs/fmt/CMakeFiles/fmt.dir
-  OBJECT_FILE_DIR = libs/fmt/CMakeFiles/fmt.dir/src
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target fmt
-
-
-#############################################
-# Link the static library libs/fmt/libfmt.a
-
-build libs/fmt/libfmt.a: CXX_STATIC_LIBRARY_LINKER__fmt_Release libs/fmt/CMakeFiles/fmt.dir/src/format.cc.o libs/fmt/CMakeFiles/fmt.dir/src/os.cc.o
-  LANGUAGE_COMPILE_FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3
-  OBJECT_DIR = libs/fmt/CMakeFiles/fmt.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = libs/fmt/libfmt.a
-  TARGET_PDB = fmt.a.dbg
-
-
-#############################################
-# Utility command for edit_cache
-
-build libs/fmt/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build libs/fmt/edit_cache: phony libs/fmt/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build libs/fmt/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/standa/Desktop/Projekty/sdl2-vulkan-engine -B/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build libs/fmt/rebuild_cache: phony libs/fmt/CMakeFiles/rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build libs/fmt/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build libs/fmt/CMakeFiles/install.util: CUSTOM_COMMAND libs/fmt/all
-  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build libs/fmt/install: phony libs/fmt/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build libs/fmt/CMakeFiles/install/local.util: CUSTOM_COMMAND libs/fmt/all
-  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build libs/fmt/install/local: phony libs/fmt/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build libs/fmt/CMakeFiles/install/strip.util: CUSTOM_COMMAND libs/fmt/all
-  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build libs/fmt/install/strip: phony libs/fmt/CMakeFiles/install/strip.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# /home/standa/Desktop/Projekty/sdl2-vulkan-engine/CMakeLists.txt
-# =============================================================================
-
 
 #############################################
 # Utility command for edit_cache
@@ -5805,6 +5712,157 @@ build libs/sqlite/sqlite3/CMakeFiles/install/strip.util: CUSTOM_COMMAND libs/sql
 build libs/sqlite/sqlite3/install/strip: phony libs/sqlite/sqlite3/CMakeFiles/install/strip.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/standa/Desktop/Projekty/sdl2-vulkan-engine/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target spdlog
+
+
+#############################################
+# Order-only phony target for spdlog
+
+build cmake_object_order_depends_target_spdlog: phony || libs/spdlog/CMakeFiles/spdlog.dir
+
+build libs/spdlog/CMakeFiles/spdlog.dir/src/spdlog.cpp.o: CXX_COMPILER__spdlog_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/src/spdlog.cpp || cmake_object_order_depends_target_spdlog
+  DEFINES = -DSPDLOG_COMPILED_LIB
+  DEP_FILE = libs/spdlog/CMakeFiles/spdlog.dir/src/spdlog.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=c++17
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/include
+  OBJECT_DIR = libs/spdlog/CMakeFiles/spdlog.dir
+  OBJECT_FILE_DIR = libs/spdlog/CMakeFiles/spdlog.dir/src
+
+build libs/spdlog/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o: CXX_COMPILER__spdlog_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/src/stdout_sinks.cpp || cmake_object_order_depends_target_spdlog
+  DEFINES = -DSPDLOG_COMPILED_LIB
+  DEP_FILE = libs/spdlog/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=c++17
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/include
+  OBJECT_DIR = libs/spdlog/CMakeFiles/spdlog.dir
+  OBJECT_FILE_DIR = libs/spdlog/CMakeFiles/spdlog.dir/src
+
+build libs/spdlog/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o: CXX_COMPILER__spdlog_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/src/color_sinks.cpp || cmake_object_order_depends_target_spdlog
+  DEFINES = -DSPDLOG_COMPILED_LIB
+  DEP_FILE = libs/spdlog/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=c++17
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/include
+  OBJECT_DIR = libs/spdlog/CMakeFiles/spdlog.dir
+  OBJECT_FILE_DIR = libs/spdlog/CMakeFiles/spdlog.dir/src
+
+build libs/spdlog/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o: CXX_COMPILER__spdlog_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/src/file_sinks.cpp || cmake_object_order_depends_target_spdlog
+  DEFINES = -DSPDLOG_COMPILED_LIB
+  DEP_FILE = libs/spdlog/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=c++17
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/include
+  OBJECT_DIR = libs/spdlog/CMakeFiles/spdlog.dir
+  OBJECT_FILE_DIR = libs/spdlog/CMakeFiles/spdlog.dir/src
+
+build libs/spdlog/CMakeFiles/spdlog.dir/src/async.cpp.o: CXX_COMPILER__spdlog_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/src/async.cpp || cmake_object_order_depends_target_spdlog
+  DEFINES = -DSPDLOG_COMPILED_LIB
+  DEP_FILE = libs/spdlog/CMakeFiles/spdlog.dir/src/async.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=c++17
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/include
+  OBJECT_DIR = libs/spdlog/CMakeFiles/spdlog.dir
+  OBJECT_FILE_DIR = libs/spdlog/CMakeFiles/spdlog.dir/src
+
+build libs/spdlog/CMakeFiles/spdlog.dir/src/cfg.cpp.o: CXX_COMPILER__spdlog_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/src/cfg.cpp || cmake_object_order_depends_target_spdlog
+  DEFINES = -DSPDLOG_COMPILED_LIB
+  DEP_FILE = libs/spdlog/CMakeFiles/spdlog.dir/src/cfg.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=c++17
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/include
+  OBJECT_DIR = libs/spdlog/CMakeFiles/spdlog.dir
+  OBJECT_FILE_DIR = libs/spdlog/CMakeFiles/spdlog.dir/src
+
+build libs/spdlog/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.o: CXX_COMPILER__spdlog_Release /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/src/bundled_fmtlib_format.cpp || cmake_object_order_depends_target_spdlog
+  DEFINES = -DSPDLOG_COMPILED_LIB
+  DEP_FILE = libs/spdlog/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.o.d
+  FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3 -fdiagnostics-color=always -std=c++17
+  INCLUDES = -I/home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/include
+  OBJECT_DIR = libs/spdlog/CMakeFiles/spdlog.dir
+  OBJECT_FILE_DIR = libs/spdlog/CMakeFiles/spdlog.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target spdlog
+
+
+#############################################
+# Link the static library libs/spdlog/libspdlog.a
+
+build libs/spdlog/libspdlog.a: CXX_STATIC_LIBRARY_LINKER__spdlog_Release libs/spdlog/CMakeFiles/spdlog.dir/src/spdlog.cpp.o libs/spdlog/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o libs/spdlog/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o libs/spdlog/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o libs/spdlog/CMakeFiles/spdlog.dir/src/async.cpp.o libs/spdlog/CMakeFiles/spdlog.dir/src/cfg.cpp.o libs/spdlog/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -Wall -Wextra -Wpedantic -fPIC -O3 -DNDEBUG -O3
+  OBJECT_DIR = libs/spdlog/CMakeFiles/spdlog.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libs/spdlog/libspdlog.a
+  TARGET_PDB = spdlog.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build libs/spdlog/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build libs/spdlog/edit_cache: phony libs/spdlog/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build libs/spdlog/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/standa/Desktop/Projekty/sdl2-vulkan-engine -B/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build libs/spdlog/rebuild_cache: phony libs/spdlog/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build libs/spdlog/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build libs/spdlog/CMakeFiles/install.util: CUSTOM_COMMAND libs/spdlog/all
+  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build libs/spdlog/install: phony libs/spdlog/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build libs/spdlog/CMakeFiles/install/local.util: CUSTOM_COMMAND libs/spdlog/all
+  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build libs/spdlog/install/local: phony libs/spdlog/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build libs/spdlog/CMakeFiles/install/strip.util: CUSTOM_COMMAND libs/spdlog/all
+  COMMAND = cd /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog && /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build libs/spdlog/install/strip: phony libs/spdlog/CMakeFiles/install/strip.util
+
+# =============================================================================
 # Target aliases.
 
 build ImGui: phony libs/imgui/libImGui.a
@@ -5825,8 +5883,6 @@ build SQLiteCpp_cpplint: phony libs/sqlite/SQLiteCpp_cpplint
 
 build VulkanEngine: phony libVulkanEngine.so
 
-build fmt: phony libs/fmt/libfmt.a
-
 build libImGui.a: phony libs/imgui/libImGui.a
 
 build libSDL2-2.0.so: phony libs/sdl/libSDL2-2.0.so
@@ -5839,13 +5895,15 @@ build libSDL2main.a: phony libs/sdl/libSDL2main.a
 
 build libSQLiteCpp.a: phony libs/sqlite/libSQLiteCpp.a
 
-build libfmt.a: phony libs/fmt/libfmt.a
+build libspdlog.a: phony libs/spdlog/libspdlog.a
 
 build libsqlite3.a: phony libs/sqlite/sqlite3/libsqlite3.a
 
 build libtinyobjloader.a: phony libs/tinyobjloader/libtinyobjloader.a
 
 build sdl_headers_copy: phony libs/sdl/sdl_headers_copy
+
+build spdlog: phony libs/spdlog/libspdlog.a
 
 build sqlite3: phony libs/sqlite/sqlite3/libsqlite3.a
 
@@ -5861,14 +5919,7 @@ build uninstall: phony libs/sdl/uninstall
 #############################################
 # Folder: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release
 
-build all: phony libVulkanEngine.so VulkanSandbox libs/sdl/all libs/fmt/all libs/glm/all libs/imgui/all libs/tinyobjloader/all libs/sqlite/all
-
-# =============================================================================
-
-#############################################
-# Folder: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt
-
-build libs/fmt/all: phony libs/fmt/libfmt.a
+build all: phony libVulkanEngine.so VulkanSandbox libs/sdl/all libs/glm/all libs/imgui/all libs/tinyobjloader/all libs/sqlite/all libs/spdlog/all
 
 # =============================================================================
 
@@ -5901,6 +5952,13 @@ build libs/sdl/all: phony libs/sdl/libSDL2main.a libs/sdl/libSDL2-2.0.so libs/sd
 # =============================================================================
 
 #############################################
+# Folder: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog
+
+build libs/spdlog/all: phony libs/spdlog/libspdlog.a
+
+# =============================================================================
+
+#############################################
 # Folder: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sqlite
 
 build libs/sqlite/all: phony libs/sqlite/libSQLiteCpp.a libs/sqlite/SQLiteCpp_cpplint libs/sqlite/SQLiteCpp_cppcheck libs/sqlite/sqlite3/all
@@ -5926,14 +5984,14 @@ build libs/tinyobjloader/all: phony libs/tinyobjloader/libtinyobjloader.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeDependentOption.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeParseArguments.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCSourceRuns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckIncludeFile.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckIncludeFiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckLibraryExists.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckOBJCSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckStructHasMember.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckSymbolExists.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindGit.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPackageMessage.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPkgConfig.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPythonInterp.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindThreads.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindVulkan.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/GNUInstallDirs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckSourceRuns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/support/cmake/JoinPaths.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/support/cmake/cxx14.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm/glm/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/imgui/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/SDL2.spec.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/SDL2Config.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake/macros.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake/sdlchecks.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake_uninstall.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/include/SDL_config.h.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/include/SDL_revision.h.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/sdl2-config.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/sdl2.pc.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/cmake/SQLiteCppConfig.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/sqlite3/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/tinyobjloader-config.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/tinyobjloader.pc.in CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake libs/sdl/SDL_config.h.intermediate
+build build.ninja: RERUN_CMAKE | /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeDependentOption.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCSourceRuns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckIncludeFile.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckIncludeFiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckLibraryExists.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckOBJCSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckStructHasMember.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckSymbolExists.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindGit.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPackageMessage.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPkgConfig.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPythonInterp.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindThreads.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindVulkan.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/GNUInstallDirs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckSourceRuns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm/glm/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/imgui/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/SDL2.spec.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/SDL2Config.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake/macros.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake/sdlchecks.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake_uninstall.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/include/SDL_config.h.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/include/SDL_revision.h.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/sdl2-config.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/sdl2.pc.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/cmake/ide.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/cmake/utils.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/cmake/SQLiteCppConfig.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/sqlite3/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/tinyobjloader-config.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/tinyobjloader.pc.in CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake libs/sdl/SDL_config.h.intermediate
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeDependentOption.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeParseArguments.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCSourceRuns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckIncludeFile.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckIncludeFiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckLibraryExists.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckOBJCSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckStructHasMember.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckSymbolExists.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindGit.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPackageMessage.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPkgConfig.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPythonInterp.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindThreads.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindVulkan.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/GNUInstallDirs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckSourceRuns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/support/cmake/JoinPaths.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/fmt/support/cmake/cxx14.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm/glm/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/imgui/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/SDL2.spec.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/SDL2Config.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake/macros.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake/sdlchecks.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake_uninstall.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/include/SDL_config.h.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/include/SDL_revision.h.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/sdl2-config.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/sdl2.pc.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/cmake/SQLiteCppConfig.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/sqlite3/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/tinyobjloader-config.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/tinyobjloader.pc.in CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake libs/sdl/SDL_config.h.intermediate: phony
+build /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeDependentOption.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCSourceRuns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckIncludeFile.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckIncludeFiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckLibraryExists.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckOBJCSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckStructHasMember.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckSymbolExists.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindGit.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPackageMessage.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPkgConfig.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindPythonInterp.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindThreads.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/FindVulkan.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/GNUInstallDirs.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Internal/CheckSourceRuns.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/glm/glm/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/imgui/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/SDL2.spec.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/SDL2Config.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake/macros.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake/sdlchecks.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/cmake_uninstall.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/include/SDL_config.h.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/include/SDL_revision.h.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/sdl2-config.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sdl/sdl2.pc.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/cmake/ide.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/spdlog/cmake/utils.cmake /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/cmake/SQLiteCppConfig.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/sqlite/sqlite3/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/CMakeLists.txt /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/tinyobjloader-config.cmake.in /home/standa/Desktop/Projekty/sdl2-vulkan-engine/libs/tinyobjloader/tinyobjloader.pc.in CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake libs/sdl/SDL_config.h.intermediate: phony
 
 
 #############################################

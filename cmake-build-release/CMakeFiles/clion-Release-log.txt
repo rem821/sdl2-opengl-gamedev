@@ -33,7 +33,7 @@
 -- Platform: Linux-5.19.0-35-generic
 -- 64-bit:   TRUE
 -- Compiler: /usr/bin/cc
--- Revision: https://github.com/rem821/sdl2-vulkan-engine.git@ebb147b17ea2b164708bb00d5f3cc8f7aac499a9
+-- Revision: https://github.com/rem821/sdl2-vulkan-engine.git@f0e9a8fe91b606f78b18b2fc2661548a508df355
 -- 
 -- Subsystems:
 --   Atomic:	ON
@@ -153,11 +153,6 @@
 -- were installed, then make sure you have set the
 -- CFLAGS and LDFLAGS environment variables correctly.
 -- 
--- Module support is disabled.
--- Version: 8.1.2
--- Build type: Release
--- CXX_STANDARD: 17
--- Required features: cxx_variadic_templates
 -- GLM: Version 0.9.9.9
 -- ImGui: Version 1.88
 -- Using c++ standard c++17
@@ -172,6 +167,8 @@
 -- SQLITECPP_RUN_DOXYGEN OFF
 -- SQLITECPP_BUILD_EXAMPLES OFF
 -- SQLITECPP_BUILD_TESTS OFF
+-- Build spdlog: 1.11.0
+-- Build type: Release
 -- BUILDING SHADER
 -- /home/standa/Desktop/Projekty/sdl2-vulkan-engine/shaders/line_shader.frag
 -- BUILDING SHADER

@@ -19,13 +19,6 @@
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/CMakeFiles/install.dir
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/CMakeFiles/install/local.dir
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sdl/CMakeFiles/install/strip.dir
-/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt/CMakeFiles/fmt.dir
-/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt/CMakeFiles/edit_cache.dir
-/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt/CMakeFiles/rebuild_cache.dir
-/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt/CMakeFiles/list_install_components.dir
-/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt/CMakeFiles/install.dir
-/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt/CMakeFiles/install/local.dir
-/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt/CMakeFiles/install/strip.dir
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/glm/CMakeFiles/edit_cache.dir
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/glm/CMakeFiles/rebuild_cache.dir
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/glm/CMakeFiles/list_install_components.dir
@@ -68,3 +61,10 @@
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sqlite/sqlite3/CMakeFiles/install.dir
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sqlite/sqlite3/CMakeFiles/install/local.dir
 /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sqlite/sqlite3/CMakeFiles/install/strip.dir
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog/CMakeFiles/spdlog.dir
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog/CMakeFiles/edit_cache.dir
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog/CMakeFiles/rebuild_cache.dir
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog/CMakeFiles/list_install_components.dir
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog/CMakeFiles/install.dir
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog/CMakeFiles/install/local.dir
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog/CMakeFiles/install/strip.dir

@@ -49,11 +49,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/fmt/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/glm/cmake_install.cmake")
 endif()
 
@@ -70,6 +65,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/sqlite/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/libs/spdlog/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
