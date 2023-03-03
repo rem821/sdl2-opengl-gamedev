@@ -12,24 +12,37 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -fPIC")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
-# Compile Engine as a shared library
-file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/*.cpp)
-add_library(${ENGINE_NAME} SHARED)
-target_include_directories(${ENGINE_NAME} PRIVATE libs vulkan-engine/include/logging)
-target_precompile_headers(${ENGINE_NAME} PRIVATE vulkan-engine/include/precompiled_headers/PCH.h)
+# Add ImGui source files as a library
+add_library(imgui STATIC
+        vulkan-engine/libs/imgui/imgui.cpp
+        vulkan-engine/libs/imgui/imgui_draw.cpp
+        vulkan-engine/libs/imgui/imgui_widgets.cpp
+        vulkan-engine/libs/imgui/imgui_tables.cpp
+        vulkan-engine/libs/imgui/backends/imgui_impl_sdl2.cpp
+        vulkan-engine/libs/imgui/backends/imgui_impl_vulkan.cpp
+        )
+target_include_directories(imgui PRIVATE vulkan-engine/libs/imgui)
 
-add_subdirectory(libs/sdl)
-add_subdirectory(libs/glm)
-add_subdirectory(libs/imgui)
-add_subdirectory(libs/tinyobjloader)
-add_subdirectory(libs/sqlite)
-add_subdirectory(libs/spdlog)
+# Compile Engine as a shared library
+file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/src/*.cpp)
+add_library(${ENGINE_NAME} SHARED)
+target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/include/logging)
+
+add_subdirectory(vulkan-engine/libs/sdl)
+add_subdirectory(vulkan-engine/libs/glm)
+add_subdirectory(vulkan-engine/libs/tinyobjloader)
+add_subdirectory(vulkan-engine/libs/sqlitecpp)
+add_subdirectory(vulkan-engine/libs/spdlog)
+
+target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/libs/thread-pool)
+target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/libs/imgui vulkan-engine/libs/imgui/backends)
 
 find_package(Vulkan REQUIRED)
 
 target_sources(${ENGINE_NAME} PRIVATE ${ENGINE_SOURCES})
-target_link_libraries(${ENGINE_NAME} Vulkan::Vulkan SDL2 glm ImGui SQLiteCpp sqlite3 pthread fmt dl)
+target_link_libraries(${ENGINE_NAME} Vulkan::Vulkan SDL2 glm SQLiteCpp sqlite3 tinyobjloader imgui pthread fmt dl)
 target_compile_definitions(${ENGINE_NAME} PRIVATE PLATFORM_LINUX=1 BUILD_DLL=1)
+target_precompile_headers(${ENGINE_NAME} PRIVATE vulkan-engine/include/precompiled_headers/PCH.h)
 
 # Compile Sandbox and link with vulkan-engine
 set(SANDBOX_NAME VulkanSandbox)

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SDL.h"
+#include <SDL2/SDL.h>
 
 #include "rendering/VulkanEngineDevice.h"
 #include "rendering/VulkanEngineWindow.h"

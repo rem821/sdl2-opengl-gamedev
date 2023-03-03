@@ -16,7 +16,7 @@
 #include <algorithm>
 
 // BS_Thread_Pool
-#include <bs_thread_pool/BS_thread_pool.hpp>
+#include <BS_thread_pool.hpp>
 
 // Fmt
 #include <fmt/format.h>

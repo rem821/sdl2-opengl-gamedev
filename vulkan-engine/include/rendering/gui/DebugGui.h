@@ -10,10 +10,10 @@
 #include "../../CoordinateSystem.h"
 #include "../../GlobalConfiguration.h"
 
-#include "SDL.h"
-#include "imgui_impl_sdl.h"
-#include "imgui_impl_vulkan.h"
-
+#include <SDL2/SDL.h>
+#include <imgui.h>
+#include <imgui_impl_vulkan.h>
+#include <imgui_impl_sdl2.h>
 #include <vector>
 
 class DebugGui {

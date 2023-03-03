@@ -1,24 +1,24 @@
-[submodule "libs/imgui"]
-	path = libs/imgui
+[submodule "vulkan-engine/libs/imgui"]
+	path = vulkan-engine/libs/imgui
 	url = https://github.com/ocornut/imgui
-[submodule "libs/fmt"]
-	path = libs/fmt
-	url = https://github.com/fmtlib/fmt
-[submodule "libs/glm"]
-	path = libs/glm
+[submodule "vulkan-engine/libs/glm"]
+	path = vulkan-engine/libs/glm
 	url = https://github.com/g-truc/glm
-[submodule "libs/tinyobjloader"]
-	path = libs/tinyobjloader
+[submodule "vulkan-engine/tinyobjloader"]
+	path = vulkan-engine/tinyobjloader
 	url = https://github.com/tinyobjloader/tinyobjloader
-[submodule "libs/sdl"]
-	path = libs/sdl
+[submodule "vulkan-engine/libs/sdl"]
+	path = vulkan-engine/libs/sdl
 	url = https://github.com/libsdl-org/SDL
-[submodule "libs/sqlite"]
-	path = libs/sqlite
-	url = https://github.com/rem821/SQLiteCpp
-[submodule "libs/spdlog"]
-	path = libs/spdlog
+[submodule "vulkan-engine/libs/sqlitecpp"]
+	path = vulkan-engine/libs/sqlitecpp
+	url = https://github.com/SRombauts/SQLiteCpp
+[submodule "vulkan-engine/libs/spdlog"]
+	path = vulkan-engine/libs/spdlog
 	url = https://github.com/gabime/spdlog.git
-[submodule "libs/bs_thread_pool"]
-	path = libs/bs_thread_pool
+[submodule "vulkan-engine/libs/tinyobjloader"]
+	path = vulkan-engine/libs/tinyobjloader
+	url = https://github.com/tinyobjloader/tinyobjloader
+[submodule "vulkan-engine/libs/thread-pool"]
+	path = vulkan-engine/libs/thread-pool
 	url = https://github.com/bshoshany/thread-pool.git
