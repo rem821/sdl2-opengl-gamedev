@@ -1,39 +1,43 @@
 cmake_minimum_required(VERSION 3.21)
 
-set(NAME VulkanGame)
-project(${NAME} VERSION 0.1)
+set(ENGINE_NAME VulkanEngine)
+
+project(${ENGINE_NAME} VERSION 0.1)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+# Turn on all possible warnings during build
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -fPIC")
 
-file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
-add_executable(${PROJECT_NAME} ${SOURCES})
+# Setup Debug and Release flags
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
-target_include_directories(${PROJECT_NAME} PUBLIC libs/sdl libs/fmt/ libs/glm/ libs/imgui/ libs/tinyobjloader/)
+# Compile Engine as a shared library
+file(GLOB_RECURSE ENGINE_SOURCES ${PROJECT_SOURCE_DIR}/src/vulkan-engine/*.cpp)
+add_library(${ENGINE_NAME} SHARED)
+target_include_directories(${ENGINE_NAME} PRIVATE libs)
 
 add_subdirectory(libs/sdl)
-target_link_directories(${PROJECT_NAME} PRIVATE libs/sdl/)
-
 add_subdirectory(libs/fmt)
-target_link_directories(${PROJECT_NAME} PRIVATE libs/fmt/)
-
 add_subdirectory(libs/glm)
-target_link_directories(${PROJECT_NAME} PRIVATE libs/glm/)
-
 add_subdirectory(libs/imgui)
-target_link_directories(${PROJECT_NAME} PRIVATE libs/imgui/)
-
 add_subdirectory(libs/tinyobjloader)
-target_link_directories(${PROJECT_NAME} PRIVATE libs/tinyobjloader/)
-
 add_subdirectory(libs/sqlite)
-target_link_directories(${PROJECT_NAME} PRIVATE libs/sqlite/)
-
 
 find_package(Vulkan REQUIRED)
 
-target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan SDL2 fmt glm ImGui SQLiteCpp sqlite3 pthread dl)
+target_sources(${ENGINE_NAME} PRIVATE ${ENGINE_SOURCES})
+target_link_libraries(${ENGINE_NAME} Vulkan::Vulkan SDL2 fmt glm ImGui SQLiteCpp sqlite3 pthread dl)
+target_compile_definitions(${ENGINE_NAME} PRIVATE PLATFORM_LINUX=1 BUILD_DLL=1)
 
+# Compile Sandbox and link with vulkan-engine
+set(SANDBOX_NAME VulkanSandbox)
+file(GLOB_RECURSE SANDBOX_SOURCES ${PROJECT_SOURCE_DIR}/src/sandbox/*.cpp)
+add_executable(${SANDBOX_NAME} src/sandbox/SandboxApp.cpp)
+target_sources(${SANDBOX_NAME} PRIVATE ${SANDBOX_SOURCES})
+target_include_directories(${SANDBOX_NAME} PRIVATE src/vulkan-engine)
+target_link_libraries(${SANDBOX_NAME} ${ENGINE_NAME})
+target_compile_definitions(${SANDBOX_NAME} PRIVATE PLATFORM_LINUX=1 BUILD_DLL=0)
 ############## Build SHADERS #######################
 
 # Find all vertex and fragment sources within shaders directory
@@ -74,4 +78,4 @@ add_custom_target(
 
 file(COPY shaders DESTINATION ${CMAKE_BINARY_DIR})
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY models DESTINATION ${CMAKE_BINARY_DIR})
+#file(COPY models DESTINATION ${CMAKE_BINARY_DIR})

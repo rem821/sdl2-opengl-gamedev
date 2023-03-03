@@ -1,0 +1,3737 @@
+The system is: Linux - 5.19.0-35-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/3.24.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/3.24.2/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_3449b && [1/2] Building C object CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3449b.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_3449b.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccOUMI4J.s
+GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 3f6cb05d963ad324b8f9442822c95179
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3449b.dir/'
+ as -v --64 -o CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o /tmp/ccOUMI4J.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.'
+[2/2] Linking C executable cmTC_3449b
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3449b' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3449b.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccdhzWVz.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_3449b /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3449b' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3449b.'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_3449b && [1/2] Building C object CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3449b.dir/']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_3449b.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccOUMI4J.s]
+  ignore line: [GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04) version 11.3.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04) version 11.3.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 3f6cb05d963ad324b8f9442822c95179]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3449b.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o /tmp/ccOUMI4J.s]
+  ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.']
+  ignore line: [[2/2] Linking C executable cmTC_3449b]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3449b' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_3449b.']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccdhzWVz.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_3449b /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccdhzWVz.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_3449b] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
+    arg [CMakeFiles/cmTC_3449b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_25c31 && [1/2] Building CXX object CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_25c31.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_25c31.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccdFqQrQ.s
+GNU C++17 (Ubuntu 11.3.0-1ubuntu1~22.04) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/c++/11
+ /usr/include/x86_64-linux-gnu/c++/11
+ /usr/include/c++/11/backward
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C++17 (Ubuntu 11.3.0-1ubuntu1~22.04) version 11.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 449548cbb29044828dc7ea158b577b98
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_25c31.dir/'
+ as -v --64 -o CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccdFqQrQ.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.'
+[2/2] Linking CXX executable cmTC_25c31
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_25c31' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_25c31.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7NcQUy.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_25c31 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_25c31' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_25c31.'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/include/c++/11]
+    add: [/usr/include/x86_64-linux-gnu/c++/11]
+    add: [/usr/include/c++/11/backward]
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/include/c++/11] ==> [/usr/include/c++/11]
+  collapse include dir [/usr/include/x86_64-linux-gnu/c++/11] ==> [/usr/include/x86_64-linux-gnu/c++/11]
+  collapse include dir [/usr/include/c++/11/backward] ==> [/usr/include/c++/11/backward]
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/include/c++/11;/usr/include/x86_64-linux-gnu/c++/11;/usr/include/c++/11/backward;/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_25c31 && [1/2] Building CXX object CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_25c31.dir/']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_25c31.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccdFqQrQ.s]
+  ignore line: [GNU C++17 (Ubuntu 11.3.0-1ubuntu1~22.04) version 11.3.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/include/c++/11]
+  ignore line: [ /usr/include/x86_64-linux-gnu/c++/11]
+  ignore line: [ /usr/include/c++/11/backward]
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++17 (Ubuntu 11.3.0-1ubuntu1~22.04) version 11.3.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 449548cbb29044828dc7ea158b577b98]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_25c31.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccdFqQrQ.s]
+  ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.']
+  ignore line: [[2/2] Linking CXX executable cmTC_25c31]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_25c31' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_25c31.']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7NcQUy.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_25c31 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc7NcQUy.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_25c31] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
+    arg [CMakeFiles/cmTC_25c31.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the __GLIBC__ exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_65eab && [1/2] Building C object CMakeFiles/cmTC_65eab.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_65eab
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __GLIBC__
+  return ((int*)(&__GLIBC__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_GCC_WALL succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_6662a && [1/2] Building C object CMakeFiles/cmTC_6662a.dir/src.c.o
+[2/2] Linking C executable cmTC_6662a
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_NO_STRICT_ALIASING succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_e2bcd && [1/2] Building C object CMakeFiles/cmTC_e2bcd.dir/src.c.o
+[2/2] Linking C executable cmTC_e2bcd
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_WDECLARATION_AFTER_STATEMENT succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_8d2d6 && [1/2] Building C object CMakeFiles/cmTC_8d2d6.dir/src.c.o
+[2/2] Linking C executable cmTC_8d2d6
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_WERROR_DECLARATION_AFTER_STATEMENT succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_3c7c0 && [1/2] Building C object CMakeFiles/cmTC_3c7c0.dir/src.c.o
+[2/2] Linking C executable cmTC_3c7c0
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_ATOMICS succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_a176b && [1/2] Building C object CMakeFiles/cmTC_a176b.dir/src.c.o
+[2/2] Linking C executable cmTC_a176b
+
+
+Source file was:
+int main(int argc, char **argv) {
+        int a;
+        void *x, *y, *z;
+        __sync_lock_test_and_set(&a, 4);
+        __sync_lock_test_and_set(&x, y);
+        __sync_fetch_and_add(&a, 1);
+        __sync_bool_compare_and_swap(&a, 5, 10);
+        __sync_bool_compare_and_swap(&x, y, z);
+        return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_FVISIBILITY succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_81f4a && [1/2] Building C object CMakeFiles/cmTC_81f4a.dir/src.c.o
+[2/2] Linking C executable cmTC_81f4a
+
+
+Source file was:
+
+      #if !defined(__GNUC__) || __GNUC__ < 4
+      #error SDL only uses visibility attributes in GCC 4 or newer
+      #endif
+      int main(int argc, char **argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_WSHADOW succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_53cf0 && [1/2] Building C object CMakeFiles/cmTC_53cf0.dir/src.c.o
+[2/2] Linking C executable cmTC_53cf0
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_NO_UNDEFINED succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_fff5d && [1/2] Building C object CMakeFiles/cmTC_fff5d.dir/src.c.o
+[2/2] Linking C executable cmTC_fff5d
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_MMX succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_a7ba4 && [1/2] Building C object CMakeFiles/cmTC_a7ba4.dir/src.c.o
+[2/2] Linking C executable cmTC_a7ba4
+
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <mmintrin.h>
+          #endif
+          #else
+          #include <mmintrin.h>
+          #endif
+          #ifndef __MMX__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_3DNOW succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b13a1 && [1/2] Building C object CMakeFiles/cmTC_b13a1.dir/src.c.o
+[2/2] Linking C executable cmTC_b13a1
+
+
+Source file was:
+
+          #include <mm3dnow.h>
+          #ifndef __3dNOW__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) {
+            void *p = 0;
+            _m_prefetch(p);
+            return 0;
+          }
+Performing C SOURCE FILE Test HAVE_SSE succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_7ed2f && [1/2] Building C object CMakeFiles/cmTC_7ed2f.dir/src.c.o
+[2/2] Linking C executable cmTC_7ed2f
+
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <xmmintrin.h>
+          #endif
+          #else
+          #include <xmmintrin.h>
+          #endif
+          #ifndef __SSE__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_SSE2 succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_51b48 && [1/2] Building C object CMakeFiles/cmTC_51b48.dir/src.c.o
+[2/2] Linking C executable cmTC_51b48
+
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <emmintrin.h>
+          #endif
+          #else
+          #include <emmintrin.h>
+          #endif
+          #ifndef __SSE2__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_SSE3 succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_bf6e4 && [1/2] Building C object CMakeFiles/cmTC_bf6e4.dir/src.c.o
+[2/2] Linking C executable cmTC_bf6e4
+
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <pmmintrin.h>
+          #endif
+          #else
+          #include <pmmintrin.h>
+          #endif
+          #ifndef __SSE3__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { return 0; }
+Determining if the include file immintrin.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_4572d && [1/2] Building C object CMakeFiles/cmTC_4572d.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_4572d
+
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_277cc && [1/2] Building C object CMakeFiles/cmTC_277cc.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_277cc
+
+
+
+Determining if the include file stdio.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_f2f1e && [1/2] Building C object CMakeFiles/cmTC_f2f1e.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_f2f1e
+
+
+
+Determining if the include file stdlib.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_ab479 && [1/2] Building C object CMakeFiles/cmTC_ab479.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_ab479
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_abb5f && [1/2] Building C object CMakeFiles/cmTC_abb5f.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_abb5f
+
+
+
+Determining if the include file stdarg.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_500a6 && [1/2] Building C object CMakeFiles/cmTC_500a6.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_500a6
+
+
+
+Determining if the include file malloc.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_2c8cd && [1/2] Building C object CMakeFiles/cmTC_2c8cd.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_2c8cd
+
+
+
+Determining if the include file memory.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_cb5df && [1/2] Building C object CMakeFiles/cmTC_cb5df.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_cb5df
+
+
+
+Determining if the include file string.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_778b9 && [1/2] Building C object CMakeFiles/cmTC_778b9.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_778b9
+
+
+
+Determining if the include file limits.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_1b99a && [1/2] Building C object CMakeFiles/cmTC_1b99a.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_1b99a
+
+
+
+Determining if the include file float.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_bba9e && [1/2] Building C object CMakeFiles/cmTC_bba9e.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_bba9e
+
+
+
+Determining if the include file strings.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b836b && [1/2] Building C object CMakeFiles/cmTC_b836b.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_b836b
+
+
+
+Determining if the include file wchar.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_a330b && [1/2] Building C object CMakeFiles/cmTC_a330b.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_a330b
+
+
+
+Determining if the include file inttypes.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_34bc6 && [1/2] Building C object CMakeFiles/cmTC_34bc6.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_34bc6
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_9c13d && [1/2] Building C object CMakeFiles/cmTC_9c13d.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_9c13d
+
+
+
+Determining if the include file ctype.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_13fd6 && [1/2] Building C object CMakeFiles/cmTC_13fd6.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_13fd6
+
+
+
+Determining if the include file math.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_db68b && [1/2] Building C object CMakeFiles/cmTC_db68b.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_db68b
+
+
+
+Determining if the include file iconv.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_0de72 && [1/2] Building C object CMakeFiles/cmTC_0de72.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_0de72
+
+
+
+Determining if the include file signal.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_5227b && [1/2] Building C object CMakeFiles/cmTC_5227b.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_5227b
+
+
+
+Determining if files stddef.h;stdarg.h;stdlib.h;string.h;stdio.h;wchar.h;float.h exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_8f29e && [1/2] Building C object CMakeFiles/cmTC_8f29e.dir/STDC_HEADERS.c.o
+[2/2] Linking C executable cmTC_8f29e
+
+
+
+Determining if the M_PI exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_a41c9 && [1/2] Building C object CMakeFiles/cmTC_a41c9.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a41c9
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef M_PI
+  return ((int*)(&M_PI))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_MPROTECT succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_cfceb && [1/2] Building C object CMakeFiles/cmTC_cfceb.dir/src.c.o
+[2/2] Linking C executable cmTC_cfceb
+
+
+Source file was:
+#include <sys/types.h>
+                             #include <sys/mman.h>
+                             int main(void) { return 0; }
+Determining if the strtod exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_2dffd && [1/2] Building C object CMakeFiles/cmTC_2dffd.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_2dffd
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtod
+  return ((int*)(&strtod))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the malloc exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_49e03 && [1/2] Building C object CMakeFiles/cmTC_49e03.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_49e03
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef malloc
+  return ((int*)(&malloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the calloc exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_c23ad && [1/2] Building C object CMakeFiles/cmTC_c23ad.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_c23ad
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef calloc
+  return ((int*)(&calloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the realloc exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_3a386 && [1/2] Building C object CMakeFiles/cmTC_3a386.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_3a386
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef realloc
+  return ((int*)(&realloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the free exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_05559 && [1/2] Building C object CMakeFiles/cmTC_05559.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_05559
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef free
+  return ((int*)(&free))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getenv exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_76d4b && [1/2] Building C object CMakeFiles/cmTC_76d4b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_76d4b
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getenv
+  return ((int*)(&getenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setenv exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_91784 && [1/2] Building C object CMakeFiles/cmTC_91784.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_91784
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setenv
+  return ((int*)(&setenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the putenv exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_f29d6 && [1/2] Building C object CMakeFiles/cmTC_f29d6.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f29d6
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef putenv
+  return ((int*)(&putenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the unsetenv exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_ab164 && [1/2] Building C object CMakeFiles/cmTC_ab164.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_ab164
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef unsetenv
+  return ((int*)(&unsetenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the bsearch exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_0fb94 && [1/2] Building C object CMakeFiles/cmTC_0fb94.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0fb94
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef bsearch
+  return ((int*)(&bsearch))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the qsort exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_ed9ce && [1/2] Building C object CMakeFiles/cmTC_ed9ce.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_ed9ce
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef qsort
+  return ((int*)(&qsort))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the abs exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_1518a && [1/2] Building C object CMakeFiles/cmTC_1518a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_1518a
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef abs
+  return ((int*)(&abs))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the bcopy exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_d2ebf && [1/2] Building C object CMakeFiles/cmTC_d2ebf.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_d2ebf
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef bcopy
+  return ((int*)(&bcopy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memset exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_ed3c8 && [1/2] Building C object CMakeFiles/cmTC_ed3c8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_ed3c8
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memset
+  return ((int*)(&memset))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memcpy exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_e78d2 && [1/2] Building C object CMakeFiles/cmTC_e78d2.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e78d2
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memcpy
+  return ((int*)(&memcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memmove exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_99588 && [1/2] Building C object CMakeFiles/cmTC_99588.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_99588
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memmove
+  return ((int*)(&memmove))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memcmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b4a1b && [1/2] Building C object CMakeFiles/cmTC_b4a1b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b4a1b
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memcmp
+  return ((int*)(&memcmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlen exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_f24b8 && [1/2] Building C object CMakeFiles/cmTC_f24b8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f24b8
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlen
+  return ((int*)(&strlen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the index exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_fa025 && [1/2] Building C object CMakeFiles/cmTC_fa025.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_fa025
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef index
+  return ((int*)(&index))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the rindex exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_8664e && [1/2] Building C object CMakeFiles/cmTC_8664e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_8664e
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef rindex
+  return ((int*)(&rindex))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strchr exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_eb59f && [1/2] Building C object CMakeFiles/cmTC_eb59f.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_eb59f
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strchr
+  return ((int*)(&strchr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strrchr exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_296c6 && [1/2] Building C object CMakeFiles/cmTC_296c6.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_296c6
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strrchr
+  return ((int*)(&strrchr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strstr exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_efb68 && [1/2] Building C object CMakeFiles/cmTC_efb68.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_efb68
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strstr
+  return ((int*)(&strstr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtok_r exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_d0d11 && [1/2] Building C object CMakeFiles/cmTC_d0d11.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_d0d11
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtok_r
+  return ((int*)(&strtok_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtol exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_2f3da && [1/2] Building C object CMakeFiles/cmTC_2f3da.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_2f3da
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtol
+  return ((int*)(&strtol))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtoul exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_7500e && [1/2] Building C object CMakeFiles/cmTC_7500e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7500e
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoul
+  return ((int*)(&strtoul))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtoll exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_0fc58 && [1/2] Building C object CMakeFiles/cmTC_0fc58.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0fc58
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoll
+  return ((int*)(&strtoll))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtoull exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b2831 && [1/2] Building C object CMakeFiles/cmTC_b2831.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b2831
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoull
+  return ((int*)(&strtoull))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atoi exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_1546d && [1/2] Building C object CMakeFiles/cmTC_1546d.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_1546d
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atoi
+  return ((int*)(&atoi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atof exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_d0bd3 && [1/2] Building C object CMakeFiles/cmTC_d0bd3.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_d0bd3
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atof
+  return ((int*)(&atof))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_00bcc && [1/2] Building C object CMakeFiles/cmTC_00bcc.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_00bcc
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmp
+  return ((int*)(&strcmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_3ef75 && [1/2] Building C object CMakeFiles/cmTC_3ef75.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_3ef75
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncmp
+  return ((int*)(&strncmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcasecmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_7cf97 && [1/2] Building C object CMakeFiles/cmTC_7cf97.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7cf97
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcasecmp
+  return ((int*)(&strcasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncasecmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_197c4 && [1/2] Building C object CMakeFiles/cmTC_197c4.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_197c4
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncasecmp
+  return ((int*)(&strncasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcscmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_90d63 && [1/2] Building C object CMakeFiles/cmTC_90d63.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_90d63
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcscmp
+  return ((int*)(&wcscmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcsdup exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_df375 && [1/2] Building C object CMakeFiles/cmTC_df375.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_df375
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcsdup
+  return ((int*)(&wcsdup))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcslen exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_c1eed && [1/2] Building C object CMakeFiles/cmTC_c1eed.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_c1eed
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcslen
+  return ((int*)(&wcslen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcsncmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_cec96 && [1/2] Building C object CMakeFiles/cmTC_cec96.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_cec96
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcsncmp
+  return ((int*)(&wcsncmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcsstr exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_1b263 && [1/2] Building C object CMakeFiles/cmTC_1b263.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_1b263
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcsstr
+  return ((int*)(&wcsstr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcscasecmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_23d1a && [1/2] Building C object CMakeFiles/cmTC_23d1a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_23d1a
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcscasecmp
+  return ((int*)(&wcscasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcsncasecmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_0667f && [1/2] Building C object CMakeFiles/cmTC_0667f.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0667f
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcsncasecmp
+  return ((int*)(&wcsncasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sscanf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_2b956 && [1/2] Building C object CMakeFiles/cmTC_2b956.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_2b956
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sscanf
+  return ((int*)(&sscanf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the vsscanf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_acac0 && [1/2] Building C object CMakeFiles/cmTC_acac0.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_acac0
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef vsscanf
+  return ((int*)(&vsscanf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the vsnprintf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_0a8c8 && [1/2] Building C object CMakeFiles/cmTC_0a8c8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_0a8c8
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef vsnprintf
+  return ((int*)(&vsnprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fseeko exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_a0e05 && [1/2] Building C object CMakeFiles/cmTC_a0e05.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a0e05
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fseeko
+  return ((int*)(&fseeko))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _Exit exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_d2c41 && [1/2] Building C object CMakeFiles/cmTC_d2c41.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_d2c41
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <wchar.h>
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _Exit
+  return ((int*)(&_Exit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sigaction exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_5a6ab && [1/2] Building C object CMakeFiles/cmTC_5a6ab.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_5a6ab
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <signal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sigaction
+  return ((int*)(&sigaction))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setjmp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_57b7f && [1/2] Building C object CMakeFiles/cmTC_57b7f.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_57b7f
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <setjmp.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setjmp
+  return ((int*)(&setjmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the nanosleep exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_85b29 && [1/2] Building C object CMakeFiles/cmTC_85b29.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_85b29
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef nanosleep
+  return ((int*)(&nanosleep))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sysconf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_9dc41 && [1/2] Building C object CMakeFiles/cmTC_9dc41.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_9dc41
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysconf
+  return ((int*)(&sysconf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getauxval exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_e2ae2 && [1/2] Building C object CMakeFiles/cmTC_e2ae2.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e2ae2
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/auxv.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getauxval
+  return ((int*)(&getauxval))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the poll exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_05a7e && [1/2] Building C object CMakeFiles/cmTC_05a7e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_05a7e
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <poll.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef poll
+  return ((int*)(&poll))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function pow exists in the m passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_839a9 && [1/2] Building C object CMakeFiles/cmTC_839a9.dir/CheckFunctionExists.c.o
+<command-line>: warning: conflicting types for built-in function ‘pow’; expected ‘double(double,  double)’ [-Wbuiltin-declaration-mismatch]
+/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+    7 |   CHECK_FUNCTION_EXISTS(void);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/linux/x64/share/cmake-3.24/Modules/CheckFunctionExists.c:1:1: note: ‘pow’ is declared in header ‘<math.h>’
+  +++ |+#include <math.h>
+    1 | #ifdef CHECK_FUNCTION_EXISTS
+[2/2] Linking C executable cmTC_839a9
+
+
+
+Determining if the atan exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_28f7a && [1/2] Building C object CMakeFiles/cmTC_28f7a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_28f7a
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atan
+  return ((int*)(&atan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atan2 exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_21bc8 && [1/2] Building C object CMakeFiles/cmTC_21bc8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_21bc8
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atan2
+  return ((int*)(&atan2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atanf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_a9d29 && [1/2] Building C object CMakeFiles/cmTC_a9d29.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_a9d29
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atanf
+  return ((int*)(&atanf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the atan2f exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_db5fa && [1/2] Building C object CMakeFiles/cmTC_db5fa.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_db5fa
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef atan2f
+  return ((int*)(&atan2f))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the ceil exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_9febf && [1/2] Building C object CMakeFiles/cmTC_9febf.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_9febf
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef ceil
+  return ((int*)(&ceil))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the ceilf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_bd2fc && [1/2] Building C object CMakeFiles/cmTC_bd2fc.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_bd2fc
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef ceilf
+  return ((int*)(&ceilf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the copysign exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b9df4 && [1/2] Building C object CMakeFiles/cmTC_b9df4.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b9df4
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef copysign
+  return ((int*)(&copysign))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the copysignf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_26e65 && [1/2] Building C object CMakeFiles/cmTC_26e65.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_26e65
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef copysignf
+  return ((int*)(&copysignf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the cos exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_186b5 && [1/2] Building C object CMakeFiles/cmTC_186b5.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_186b5
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef cos
+  return ((int*)(&cos))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the cosf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_33a09 && [1/2] Building C object CMakeFiles/cmTC_33a09.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_33a09
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef cosf
+  return ((int*)(&cosf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the exp exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_16714 && [1/2] Building C object CMakeFiles/cmTC_16714.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_16714
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef exp
+  return ((int*)(&exp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the expf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_cf962 && [1/2] Building C object CMakeFiles/cmTC_cf962.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_cf962
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef expf
+  return ((int*)(&expf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fabs exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_380cf && [1/2] Building C object CMakeFiles/cmTC_380cf.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_380cf
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fabs
+  return ((int*)(&fabs))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fabsf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_4a469 && [1/2] Building C object CMakeFiles/cmTC_4a469.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_4a469
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fabsf
+  return ((int*)(&fabsf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the floor exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_82cca && [1/2] Building C object CMakeFiles/cmTC_82cca.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_82cca
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef floor
+  return ((int*)(&floor))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the floorf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_27a1c && [1/2] Building C object CMakeFiles/cmTC_27a1c.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_27a1c
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef floorf
+  return ((int*)(&floorf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fmod exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_90aa9 && [1/2] Building C object CMakeFiles/cmTC_90aa9.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_90aa9
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fmod
+  return ((int*)(&fmod))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the fmodf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_e99a8 && [1/2] Building C object CMakeFiles/cmTC_e99a8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e99a8
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fmodf
+  return ((int*)(&fmodf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the log exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b0579 && [1/2] Building C object CMakeFiles/cmTC_b0579.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b0579
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef log
+  return ((int*)(&log))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the logf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_4088e && [1/2] Building C object CMakeFiles/cmTC_4088e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_4088e
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef logf
+  return ((int*)(&logf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the log10 exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_392f7 && [1/2] Building C object CMakeFiles/cmTC_392f7.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_392f7
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef log10
+  return ((int*)(&log10))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the log10f exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_27072 && [1/2] Building C object CMakeFiles/cmTC_27072.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_27072
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef log10f
+  return ((int*)(&log10f))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the lround exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_7cea1 && [1/2] Building C object CMakeFiles/cmTC_7cea1.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7cea1
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef lround
+  return ((int*)(&lround))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the lroundf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_474ec && [1/2] Building C object CMakeFiles/cmTC_474ec.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_474ec
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef lroundf
+  return ((int*)(&lroundf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the pow exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_7d1a1 && [1/2] Building C object CMakeFiles/cmTC_7d1a1.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7d1a1
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pow
+  return ((int*)(&pow))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the powf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_00c9c && [1/2] Building C object CMakeFiles/cmTC_00c9c.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_00c9c
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef powf
+  return ((int*)(&powf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the round exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_7d812 && [1/2] Building C object CMakeFiles/cmTC_7d812.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7d812
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef round
+  return ((int*)(&round))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the roundf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_2ed4e && [1/2] Building C object CMakeFiles/cmTC_2ed4e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_2ed4e
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef roundf
+  return ((int*)(&roundf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the scalbn exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_7f684 && [1/2] Building C object CMakeFiles/cmTC_7f684.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7f684
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef scalbn
+  return ((int*)(&scalbn))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the scalbnf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_e2a54 && [1/2] Building C object CMakeFiles/cmTC_e2a54.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e2a54
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef scalbnf
+  return ((int*)(&scalbnf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sin exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_cedd9 && [1/2] Building C object CMakeFiles/cmTC_cedd9.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_cedd9
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sin
+  return ((int*)(&sin))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sinf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_ec31e && [1/2] Building C object CMakeFiles/cmTC_ec31e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_ec31e
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sinf
+  return ((int*)(&sinf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sqrt exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_5f9f0 && [1/2] Building C object CMakeFiles/cmTC_5f9f0.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_5f9f0
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sqrt
+  return ((int*)(&sqrt))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sqrtf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b101e && [1/2] Building C object CMakeFiles/cmTC_b101e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b101e
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sqrtf
+  return ((int*)(&sqrtf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the tan exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_e1b14 && [1/2] Building C object CMakeFiles/cmTC_e1b14.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_e1b14
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef tan
+  return ((int*)(&tan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the tanf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_58fc6 && [1/2] Building C object CMakeFiles/cmTC_58fc6.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_58fc6
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef tanf
+  return ((int*)(&tanf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the acos exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_21221 && [1/2] Building C object CMakeFiles/cmTC_21221.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_21221
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef acos
+  return ((int*)(&acos))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the acosf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_c00cc && [1/2] Building C object CMakeFiles/cmTC_c00cc.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_c00cc
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef acosf
+  return ((int*)(&acosf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the asin exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_f1135 && [1/2] Building C object CMakeFiles/cmTC_f1135.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f1135
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef asin
+  return ((int*)(&asin))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the asinf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_d224b && [1/2] Building C object CMakeFiles/cmTC_d224b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_d224b
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef asinf
+  return ((int*)(&asinf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the trunc exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_de777 && [1/2] Building C object CMakeFiles/cmTC_de777.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_de777
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef trunc
+  return ((int*)(&trunc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the truncf exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_85f34 && [1/2] Building C object CMakeFiles/cmTC_85f34.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_85f34
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef truncf
+  return ((int*)(&truncf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function iconv_open exists in the c passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_68946 && [1/2] Building C object CMakeFiles/cmTC_68946.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_68946
+
+
+
+Determining if the include file alloca.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_e0be0 && [1/2] Building C object CMakeFiles/cmTC_e0be0.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_e0be0
+
+
+
+Determining if the alloca exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b9adc && [1/2] Building C object CMakeFiles/cmTC_b9adc.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b9adc
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <alloca.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef alloca
+  return ((int*)(&alloca))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the alloca exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_4798b && [1/2] Building C object CMakeFiles/cmTC_4798b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_4798b
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef alloca
+  return ((int*)(&alloca))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_SA_SIGACTION succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_13ee0 && [1/2] Building C object CMakeFiles/cmTC_13ee0.dir/src.c.o
+[2/2] Linking C executable cmTC_13ee0
+
+
+Source file was:
+
+#include <signal.h>
+
+int main()
+{
+  (void)sizeof(((struct sigaction *)0)->sa_sigaction);
+  return 0;
+}
+
+Determining if the dlopen exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_c88d8 && [1/2] Building C object CMakeFiles/cmTC_c88d8.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_c88d8
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <dlfcn.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef dlopen
+  return ((int*)(&dlopen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_O_CLOEXEC succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b74d2 && [1/2] Building C object CMakeFiles/cmTC_b74d2.dir/src.c.o
+[2/2] Linking C executable cmTC_b74d2
+
+
+Source file was:
+
+    #include <fcntl.h>
+    int flag = O_CLOEXEC;
+    int main(int argc, char **argv) { return 0; }
+Performing C SOURCE FILE Test OSS_FOUND succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_bd37c && [1/2] Building C object CMakeFiles/cmTC_bd37c.dir/src.c.o
+[2/2] Linking C executable cmTC_bd37c
+
+
+Source file was:
+
+        #include <sys/soundcard.h>
+        int main(int argc, char **argv) { int arg = SNDCTL_DSP_SETFRAGMENT; return 0; }
+Determining if the include file alsa/asoundlib.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_fcff8 && [1/2] Building C object CMakeFiles/cmTC_fcff8.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_fcff8
+
+
+
+Determining if the function snd_pcm_recover exists in the asound passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_3c0a9 && [1/2] Building C object CMakeFiles/cmTC_3c0a9.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_3c0a9
+
+
+
+Determining if the include file sndio.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_4f29a && [1/2] Building C object CMakeFiles/cmTC_4f29a.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_4f29a
+
+
+
+Determining if the include file X11/Xcursor/Xcursor.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_f9c0f && [1/2] Building C object CMakeFiles/cmTC_f9c0f.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_f9c0f
+
+
+
+Determining if the include file X11/extensions/XInput2.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_1734e && [1/2] Building C object CMakeFiles/cmTC_1734e.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_1734e
+
+
+
+Determining if the include file X11/extensions/Xrandr.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_050cd && [1/2] Building C object CMakeFiles/cmTC_050cd.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_050cd
+
+
+
+Determining if the include file X11/extensions/Xfixes.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_88a45 && [1/2] Building C object CMakeFiles/cmTC_88a45.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_88a45
+
+
+
+Determining if the include file X11/extensions/Xrender.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_82f20 && [1/2] Building C object CMakeFiles/cmTC_82f20.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_82f20
+
+
+
+Determining if the include file X11/extensions/scrnsaver.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_34d95 && [1/2] Building C object CMakeFiles/cmTC_34d95.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_34d95
+
+
+
+Determining if the include file X11/extensions/shape.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_76a32 && [1/2] Building C object CMakeFiles/cmTC_76a32.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_76a32
+
+
+
+Determining if files X11/Xlib.h;X11/extensions/Xdbe.h exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_d9e25 && [1/2] Building C object CMakeFiles/cmTC_d9e25.dir/HAVE_XDBE_H.c.o
+[2/2] Linking C executable cmTC_d9e25
+
+
+
+Determining if files X11/Xlib.h;X11/Xproto.h;X11/extensions/Xext.h exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_c4899 && [1/2] Building C object CMakeFiles/cmTC_c4899.dir/HAVE_XEXT_H.c.o
+[2/2] Linking C executable cmTC_c4899
+
+
+
+Determining if the shmat exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_4216b && [1/2] Building C object CMakeFiles/cmTC_4216b.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_4216b
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/shm.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef shmat
+  return ((int*)(&shmat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_XGENERICEVENT succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_68355 && [1/2] Building C object CMakeFiles/cmTC_68355.dir/src.c.o
+[2/2] Linking C executable cmTC_68355
+
+
+Source file was:
+
+          #include <X11/Xlib.h>
+          int main(int argc, char **argv) {
+            Display *display;
+            XEvent event;
+            XGenericEventCookie *cookie = &event.xcookie;
+            XNextEvent(display, &event);
+            XGetEventData(display, cookie);
+            XFreeEventData(display, cookie);
+            return 0; }
+Determining if the XkbKeycodeToKeysym exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_7fee3 && [1/2] Building C object CMakeFiles/cmTC_7fee3.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_7fee3
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <X11/Xlib.h>
+#include <X11/XKBlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef XkbKeycodeToKeysym
+  return ((int*)(&XkbKeycodeToKeysym))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_XINPUT2_MULTITOUCH succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_53796 && [1/2] Building C object CMakeFiles/cmTC_53796.dir/src.c.o
+[2/2] Linking C executable cmTC_53796
+
+
+Source file was:
+
+            #include <X11/Xlib.h>
+            #include <X11/Xproto.h>
+            #include <X11/extensions/XInput2.h>
+            int event_type = XI_TouchBegin;
+            XITouchClassInfo *t;
+            Status XIAllowTouchEvents(Display *a,int b,unsigned int c,Window d,int f) {
+              return (Status)0;
+            }
+            int main(int argc, char **argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_XFIXES_H succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_6a374 && [1/2] Building C object CMakeFiles/cmTC_6a374.dir/src.c.o
+[2/2] Linking C executable cmTC_6a374
+
+
+Source file was:
+
+            #include <X11/Xlib.h>
+            #include <X11/Xproto.h>
+            #include <X11/extensions/XInput2.h>
+            #include <X11/extensions/Xfixes.h>
+            BarrierEventID b;
+            int main(int argc, char **argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_OPENGL_EGL succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_2e8b8 && [1/2] Building C object CMakeFiles/cmTC_2e8b8.dir/src.c.o
+[2/2] Linking C executable cmTC_2e8b8
+
+
+Source file was:
+
+        #define EGL_API_FB
+        #define MESA_EGL_NO_X11_HEADERS
+        #define EGL_NO_X11
+        #include <EGL/egl.h>
+        #include <EGL/eglext.h>
+        int main (int argc, char** argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_OPENGL_GLX succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_3db50 && [1/2] Building C object CMakeFiles/cmTC_3db50.dir/src.c.o
+[2/2] Linking C executable cmTC_3db50
+
+
+Source file was:
+
+        #include <GL/glx.h>
+        int main(int argc, char** argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_OPENGL succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b8160 && [1/2] Building C object CMakeFiles/cmTC_b8160.dir/src.c.o
+[2/2] Linking C executable cmTC_b8160
+
+
+Source file was:
+
+        #include <GL/gl.h>
+        #include <GL/glext.h>
+        int main(int argc, char** argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_OPENGLES_V1 succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_4068d && [1/2] Building C object CMakeFiles/cmTC_4068d.dir/src.c.o
+[2/2] Linking C executable cmTC_4068d
+
+
+Source file was:
+
+        #include <GLES/gl.h>
+        #include <GLES/glext.h>
+        int main (int argc, char** argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_OPENGLES_V2 succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_64893 && [1/2] Building C object CMakeFiles/cmTC_64893.dir/src.c.o
+[2/2] Linking C executable cmTC_64893
+
+
+Source file was:
+
+        #include <GLES2/gl2.h>
+        #include <GLES2/gl2ext.h>
+        int main (int argc, char** argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_INPUT_EVENTS succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_1c708 && [1/2] Building C object CMakeFiles/cmTC_1c708.dir/src.c.o
+[2/2] Linking C executable cmTC_1c708
+
+
+Source file was:
+
+        #include <linux/input.h>
+        #ifndef EVIOCGNAME
+        #error EVIOCGNAME() ioctl not available
+        #endif
+        int main(int argc, char** argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_INPUT_KD succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_f2853 && [1/2] Building C object CMakeFiles/cmTC_f2853.dir/src.c.o
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/src.c:7:15: warning: implicit declaration of function ‘ioctl’ [-Wimplicit-function-declaration]
+    7 |               ioctl(0, KDGKBENT, &kbe);
+      |               ^~~~~
+[2/2] Linking C executable cmTC_f2853
+
+
+Source file was:
+
+          #include <linux/kd.h>
+          #include <linux/keyboard.h>
+          int main(int argc, char **argv) {
+              struct kbentry kbe;
+              kbe.kb_table = KG_CTRL;
+              ioctl(0, KDGKBENT, &kbe);
+              return 0;
+          }
+Determining if the include file libudev.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_8fca1 && [1/2] Building C object CMakeFiles/cmTC_8fca1.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_8fca1
+
+
+
+Determining if the include file sys/inotify.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_83e85 && [1/2] Building C object CMakeFiles/cmTC_83e85.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_83e85
+
+
+
+Determining if the inotify_init exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_864b9 && [1/2] Building C object CMakeFiles/cmTC_864b9.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_864b9
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/inotify.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inotify_init
+  return ((int*)(&inotify_init))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the inotify_init1 exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_4d86f && [1/2] Building C object CMakeFiles/cmTC_4d86f.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_4d86f
+
+
+File /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/inotify.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inotify_init1
+  return ((int*)(&inotify_init1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file libusb.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_1a8b5 && [1/2] Building C object CMakeFiles/cmTC_1a8b5.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_1a8b5
+
+
+
+Performing C SOURCE FILE Test HAVE_PTHREADS succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_2ca65 && [1/2] Building C object CMakeFiles/cmTC_2ca65.dir/src.c.o
+[2/2] Linking C executable cmTC_2ca65
+
+
+Source file was:
+
+      #include <pthread.h>
+      int main(int argc, char** argv) {
+        pthread_attr_t type;
+        pthread_attr_init(&type);
+        return 0;
+      }
+Performing C SOURCE FILE Test HAVE_RECURSIVE_MUTEXES succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b576a && [1/2] Building C object CMakeFiles/cmTC_b576a.dir/src.c.o
+[2/2] Linking C executable cmTC_b576a
+
+
+Source file was:
+
+        #define _GNU_SOURCE 1
+        #include <pthread.h>
+        int main(int argc, char **argv) {
+          pthread_mutexattr_t attr;
+          pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
+          return 0;
+        }
+Performing C SOURCE FILE Test HAVE_PTHREADS_SEM succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_95f73 && [1/2] Building C object CMakeFiles/cmTC_95f73.dir/src.c.o
+[2/2] Linking C executable cmTC_95f73
+
+
+Source file was:
+#include <pthread.h>
+                                 #include <semaphore.h>
+                                 int main(int argc, char **argv) { return 0; }
+Performing C SOURCE FILE Test HAVE_SEM_TIMEDWAIT succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_c4a98 && [1/2] Building C object CMakeFiles/cmTC_c4a98.dir/src.c.o
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/src.c:5:19: warning: argument 1 null where non-null expected [-Wnonnull]
+    5 |                   sem_timedwait(NULL, NULL);
+      |                   ^~~~~~~~~~~~~
+In file included from /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/src.c:3:
+/usr/include/semaphore.h:63:12: note: in a call to function ‘sem_timedwait’ declared ‘nonnull’
+   63 | extern int sem_timedwait (sem_t *__restrict __sem,
+      |            ^~~~~~~~~~~~~
+/home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/src.c:5:19: warning: argument 2 null where non-null expected [-Wnonnull]
+    5 |                   sem_timedwait(NULL, NULL);
+      |                   ^~~~~~~~~~~~~
+In file included from /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp/src.c:3:
+/usr/include/semaphore.h:63:12: note: in a call to function ‘sem_timedwait’ declared ‘nonnull’
+   63 | extern int sem_timedwait (sem_t *__restrict __sem,
+      |            ^~~~~~~~~~~~~
+[2/2] Linking C executable cmTC_c4a98
+
+
+Source file was:
+
+              #include <pthread.h>
+              #include <semaphore.h>
+              int main(int argc, char **argv) {
+                  sem_timedwait(NULL, NULL);
+                  return 0;
+              }
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_53de7 && [1/2] Building C object CMakeFiles/cmTC_53de7.dir/HAVE_PTHREAD_H.c.o
+[2/2] Linking C executable cmTC_53de7
+
+
+
+Performing C SOURCE FILE Test HAVE_PTHREAD_SETNAME_NP succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_b683b && [1/2] Building C object CMakeFiles/cmTC_b683b.dir/src.c.o
+[2/2] Linking C executable cmTC_b683b
+
+
+Source file was:
+
+            #define _GNU_SOURCE 1
+            #include <pthread.h>
+            int main(int argc, char **argv) {
+              pthread_setname_np(pthread_self(), "");
+              return 0;
+            }
+Determining if the function clock_gettime exists in the rt passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_f4bdb && [1/2] Building C object CMakeFiles/cmTC_f4bdb.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_f4bdb
+
+
+
+Determining if the include file linux/version.h exists passed with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_968f1 && [1/2] Building C object CMakeFiles/cmTC_968f1.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_968f1
+
+
+
+Performing C SOURCE FILE Test HAVE_ENABLE_NEW_DTAGS succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_38916 && [1/2] Building C object CMakeFiles/cmTC_38916.dir/src.c.o
+[2/2] Linking C executable cmTC_38916
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test has_std_17_flag succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_da1c6 && [1/2] Building CXX object CMakeFiles/cmTC_da1c6.dir/src.cxx.o
+[2/2] Linking CXX executable cmTC_da1c6
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test has_std_1z_flag succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_566bf && [1/2] Building CXX object CMakeFiles/cmTC_566bf.dir/src.cxx.o
+[2/2] Linking CXX executable cmTC_566bf
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/standa/Desktop/Projekty/sdl2-vulkan-engine/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/standa/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/ninja/linux/x64/ninja cmTC_ea1aa && [1/2] Building C object CMakeFiles/cmTC_ea1aa.dir/src.c.o
+[2/2] Linking C executable cmTC_ea1aa
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

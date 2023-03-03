@@ -1,0 +1,412 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"libs/sdl/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3152,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3159,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3166,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3173,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3197,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3209,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3221,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3233,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3244,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3252,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3271,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3275,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3282,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3285,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3287,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3288,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libs/sdl/libSDL2-2.0.so.0.2301.0",
+				"libs/sdl/libSDL2-2.0.so.0"
+			],
+			"targetId" : "SDL2::@a49eed29bab3302d9c5e",
+			"targetIndex" : 1,
+			"targetInstallNamelink" : "skip",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libs/sdl/libSDL2-2.0.so"
+			],
+			"targetId" : "SDL2::@a49eed29bab3302d9c5e",
+			"targetIndex" : 1,
+			"targetInstallNamelink" : "only",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libs/sdl/libSDL2main.a"
+			],
+			"targetId" : "SDL2main::@a49eed29bab3302d9c5e",
+			"targetIndex" : 4,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libs/sdl/libSDL2.a"
+			],
+			"targetId" : "SDL2-static::@a49eed29bab3302d9c5e",
+			"targetIndex" : 2,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libs/sdl/libSDL2_test.a"
+			],
+			"targetId" : "SDL2_test::@a49eed29bab3302d9c5e",
+			"targetIndex" : 3,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SDL2",
+			"exportName" : "SDL2Targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "SDL2::@a49eed29bab3302d9c5e",
+					"index" : 1
+				}
+			],
+			"paths" : 
+			[
+				"libs/sdl/CMakeFiles/Export/f084604df1a27ef5b4fef7c7544737d1/SDL2Targets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SDL2",
+			"exportName" : "SDL2mainTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "SDL2main::@a49eed29bab3302d9c5e",
+					"index" : 4
+				}
+			],
+			"paths" : 
+			[
+				"libs/sdl/CMakeFiles/Export/f084604df1a27ef5b4fef7c7544737d1/SDL2mainTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SDL2",
+			"exportName" : "SDL2staticTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "SDL2-static::@a49eed29bab3302d9c5e",
+					"index" : 2
+				}
+			],
+			"paths" : 
+			[
+				"libs/sdl/CMakeFiles/Export/f084604df1a27ef5b4fef7c7544737d1/SDL2staticTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SDL2",
+			"exportName" : "SDL2testTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "SDL2_test::@a49eed29bab3302d9c5e",
+					"index" : 3
+				}
+			],
+			"paths" : 
+			[
+				"libs/sdl/CMakeFiles/Export/f084604df1a27ef5b4fef7c7544737d1/SDL2testTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Devel",
+			"destination" : "lib/cmake/SDL2",
+			"paths" : 
+			[
+				"cmake-build-release/libs/sdl/SDL2Config.cmake",
+				"cmake-build-release/libs/sdl/SDL2ConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 10,
+			"component" : "Unspecified",
+			"destination" : "include/SDL2",
+			"paths" : 
+			[
+				"libs/sdl/include/SDL.h",
+				"libs/sdl/include/SDL_assert.h",
+				"libs/sdl/include/SDL_atomic.h",
+				"libs/sdl/include/SDL_audio.h",
+				"libs/sdl/include/SDL_bits.h",
+				"libs/sdl/include/SDL_blendmode.h",
+				"libs/sdl/include/SDL_clipboard.h",
+				"libs/sdl/include/SDL_copying.h",
+				"libs/sdl/include/SDL_cpuinfo.h",
+				"libs/sdl/include/SDL_egl.h",
+				"libs/sdl/include/SDL_endian.h",
+				"libs/sdl/include/SDL_error.h",
+				"libs/sdl/include/SDL_events.h",
+				"libs/sdl/include/SDL_filesystem.h",
+				"libs/sdl/include/SDL_gamecontroller.h",
+				"libs/sdl/include/SDL_gesture.h",
+				"libs/sdl/include/SDL_guid.h",
+				"libs/sdl/include/SDL_haptic.h",
+				"libs/sdl/include/SDL_hidapi.h",
+				"libs/sdl/include/SDL_hints.h",
+				"libs/sdl/include/SDL_joystick.h",
+				"libs/sdl/include/SDL_keyboard.h",
+				"libs/sdl/include/SDL_keycode.h",
+				"libs/sdl/include/SDL_loadso.h",
+				"libs/sdl/include/SDL_locale.h",
+				"libs/sdl/include/SDL_log.h",
+				"libs/sdl/include/SDL_main.h",
+				"libs/sdl/include/SDL_messagebox.h",
+				"libs/sdl/include/SDL_metal.h",
+				"libs/sdl/include/SDL_misc.h",
+				"libs/sdl/include/SDL_mouse.h",
+				"libs/sdl/include/SDL_mutex.h",
+				"libs/sdl/include/SDL_name.h",
+				"libs/sdl/include/SDL_opengl.h",
+				"libs/sdl/include/SDL_opengl_glext.h",
+				"libs/sdl/include/SDL_opengles.h",
+				"libs/sdl/include/SDL_opengles2.h",
+				"libs/sdl/include/SDL_opengles2_gl2.h",
+				"libs/sdl/include/SDL_opengles2_gl2ext.h",
+				"libs/sdl/include/SDL_opengles2_gl2platform.h",
+				"libs/sdl/include/SDL_opengles2_khrplatform.h",
+				"libs/sdl/include/SDL_pixels.h",
+				"libs/sdl/include/SDL_platform.h",
+				"libs/sdl/include/SDL_power.h",
+				"libs/sdl/include/SDL_quit.h",
+				"libs/sdl/include/SDL_rect.h",
+				"libs/sdl/include/SDL_render.h",
+				"libs/sdl/include/SDL_rwops.h",
+				"libs/sdl/include/SDL_scancode.h",
+				"libs/sdl/include/SDL_sensor.h",
+				"libs/sdl/include/SDL_shape.h",
+				"libs/sdl/include/SDL_stdinc.h",
+				"libs/sdl/include/SDL_surface.h",
+				"libs/sdl/include/SDL_system.h",
+				"libs/sdl/include/SDL_syswm.h",
+				"libs/sdl/include/SDL_test.h",
+				"libs/sdl/include/SDL_test_assert.h",
+				"libs/sdl/include/SDL_test_common.h",
+				"libs/sdl/include/SDL_test_compare.h",
+				"libs/sdl/include/SDL_test_crc32.h",
+				"libs/sdl/include/SDL_test_font.h",
+				"libs/sdl/include/SDL_test_fuzzer.h",
+				"libs/sdl/include/SDL_test_harness.h",
+				"libs/sdl/include/SDL_test_images.h",
+				"libs/sdl/include/SDL_test_log.h",
+				"libs/sdl/include/SDL_test_md5.h",
+				"libs/sdl/include/SDL_test_memory.h",
+				"libs/sdl/include/SDL_test_random.h",
+				"libs/sdl/include/SDL_thread.h",
+				"libs/sdl/include/SDL_timer.h",
+				"libs/sdl/include/SDL_touch.h",
+				"libs/sdl/include/SDL_types.h",
+				"libs/sdl/include/SDL_version.h",
+				"libs/sdl/include/SDL_video.h",
+				"libs/sdl/include/SDL_vulkan.h",
+				"libs/sdl/include/begin_code.h",
+				"libs/sdl/include/close_code.h",
+				"cmake-build-release/libs/sdl/include/SDL_revision.h",
+				"cmake-build-release/libs/sdl/include-config-release/SDL_config.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 11,
+			"component" : "Unspecified",
+			"type" : "code"
+		},
+		{
+			"backtrace" : 12,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"cmake-build-release/libs/sdl/libSDL2.so"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 13,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"cmake-build-release/libs/sdl/sdl2.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 14,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"cmake-build-release/libs/sdl/sdl2-config"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 15,
+			"component" : "Unspecified",
+			"destination" : "share/aclocal",
+			"paths" : 
+			[
+				"libs/sdl/sdl2.m4"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 16,
+			"component" : "Unspecified",
+			"destination" : "share/licenses/SDL2",
+			"paths" : 
+			[
+				"libs/sdl/LICENSE.txt"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "libs/sdl",
+		"source" : "libs/sdl"
+	}
+}
