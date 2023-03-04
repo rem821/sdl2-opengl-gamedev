@@ -9,12 +9,10 @@ namespace VulkanEngine {
 
     class ENGINE_API Application {
     public:
-        Application() {};
-        virtual ~Application() {};
+        Application();
+        virtual ~Application();
 
-        void Run() {
-            while(true);
-        };
+        void Run();
     };
 
     // To be defined in client application

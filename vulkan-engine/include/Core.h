@@ -15,3 +15,5 @@
 #else
     #error "This platform is not supported!"
 #endif
+
+#define BIT(x) (1 << x)

@@ -7,9 +7,6 @@
 [submodule "vulkan-engine/tinyobjloader"]
 	path = vulkan-engine/tinyobjloader
 	url = https://github.com/tinyobjloader/tinyobjloader
-[submodule "vulkan-engine/libs/sdl"]
-	path = vulkan-engine/libs/sdl
-	url = https://github.com/libsdl-org/SDL
 [submodule "vulkan-engine/libs/sqlitecpp"]
 	path = vulkan-engine/libs/sqlitecpp
 	url = https://github.com/SRombauts/SQLiteCpp
@@ -22,3 +19,6 @@
 [submodule "vulkan-engine/libs/thread-pool"]
 	path = vulkan-engine/libs/thread-pool
 	url = https://github.com/bshoshany/thread-pool.git
+[submodule "vulkan-engine/libs/glfw"]
+	path = vulkan-engine/libs/glfw
+	url = https://github.com/glfw/glfw.git

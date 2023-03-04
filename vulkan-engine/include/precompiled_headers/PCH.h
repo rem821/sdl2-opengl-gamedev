@@ -14,6 +14,8 @@
 #include <cassert>
 #include <unordered_map>
 #include <algorithm>
+#include <functional>
+#include <sstream>
 
 // BS_Thread_Pool
 #include <BS_thread_pool.hpp>
@@ -22,6 +24,6 @@
 #include <fmt/format.h>
 
 // Custom
-#include <Log.h>
+#include <logging/Log.h>
 
 

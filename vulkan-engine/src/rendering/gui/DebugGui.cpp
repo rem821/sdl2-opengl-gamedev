@@ -1,6 +1,6 @@
-#include "../../../include/rendering/gui/DebugGui.h"
+#include "rendering/gui/DebugGui.h"
 
-DebugGui::DebugGui(VulkanEngineDevice &engineDevice, VulkanEngineRenderer &renderer, SDL_Window *window) {
+DebugGui::DebugGui(VulkanEngineDevice &engineDevice, VulkanEngineRenderer &renderer, GLFWwindow *window) {
     imguiPool = VulkanEngineDescriptorPool::Builder(engineDevice)
             .setMaxSets(1000)
             .addPoolSize(VK_DESCRIPTOR_TYPE_SAMPLER, 1000)
@@ -23,7 +23,7 @@ DebugGui::DebugGui(VulkanEngineDevice &engineDevice, VulkanEngineRenderer &rende
     ImGui::StyleColorsDark();
 
     // Setup Platform/Renderer backends
-    ImGui_ImplSDL2_InitForVulkan(window);
+    ImGui_ImplGlfw_InitForVulkan(window);
 
     ImGui_ImplVulkan_InitInfo init_info = {};
     init_info.Instance = engineDevice.getInstance();
@@ -52,9 +52,9 @@ DebugGui::~DebugGui() {
     ImGui_ImplVulkan_Shutdown();
 }
 
-void DebugGui::showWindow(const FrameInfo &frameInfo, SDL_Window *window, GameObject::Map &gameObjects, const std::vector<uint32_t> &chunkBorderIds) {
+void DebugGui::showWindow(const FrameInfo &frameInfo, GLFWwindow *window, GameObject::Map &gameObjects, const std::vector<uint32_t> &chunkBorderIds) {
     ImGui_ImplVulkan_NewFrame();
-    ImGui_ImplSDL2_NewFrame(window);
+    ImGui_ImplGlfw_NewFrame(window);
 
     ImGui::NewFrame();
 

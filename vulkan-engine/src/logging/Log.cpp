@@ -1,7 +1,7 @@
 //
 // Created by standa on 3.3.23.
 //
-#include "Log.h"
+#include "logging/Log.h"
 
 namespace VulkanEngine {
 

@@ -10,21 +10,20 @@
 #include "../../CoordinateSystem.h"
 #include "../../GlobalConfiguration.h"
 
-#include <SDL2/SDL.h>
 #include <imgui.h>
 #include <imgui_impl_vulkan.h>
-#include <imgui_impl_sdl2.h>
+#include <imgui_impl_glfw.h>
 #include <vector>
 
 class DebugGui {
 public:
-    DebugGui(VulkanEngineDevice &engineDevice, VulkanEngineRenderer &renderer, SDL_Window *window);
+    DebugGui(VulkanEngineDevice &engineDevice, VulkanEngineRenderer &renderer, GLFWwindow *window);
     ~DebugGui();
 
     DebugGui(const DebugGui &) = delete;
     DebugGui &operator=(const DebugGui &) = delete;
 
-    void showWindow(const FrameInfo &frameInfo, SDL_Window *window, GameObject::Map &gameObjects, const std::vector<uint32_t> &chunkBorderIds);
+    void showWindow(const FrameInfo &frameInfo, GLFWwindow *window, GameObject::Map &gameObjects, const std::vector<uint32_t> &chunkBorderIds);
 
     void render(VkCommandBuffer &commandBuffer);
     void processEvent(SDL_Event event);

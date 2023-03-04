@@ -18,17 +18,19 @@ add_library(imgui STATIC
         vulkan-engine/libs/imgui/imgui_draw.cpp
         vulkan-engine/libs/imgui/imgui_widgets.cpp
         vulkan-engine/libs/imgui/imgui_tables.cpp
-        vulkan-engine/libs/imgui/backends/imgui_impl_sdl2.cpp
+        vulkan-engine/libs/imgui/backends/imgui_impl_glfw.cpp
         vulkan-engine/libs/imgui/backends/imgui_impl_vulkan.cpp
         )
 target_include_directories(imgui PRIVATE vulkan-engine/libs/imgui)
 
 # Compile Engine as a shared library
 file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/src/*.cpp)
-add_library(${ENGINE_NAME} SHARED)
-target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/include/logging)
+file(GLOB_RECURSE ENGINE_HEADERS vulkan-engine/include/*.h)
 
-add_subdirectory(vulkan-engine/libs/sdl)
+add_library(${ENGINE_NAME} SHARED ${ENGINE_SOURCES} ${ENGINE_HEADERS})
+target_include_directories(${ENGINE_NAME} PUBLIC vulkan-engine/include)
+
+add_subdirectory(vulkan-engine/libs/glfw)
 add_subdirectory(vulkan-engine/libs/glm)
 add_subdirectory(vulkan-engine/libs/tinyobjloader)
 add_subdirectory(vulkan-engine/libs/sqlitecpp)
@@ -39,8 +41,7 @@ target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/libs/imgui vulka
 
 find_package(Vulkan REQUIRED)
 
-target_sources(${ENGINE_NAME} PRIVATE ${ENGINE_SOURCES})
-target_link_libraries(${ENGINE_NAME} Vulkan::Vulkan SDL2 glm SQLiteCpp sqlite3 tinyobjloader imgui pthread fmt dl)
+target_link_libraries(${ENGINE_NAME} Vulkan::Vulkan glfw glm SQLiteCpp sqlite3 tinyobjloader imgui pthread fmt dl)
 target_compile_definitions(${ENGINE_NAME} PRIVATE PLATFORM_LINUX=1 BUILD_DLL=1)
 target_precompile_headers(${ENGINE_NAME} PRIVATE vulkan-engine/include/precompiled_headers/PCH.h)
 
