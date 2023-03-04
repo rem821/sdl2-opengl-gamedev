@@ -14,7 +14,11 @@ namespace VulkanEngine {
         virtual ~Application();
 
         void Run();
+
+        void OnEvent(Event& e);
     private:
+        bool OnWindowClose(WindowCloseEvent& e);
+
         std::unique_ptr<Window> window_;
         bool isRunning_ = true;
     };

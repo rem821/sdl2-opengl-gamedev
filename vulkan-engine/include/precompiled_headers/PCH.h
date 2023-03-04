@@ -29,3 +29,6 @@
 #include <Core.h>
 #include <logging/Log.h>
 #include <events/Event.h>
+#include <events/MouseEvent.h>
+#include <events/KeyEvent.h>
+#include <events/ApplicationEvent.h>
