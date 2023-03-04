@@ -32,3 +32,5 @@
 #include <events/MouseEvent.h>
 #include <events/KeyEvent.h>
 #include <events/ApplicationEvent.h>
+#include <Layer.h>
+#include <LayerStack.h>

@@ -16,11 +16,16 @@ namespace VulkanEngine {
         void Run();
 
         void OnEvent(Event& e);
+
+        void PushLayer(Layer* layer);
+        void PushOverlay(Layer* layer);
+
     private:
         bool OnWindowClose(WindowCloseEvent& e);
 
         std::unique_ptr<Window> window_;
         bool isRunning_ = true;
+        LayerStack layerStack_;
     };
 
     // To be defined in client application

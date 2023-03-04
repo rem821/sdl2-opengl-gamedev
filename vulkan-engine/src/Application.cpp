@@ -15,15 +15,33 @@ namespace VulkanEngine {
 
     Application::~Application() = default;
 
+    void Application::PushLayer(Layer *layer) {
+        layerStack_.PushLayer(layer);
+    }
+
+    void Application::PushOverlay(Layer *layer) {
+        layerStack_.PushOverlay(layer);
+    }
+
     void Application::OnEvent(Event& e) {
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
         CORE_INFO(e);
+
+        for(auto it = layerStack_.end(); it != layerStack_.begin(); ) {
+            (*--it)->OnEvent(e);
+            if(e.IsHandled())
+                break;
+        }
     }
 
     void Application::Run() {
         while(isRunning_) {
+
+            for(Layer* layer : layerStack_)
+                layer->OnUpdate();
+
             window_->OnUpdate();
         }
     }
@@ -32,5 +50,4 @@ namespace VulkanEngine {
         isRunning_ = false;
         return true;
     }
-
 }

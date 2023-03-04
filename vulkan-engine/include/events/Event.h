@@ -52,6 +52,9 @@ namespace VulkanEngine {
         [[nodiscard]] inline bool IsInCategory(EventCategory category) const {
             return GetCategoryFlags() & category;
         }
+
+        [[nodiscard]] inline bool IsHandled() const { return handled_; }
+
     protected:
         bool handled_ = false;
     };

@@ -15,9 +15,8 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
 
-
 # Compile Engine as a shared library
-set(ENGINE_SOURCES vulkan-engine/src/logging/Log.cpp vulkan-engine/src/platform/linux/LinuxWindow.cpp vulkan-engine/src/Application.cpp)
+set(ENGINE_SOURCES vulkan-engine/src/logging/Log.cpp vulkan-engine/src/platform/linux/LinuxWindow.cpp vulkan-engine/src/Layer.cpp vulkan-engine/src/LayerStack.cpp vulkan-engine/src/Application.cpp)
 #file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/src/*.cpp)
 file(GLOB_RECURSE ENGINE_HEADERS vulkan-engine/include/*.h)
 
