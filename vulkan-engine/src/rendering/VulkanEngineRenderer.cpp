@@ -4,7 +4,7 @@
 
 #include "../../include/rendering/VulkanEngineRenderer.h"
 
-VulkanEngineRenderer::VulkanEngineRenderer(VulkanEngineWindow &window, VulkanEngineDevice &device) : window(window),
+VulkanEngineRenderer::VulkanEngineRenderer(Window &window, VulkanEngineDevice &device) : window(window),
                                                                                                      engineDevice(
                                                                                                              device) {
     recreateSwapChain();

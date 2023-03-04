@@ -3,7 +3,8 @@
 //
 #pragma once
 
-#include "Core.h"
+#include <precompiled_headers/PCH.h>
+#include <rendering/Window.h>
 
 namespace VulkanEngine {
 
@@ -13,6 +14,9 @@ namespace VulkanEngine {
         virtual ~Application();
 
         void Run();
+    private:
+        std::unique_ptr<Window> window_;
+        bool isRunning_ = true;
     };
 
     // To be defined in client application

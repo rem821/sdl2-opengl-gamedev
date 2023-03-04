@@ -42,7 +42,7 @@ void DestroyDebugUtilsMessengerEXT(
 }
 
 // class member functions
-VulkanEngineDevice::VulkanEngineDevice(VulkanEngineWindow &window, const char *title) : window{window} {
+VulkanEngineDevice::VulkanEngineDevice(Window &window, const char *title) : window{window} {
     createInstance(title);
     setupDebugMessenger();
     createSurface();

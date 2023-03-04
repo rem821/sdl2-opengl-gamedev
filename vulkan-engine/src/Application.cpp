@@ -6,15 +6,16 @@
 
 namespace VulkanEngine {
 
-    Application::Application() = default;
+    Application::Application() {
+        window_ = std::unique_ptr<Window>(Window::Create());
+    }
 
     Application::~Application() = default;
 
     void Application::Run() {
-        WindowResizeEvent e(1280, 720);
-        CORE_TRACE(e);
-
-        while(true);
+        while(isRunning_) {
+            window_->OnUpdate();
+        }
     }
 
 }

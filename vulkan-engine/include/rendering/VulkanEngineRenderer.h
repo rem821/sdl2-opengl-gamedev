@@ -4,7 +4,7 @@
 #pragma once
 
 #include "VulkanEngineDevice.h"
-#include "VulkanEngineWindow.h"
+#include "Window.h"
 #include "VulkanEngineSwapChain.h"
 #include <memory>
 #include <vector>
@@ -14,7 +14,7 @@
 class VulkanEngineRenderer {
 
 public:
-    VulkanEngineRenderer(VulkanEngineWindow &window, VulkanEngineDevice &device);
+    VulkanEngineRenderer(Window &window, VulkanEngineDevice &device);
     ~VulkanEngineRenderer();
 
     VulkanEngineRenderer(const VulkanEngineRenderer &) = delete;
@@ -46,7 +46,7 @@ private:
     void freeCommandBuffers();
     void recreateSwapChain();
 
-    VulkanEngineWindow &window;
+    Window &window;
     VulkanEngineDevice &engineDevice;
     std::unique_ptr<VulkanEngineSwapChain> engineSwapChain;
     std::vector<VkCommandBuffer> commandBuffers;

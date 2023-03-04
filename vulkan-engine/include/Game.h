@@ -3,7 +3,6 @@
 #include <SDL2/SDL.h>
 
 #include "rendering/VulkanEngineDevice.h"
-#include "rendering/VulkanEngineWindow.h"
 #include "rendering/VulkanEngineBuffer.h"
 #include "rendering/VulkanEngineDescriptors.h"
 #include "rendering/VulkanEngineRenderer.h"
@@ -50,7 +49,7 @@ private:
     bool isRunning = false;
     bool chunkLoadingDisabled = false;
 
-    VulkanEngineWindow window{WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT,
+    Window window{WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT,
                               SDL_WINDOW_VULKAN | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE};
     VulkanEngineDevice engineDevice{window, WINDOW_TITLE};
     VulkanEngineRenderer renderer{window, engineDevice};

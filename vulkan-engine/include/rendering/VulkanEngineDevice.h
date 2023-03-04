@@ -3,9 +3,6 @@
 //
 #pragma once
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_vulkan.h>
-#include "VulkanEngineWindow.h"
 #include <vulkan/vulkan.h>
 #include <set>
 #include <vector>
@@ -39,7 +36,7 @@ public:
     const bool enableValidationLayers = true;
 #endif
 
-    VulkanEngineDevice(VulkanEngineWindow &window, const char *title);
+VulkanEngineDevice(Window &window, const char *title);
     ~VulkanEngineDevice();
 
     VulkanEngineDevice(const VulkanEngineDevice &) = delete;
@@ -124,7 +121,7 @@ private:
     VkInstance instance{};
     VkDebugUtilsMessengerEXT debugMessenger{};
     VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
-    VulkanEngineWindow &window;
+    Window &window;
     VkCommandPool commandPool{};
 
     VkDevice device_{};

@@ -4,7 +4,6 @@
 #pragma once
 
 #include "precompiled_headers/PCH.h"
-#include "Core.h"
 
 namespace VulkanEngine {
 
