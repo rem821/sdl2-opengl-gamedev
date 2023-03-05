@@ -5,7 +5,7 @@
 
 #include <precompiled_headers/PCH.h>
 #include <vulkan/vulkan.h>
-#include <GLFW/glfw3.h>
+#include "GLFW/glfw3.h"
 
 namespace VulkanEngine {
 

@@ -8,7 +8,8 @@ public:
     TestLayer() : Layer("Test") {}
 
     void OnUpdate(VkCommandBuffer commandBuffer) override {
-        //CLIENT_INFO("TestLayer::Update");
+        if(VulkanEngine::Input::IsKeyPressed(VE_KEY_SPACE))
+            CLIENT_TRACE("Space key is pressed!");
     }
 
     void OnEvent(VulkanEngine::Event &event) override {

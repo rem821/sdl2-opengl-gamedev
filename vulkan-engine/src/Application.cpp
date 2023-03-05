@@ -5,10 +5,9 @@
 
 #include <memory>
 #include "events/ApplicationEvent.h"
+#include <Input.h>
 
 namespace VulkanEngine {
-
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
     Application* Application::appInstance_ = nullptr;
 
@@ -17,8 +16,8 @@ namespace VulkanEngine {
         appInstance_ = this;
 
         window_ = std::unique_ptr<Window>(Window::Create());
-        window_->SetEventCallback(BIND_EVENT_FN(OnEvent));
-        vulkanDevice_ = std::make_unique<VulkanDevice>((GLFWwindow *) window_->GetWindowHandle(), true);
+        window_->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+        vulkanDevice_ = std::make_unique<VulkanDevice>((GLFWwindow *) window_->GetNativeWindow(), true);
         vulkanRenderer_ = std::make_unique<VulkanRenderer>(*window_, *vulkanDevice_);
         globalPool_ = VulkanDescriptorPool::Builder(*vulkanDevice_)
                 .SetMaxSets(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
@@ -40,9 +39,9 @@ namespace VulkanEngine {
 
     void Application::OnEvent(Event &e) {
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+        dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
 
-        CORE_INFO(e);
+        // CORE_INFO(e);
 
         for (auto it = layerStack_.end(); it != layerStack_.begin();) {
             (*--it)->OnEvent(e);

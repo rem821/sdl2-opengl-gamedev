@@ -47,4 +47,19 @@
 
         EVENT_CLASS_TYPE(KeyReleased)
     };
+
+     class ENGINE_API KeyTypedEvent : public KeyEvent {
+     public:
+         KeyTypedEvent(int keyCode): KeyEvent(keyCode) {}
+
+         [[nodiscard]] std::string ToString() const override {
+             std::stringstream ss;
+             ss << "KeyTypedEvent: " << keyCode_ << " (" << repeatCount_ << " repeats)";
+             return ss.str();
+         }
+
+         EVENT_CLASS_TYPE(KeyTyped)
+     private:
+         int repeatCount_;
+     };
 }

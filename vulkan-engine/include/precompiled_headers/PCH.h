@@ -35,3 +35,5 @@
 #include <events/ApplicationEvent.h>
 #include <Layer.h>
 #include <LayerStack.h>
+#include <KeyCodes.h>
+#include <MouseButtonCodes.h>

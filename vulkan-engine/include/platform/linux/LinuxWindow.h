@@ -20,7 +20,7 @@ namespace VulkanEngine {
         [[nodiscard]] inline unsigned int GetHeight() const override { return data_.Height; }
 
         inline void SetEventCallback(const EventCallbackFn& callback) override { data_.EventCallback = callback; }
-        [[nodiscard]] void* GetWindowHandle() const override { return (void*)window_; }
+        [[nodiscard]] void* GetNativeWindow() const override { return (void*)window_; }
     private:
         virtual void Init(const WindowProps& props);
         virtual void Shutdown();

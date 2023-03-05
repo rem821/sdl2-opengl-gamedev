@@ -2,10 +2,13 @@
 
 // Only to be used by applications built on top of the vulkan-engine
 
-#include "include/Application.h"
-#include "include/Layer.h"
-#include "include/logging/Log.h"
-#include "include/imgui/ImGuiLayer.h"
+#include <Application.h>
+#include <Layer.h>
+#include <logging/Log.h>
+#include <Input.h>
+#include <imgui/ImGuiLayer.h>
+#include <KeyCodes.h>
+#include <MouseButtonCodes.h>
 
 // Entry point
-#include "include/EntryPoint.h"
+#include <EntryPoint.h>

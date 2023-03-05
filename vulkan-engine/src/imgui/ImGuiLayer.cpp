@@ -4,7 +4,6 @@
 #include <imgui/ImGuiLayer.h>
 #include <imgui.h>
 #include <platform/vulkan/imgui_impl_vulkan.h>
-#include <GLFW/glfw3.h>
 #include <imgui_impl_glfw.h>
 #include <Application.h>
 #include <rendering/VulkanSwapChain.h>
@@ -29,30 +28,30 @@ namespace VulkanEngine {
         io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
         io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
-        io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB;
-        io.KeyMap[ImGuiKey_LeftArrow] = GLFW_KEY_LEFT;
-        io.KeyMap[ImGuiKey_RightArrow] = GLFW_KEY_RIGHT;
-        io.KeyMap[ImGuiKey_UpArrow] = GLFW_KEY_UP;
-        io.KeyMap[ImGuiKey_DownArrow] = GLFW_KEY_DOWN;
-        io.KeyMap[ImGuiKey_PageUp] = GLFW_KEY_PAGE_UP;
-        io.KeyMap[ImGuiKey_PageDown] = GLFW_KEY_PAGE_DOWN;
-        io.KeyMap[ImGuiKey_Home] = GLFW_KEY_HOME;
-        io.KeyMap[ImGuiKey_End] = GLFW_KEY_END;
-        io.KeyMap[ImGuiKey_Insert] = GLFW_KEY_INSERT;
-        io.KeyMap[ImGuiKey_Delete] = GLFW_KEY_DELETE;
-        io.KeyMap[ImGuiKey_Backspace] = GLFW_KEY_BACKSPACE;
-        io.KeyMap[ImGuiKey_Space] = GLFW_KEY_SPACE;
-        io.KeyMap[ImGuiKey_Enter] = GLFW_KEY_ENTER;
-        io.KeyMap[ImGuiKey_Escape] = GLFW_KEY_ESCAPE;
-        io.KeyMap[ImGuiKey_A] = GLFW_KEY_A;
-        io.KeyMap[ImGuiKey_C] = GLFW_KEY_C;
-        io.KeyMap[ImGuiKey_V] = GLFW_KEY_V;
-        io.KeyMap[ImGuiKey_X] = GLFW_KEY_X;
-        io.KeyMap[ImGuiKey_Y] = GLFW_KEY_Y;
-        io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
+        io.KeyMap[ImGuiKey_Tab] = VE_KEY_TAB;
+        io.KeyMap[ImGuiKey_LeftArrow] = VE_KEY_LEFT;
+        io.KeyMap[ImGuiKey_RightArrow] = VE_KEY_RIGHT;
+        io.KeyMap[ImGuiKey_UpArrow] = VE_KEY_UP;
+        io.KeyMap[ImGuiKey_DownArrow] = VE_KEY_DOWN;
+        io.KeyMap[ImGuiKey_PageUp] = VE_KEY_PAGE_UP;
+        io.KeyMap[ImGuiKey_PageDown] = VE_KEY_PAGE_DOWN;
+        io.KeyMap[ImGuiKey_Home] = VE_KEY_HOME;
+        io.KeyMap[ImGuiKey_End] = VE_KEY_END;
+        io.KeyMap[ImGuiKey_Insert] = VE_KEY_INSERT;
+        io.KeyMap[ImGuiKey_Delete] = VE_KEY_DELETE;
+        io.KeyMap[ImGuiKey_Backspace] = VE_KEY_BACKSPACE;
+        io.KeyMap[ImGuiKey_Space] = VE_KEY_SPACE;
+        io.KeyMap[ImGuiKey_Enter] = VE_KEY_ENTER;
+        io.KeyMap[ImGuiKey_Escape] = VE_KEY_ESCAPE;
+        io.KeyMap[ImGuiKey_A] = VE_KEY_A;
+        io.KeyMap[ImGuiKey_C] = VE_KEY_C;
+        io.KeyMap[ImGuiKey_V] = VE_KEY_V;
+        io.KeyMap[ImGuiKey_X] = VE_KEY_X;
+        io.KeyMap[ImGuiKey_Y] = VE_KEY_Y;
+        io.KeyMap[ImGuiKey_Z] = VE_KEY_Z;
 
         // Setup Platform/Renderer backends
-        ImGui_ImplGlfw_InitForVulkan((GLFWwindow *) Application::Get().GetWindow().GetWindowHandle(), true);
+        ImGui_ImplGlfw_InitForVulkan((GLFWwindow *) Application::Get().GetWindow().GetNativeWindow(), false);
 
         Application &app = Application::Get();
         ImGui_ImplVulkan_InitInfo init_info = {};
@@ -126,6 +125,80 @@ namespace VulkanEngine {
     }
 
     void ImGuiLayer::OnEvent(Event &event) {
+        EventDispatcher dispatcher(event);
+        dispatcher.Dispatch<MouseButtonPressedEvent>(BIND_EVENT_FN(ImGuiLayer::OnMouseButtonPressedEvent));
+        dispatcher.Dispatch<MouseButtonReleasedEvent>(BIND_EVENT_FN(ImGuiLayer::OnMouseButtonReleasedEvent));
+        dispatcher.Dispatch<MouseMovedEvent>(BIND_EVENT_FN(ImGuiLayer::OnMouseMovedEvent));
+        dispatcher.Dispatch<MouseScrolledEvent>(BIND_EVENT_FN(ImGuiLayer::OnMouseScrolledEvent));
+        dispatcher.Dispatch<KeyPressedEvent>(BIND_EVENT_FN(ImGuiLayer::OnKeyPressedEvent));
+        dispatcher.Dispatch<KeyReleasedEvent>(BIND_EVENT_FN(ImGuiLayer::OnKeyReleasedEvent));
+        dispatcher.Dispatch<KeyTypedEvent>(BIND_EVENT_FN(ImGuiLayer::OnKeyTypedEvent));
+        dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(ImGuiLayer::OnWindowResizedEvent));
+    }
 
+    bool ImGuiLayer::OnMouseButtonPressedEvent(MouseButtonPressedEvent &e) {
+        ImGuiIO &io = ImGui::GetIO();
+        io.MouseDown[e.GetMouseButton()] = true;
+
+        return false;
+    }
+
+    bool ImGuiLayer::OnMouseButtonReleasedEvent(MouseButtonReleasedEvent &e) {
+        ImGuiIO &io = ImGui::GetIO();
+        io.MouseDown[e.GetMouseButton()] = false;
+
+        return false;
+    }
+
+    bool ImGuiLayer::OnMouseMovedEvent(MouseMovedEvent &e) {
+        ImGuiIO &io = ImGui::GetIO();
+        io.MousePos = ImVec2(e.GetX(), e.GetY());
+
+        return false;
+    }
+
+    bool ImGuiLayer::OnMouseScrolledEvent(MouseScrolledEvent &e) {
+        ImGuiIO &io = ImGui::GetIO();
+        io.MouseWheel += e.GetYOffset();
+        io.MouseWheelH += e.GetXOffset();
+
+        return false;
+    }
+
+    bool ImGuiLayer::OnKeyPressedEvent(KeyPressedEvent &e) {
+        ImGuiIO &io = ImGui::GetIO();
+        io.KeysDown[e.GetKeyCode()] = true;
+
+        io.KeyCtrl = io.KeysDown[VE_KEY_LEFT_CONTROL] || io.KeysDown[VE_KEY_RIGHT_CONTROL];
+        io.KeyShift = io.KeysDown[VE_KEY_LEFT_SHIFT] || io.KeysDown[VE_KEY_RIGHT_SHIFT];
+        io.KeyAlt = io.KeysDown[VE_KEY_LEFT_ALT] || io.KeysDown[VE_KEY_RIGHT_ALT];
+        io.KeySuper = io.KeysDown[VE_KEY_LEFT_SUPER] || io.KeysDown[VE_KEY_RIGHT_SUPER];
+
+        return false;
+    }
+
+    bool ImGuiLayer::OnKeyReleasedEvent(KeyReleasedEvent &e) {
+        ImGuiIO &io = ImGui::GetIO();
+        io.KeysDown[e.GetKeyCode()] = false;
+
+        return false;
+    }
+
+    bool ImGuiLayer::OnKeyTypedEvent(KeyTypedEvent &e) {
+        ImGuiIO &io = ImGui::GetIO();
+        int keyCode = e.GetKeyCode();
+
+        if (keyCode > 0 && keyCode < 0x10000)
+            io.AddInputCharacter((unsigned short) keyCode);
+
+        return false;
+    }
+
+    bool ImGuiLayer::OnWindowResizedEvent(WindowResizeEvent &e) {
+        ImGuiIO &io = ImGui::GetIO();
+        io.DisplaySize = ImVec2((float) e.GetWidth(), (float) e.GetHeight());
+        io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
+
+        return false;
     }
 }

@@ -46,7 +46,6 @@ namespace VulkanEngine {
         if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || window_.GetWidth() != engineSwapChain_->GetWidth() || window_.GetHeight() != engineSwapChain_->GetHeight()) {
             RecreateSwapChain();
         }
-        CORE_ASSERT(result == VK_SUCCESS, "Failed to present swap chain image!")
 
         isFrameStarted_ = false;
         currentFrameIndex_ = (currentFrameIndex_ + 1) % VulkanSwapChain::MAX_FRAMES_IN_FLIGHT;
