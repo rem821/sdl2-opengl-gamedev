@@ -5,7 +5,6 @@
 
 #include <memory>
 #include "events/ApplicationEvent.h"
-#include <Input.h>
 
 namespace VulkanEngine {
 
@@ -23,6 +22,9 @@ namespace VulkanEngine {
                 .SetMaxSets(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
                 .AddPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
                 .Build();
+
+        imGuiLayer_ = new ImGuiLayer();
+        PushOverlay(imGuiLayer_);
     }
 
     Application::~Application() = default;
@@ -57,6 +59,11 @@ namespace VulkanEngine {
 
                 for (Layer *layer: layerStack_)
                     layer->OnUpdate(commandBuffer);
+
+                imGuiLayer_->Begin();
+                for (Layer *layer: layerStack_)
+                    layer->OnImGuiRender();
+                imGuiLayer_->End(commandBuffer);
 
                 window_->OnUpdate();
 

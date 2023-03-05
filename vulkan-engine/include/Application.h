@@ -8,6 +8,7 @@
 #include <rendering/VulkanDevice.h>
 #include <rendering/VulkanRenderer.h>
 #include <rendering/VulkanDescriptors.h>
+#include <imgui/ImGuiLayer.h>
 
 namespace VulkanEngine {
 
@@ -34,6 +35,8 @@ namespace VulkanEngine {
         bool OnWindowClose(WindowCloseEvent& e);
 
         std::unique_ptr<Window> window_;
+        ImGuiLayer* imGuiLayer_;
+
         std::unique_ptr<VulkanDevice> vulkanDevice_;
         std::unique_ptr<VulkanRenderer> vulkanRenderer_;
         std::unique_ptr<VulkanDescriptorPool> globalPool_;

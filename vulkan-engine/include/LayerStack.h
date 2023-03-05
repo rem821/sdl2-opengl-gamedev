@@ -21,6 +21,6 @@ namespace VulkanEngine {
         std::vector<Layer*>::iterator end() { return layers_.end(); }
     private:
         std::vector<Layer*> layers_;
-        std::vector<Layer*>::iterator layerInsert_;
+        unsigned int layerInsertIndex_ = 0;
     };
 }

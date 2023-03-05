@@ -63,7 +63,7 @@ namespace VulkanEngine {
         });
 
         glfwSetKeyCallback(window_, [](GLFWwindow *window, int key, int scancode, int action, int mods) {
-            WindowData &data = *(WindowData *) glfwGetWindowUserPointer(window);
+            WindowData &data = *(WindowData *)  (window);
 
             switch (action) {
                 case GLFW_PRESS: {

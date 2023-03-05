@@ -18,6 +18,7 @@ namespace VulkanEngine {
 
         virtual void OnDetach() {}
 
+        virtual void OnImGuiRender() {}
         virtual void OnUpdate(VkCommandBuffer commandBuffer) {}
 
         virtual void OnEvent(Event &event) {}

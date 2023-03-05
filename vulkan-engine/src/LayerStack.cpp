@@ -5,9 +5,7 @@
 
 
 namespace VulkanEngine {
-    LayerStack::LayerStack() {
-        layerInsert_ = layers_.begin();
-    }
+    LayerStack::LayerStack() = default;
 
     LayerStack::~LayerStack() {
         for (Layer *layer: layers_)
@@ -15,7 +13,8 @@ namespace VulkanEngine {
     }
 
     void LayerStack::PushLayer(Layer *layer) {
-        layerInsert_ = layers_.emplace(layerInsert_, layer);
+        layers_.emplace(layers_.begin() + layerInsertIndex_, layer);
+        layerInsertIndex_++;
     }
 
     void LayerStack::PushOverlay(Layer *layer) {
@@ -26,7 +25,7 @@ namespace VulkanEngine {
         auto it = std::find(layers_.begin(), layers_.end(), layer);
         if (it != layers_.end()) {
             layers_.erase(it);
-            layerInsert_--;
+            layerInsertIndex_--;
         }
     }
 
