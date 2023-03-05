@@ -1,7 +1,7 @@
 //
 // Created by standa on 4.3.23.
 //
-#include <rendering/VulkanDevice.h>
+#include <platform/vulkan/VulkanDevice.h>
 
 namespace VulkanEngine {
 

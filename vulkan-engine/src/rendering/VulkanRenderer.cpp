@@ -1,7 +1,7 @@
 //
 // Created by Stanislav Svědiroh on 14.06.2022.
 //
-#include <rendering/VulkanRenderer.h>
+#include <platform/vulkan/VulkanRenderer.h>
 
 namespace VulkanEngine {
 
@@ -43,7 +43,8 @@ namespace VulkanEngine {
         CORE_ASSERT(vkEndCommandBuffer(commandBuffer) == VK_SUCCESS, "Failed to record command buffer!")
 
         auto result = engineSwapChain_->SubmitCommandBuffers(&commandBuffer, &currentImageIndex_);
-        if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || window_.GetWidth() != engineSwapChain_->GetWidth() || window_.GetHeight() != engineSwapChain_->GetHeight()) {
+        if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || window_.GetWidth() != engineSwapChain_->GetWidth() ||
+            window_.GetHeight() != engineSwapChain_->GetHeight()) {
             RecreateSwapChain();
         }
 
@@ -83,7 +84,7 @@ namespace VulkanEngine {
         vkCmdSetScissor(commandBuffer, 0, 1, &scissor);
     }
 
-    void VulkanRenderer::EndSwapChainRenderPass(VkCommandBuffer commandBuffer) {
+    void VulkanRenderer::EndSwapChainRenderPass(VkCommandBuffer commandBuffer) const {
         CORE_ASSERT(isFrameStarted_, "Can't call endSwapChainRenderPass if frame is not in progress!")
         CORE_ASSERT(commandBuffer == GetCurrentCommandBuffer(), "Can't end render pass on command buffer from a different frame")
 
@@ -107,15 +108,12 @@ namespace VulkanEngine {
     }
 
     void VulkanRenderer::RecreateSwapChain() {
-        uint32_t width = window_.GetWidth();
-        uint32_t height = window_.GetHeight();
-
         vkDeviceWaitIdle(device_.GetDevice());
 
         if (engineSwapChain_ == nullptr) {
-            engineSwapChain_ = std::make_unique<VulkanSwapChain>(device_, VkExtent2D{width, height});
+            engineSwapChain_ = std::make_unique<VulkanSwapChain>(device_, VkExtent2D{window_.GetWidth(), window_.GetHeight()});
         } else {
-            engineSwapChain_ = std::make_unique<VulkanSwapChain>(device_, VkExtent2D{width, height}, engineSwapChain_.get());
+            engineSwapChain_ = std::make_unique<VulkanSwapChain>(device_, VkExtent2D{window_.GetWidth(), window_.GetHeight()}, engineSwapChain_.get());
         }
     }
 }

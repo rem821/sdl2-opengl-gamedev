@@ -31,7 +31,7 @@ public:
         PushLayer(new TestLayer());
     }
 
-    ~SandboxApp() = default;
+    ~SandboxApp() override = default;
 };
 
 VulkanEngine::Application *VulkanEngine::CreateApplication() {

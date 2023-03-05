@@ -2,7 +2,7 @@
 // Created by Stanislav Svědiroh on 13.06.2022.
 //
 
-#include <rendering/VulkanSwapChain.h>
+#include <platform/vulkan/VulkanSwapChain.h>
 
 namespace VulkanEngine {
 

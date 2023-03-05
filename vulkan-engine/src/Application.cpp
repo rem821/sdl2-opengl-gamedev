@@ -2,8 +2,6 @@
 // Created by standa on 4.3.23.
 //
 #include "Application.h"
-
-#include <memory>
 #include "events/ApplicationEvent.h"
 
 namespace VulkanEngine {
@@ -16,12 +14,6 @@ namespace VulkanEngine {
 
         window_ = std::unique_ptr<Window>(Window::Create());
         window_->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
-        vulkanDevice_ = std::make_unique<VulkanDevice>((GLFWwindow *) window_->GetNativeWindow(), true);
-        vulkanRenderer_ = std::make_unique<VulkanRenderer>(*window_, *vulkanDevice_);
-        globalPool_ = VulkanDescriptorPool::Builder(*vulkanDevice_)
-                .SetMaxSets(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
-                .AddPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
-                .Build();
 
         imGuiLayer_ = new ImGuiLayer();
         PushOverlay(imGuiLayer_);
@@ -53,9 +45,9 @@ namespace VulkanEngine {
     }
 
     void Application::Run() {
+        auto* context_ = (GraphicsContext *) window_->GetGraphicsContext();
         while (isRunning_) {
-            if (auto commandBuffer = vulkanRenderer_->BeginFrame()) {
-                vulkanRenderer_->BeginSwapChainRenderPass(commandBuffer);
+            if (auto commandBuffer = context_->BeginFrame()) {
 
                 for (Layer *layer: layerStack_)
                     layer->OnUpdate(commandBuffer);
@@ -67,8 +59,7 @@ namespace VulkanEngine {
 
                 window_->OnUpdate();
 
-                vulkanRenderer_->EndSwapChainRenderPass(commandBuffer);
-                vulkanRenderer_->EndFrame();
+                context_->EndFrame(commandBuffer);
             }
         }
     }

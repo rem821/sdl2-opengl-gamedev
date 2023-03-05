@@ -1,7 +1,7 @@
 //
 // Created by Stanislav Svědiroh on 15.06.2022.
 //
-#include <rendering/VulkanDescriptors.h>
+#include <platform/vulkan/VulkanDescriptors.h>
 
 namespace VulkanEngine {
 

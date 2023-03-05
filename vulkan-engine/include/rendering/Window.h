@@ -3,6 +3,7 @@
 //
 #pragma once
 
+#include <renderer/GraphicsContext.h>
 #include "precompiled_headers/PCH.h"
 
 namespace VulkanEngine {
@@ -29,6 +30,7 @@ namespace VulkanEngine {
         virtual void SetEventCallback(const EventCallbackFn &callback) = 0;
 
         [[nodiscard]] virtual void* GetNativeWindow() const = 0;
+        [[nodiscard]] virtual GraphicsContext* GetGraphicsContext() const = 0;
 
         static Window *Create(const WindowProps &props = WindowProps());
     };

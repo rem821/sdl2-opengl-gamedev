@@ -29,7 +29,8 @@ set(ENGINE_SOURCES
         vulkan-engine/src/rendering/VulkanSwapChain.cpp
         vulkan-engine/src/rendering/VulkanDescriptors.cpp
         vulkan-engine/src/platform/linux/LinuxInput.cpp
-        vulkan-engine/src/imgui/ImGuiBuild.cpp)
+        vulkan-engine/src/imgui/ImGuiBuild.cpp
+        vulkan-engine/src/platform/vulkan/VulkanContext.cpp)
 #file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/src/*.cpp)
 file(GLOB_RECURSE ENGINE_HEADERS vulkan-engine/include/*.h)
 

@@ -4,7 +4,7 @@
 #pragma once
 
 #include <precompiled_headers/PCH.h>
-#include <rendering/VulkanDevice.h>
+#include <platform/vulkan/VulkanDevice.h>
 
 namespace VulkanEngine {
     class VulkanSwapChain {

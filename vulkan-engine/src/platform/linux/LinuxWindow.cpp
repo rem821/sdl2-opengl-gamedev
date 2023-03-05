@@ -1,7 +1,9 @@
 //
 // Created by standa on 4.3.23.
 //
-#include "platform/linux/LinuxWindow.h"
+#include <renderer/GraphicsContext.h>
+#include <platform/linux/LinuxWindow.h>
+#include <platform/vulkan/VulkanContext.h>
 
 namespace VulkanEngine {
 
@@ -46,6 +48,9 @@ namespace VulkanEngine {
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         window_ = glfwCreateWindow((int) props.Width, (int) props.Height, data_.Title.c_str(), nullptr, nullptr);
         glfwSetWindowUserPointer(window_, &data_);
+
+        graphicsContext_ = new VulkanContext(*this);
+        graphicsContext_->Init();
 
         // Set GLFW Callbacks
         glfwSetWindowSizeCallback(window_, [](GLFWwindow *window, int width, int height) {

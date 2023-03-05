@@ -4,16 +4,16 @@
 #pragma once
 
 #include <precompiled_headers/PCH.h>
-#include <rendering/VulkanDevice.h>
 #include <rendering/Window.h>
-#include "VulkanSwapChain.h"
+#include <platform/vulkan/VulkanDevice.h>
+#include <platform/vulkan/VulkanSwapChain.h>
 
 namespace VulkanEngine {
 
     class VulkanRenderer {
 
     public:
-        VulkanRenderer(const Window &window, const VulkanDevice &device);
+        VulkanRenderer(const Window& window, const VulkanDevice &device);
 
         ~VulkanRenderer();
 
@@ -43,7 +43,7 @@ namespace VulkanEngine {
 
         void BeginSwapChainRenderPass(VkCommandBuffer commandBuffer);
 
-        void EndSwapChainRenderPass(VkCommandBuffer commandBuffer);
+        void EndSwapChainRenderPass(VkCommandBuffer commandBuffer) const;
 
     private:
         void CreateCommandBuffers();
@@ -52,12 +52,13 @@ namespace VulkanEngine {
 
         void RecreateSwapChain();
 
-        const Window &window_;
+        const Window& window_;
         const VulkanDevice &device_;
+
         std::unique_ptr<VulkanSwapChain> engineSwapChain_;
         std::vector<VkCommandBuffer> commandBuffers_;
 
-        uint32_t currentImageIndex_;
+        uint32_t currentImageIndex_{};
         int currentFrameIndex_ = 0;
 
         bool isFrameStarted_ = false;
