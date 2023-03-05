@@ -7,7 +7,7 @@
 
 namespace VulkanEngine {
 
-    class ENGINE_API MouseMovedEvent : public Event {
+    class MouseMovedEvent : public Event {
     public:
         MouseMovedEvent(float x, float y): mouseX_(x), mouseY_(y) {}
 
@@ -26,7 +26,7 @@ namespace VulkanEngine {
         float mouseX_, mouseY_;
     };
 
-    class ENGINE_API MouseScrolledEvent : public Event {
+    class MouseScrolledEvent : public Event {
     public:
         MouseScrolledEvent(float xOffset, float yOffset): xOffset_(xOffset), yOffset_(yOffset) {}
 
@@ -45,7 +45,7 @@ namespace VulkanEngine {
         float xOffset_, yOffset_;
     };
 
-    class ENGINE_API MouseButtonEvent : public Event {
+    class MouseButtonEvent : public Event {
     public:
         [[nodiscard]] inline int GetMouseButton() const { return button_; }
 
@@ -56,7 +56,7 @@ namespace VulkanEngine {
         int button_;
     };
 
-    class ENGINE_API MouseButtonPressedEvent : public MouseButtonEvent {
+    class MouseButtonPressedEvent : public MouseButtonEvent {
     public:
         explicit MouseButtonPressedEvent(int button): MouseButtonEvent(button) {}
 
@@ -69,7 +69,7 @@ namespace VulkanEngine {
         EVENT_CLASS_TYPE(MouseButtonPressed)
     };
 
-    class ENGINE_API MouseButtonReleasedEvent : public MouseButtonEvent {
+    class MouseButtonReleasedEvent : public MouseButtonEvent {
     public:
         explicit MouseButtonReleasedEvent(int button): MouseButtonEvent(button) {}
 

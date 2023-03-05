@@ -13,6 +13,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -fPIC")
 # Setup Debug and Release flags
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+add_compile_options(-Wno-unused-parameter -Wno-unused-variable)
 
 
 # Compile Engine as a shared library
@@ -32,7 +33,7 @@ set(ENGINE_SOURCES
 #file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/src/*.cpp)
 file(GLOB_RECURSE ENGINE_HEADERS vulkan-engine/include/*.h)
 
-add_library(${ENGINE_NAME} SHARED ${ENGINE_SOURCES} ${ENGINE_HEADERS} vulkan-engine/libs/thread-pool/BS_thread_pool.hpp)
+add_library(${ENGINE_NAME} STATIC ${ENGINE_SOURCES} ${ENGINE_HEADERS} vulkan-engine/libs/thread-pool/BS_thread_pool.hpp)
 target_include_directories(${ENGINE_NAME} PUBLIC vulkan-engine/include)
 
 ### <-- Engine dependencies -->

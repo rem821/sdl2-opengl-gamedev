@@ -7,7 +7,7 @@
 
 namespace VulkanEngine {
 
-    class ENGINE_API Input {
+    class Input {
     public:
         inline static bool IsKeyPressed(int keycode) { return instance_->IsKeyPressedImpl(keycode); }
         inline static bool IsMouseButtonPressed(int button) { return instance_->IsMouseButtonPressedImpl(button); }

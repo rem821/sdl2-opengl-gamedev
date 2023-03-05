@@ -8,7 +8,7 @@
 
 namespace VulkanEngine {
 
-    class ENGINE_API Layer {
+    class Layer {
     public:
         explicit Layer(std::string name = "Layer");
 

@@ -7,7 +7,7 @@
 
  namespace VulkanEngine {
 
-    class ENGINE_API KeyEvent : public Event {
+    class KeyEvent : public Event {
     public:
         [[nodiscard]] inline int GetKeyCode() const { return keyCode_; }
 
@@ -18,7 +18,7 @@
         int keyCode_;
     };
 
-    class ENGINE_API KeyPressedEvent : public KeyEvent {
+    class KeyPressedEvent : public KeyEvent {
     public:
         KeyPressedEvent(int keyCode, int repeatCount): KeyEvent(keyCode), repeatCount_(repeatCount) {}
 
@@ -35,7 +35,7 @@
         int repeatCount_;
     };
 
-    class ENGINE_API KeyReleasedEvent : public KeyEvent {
+    class KeyReleasedEvent : public KeyEvent {
     public:
         explicit KeyReleasedEvent(int keyCode): KeyEvent(keyCode) {}
 
@@ -48,7 +48,7 @@
         EVENT_CLASS_TYPE(KeyReleased)
     };
 
-     class ENGINE_API KeyTypedEvent : public KeyEvent {
+     class KeyTypedEvent : public KeyEvent {
      public:
          KeyTypedEvent(int keyCode): KeyEvent(keyCode) {}
 
