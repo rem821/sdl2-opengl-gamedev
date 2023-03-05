@@ -7,12 +7,12 @@ class TestLayer : public VulkanEngine::Layer {
 public:
     TestLayer() : Layer("Test") {}
 
-    void OnUpdate() override {
-        CLIENT_INFO("TestLayer::Update");
+    void OnUpdate(VkCommandBuffer commandBuffer) override {
+        //CLIENT_INFO("TestLayer::Update");
     }
 
     void OnEvent(VulkanEngine::Event &event) override {
-        CLIENT_TRACE("TestLayer::OnEvent: {}", event);
+        //CLIENT_TRACE("TestLayer::OnEvent: {}", event);
     }
 };
 
@@ -21,6 +21,7 @@ class SandboxApp : public VulkanEngine::Application {
 public:
     SandboxApp() {
         PushLayer(new TestLayer());
+        PushOverlay(new VulkanEngine::ImGuiLayer());
     }
 
     ~SandboxApp() = default;

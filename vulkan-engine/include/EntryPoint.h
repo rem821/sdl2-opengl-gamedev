@@ -7,8 +7,8 @@ extern VulkanEngine::Application* VulkanEngine::CreateApplication();
 
 int main() {
     VulkanEngine::Log::Init();
-    CORE_WARN("Initialized Core logger!");
-    CORE_WARN("Initialized Client logger!");
+    CORE_INFO("Initialized Core logger!");
+    CORE_INFO("Initialized Client logger!");
 
     auto app = VulkanEngine::CreateApplication();
     app->Run();

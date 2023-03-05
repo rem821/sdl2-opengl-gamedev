@@ -4,6 +4,7 @@
 #pragma once
 
 #include <precompiled_headers/PCH.h>
+#include <vulkan/vulkan.h>
 
 namespace VulkanEngine {
 
@@ -17,7 +18,7 @@ namespace VulkanEngine {
 
         virtual void OnDetach() {}
 
-        virtual void OnUpdate() {}
+        virtual void OnUpdate(VkCommandBuffer commandBuffer) {}
 
         virtual void OnEvent(Event &event) {}
 

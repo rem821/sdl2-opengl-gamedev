@@ -7,7 +7,7 @@ namespace VulkanEngine {
 
     static bool GLFWInitialized_ = false;
 
-    static void GLFWErrorCallback(int error, const char* description) {
+    static void GLFWErrorCallback(int error, const char *description) {
         CORE_ERROR("GLFW error ({}): {}", error, description);
     }
 
@@ -25,12 +25,6 @@ namespace VulkanEngine {
 
     void LinuxWindow::OnUpdate() {
         glfwPollEvents();
-        glfwSwapBuffers(window_);
-    }
-
-    void LinuxWindow::SetVSync(bool enabled) {
-        glfwSwapInterval((int) enabled);
-        data_.VSync = enabled;
     }
 
     void LinuxWindow::Init(const WindowProps &props) {
@@ -45,13 +39,13 @@ namespace VulkanEngine {
             CORE_ASSERT(success, "Could not initialize GLFW!")
             glfwSetErrorCallback(GLFWErrorCallback);
 
+            CORE_ASSERT(glfwVulkanSupported(), "GLFW Doesn't support Vulkan!")
             GLFWInitialized_ = true;
         }
 
+        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         window_ = glfwCreateWindow((int) props.Width, (int) props.Height, data_.Title.c_str(), nullptr, nullptr);
-        glfwMakeContextCurrent(window_);
         glfwSetWindowUserPointer(window_, &data_);
-        SetVSync(true);
 
         // Set GLFW Callbacks
         glfwSetWindowSizeCallback(window_, [](GLFWwindow *window, int width, int height) {

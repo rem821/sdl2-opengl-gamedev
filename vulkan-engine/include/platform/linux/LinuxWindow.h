@@ -20,8 +20,7 @@ namespace VulkanEngine {
         [[nodiscard]] inline unsigned int GetHeight() const override { return data_.Height; }
 
         inline void SetEventCallback(const EventCallbackFn& callback) override { data_.EventCallback = callback; }
-        void SetVSync(bool enabled) override;
-        [[nodiscard]] bool IsVSync() const override { return data_.VSync; }
+        [[nodiscard]] void* GetWindowHandle() const override { return (void*)window_; }
     private:
         virtual void Init(const WindowProps& props);
         virtual void Shutdown();
@@ -30,7 +29,6 @@ namespace VulkanEngine {
         struct WindowData {
             std::string Title;
             unsigned int Width, Height;
-            bool VSync;
 
             EventCallbackFn EventCallback;
         };

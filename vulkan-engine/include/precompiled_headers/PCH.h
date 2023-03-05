@@ -4,7 +4,7 @@
 #pragma once
 
 // STD
-#include <memory.h>
+#include <memory>
 #include <vector>
 #include <queue>
 #include <deque>
@@ -18,6 +18,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <utility>
+#include <set>
 
 // BS_Thread_Pool
 //#include <BS_thread_pool.hpp>

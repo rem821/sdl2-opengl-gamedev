@@ -16,29 +16,44 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
 
 # Compile Engine as a shared library
-set(ENGINE_SOURCES vulkan-engine/src/logging/Log.cpp vulkan-engine/src/platform/linux/LinuxWindow.cpp vulkan-engine/src/Layer.cpp vulkan-engine/src/LayerStack.cpp vulkan-engine/src/Application.cpp)
+set(ENGINE_SOURCES
+        vulkan-engine/src/logging/Log.cpp
+        vulkan-engine/src/platform/linux/LinuxWindow.cpp
+        vulkan-engine/src/Layer.cpp
+        vulkan-engine/src/LayerStack.cpp
+        vulkan-engine/src/Application.cpp
+        vulkan-engine/src/platform/vulkan/imgui_impl_vulkan.cpp
+        vulkan-engine/src/imgui/ImGuiLayer.cpp
+        vulkan-engine/src/rendering/VulkanDevice.cpp
+        vulkan-engine/src/rendering/VulkanRenderer.cpp
+        vulkan-engine/src/rendering/VulkanSwapChain.cpp
+        vulkan-engine/src/rendering/VulkanDescriptors.cpp)
 #file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/src/*.cpp)
 file(GLOB_RECURSE ENGINE_HEADERS vulkan-engine/include/*.h)
 
 add_library(${ENGINE_NAME} SHARED ${ENGINE_SOURCES} ${ENGINE_HEADERS} vulkan-engine/libs/thread-pool/BS_thread_pool.hpp)
 target_include_directories(${ENGINE_NAME} PUBLIC vulkan-engine/include)
 
+### <-- Engine dependencies -->
 add_subdirectory(vulkan-engine/libs/glfw)
 add_subdirectory(vulkan-engine/libs/glm)
 add_subdirectory(vulkan-engine/libs/tinyobjloader)
 add_subdirectory(vulkan-engine/libs/sqlitecpp)
 add_subdirectory(vulkan-engine/libs/spdlog)
 
+target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/libs/glad/include vulkan-engine/libs/glad/include/glad)
 target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/libs/glfw/include)
 target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/libs/thread-pool)
 target_include_directories(${ENGINE_NAME} PRIVATE vulkan-engine/libs/imgui vulkan-engine/libs/imgui/backends)
 
 find_package(Vulkan REQUIRED)
+target_include_directories(${ENGINE_NAME} PRIVATE ${Vulkan_INCLUDE_DIRS})
 
-# Add ImGui source files as a library
+# ImGui
 add_library(imgui STATIC
         vulkan-engine/libs/imgui/imgui.cpp
         vulkan-engine/libs/imgui/imgui_draw.cpp
+        vulkan-engine/libs/imgui/imgui_demo.cpp
         vulkan-engine/libs/imgui/imgui_widgets.cpp
         vulkan-engine/libs/imgui/imgui_tables.cpp
         vulkan-engine/libs/imgui/backends/imgui_impl_glfw.cpp
@@ -47,9 +62,16 @@ add_library(imgui STATIC
 target_include_directories(imgui PRIVATE vulkan-engine/libs/imgui vulkan-engine/libs/glfw/include)
 target_link_libraries(imgui PRIVATE glfw)
 
-target_link_libraries(${ENGINE_NAME} Vulkan::Vulkan glfw glm SQLiteCpp sqlite3 tinyobjloader imgui pthread fmt dl)
-target_compile_definitions(${ENGINE_NAME} PRIVATE PLATFORM_LINUX=${PLATFORM_LINUX} ENABLE_ASSERTS=${ENABLE_ASSERTS} BUILD_DLL=1)
+target_link_libraries(${ENGINE_NAME} ${Vulkan_LIBRARIES} glfw glm SQLiteCpp sqlite3 tinyobjloader imgui pthread fmt dl)
+target_compile_definitions(${ENGINE_NAME} PRIVATE
+        PLATFORM_LINUX=${PLATFORM_LINUX}
+        ENABLE_ASSERTS=${ENABLE_ASSERTS}
+        BUILD_DLL=1
+        )
+target_compile_options(${ENGINE_NAME} PRIVATE ${Vulkan_COMPILE_OPTIONS})
 target_precompile_headers(${ENGINE_NAME} PRIVATE vulkan-engine/include/precompiled_headers/PCH.h)
+### <-- Engine dependencies -->
+
 
 # Compile Sandbox and link with vulkan-engine
 set(SANDBOX_NAME VulkanSandbox)
