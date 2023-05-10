@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <functional>
 #include <sstream>
+#include <fstream>
 #include <stdexcept>
 #include <utility>
 #include <set>

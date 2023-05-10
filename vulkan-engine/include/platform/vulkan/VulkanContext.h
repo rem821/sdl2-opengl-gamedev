@@ -8,6 +8,9 @@
 #include <platform/vulkan/VulkanDevice.h>
 #include <platform/vulkan/VulkanRenderer.h>
 #include <platform/vulkan/VulkanDescriptors.h>
+#include <platform/vulkan/VulkanBuffer.h>
+#include <platform/vulkan/VulkanRenderSystem.h>
+#include <platform/vulkan/VulkanFrameInfo.h>
 
 namespace VulkanEngine {
 
@@ -26,5 +29,7 @@ namespace VulkanEngine {
         std::unique_ptr<VulkanDevice> vulkanDevice_;
         std::unique_ptr<VulkanRenderer> vulkanRenderer_;
         std::unique_ptr<VulkanDescriptorPool> globalPool_;
+        std::unique_ptr<VulkanDescriptorSetLayout> globalSetLayout_;
+        std::unique_ptr<VulkanRenderSystem> renderSystem_;
     };
 }

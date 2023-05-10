@@ -26,18 +26,21 @@ namespace VulkanEngine {
 
     class VulkanDevice {
     public:
-        explicit VulkanDevice(GLFWwindow* window, bool enableValidationLayers);
+        explicit VulkanDevice(GLFWwindow *window, bool enableValidationLayers);
 
         ~VulkanDevice();
 
         VulkanDevice(const VulkanDevice &) = delete;
+
         VulkanDevice operator=(const VulkanDevice &) = delete;
+
         VulkanDevice(VulkanDevice &&) = delete;
+
         VulkanDevice &operator=(VulkanDevice &&) = delete;
 
         [[nodiscard]] VkCommandPool GetCommandPool() const { return commandPool_; }
 
-        [[nodiscard]] VkInstance GetInstance() const{ return instance_; }
+        [[nodiscard]] VkInstance GetInstance() const { return instance_; }
 
         [[nodiscard]] VkPhysicalDevice GetPhysicalDevice() const { return physicalDevice_; }
 
@@ -58,17 +61,32 @@ namespace VulkanEngine {
         [[nodiscard]] VkFormat FindSupportedFormat(
                 const std::vector<VkFormat> &candidates, VkImageTiling tiling, VkFormatFeatureFlags features) const;
 
+        void CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer &buffer, VkDeviceMemory &bufferMemory);
+
+        VkCommandBuffer BeginSingleTimeCommands();
+
+        void EndSingleTimeCommands(VkCommandBuffer commandBuffer);
+
+        void CopyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
+
+        void CopyBufferToImage(VkBuffer buffer, VkImage image, uint32_t width, uint32_t height, uint32_t layerCount);
+
         void CreateImageWithInfo(const VkImageCreateInfo &imageInfo, VkMemoryPropertyFlags properties, VkImage &image, VkDeviceMemory &imageMemory) const;
 
     private:
         void CreateInstance();
-        void CreateSurface(GLFWwindow* window);
+
+        void CreateSurface(GLFWwindow *window);
+
         void PickPhysicalDevice();
+
         void CreateLogicalDevice();
+
         void CreateCommandPool();
 
         bool CheckValidationLayerSupport();
-        [[nodiscard]] QueueFamilyIndices FindQueueFamilies(const VkPhysicalDevice& device) const;
+
+        [[nodiscard]] QueueFamilyIndices FindQueueFamilies(const VkPhysicalDevice &device) const;
 
         [[nodiscard]] std::vector<const char *> GetRequiredExtensions() const;
 

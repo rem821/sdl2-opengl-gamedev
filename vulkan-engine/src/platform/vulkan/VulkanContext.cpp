@@ -8,16 +8,55 @@ namespace VulkanEngine {
 
     VulkanContext::VulkanContext(const Window &window) : window_(window) {
         CORE_INFO("Creating Vulkan Context!");
-        vulkanDevice_ = std::make_unique<VulkanDevice>((GLFWwindow *) window_.GetNativeWindow(), true);
-        vulkanRenderer_ = std::make_unique<VulkanRenderer>(window, *vulkanDevice_);
-        globalPool_ = VulkanDescriptorPool::Builder(*vulkanDevice_)
-                .SetMaxSets(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
-                .AddPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VulkanSwapChain::MAX_FRAMES_IN_FLIGHT)
-                .Build();
+
     }
 
     void VulkanContext::Init() {
+        vulkanDevice_ = std::make_unique<VulkanDevice>((GLFWwindow *) window_.GetNativeWindow(), true);
+        vulkanRenderer_ = std::make_unique<VulkanRenderer>(window_, *vulkanDevice_);
+        globalPool_ = VulkanDescriptorPool::Builder(*vulkanDevice_)
+                .SetMaxSets(1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_SAMPLER, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000)
+                .AddPoolSize(VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000)
+                .Build();
 
+        globalSetLayout_ = VulkanDescriptorSetLayout::Builder(*vulkanDevice_)
+                .AddBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_ALL_GRAPHICS)
+                .Build();
+
+        renderSystem_ = std::make_unique<VulkanRenderSystem>(*vulkanDevice_, vulkanRenderer_->GetSwapChainRenderPass(), globalSetLayout_->GetDescriptorSetLayout(),
+                                                             VK_POLYGON_MODE_FILL,
+                                                             VK_CULL_MODE_BACK_BIT);
+
+        std::vector<std::unique_ptr<VulkanBuffer>> uboBuffers(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT);
+        for (auto &uboBuffer: uboBuffers) {
+            uboBuffer = std::make_unique<VulkanBuffer>(
+                    *vulkanDevice_,
+                    sizeof(GlobalUbo),
+                    1,
+                    VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+                    VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT
+            );
+            uboBuffer->Map();
+        }
+
+
+        std::vector<VkDescriptorSet> globalDescriptorSets(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT);
+        for (unsigned long i = 0; i < globalDescriptorSets.size(); i++) {
+            auto bufferInfo = uboBuffers[i]->DescriptorInfo();
+            VulkanDescriptorWriter(*globalSetLayout_, *globalPool_)
+                    .WriteBuffer(0, &bufferInfo)
+                    .Build(globalDescriptorSets[i]);
+        }
     }
 
     void VulkanContext::InitImGuiVulkan() {
