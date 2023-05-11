@@ -64,6 +64,24 @@ namespace VulkanEngine {
 
         vkCmdBindDescriptorSets(frameInfo.commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, pipelineLayout_, 0, 1, &frameInfo.globalDescriptorSet, 0, nullptr);
 
-    }
+        for (auto &kv: frameInfo.gameObjects) {
+            auto &obj = kv.second;
+            if (obj.model == nullptr) continue;
 
+            SimplePushConstants push = {};
+            push.modelMatrix = obj.transform.Mat4();
+            push.normalMatrix = obj.transform.NormalMatrix();
+
+            vkCmdPushConstants(
+                    frameInfo.commandBuffer,
+                    pipelineLayout_,
+                    VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+                    0,
+                    sizeof(SimplePushConstants),
+                    &push
+            );
+            obj.model->Bind(frameInfo.commandBuffer);
+            obj.model->Draw(frameInfo.commandBuffer);
+        }
+    }
 }

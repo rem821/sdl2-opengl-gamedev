@@ -32,8 +32,10 @@ set(ENGINE_SOURCES
         vulkan-engine/src/platform/vulkan/VulkanBuffer.cpp
         vulkan-engine/src/platform/vulkan/VulkanModel.cpp
         vulkan-engine/src/platform/vulkan/VulkanRenderSystem.cpp
+        vulkan-engine/src/platform/vulkan/VulkanPointLightSystem.cpp
         vulkan-engine/src/platform/linux/LinuxInput.cpp
         vulkan-engine/src/rendering/Camera.cpp
+        vulkan-engine/src/platform/vulkan/VulkanGameObject.cpp
         vulkan-engine/src/imgui/ImGuiBuild.cpp
         vulkan-engine/src/platform/vulkan/VulkanContext.cpp)
 #file(GLOB_RECURSE ENGINE_SOURCES vulkan-engine/src/*.cpp)

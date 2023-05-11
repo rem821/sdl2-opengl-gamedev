@@ -36,8 +36,8 @@ namespace VulkanEngine {
         renderSystem_ = std::make_unique<VulkanRenderSystem>(*vulkanDevice_, vulkanRenderer_->GetSwapChainRenderPass(), globalSetLayout_->GetDescriptorSetLayout(),
                                                              VK_POLYGON_MODE_FILL,
                                                              VK_CULL_MODE_BACK_BIT);
+        pointLightSystem_ = std::make_unique<VulkanPointLightSystem>(*vulkanDevice_, vulkanRenderer_->GetSwapChainRenderPass(), globalSetLayout_->GetDescriptorSetLayout());
 
-        std::vector<std::unique_ptr<VulkanBuffer>> uboBuffers(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT);
         for (auto &uboBuffer: uboBuffers) {
             uboBuffer = std::make_unique<VulkanBuffer>(
                     *vulkanDevice_,
@@ -49,14 +49,30 @@ namespace VulkanEngine {
             uboBuffer->Map();
         }
 
-
-        std::vector<VkDescriptorSet> globalDescriptorSets(VulkanSwapChain::MAX_FRAMES_IN_FLIGHT);
         for (unsigned long i = 0; i < globalDescriptorSets.size(); i++) {
             auto bufferInfo = uboBuffers[i]->DescriptorInfo();
             VulkanDescriptorWriter(*globalSetLayout_, *globalPool_)
                     .WriteBuffer(0, &bufferInfo)
                     .Build(globalDescriptorSets[i]);
         }
+
+        camera.SetViewYXZ({0.f, 0.f, 0.f}, {0.f, 0.f, 0.f});
+        camera.SetPerspectiveProjection(glm::radians(60.f), vulkanRenderer_->GetAspectRatio(), 0.1f, 1000.f);
+
+        auto gameObject = VulkanGameObject::CreateGameObject();
+        gameObject.model = VulkanModel::CreateModelFromFile(*vulkanDevice_, "./Rover3.obj");
+        gameObject.transform = {{0.f,  -100.f, 300.0f},
+                                {1.0f, 1.0f,   1.0f},
+                                {0.0f, 0.0f,   0.0f}};
+        gameObjects.emplace(gameObject.GetId(), std::move(gameObject));
+
+        auto pointLight = VulkanGameObject::MakePointLight(50000.0f);
+        pointLight.color = {0.8f, 0.8f, 0.8f};
+        pointLight.transform.scale = {10.0f, 10.f, 10.f};
+        pointLight.transform.translation.y = 150.0f;
+        pointLight.transform.translation.z = 300.0f;
+
+        gameObjects.emplace(pointLight.GetId(), std::move(pointLight));
     }
 
     void VulkanContext::InitImGuiVulkan() {
@@ -108,7 +124,22 @@ namespace VulkanEngine {
 
     VkCommandBuffer VulkanContext::BeginFrame() {
         auto commandBuffer = vulkanRenderer_->BeginFrame();
+
+        int frameIndex = vulkanRenderer_->GetFrameIndex();
+        FrameInfo frameInfo{commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
+
+        GlobalUbo ubo{};
+        ubo.projection = camera.GetProjection();
+        ubo.view = camera.GetView();
+        ubo.inverseView = camera.GetInverseView();
+        pointLightSystem_->Update(frameInfo, ubo);
+        uboBuffers[frameIndex]->WriteToBuffer(&ubo);
+        uboBuffers[frameIndex]->Flush();
+
         vulkanRenderer_->BeginSwapChainRenderPass(commandBuffer);
+
+        renderSystem_->RenderGameObjects(frameInfo);
+        pointLightSystem_->Render(frameInfo);
 
         return commandBuffer;
     }

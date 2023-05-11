@@ -10,7 +10,9 @@
 #include <platform/vulkan/VulkanDescriptors.h>
 #include <platform/vulkan/VulkanBuffer.h>
 #include <platform/vulkan/VulkanRenderSystem.h>
+#include <platform/vulkan/VulkanPointLightSystem.h>
 #include <platform/vulkan/VulkanFrameInfo.h>
+#include <platform/vulkan/VulkanGameObject.h>
 
 namespace VulkanEngine {
 
@@ -31,5 +33,11 @@ namespace VulkanEngine {
         std::unique_ptr<VulkanDescriptorPool> globalPool_;
         std::unique_ptr<VulkanDescriptorSetLayout> globalSetLayout_;
         std::unique_ptr<VulkanRenderSystem> renderSystem_;
+        std::unique_ptr<VulkanPointLightSystem> pointLightSystem_;
+        std::vector<std::unique_ptr<VulkanBuffer>> uboBuffers{VulkanSwapChain::MAX_FRAMES_IN_FLIGHT};
+        std::vector<VkDescriptorSet> globalDescriptorSets{VulkanSwapChain::MAX_FRAMES_IN_FLIGHT};
+
+        Camera camera{};
+        VulkanGameObject::Map gameObjects{};
     };
 }

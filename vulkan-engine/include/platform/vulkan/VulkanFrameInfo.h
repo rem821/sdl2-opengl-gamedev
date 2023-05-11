@@ -4,7 +4,7 @@
 #pragma once
 
 #include <rendering/Camera.h>
-
+#include <platform/vulkan/VulkanGameObject.h>
 #include <vulkan/vulkan.h>
 
 # define MAX_LIGHTS 10
@@ -25,10 +25,9 @@ namespace VulkanEngine {
     };
 
     struct FrameInfo {
-        int frameIndex;
-        float frameTime;
         VkCommandBuffer commandBuffer;
         Camera &camera;
         VkDescriptorSet globalDescriptorSet;
+        VulkanGameObject::Map &gameObjects;
     };
 }
