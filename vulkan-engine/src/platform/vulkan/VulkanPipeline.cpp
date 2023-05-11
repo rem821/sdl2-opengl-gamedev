@@ -40,7 +40,7 @@ namespace VulkanEngine {
         auto vertCode = ReadFile(vertFilePath);
         auto fragCode = ReadFile(fragFilePath);
 
-        CORE_INFO("Vertex shader code size: {}, Fragment shader code size: {}\n", vertCode.size(), fragCode.size());
+        CORE_INFO("Vertex shader code size: {}, Fragment shader code size: {}", vertCode.size(), fragCode.size());
         CreateShaderModule(vertCode, &vertShaderModule_);
         CreateShaderModule(fragCode, &fragShaderModule_);
 

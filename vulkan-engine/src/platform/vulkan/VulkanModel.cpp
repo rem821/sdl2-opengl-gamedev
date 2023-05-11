@@ -27,11 +27,11 @@ namespace std {
 namespace VulkanEngine {
 
     VulkanModel::VulkanModel(VulkanDevice &device, const VulkanModel::Builder &builder) : engineDevice_{device} {
-        CreateVertexBuffers(builder.vertices);
+        CreateVertexBuffer(builder.vertices);
         CreateIndexBuffer(builder.indices);
     }
 
-    VulkanModel::~VulkanModel() {}
+    VulkanModel::~VulkanModel() = default;
 
     void VulkanModel::Bind(VkCommandBuffer commandBuffer) {
         VkBuffer buffers[] = {vertexBuffer_->GetBuffer()};
@@ -43,7 +43,7 @@ namespace VulkanEngine {
         }
     }
 
-    void VulkanModel::Draw(VkCommandBuffer commandBuffer) {
+    void VulkanModel::Draw(VkCommandBuffer commandBuffer) const {
         if (hasIndexBuffer_) {
             vkCmdDrawIndexed(commandBuffer, indexCount_, 1, 0, 0, 0);
         } else {
@@ -51,7 +51,7 @@ namespace VulkanEngine {
         }
     }
 
-    void VulkanModel::CreateVertexBuffers(const std::vector<Vertex> &vertices) {
+    void VulkanModel::CreateVertexBuffer(const std::vector<Vertex> &vertices) {
         vertexCount_ = static_cast<uint32_t>(vertices.size());
         assert(vertexCount_ >= 3 && " Vertex count must be at least 3");
 

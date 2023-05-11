@@ -61,7 +61,7 @@ namespace VulkanEngine {
  * @return VkResult of the buffer mapping call
  */
     VkResult VulkanBuffer::Map(VkDeviceSize size, VkDeviceSize offset) {
-        assert(buffer_ && memory_ && "Called map on buffer before create");
+        CORE_ASSERT(buffer_ && memory_, "Called map on buffer before create");
         return vkMapMemory(engineDevice_.GetDevice(), memory_, offset, size, 0, &mapped_);
     }
 
@@ -87,7 +87,7 @@ namespace VulkanEngine {
  *
  */
     void VulkanBuffer::WriteToBuffer(void *data, VkDeviceSize size, VkDeviceSize offset) {
-        assert(mapped_ && "Cannot copy to unmapped buffer");
+        CORE_ASSERT(mapped_, "Cannot copy to unmapped buffer");
 
         if (size == VK_WHOLE_SIZE) {
             memcpy(mapped_, data, bufferSize_);

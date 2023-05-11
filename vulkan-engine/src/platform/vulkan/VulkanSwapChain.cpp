@@ -360,18 +360,18 @@ namespace VulkanEngine {
     VkPresentModeKHR
     VulkanSwapChain::ChooseSwapPresentMode(const std::vector<VkPresentModeKHR> &availablePresentModes) {
         for (const auto &availablePresentMode: availablePresentModes) {
-            if (availablePresentMode == VK_PRESENT_MODE_MAILBOX_KHR) {
-                CORE_INFO("Present mode: Mailbox\n");
+//            if (availablePresentMode == VK_PRESENT_MODE_MAILBOX_KHR) {
+//                CORE_INFO("Present mode: Mailbox");
+//                return availablePresentMode;
+//            }
+
+            if (availablePresentMode == VK_PRESENT_MODE_IMMEDIATE_KHR) {
+                CORE_INFO("Present mode: Immediate");
                 return availablePresentMode;
             }
-
-            //if (availablePresentMode == VK_PRESENT_MODE_IMMEDIATE_KHR) {
-            //    CORE_INFO("Present mode: Immediate\n");
-            //    return availablePresentMode;
-            //}
         }
 
-        CORE_INFO("Present mode: V-Sync\n");
+        CORE_INFO("Present mode: V-Sync");
         return VK_PRESENT_MODE_FIFO_KHR;
     }
 

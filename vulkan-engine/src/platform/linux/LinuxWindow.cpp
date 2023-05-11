@@ -34,7 +34,7 @@ namespace VulkanEngine {
         data_.Width = props.Width;
         data_.Height = props.Height;
 
-        CORE_INFO("Creating window {} ({} {})", props.Title, props.Width, props.Height);
+        CORE_INFO("Creating Window {} ({} {})", props.Title, props.Width, props.Height);
 
         if (!GLFWInitialized_) {
             int success = glfwInit();

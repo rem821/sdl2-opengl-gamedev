@@ -54,22 +54,22 @@ namespace VulkanEngine {
 
         void Bind(VkCommandBuffer commandBuffer);
 
-        void Draw(VkCommandBuffer commandBuffer);
+        void Draw(VkCommandBuffer commandBuffer) const;
 
         [[nodiscard]] uint32_t GetVertexCount() const { return vertexCount_; };
 
     private:
-        void CreateVertexBuffers(const std::vector<Vertex> &vertices);
+        void CreateVertexBuffer(const std::vector<Vertex> &vertices);
 
         void CreateIndexBuffer(const std::vector<uint32_t> &indices);
 
         VulkanDevice &engineDevice_;
 
         std::unique_ptr<VulkanBuffer> vertexBuffer_;
-        uint32_t vertexCount_;
+        uint32_t vertexCount_{};
 
         bool hasIndexBuffer_ = false;
         std::unique_ptr<VulkanBuffer> indexBuffer_;
-        uint32_t indexCount_;
+        uint32_t indexCount_{};
     };
 }

@@ -73,7 +73,7 @@ namespace VulkanEngine {
 // *************** Descriptor Pool *********************
 
     VulkanDescriptorPool::VulkanDescriptorPool(const VulkanDevice &device, uint32_t maxSets, VkDescriptorPoolCreateFlags poolFlags,
-                                                           const std::vector<VkDescriptorPoolSize> &poolSizes) : device_{device} {
+                                               const std::vector<VkDescriptorPoolSize> &poolSizes) : device_{device} {
         VkDescriptorPoolCreateInfo descriptorPoolInfo{};
         descriptorPoolInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
         descriptorPoolInfo.poolSizeCount = static_cast<uint32_t>(poolSizes.size());
@@ -100,10 +100,7 @@ namespace VulkanEngine {
 
         // Might want to create a "DescriptorPoolManager" class that handles this case, and builds
         // a new pool whenever an old pool fills up. But this is beyond our current scope
-        if (vkAllocateDescriptorSets(device_.GetDevice(), &allocInfo, &descriptor) != VK_SUCCESS) {
-            return false;
-        }
-        return true;
+        return vkAllocateDescriptorSets(device_.GetDevice(), &allocInfo, &descriptor) == VK_SUCCESS;
     }
 
     void VulkanDescriptorPool::FreeDescriptors(std::vector<VkDescriptorSet> &descriptors) const {

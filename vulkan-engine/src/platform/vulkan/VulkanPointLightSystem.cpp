@@ -26,13 +26,11 @@ namespace VulkanEngine {
         pipelineLayoutInfo.pushConstantRangeCount = 1;
         pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
 
-        if (vkCreatePipelineLayout(engineDevice_.GetDevice(), &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS) {
-            throw std::runtime_error("Failed to create pipeline layout!");
-        }
+        CORE_ASSERT(vkCreatePipelineLayout(engineDevice_.GetDevice(), &pipelineLayoutInfo, nullptr, &pipelineLayout) == VK_SUCCESS, "Failed to create pipeline layout!")
     }
 
     void VulkanPointLightSystem::CreatePipeline(VkRenderPass renderPass) {
-        assert(pipelineLayout != nullptr && "Cannot create pipeline before pipeline layout");
+        CORE_ASSERT(pipelineLayout != nullptr, "Cannot create pipeline before pipeline layout")
 
         PipelineConfigInfo pipelineConfig = {};
         VulkanPipeline::DefaultPipelineConfig(pipelineConfig);

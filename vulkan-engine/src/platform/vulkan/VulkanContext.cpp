@@ -57,20 +57,19 @@ namespace VulkanEngine {
         }
 
         camera.SetViewYXZ({0.f, 0.f, 0.f}, {0.f, 0.f, 0.f});
-        camera.SetPerspectiveProjection(glm::radians(60.f), vulkanRenderer_->GetAspectRatio(), 0.1f, 1000.f);
 
         auto gameObject = VulkanGameObject::CreateGameObject();
         gameObject.model = VulkanModel::CreateModelFromFile(*vulkanDevice_, "./Rover3.obj");
-        gameObject.transform = {{0.f,  -100.f, 300.0f},
+        gameObject.transform = {{0.f,  -100.f, 250.0f},
                                 {1.0f, 1.0f,   1.0f},
                                 {0.0f, 0.0f,   0.0f}};
         gameObjects.emplace(gameObject.GetId(), std::move(gameObject));
 
-        auto pointLight = VulkanGameObject::MakePointLight(50000.0f);
+        auto pointLight = VulkanGameObject::MakePointLight(500000.0f);
         pointLight.color = {0.8f, 0.8f, 0.8f};
         pointLight.transform.scale = {10.0f, 10.f, 10.f};
-        pointLight.transform.translation.y = 150.0f;
-        pointLight.transform.translation.z = 300.0f;
+        pointLight.transform.translation.y = -50.0f;
+        pointLight.transform.translation.z = 150.0f;
 
         gameObjects.emplace(pointLight.GetId(), std::move(pointLight));
     }
@@ -124,6 +123,8 @@ namespace VulkanEngine {
 
     VkCommandBuffer VulkanContext::BeginFrame() {
         auto commandBuffer = vulkanRenderer_->BeginFrame();
+
+        camera.SetPerspectiveProjection(glm::radians(60.f), vulkanRenderer_->GetAspectRatio(), 0.1f, 1000.f);
 
         int frameIndex = vulkanRenderer_->GetFrameIndex();
         FrameInfo frameInfo{commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};

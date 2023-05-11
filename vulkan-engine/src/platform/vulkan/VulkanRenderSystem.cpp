@@ -33,14 +33,12 @@ namespace VulkanEngine {
         pipelineLayoutInfo.pushConstantRangeCount = 1;
         pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
 
-        if (vkCreatePipelineLayout(engineDevice_.GetDevice(), &pipelineLayoutInfo, nullptr, &pipelineLayout_) != VK_SUCCESS) {
-            throw std::runtime_error("Failed to create pipeline layout!");
-        }
+        CORE_ASSERT(vkCreatePipelineLayout(engineDevice_.GetDevice(), &pipelineLayoutInfo, nullptr, &pipelineLayout_) == VK_SUCCESS, "Failed to create pipeline layout!")
     }
 
     void
     VulkanRenderSystem::CreatePipeline(VkRenderPass renderPass, VkPolygonMode polygonMode, VkCullModeFlagBits cullMode) {
-        assert(pipelineLayout_ != nullptr && "Cannot create pipeline before pipeline layout");
+        CORE_ASSERT(pipelineLayout_ != nullptr, "Cannot create pipeline before pipeline layout")
 
         PipelineConfigInfo pipelineConfig = {};
         VulkanPipeline::DefaultPipelineConfig(pipelineConfig);

@@ -80,7 +80,7 @@ namespace VulkanEngine {
             physicalDevice_ = devices[0];
 
         vkGetPhysicalDeviceProperties(physicalDevice_, &physicalDeviceProperties_);
-        CORE_INFO("Vulkan picked physical device: {}\n", physicalDeviceProperties_.deviceName);
+        CORE_INFO("Vulkan picked physical device: {}", physicalDeviceProperties_.deviceName);
     }
 
     void VulkanDevice::CreateLogicalDevice() {
@@ -320,7 +320,7 @@ namespace VulkanEngine {
         bufferInfo.usage = usage;
         bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
 
-        CORE_ASSERT(vkCreateBuffer(device_, &bufferInfo, nullptr, &buffer) == VK_SUCCESS, "Failed to create vertex buffer!")
+        CORE_ASSERT(vkCreateBuffer(device_, &bufferInfo, nullptr, &buffer) == VK_SUCCESS, "Failed to create buffer!")
 
         VkMemoryRequirements memRequirements;
         vkGetBufferMemoryRequirements(device_, buffer, &memRequirements);
@@ -330,7 +330,7 @@ namespace VulkanEngine {
         allocInfo.allocationSize = memRequirements.size;
         allocInfo.memoryTypeIndex = FindMemoryType(memRequirements.memoryTypeBits, properties);
 
-        CORE_ASSERT(vkAllocateMemory(device_, &allocInfo, nullptr, &bufferMemory) == VK_SUCCESS, "Failed to allocate vertex buffer memory!")
+        CORE_ASSERT(vkAllocateMemory(device_, &allocInfo, nullptr, &bufferMemory) == VK_SUCCESS, "Failed to allocate buffer memory!")
 
         vkBindBufferMemory(device_, buffer, bufferMemory, 0);
     }
